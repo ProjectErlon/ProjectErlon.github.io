@@ -7,6 +7,25 @@
   <title>Project Erlon</title>
 </head>
 <body>
-  <h1>Hello, World!</h1>
+  <h1>Приветик!</h1>
+  <p>Здесь ничего нет, но когда нибудь появится, ты главное дождись, ага!</p>
+
+  <script>
+    function getQueryVariable(variable){
+      let query = window.location.search.substring(1);
+      let vars = query.split('&');
+      for (let i = 0;i < vars.length;i++) {
+        let pair = vars[i].split('=');
+        if(pair[0] == variable){return pair[1];}
+      }
+      return(false);
+    }
+    switch(getQueryVariable('to')){
+      case 'youtube':
+        window.location = 'https://youtube.com/c/d37'
+        break;
+      default: break;
+    }
+  </script>
 </body>
 </html>
