@@ -31,7 +31,7 @@ layout: default
 | GND   | GND     |
 Хрень подключается через злоебучие мосфеты повышайки. А питается от внешнего 12v+ аккума
 
-[![Схема подключения двигателя к arduino](https://orpi.borland.ml/images/Untitled_Sketch_bb.png "Схема подключения двигателя к arduino")](https://orpi.borland.ml/images/Untitled_Sketch_bb.png)
+[![Схема подключения двигателя к arduino](https://orpi.borland.ml/codelab/images/Untitled_Sketch_bb.png "Схема подключения двигателя к arduino")](https://orpi.borland.ml/codelab/images/Untitled_Sketch_bb.png)
 
 ```c
 /*
@@ -101,7 +101,7 @@ void loop(){
 | VCC      | 5V      |
 | GND      | GND     |
 
-[![Схема подключения джойстика к arduino](https://orpi.borland.ml/images/Untitled_Sketch_1_bb.png "Схема подключения джойстика к arduino")](https://orpi.borland.ml/images/Untitled_Sketch_1_bb.png)
+[![Схема подключения джойстика к arduino](https://orpi.borland.ml/codelab/images/Untitled_Sketch_1_bb.png "Схема подключения джойстика к arduino")](https://orpi.borland.ml/codelab/images/Untitled_Sketch_1_bb.png)
 
 
 ```c
