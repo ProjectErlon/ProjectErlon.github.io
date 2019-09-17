@@ -9,8 +9,10 @@
   </head>
   <body>
 <div class="uk-grid-collapse" uk-grid uk-height-viewport="expand: true">
-  <div class="uk-tile uk-tile-secondary uk-width-medium">
-    {% include sidebar.navigation.html %}    
+  <div class="uk-width-medium uk-visible@m">
+    <div class="uk-tile uk-tile-secondary uk-width-1-1 uk-height-1-1 uk-position-fixed">
+      {% include sidebar.navigation.html %}
+    </div>
   </div>
   <div class="uk-tile uk-tile-muted uk-width-expand">
     <div class="uk-container uk-container-small">
