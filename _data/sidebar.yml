@@ -1,3 +1,17 @@
+# Категория -> Статья -> Заголовок 1 -> Заголовок 2
+#
+#
+cat_lib:
+  - title: 'Библиотека'
+    level_1:
+      - title: 'Title1'
+        url: '#/url'
+        level_2:
+          - title: 'Title 1-2'
+            url: '#h1'
+            level_3:
+              - title: 'Title 1-2-3'
+                url: '#h2'
 nrf:
   - title: 1
     url: '#nrf1'
