@@ -21,12 +21,23 @@
       <li><a href="#">2-2</a></li>
       <li><a href="#">2-3</a></li>
     </ul>
+
+    <ul class="uk-nav uk-nav-default">
+      {% for item in site.data.sidebar[cat_lib] %}
+        <li class="uk-nav-header">{{ item.title }}</li>
+        {% for level_1 in item.level_1 %}
+        <li><a href="{{ level_1.url }}">{{ level_1.title }}</a></li>
+      
+        {% endfor%}
+      {% endfor %}
+    </ul>
     
-    <ul>
+    
+    <ul class="uk-nav uk-nav-default">
     {% for item in site.data.sidebar[page.sidebar] %}
       <li><a href="{{ item.url }}">{{ item.title }} {{ item.url }}</a></li>
     {% endfor %}
-</ul>
+    </ul>
     
   </div>
   <div class="uk-tile uk-tile-muted uk-width-expand">
