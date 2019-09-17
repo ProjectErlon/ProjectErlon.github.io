@@ -4,14 +4,6 @@ layout: default
 sidebar: nrf
 ---
 
-<ul>
-    {% for item in site.data.sidebar[page.sidebar] %}
-      <li><a href="{{ item.url }}">{{ item.title }} {{ item.url }}</a></li>
-    {% endfor %}
-</ul>
-
-
-
 # nRF24L01
 
 ::: warning
