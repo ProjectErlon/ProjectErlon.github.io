@@ -5,7 +5,8 @@ cat_lib:
   - title: 'Библиотека'
     level_1:
       - title: 'Title1'
-        url: '#/url'
+        name: 'nrf'
+        url: '/index'
         level_2:
           - title: 'Title 1-2'
             url: '#h1'
