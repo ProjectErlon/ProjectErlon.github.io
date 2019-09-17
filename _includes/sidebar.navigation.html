@@ -12,7 +12,7 @@
       
         
                 {% if nav.url == page_url[0] and page.nav.level_1 %}
-                    <ul class="uk-nav-sub" uk-scrollspy-nav="closest: li; scroll: true">
+                    <ul class="uk-nav uk-nav-sub" uk-scrollspy-nav="closest: li; scroll: true">
                         {% for pl1 in page.nav.level_1 %}
                             <li><a href="{{ pl1.url }}">{{ pl1.title }}</a></li>
                         {% endfor %}
