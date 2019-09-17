@@ -29,6 +29,7 @@ layout: default
 | :---: |:-------:|
 | VCC   | D3~     |
 | GND   | GND     |
+
 Хрень подключается через злоебучие мосфеты повышайки. А питается от внешнего 12v+ аккума
 
 [![Схема подключения двигателя к arduino](https://orpi.borland.ml/codelab/images/Untitled_Sketch_bb.png "Схема подключения двигателя к arduino")](https://orpi.borland.ml/codelab/images/Untitled_Sketch_bb.png)
@@ -93,6 +94,7 @@ void loop(){
 ```
 
 ---
+
 | JOYSTICK | ARDUINO |
 | :------: | :-----: |
 | BTN      | D2      |
