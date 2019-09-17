@@ -4,6 +4,9 @@ layout: default
 ---
 
 ### Распознование hex-кодов с передатчика
+
+![Z](https://orpi.borland.ml/codelab/images/Untitled_Sketch_bb.png)
+
 Для этого понадобится следующий скетч, он выводит в консоль код нажатой кнопки:
 ```c
 #include <IRremote.h>
