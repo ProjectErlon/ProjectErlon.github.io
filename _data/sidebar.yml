@@ -4,15 +4,17 @@
 cat_lib:
   - title: 'Библиотека'
     level_1:
-      - title: 'Title1'
+      - title: 'NRF'
         name: 'nrf'
-        url: '/index'
+        url: '/'
         level_2:
           - title: 'Title 1-2'
             url: '#h1'
             level_3:
               - title: 'Title 1-2-3'
                 url: '#h2'
+      - title: 'Test'
+        url: '/page2'
 nrf:
   - title: 1
     url: '#nrf1'
