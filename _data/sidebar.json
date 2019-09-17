@@ -1,0 +1,6 @@
+{
+  nrf:[
+    {title: '1', link: '#nrf1'},
+    {title: '2', link: '#nrf2'}
+  ]
+}
