@@ -23,7 +23,7 @@
     </ul>
 
     <ul class="uk-nav uk-nav-default">
-      {% for item in site.data.sidebar[cat_lib] %}
+      {% for item in site.data.sidebar.cat_lib %}
         <li class="uk-nav-header">{{ item.title }}</li>
         {% for level_1 in item.level_1 %}
         <li><a href="{{ level_1.url }}">{{ level_1.title }}</a></li>
