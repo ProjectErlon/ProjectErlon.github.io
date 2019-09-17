@@ -26,7 +26,7 @@
       {% for item in site.data.sidebar.cat_lib %}
         <li class="uk-nav-header">{{ item.title }}</li>
         {% for level_1 in item.level_1 %}
-        <li class="{% if level_1.level_2[0] and level_1.name == page.sidebar %}uk-parent{% endif %} {% if level_1.url == page.url %}uk-active{% endif %}">
+        <li class="{% if level_1.level_2[0] and level_1.name == page.sidebar %}uk-parent{% endif %} {% if level_1.url+'.html' == page.url %}uk-active{% endif %}">
           <a href="{{ level_1.url }}">{{ level_1.title }}</a>
         </li>
         {% endfor%}
