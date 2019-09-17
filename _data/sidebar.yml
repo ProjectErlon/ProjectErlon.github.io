@@ -3,16 +3,9 @@
 #
 cat_lib:
   - title: 'Модули'
-    level_1:
+    nav:
       - title: 'nRF24L01'
-        name: 'nrf'
         url: '/'
-        level_2:
-          - title: 'Title 1-2'
-            url: '#h1'
-            level_3:
-              - title: 'Title 1-2-3'
-                url: '#h2'
       - title: 'IR'
         url: '/page2'
       - title: 'Servo'
