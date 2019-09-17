@@ -10,6 +10,7 @@ cat_lib:
         url: '/page2'
       - title: 'Servo'
         url: '/page3'
+  - title: 'Проекты'
 #
 #
 #
