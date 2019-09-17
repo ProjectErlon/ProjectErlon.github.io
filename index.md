@@ -5,14 +5,14 @@ layout: default
 nav:
   level_1:
     - title: 'Подключение'
-      url: '#h1'
+      url: '#подключение'
       level_2:
         - title: 'subtitle'
           url: '#h2'
     - title: 'Использование'
-      url: '#'
+      url: '#использование'
     - title: 'Проекты'
-      url: '#'
+      url: '#проекты'
 ---
 
 # nRF24L01
