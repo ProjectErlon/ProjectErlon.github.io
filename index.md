@@ -2,14 +2,17 @@
 title: Hello
 layout: default
 
-sidebar: nrf
 nav:
   level_1:
-    - title: 'title'
+    - title: 'Подключение'
       url: '#h1'
       level_2:
         - title: 'subtitle'
           url: '#h2'
+    - title: 'Использование'
+      url: '#'
+    - title: 'Проекты'
+      url: '#'
 ---
 
 # nRF24L01
