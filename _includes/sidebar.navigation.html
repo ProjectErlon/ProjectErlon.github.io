@@ -1,0 +1,45 @@
+    <h3 class="uk-text-large">CodeLab</h3>
+    <!--<ul class="uk-nav uk-nav-default">
+      <li class="uk-nav-header">Title 1</li>
+      <li><a href="#">1-1</a></li>
+      <li><a href="#">1-2</a></li>
+      <li><a href="#">1-3</a></li>
+      <li class="uk-nav-header">Title 2</li>
+      <li><a href="#">2-1</a></li>
+      <li><a href="#">2-2</a></li>
+      <li><a href="#">2-3</a></li>
+    </ul>-->
+
+    <ul class="uk-nav uk-nav-default">
+      
+      {% assign page_url = page.url | split: '.' %}
+      
+      
+      {% for item in site.data.sidebar.cat_lib %}
+        <li class="uk-nav-header">{{ item.title }}</li>
+        {% for level_1 in item.level_1 %}
+        <li class="{% if level_1.level_2[0] and level_1.name == page.sidebar %}uk-parent{% endif %} {% if level_1.url == page_url[0] | slice -5 %}uk-active{% endif %}">
+          <a href="{{ level_1.url }}">{{ level_1.title }}</a>
+          
+          {% if level_1.url == page_url[0] and page.nav.level_1 %}
+          <ul class="uk-nav-sub">
+            {% for pl1 in page.nav.level_1 %}
+            <li><a href="{{ pl1.url }}">{{ pl1.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          
+          
+          
+        </li>
+        {% endfor%}
+      {% endfor %}
+    </ul>
+    
+    {{ page.url }}
+    
+    <!-- <ul class="uk-nav uk-nav-default">
+    {% for item in site.data.sidebar[page.sidebar] %}
+      <li><a href="{{ item.url }}">{{ item.title }} {{ item.url }}</a></li>
+    {% endfor %}
+    </ul> -->
