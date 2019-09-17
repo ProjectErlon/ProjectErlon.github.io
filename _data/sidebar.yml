@@ -2,9 +2,9 @@
 #
 #
 cat_lib:
-  - title: 'Библиотека'
+  - title: 'Модули'
     level_1:
-      - title: 'NRF'
+      - title: 'nRF24L01'
         name: 'nrf'
         url: '/'
         level_2:
@@ -13,8 +13,13 @@ cat_lib:
             level_3:
               - title: 'Title 1-2-3'
                 url: '#h2'
-      - title: 'Test'
+      - title: 'IR'
         url: '/page2'
+      - title: 'Servo'
+        url: '/page3'
+#
+#
+#
 nrf:
   - title: 1
     url: '#nrf1'
