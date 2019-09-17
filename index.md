@@ -5,7 +5,7 @@ layout: default
 nav:
   level_1:
     - title: 'Подключение'
-      url: '#подключение'
+      url: '#con'
       level_2:
         - title: 'subtitle'
           url: '#h2'
@@ -23,7 +23,7 @@ nav:
 Это заготовка страницы
 :::
 
-## Подключение
+## Подключение {#con}
 
 | nRF24L01+ | ARDUINO |
 | :-------: | :-----: |
