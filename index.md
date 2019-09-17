@@ -1,7 +1,15 @@
 ---
 title: Hello
 layout: default
+
 sidebar: nrf
+nav:
+  level_1:
+    - title: 'title'
+      url: '#h1'
+      level_2:
+        - title: 'subtitle'
+          url: '#h2'
 ---
 
 # nRF24L01
