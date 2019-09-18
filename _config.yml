@@ -1,3 +1,5 @@
 collections:
     arduino:
         output: true
+plugins:
+    - jekyll-seo-tag
