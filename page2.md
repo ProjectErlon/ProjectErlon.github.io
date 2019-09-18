@@ -1,14 +1,17 @@
 ---
 title: Page2
 layout: default
-sidebar: test
 nav:
   level_1:
-    - title: 'aztitle'
-      url: '#h1'
+    - title: 'Подключение'
+      url: '#podklyuchenie'
       level_2:
-        - title: 'azsubtitle'
+        - title: 'subtitle'
           url: '#h2'
+    - title: 'Использование'
+      url: '#ispolzovanie'
+    - title: 'Проекты'
+      url: '#proekty'
 ---
 # Приёмник ИК-сигнала
 
@@ -31,7 +34,7 @@ nav:
 [Источник](http://www.circuitbasics.com/arduino-ir-remote-receiver-tutorial/)
 Примеры Хрен знает какие ибо я уже не помню чё к чему. К чему прерывания и прочее
 
-## Подключение
+## Подключение {#podklyuchenie}
 
 [![Схема подключения сенсора к arduino](https://orpi.borland.ml/codelab/images/9e747d22-bc0e-42f6-8e33-4ddbf544117a.png "Схема подключения сенсора к arduino")](https://orpi.borland.ml/codelab/images/9e747d22-bc0e-42f6-8e33-4ddbf544117a.png)
 
@@ -41,7 +44,7 @@ nav:
 | GND | GND     |
 | VCC | 5V      |
 
-## Использование
+## Использование {#ispolzovanie}
 Для работы с датчиком нам понадобится [библиотека](http://z3t0.github.io/Arduino-IRremote/).
 
 Ниже приведены варианты использования + готовые проекты
@@ -109,6 +112,6 @@ void loop(){
   }
 }
 ```
-## Проекты
+## Проекты {#proekty}
 [Управление адресной лентой](/projects/1.md) <Badge text="beta" type="warn" /><Badge text="v1" type="tip" />
 
