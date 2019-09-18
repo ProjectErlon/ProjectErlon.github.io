@@ -13,7 +13,7 @@ cat_lib:
       - title: 'IR'
         url: '/arduino/ir-receiver'
       - title: 'Servo'
-        url: '/page3'
+        url: '/arduino/servo'
   - title: 'Проекты'
 #
 #
