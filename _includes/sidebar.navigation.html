@@ -1,5 +1,5 @@
 <h3 class="uk-text-large uk-visible@m">CodeLab</h3>
-<ul class="uk-nav uk-nav-default">
+<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true"
     {% assign page_url = page.url | remove: '.html' %}
 
     {% for global_nav in site.data.sidebar.cat_lib %}
@@ -13,7 +13,7 @@
       
         
                 {% if nav.url == page_url and page.nav.level_1 %}
-                    <ul class="uk-nav uk-nav-sub" uk-scrollspy-nav="closest: li; scroll: true">
+                    <ul class="uk-nav-sub">
                         {% for pl1 in page.nav.level_1 %}
                             <li><a href="{{ pl1.url }}">{{ pl1.title }}</a></li>
                         {% endfor %}
