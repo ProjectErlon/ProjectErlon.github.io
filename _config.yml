@@ -3,5 +3,5 @@ title: 'CodeLib'
 collections:
     arduino:
         output: true
-plugins:
-    - jekyll-seo-tag
+#plugins:
+#    - jekyll-seo-tag
