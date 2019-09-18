@@ -1,6 +1,7 @@
 <h3 class="uk-text-large uk-visible@m">CodeLab</h3>
 <ul class="uk-nav uk-nav-default">
-    {% assign page_url = page.url | split: '.' %}
+    {% assign page_url = page.url | remove: '.html' %}
+    {{ page_url }}
 
     {% for item in site.data.sidebar.cat_lib %}
         <li class="uk-nav-header">{{ item.title }}</li>
