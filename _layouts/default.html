@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="{{ '/assets/css/monokai.css' | relative_url }}" />
   </head>
   <body>
+    
+    
+    
+<nav class="uk-hidden@m uk-navbar-container uk-navbar-transparent uk-background-secondary uk-light" uk-navbar>
+  <div class="uk-navbar-left">
+    <a class="uk-navbar-toggle" uk-toggle uk-navbar-toggle-icon href="#offcanvas"></a>
+    <a class="uk-navbar-item uk-logo" href="#">CodeLab</a>
+  </div>
+</nav>
+<div id="offcanvas" class="uk-hidden@m" uk-offcanvas="overlay: true; mode: slide">
+  <div class="uk-offcanvas-bar">
+    <button class="uk-offcanvas-close" type="button" uk-close></button>
+    {% include sidebar.navigation.html %}
+  </div>
+</div>
+    
 <div class="uk-grid-collapse" uk-grid uk-height-viewport="expand: true">
   <div class="uk-width-medium uk-visible@m">
     <div class="uk-tile uk-tile-secondary uk-width-1-1 uk-height-1-1 uk-position-fixed">
