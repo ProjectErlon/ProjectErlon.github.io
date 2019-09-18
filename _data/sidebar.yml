@@ -18,3 +18,5 @@ cat_lib:
     nav:
       - title: 'Всяко разно'
         url: '/arduino/unsorted'
+      - title: 'Управление адресной лентой'
+        url: '/arduino/projects/upravlenie-adresnoj-lentoj'
