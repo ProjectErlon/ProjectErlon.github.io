@@ -6,16 +6,14 @@ layout: default
 nav:
   level_1:
     - title: 'Подключение'
-      url: '#con'
+      url: '#podklyuchenie'
       level_2:
         - title: 'subtitle'
           url: '#h2'
     - title: 'Использование'
-      url: '#использование'
+      url: '#ispolzovanie'
     - title: 'Проекты'
-      url: '#проекты'
-    - title: 'Проекты'
-      url: '#pr'
+      url: '#proekty'
 ---
 
 # nRF24L01
