@@ -15,16 +15,6 @@ cat_lib:
       - title: 'Servo'
         url: '/arduino/servo'
   - title: 'Проекты'
-#
-#
-#
-nrf:
-  - title: 1
-    url: '#nrf1'
-  - title: 2
-    url: '#nrf2'
-test:
-  - title: 01
-    url: '#test1'
-  - title: 02
-    url: '#test2'
+    nav:
+      - title: 'Всяко разно'
+        url: '/arduino/unsorted'
