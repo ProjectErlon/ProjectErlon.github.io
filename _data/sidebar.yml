@@ -9,7 +9,7 @@ cat_lib:
   - title: 'Модули'
     nav:
       - title: 'nRF24L01'
-        url: '/'
+        url: '/page1'
       - title: 'IR'
         url: '/page2'
       - title: 'Servo'
