@@ -2,6 +2,10 @@
 #
 #
 cat_lib:
+  - title: ''
+    nav:
+      - title: 'Welcome'
+        url: '/'
   - title: 'Модули'
     nav:
       - title: 'nRF24L01'
