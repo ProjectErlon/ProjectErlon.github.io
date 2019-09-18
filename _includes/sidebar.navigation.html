@@ -1,17 +1,16 @@
 <h3 class="uk-text-large uk-visible@m">CodeLab</h3>
 <ul class="uk-nav uk-nav-default">
     {% assign page_url = page.url | remove: '.html' %}
-    {{ page_url }}
 
-    {% for item in site.data.sidebar.cat_lib %}
-        <li class="uk-nav-header">{{ item.title }}</li>
-        {% if item.nav %}
-        {% for nav in item.nav %}
-            <li class="{% if nav.url == page_url[0] and page.nav.level_1 %}uk-parent{% endif %} {% if nav.url == page_url[0] | slice -5 %}uk-active{% endif %}">
+    {% for global_nav in site.data.sidebar.cat_lib %}
+        <li class="uk-nav-header">{{ global_nav.title }}</li>
+        {% if global_nav.nav %}
+        {% for nav in global_nav.nav %}
+            <li class="{% if nav.url == page_url and page.nav.level_1 %}uk-parent{% endif %} {% if nav.url == page_url %}uk-active{% endif %}">
                 <a href="{{ nav.url }}">{{ nav.title }}</a>
       
         
-                {% if nav.url == page_url[0] and page.nav.level_1 %}
+                {% if nav.url == page_url and page.nav.level_1 %}
                     <ul class="uk-nav uk-nav-sub" uk-scrollspy-nav="closest: li; scroll: true">
                         {% for pl1 in page.nav.level_1 %}
                             <li><a href="{{ pl1.url }}">{{ pl1.title }}</a></li>
