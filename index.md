@@ -5,3 +5,5 @@ layout: default
 ---
 
 # Добро пожаловать
+
+{{ site.documents }}
