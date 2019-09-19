@@ -6,4 +6,4 @@ layout: default
 
 # Добро пожаловать
 
-{{ site.documents }}
+{{ site.pages }}
