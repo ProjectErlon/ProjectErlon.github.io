@@ -1,7 +1,7 @@
 ---
-title: Hello
-description: 'Just a test page'
+title: 'CodeLab'
+description: 'Сборник всех наших "проектов"'
 layout: default
 ---
 
-# Lol kek
+# Добро пожаловать
