@@ -5,3 +5,10 @@ layout: default
 ---
 
 # Добро пожаловать
+
+
+<ul>
+{% for upage in site.collections %}
+  <li><a href="{{ upage.url }}">{{ upage.title }}</a></li>
+{% endfor %}
+</ul>
