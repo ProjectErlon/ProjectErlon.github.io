@@ -8,7 +8,8 @@ layout: default
 
 
 <ul>
-{% for upage in site.collections %}
+{% for upage in site.collections.arduino %}
   <li><a href="{{ upage.url }}">{{ upage.title }}</a></li>
 {% endfor %}
 </ul>
+{{site.collections}}
