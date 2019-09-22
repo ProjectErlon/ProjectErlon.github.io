@@ -11,7 +11,12 @@
   </head>
   <body>
     
-    
+    <ul>
+{% for upage in site.pages %}
+  <li><a href="{{ upage.url }}">{{ upage.title }}</a></li>
+{% endfor %}
+</ul>
+
     
 <nav class="uk-hidden@m uk-navbar-container uk-navbar-transparent uk-background-secondary uk-light" uk-navbar uk-sticky="show-on-up: true;">
   <div class="uk-navbar-left">
