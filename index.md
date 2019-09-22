@@ -12,3 +12,11 @@ layout: default
   <li><a href="{{ upage.url }}">{{ upage.title }}</a></li>
 {% endfor %}
 </ul>
+
+
+
+<ul>
+{% for upage in site['arduino'] %}
+  <li><a href="{{ upage.url }}">{{ upage.title }}</a></li>
+{% endfor %}
+</ul>
