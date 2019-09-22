@@ -8,7 +8,7 @@ layout: default
 # Добро пожаловать
 
 <ul>
-{% for page in site.pages %}
-  <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+{% for upage in site.pages %}
+  <li><a href="{{ upage.url }}">{{ upage.title }}</a></li>
 {% endfor %}
 </ul>
