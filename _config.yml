@@ -3,5 +3,6 @@ title: 'CodeLab'
 collections:
     arduino:
         output: true
+        label: 'Arduino'
 #plugins:
 #    - jekyll-seo-tag
