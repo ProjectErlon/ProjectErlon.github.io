@@ -7,5 +7,8 @@ layout: default
 # Добро пожаловать
 
 
-
-{{site.documents[0].title}}
+<ul>
+{% for upage in site.documents %}
+  <li><a href="{{ upage.url }}">{{ upage.title }}</a></li>
+{% endfor %}
+</ul>
