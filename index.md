@@ -8,4 +8,4 @@ layout: default
 
 
 
-{{site.documents}}
+{{site.documents[0].title}}
