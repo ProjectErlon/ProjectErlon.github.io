@@ -1,6 +1,7 @@
 ---
 title: 'Приёмник ИК-сигнала'
 description: 'Инфракрасный приёмник — это фотодиод с предусилителем сигнала серии TSOP22 в компактном корпусе.'
+categories: ['arduino', 'modules']
 layout: default
 nav:
   level_1:
