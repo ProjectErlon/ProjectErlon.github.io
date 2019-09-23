@@ -20,7 +20,7 @@
         </li>
     {% endfor %}
     
-    {% u_documents = site.documents | where: "categories", "projects" %}  
+    {% assign u_documents = site.documents | where: "categories", "projects" %}  
     <li class="uk-nav-header">Проекты</li>
     <li class="uk-nav-divider"></li>
 
