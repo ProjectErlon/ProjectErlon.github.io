@@ -2,7 +2,7 @@
 
 <h3 class="uk-text-large uk-visible@m">{{ site.title }}</h3>
 <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
-    <li><a href="site.url">Добро пожаловать</a></li>
+    <li><a href="{{ site.url }}">Добро пожаловать</a></li>
     
     {% assign u_documents = site.documents | where: "categories", "modules" %}
     <li class="uk-nav-header">Модули</li>
