@@ -1,6 +1,7 @@
 ---
 title: 'Servo'
 description: 'Сервопривод — это привод с управлением через отрицательную обратную связь, позволяющую точно управлять параметрами движения'
+categories: ['arduino', 'modules']
 layout: default
 nav:
   level_1:
