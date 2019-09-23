@@ -1,6 +1,7 @@
 ---
 title: 'Управление адресной лентой'
 description: 'Управление адресной лентой'
+categories: ['arduino', 'projects']
 layout: default
 nav:
   level_1:
