@@ -1,9 +1,10 @@
 {% assign page_url = page.url | remove: '.html' %}
-{% assign u_documents = site.documents | where: "categories", "modules" %}
 
 <h3 class="uk-text-large uk-visible@m">{{ site.title }}</h3>
 <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
     <li><a href="site.url">Добро пожаловать</a></li>
+    
+    {% assign u_documents = site.documents | where: "categories", "modules" %}
     <li class="uk-nav-header">Модули</li>
     <li class="uk-nav-divider"></li>
 
@@ -36,42 +37,4 @@
             {% endif %}
         </li>
     {% endfor %}
-    
-    
-    
-    
-    
-    
-    
-    
-    {% for global_nav in site.data.sidebar.cat_lib %}
-        {% if global_nav.title %}
-            <li class="uk-nav-header">{{ global_nav.title }}</li>
-        {% endif %}
-        {% if global_nav.nav %}
-        {% for nav in global_nav.nav %}
-            <li class="{% if nav.url == page_url and page.nav.level_1 %}uk-parent{% endif %} {% if nav.url == page_url %}uk-active{% endif %}">
-                <a href="{{ nav.url }}">{{ nav.title }}</a>
-      
-        
-                {% if nav.url == page_url and page.nav.level_1 %}
-                    <ul class="uk-nav-sub">
-                        {% for pl1 in page.nav.level_1 %}
-                            <li><a href="{{ pl1.url }}">{{ pl1.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-          
-          
-            </li>
-        {% endfor %}
-        {% endif %}
-    {% endfor %}
 </ul>
-
-
-<!-- <ul class="uk-nav uk-nav-default">
-{% for item in site.data.sidebar[page.sidebar] %}
-  <li><a href="{{ item.url }}">{{ item.title }} {{ item.url }}</a></li>
-{% endfor %}
-</ul> -->
