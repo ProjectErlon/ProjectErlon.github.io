@@ -2,18 +2,28 @@
 {% assign u_documents = site.documents | where: "categories", "modules" %}
 
 <h3 class="uk-text-large uk-visible@m">{{ site.title }}</h3>
-<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true"
+<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
 
-
-<li class="uk-nav-header">Header</li>
-<li class="uk-nav-header">Модули</li>
+    <li class="uk-nav-header">Модули</li>
+    <li class="uk-nav-divider"></li>
 
 {% for u_document in u_documents %}
-<li>{{ u_document.title }}</li>
+    {{u_document.url}}- {{page_url}}
+    
+    <li {% if u_document.url == page_url and page.nav.level_1 %}uk-parent{% endif %} {% if u_document.url == page_url %}uk-active{% endif %}>
+        <a href="{{ u_document.url }}">{{ u_document.title }}</a>
+                {% if u_document.url == page_url and page.nav.level_1 %}
+                    <ul class="uk-nav-sub">
+                        {% for pl1 in page.nav.level_1 %}
+                            <li><a href="{{ pl1.url }}">{{ pl1.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+    </li>
 {% endfor %}
     
     
-   <li class="uk-nav-divider"></li> 
+   
     
     
     
