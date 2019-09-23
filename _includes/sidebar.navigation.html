@@ -8,7 +8,7 @@
     <li class="uk-nav-divider"></li>
 
     {% for u_document in u_documents %}    
-        <li {% if u_document.url == page.url and page.nav.level_1 %}uk-parent{% endif %} {% if u_document.url == page.url %}uk-active{% endif %}>
+        <li class="{% if u_document.url == page.url and page.nav.level_1 %}uk-parent{% endif %} {% if u_document.url == page.url %}uk-active{% endif %}">
             <a href="{{ u_document.url }}">{{ u_document.title }}</a>
             {% if u_document.url == page.url and page.nav.level_1 %}
                 <ul class="uk-nav-sub">
