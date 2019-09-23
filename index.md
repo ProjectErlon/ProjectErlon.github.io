@@ -8,7 +8,7 @@ layout: default
 
 
 
-<ul>
+<ul class="uk-list">
 {% for upage in site.documents %}
   <li><a href="{{ upage.url }}">{{ upage.title }}</a> - {{ upage.categories }}</li>
 {% endfor %}
