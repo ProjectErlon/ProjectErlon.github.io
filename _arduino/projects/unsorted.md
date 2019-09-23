@@ -1,6 +1,7 @@
 ---
 title: 'Всяко разно'
 description: 'Всяко разно'
+categories: ['arduino', 'projects']
 layout: default
 ---
 
