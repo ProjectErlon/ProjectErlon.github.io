@@ -10,7 +10,7 @@ layout: default
 
 <ul>
 {% for upage in site.documents %}
-  <li><a href="{{ upage.url }}">{{ upage.title }}</a></li>
+  <li><a href="{{ upage.url }}">{{ upage.title }}</a> - {{ upage.categories }}</li>
 {% endfor %}
 </ul>
 
