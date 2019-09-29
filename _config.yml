@@ -4,5 +4,6 @@ collections:
     arduino:
         output: true
         label: 'Arduino'
-#plugins:
+plugins:
+    - jekyll-sitemap
 #    - jekyll-seo-tag
