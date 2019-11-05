@@ -1,11 +1,14 @@
 ---
-title: 'Всяко разно'
-description: 'Всяко разно'
-categories: ['arduino', 'projects']
+title: Всяко разно
+description: Всяко разно
+categories:
+- arduino
+- projects
 layout: default
----
 
+---
 # Всё подряд
+
 ::: warning
 Это заготовка страницы
 :::
@@ -14,7 +17,8 @@ layout: default
 Тут такая ебанина содержится, что пиздец
 :::
 
-## P1
+## P1 {#p1}
+
 RGB Led заменяет ленту, потенциометр - микрофон
 
 Орём в микрофон и получаем разный цвет на "ленте"
@@ -100,7 +104,6 @@ void rgb(bool r, bool g, bool b){
   digitalWrite(pinB, b);
 }
 ```
-
 
 ## StupidHome
 
@@ -511,5 +514,4 @@ ether.httpServerReply(bfill.position()); // send http response
 }
 
 }
-
 ```
