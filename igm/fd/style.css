@@ -1,0 +1,636 @@
+@font-face {
+font-family: "LunarSans";
+
+src: url("https://file.garden/XYIlW7cqBDVk_Xim/LunarSans.otf");
+
+color:  rgb(0, 0, 0);
+}
+
+#game {
+    text-shadow: 0px 0px 0px rgb(0 0 0 / 100%);
+	height: 100% !important;
+	/*overflow-y: hidden !important;*/
+	
+}
+.upgrade {
+    background-color: rgb(128, 128, 128);
+    cursor: pointer;
+	width: 100%;
+	
+font-size: 18px;
+
+display: inline-block;
+}
+.box{
+
+}
+
+
+
+body, html, div {
+font-family: "LunarSans";
+}
+
+.thing {
+padding: 5px;
+    background-color: rgb(128, 128, 128);
+color:  rgb(0, 0, 0);
+width: 100%;
+font-family: "LunarSans";
+font-size: 18px;
+/*height: 10%;*/
+text-align: center !important;
+line-height: 1.0 !important;
+/*display: inline-block !important;*/
+
+}
+.thing:hover {
+background-color: rgb(190, 190, 190); /* The light grey hover color of the buttons */
+
+}
+.shiny-icon {
+	  width: 200px;
+	  height: 200px;
+}
+.shiny{
+width: 200px !important;
+	  height: 200px !important;
+padding: 0px;
+    background-color: #00000000 !important;
+color:  #00000000 !important;
+width: 200px !important;
+font-family: "LunarSans";
+font-size: 18px;
+/*height: 10%;*/
+text-align: center !important;
+line-height: 1.0 !important;
+/*display: inline-block !important;*/
+
+}
+.shiny:hover{
+width: 200px!important;
+	  height: 200px!important;
+padding: 0px;
+    background-color: #00000000 !important;
+color:  #00000000 !important;
+width: 200px !important;
+font-family: "LunarSans";
+font-size: 18px;
+/*height: 10%;*/
+text-align: center !important;
+line-height: 1.0 !important;
+/*display: inline-block !important;*/
+
+}
+
+.thing-costs{
+padding: 0px !important; 
+}
+
+/* These things below has to do with the scaling of the ability icons, so they are quadratic and not stretched.
+
+If more abilities are added their "#thing-X" tag should be added in the same way */
+
+#thing-0 {
+
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important; /* This enables you to freely place the object on the screen */
+z-index: 2000; /* This is how much in front the things are, in this case the ability icons should be in front of the headers */
+}
+#thing-1 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+z-index: 2000;
+}
+#thing-2 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+z-index: 2000;
+}
+#thing-3 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+z-index: 2001;
+}
+#thing-4 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+z-index: 2000;
+}
+#thing-5 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+z-index: 2000;
+}
+#thing-6 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+z-index: 2000;
+}
+#thing-7 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+z-index: 2000;
+}
+#thing-8 {
+
+left: 0%;
+  top: 0%;
+  width: 100% !important;
+ height: 100% !important;
+  
+position: absolute !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+z-index: 2000;
+}
+#thing-9 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+background-repeat: no-repeat !important;
+z-index: 2000;
+}
+#thing-10 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+background-repeat: no-repeat !important;
+z-index: 2000;
+}
+#thing-11 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+background-repeat: no-repeat !important;
+z-index: 2000;
+}
+#thing-12 {
+left: 0% !important;
+top: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+position: absolute !important;
+background-repeat: no-repeat !important;
+z-index: 2000;
+}
+
+
+
+.thing.bigButton{
+left: 0% !important;
+top: 0% !important;
+margin-left: auto !important;
+    margin-top: auto !important;
+position: absolute !important;
+opacity: 1;
+z-index: 900;
+}
+
+.thing.bigButton:hover{
+	opacity: 1;
+
+z-index: 3000 !important;
+}
+.bigButton:hover, .thing-icon:hover {
+    transform: scale(1.05) !important; /* this is how big the ability icons get when hovered */
+    transition: transform 0.15s ease-out !important; /* this adds a nice ease effect to the animation */
+
+z-index: 3000 !important; /* this makes the currently hovered ability in front of the other abilities */
+}
+
+
+.menu1css {
+  left: 20% !important; /* this is how far from the left edge of the window the menu is (percentage of screen width) */
+  top: 0% !important; /* this is how far from the top the menu is in percentage of screen height */
+  width: 25% !important; /* this is the width of the menu in percentage of screen width */
+  height: 55% !important; /* the height of the menu in percentage of screen height */
+overflow-x: hidden; /* the menu can't scroll horizontally */
+overflow-y: scroll; /* the menu can scroll vertically */
+position: absolute !important; /* freely place the menu on the screen */
+border-style: solid; /* the black border of the menu is solid */
+border-width: 2px; /* the border is 2 pixels wide */
+border-color: #000000FF; /* the border is black and not transparent */
+}
+
+/* below is the log header ("Forez's Dream" text) see above for explanations */
+
+.logHeader {
+   left: 45%;
+  top: 0%;
+  width: 30%;
+  height: 5% !important;
+	position: absolute !important;
+overflow-x: hidden;
+overflow-y: hidden;
+
+display: inline-block !important; /* this makes the text separate in more lines when it can't fit into the header (zoomed in) */
+
+border-style: solid;
+border-width: 2px;
+border-color: #000;
+}
+
+/* this is the log. See above for explanations */
+.logcss {
+  left: 45%;
+  top: 5%;
+  width: 30%;
+  height: 50%;
+font-family: "LunarSans";
+position: absolute !important;
+    background-color: rgb(128, 128, 128);
+color: #000000;
+font-size: 18px;
+padding: 8px !important; /* this makes the text appear at a distance from the log edge, so the text isn't touching the border */
+border-style: solid;
+border-width: 2px;
+border-color: #000000FF;
+}
+
+#logInner {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.scroll1 {
+  height: 200px;
+overflow-x: hidden;
+overflow-y: scroll;
+}
+
+/* this is the player HP and Damage boxes. See above for explanations */
+.playerhpposition {
+  left: 0%;
+  top: 30%;
+  width: 20%;
+font-size: 160%;
+position: absolute !important;
+border-style: solid;
+border-width: 2px;
+border-color: #000000FF;
+}
+/* this is the enemy HP boxes. See above for explanations */
+.enemyhpposition {
+  right: 0%;
+  top: 46%;
+  width: 25%;
+  height: 20%;
+font-size: 160%;
+position: absolute !important;
+border-style: solid;
+border-width: 0px;
+border-color: #000000FF;
+
+}
+
+/* this is the header for the inventory. See above for explanations */
+.inventoryHeader{
+  right: 0px;
+  top: 0%;
+  width: 25%;
+  height: 5% !important;
+	position: absolute !important;
+overflow-x: hidden;
+overflow-y: hidden;
+
+display: inline-block !important;
+min-height: 30px !important; /* the height of the header should be minimum 30px to contain the text when zoomed */
+border-style: solid;
+border-width: 2px;
+border-color: #000;
+z-index: 1000 !important;
+}
+
+
+/* this is the inventory. See above for explanations */
+.inventory1css {
+  right: 0%;
+  top: 5%;
+  width: 25%;
+  height: 40%;
+	position: absolute !important;
+overflow-x: hidden;
+overflow-y: scroll;
+}
+
+/* this is the sell items header. See above for explanations */
+.sellitemsHeader {
+  right: 0px;
+  top: 69%;
+  width: 25%;
+  height: 5% !important;
+	position: absolute !important;
+overflow-x: hidden;
+overflow-y: hidden;
+
+
+display: inline-block !important;
+
+border-style: solid;
+border-width: 2px;
+border-color: #000;
+}
+
+/* this is the sell items menu. See above for explanations */
+.sellitemsCss {
+  right: 0px;
+  top: 74%;
+  width: 25%;
+  height: 20%;
+	position: absolute !important;
+overflow-x: hidden;
+overflow-y: scroll;
+
+
+}
+
+/* these properties are the common ones for all box-headers. See above for explanations */
+.box-header {
+background-color: rgb(128, 128, 128) !important; /* the background color */
+right: 0% !important;
+  top: 0% !important;
+width: 100% !important;
+height: 100% !important;
+position: absolute !important;
+
+padding: 10px; /* this makes the text in the center so it doesn't touch the edges of the border */
+margin-bottom 0px;
+z-index: 1000;
+color: #000000; /* the font color */
+font-size: 18px;
+text-align:center; /* center the text */
+display: inline-block; /* this separates the text in multiple lines if it is zoomed and can't be contained in one line */
+
+}
+#box-things-Upgrades{
+right: 0%;
+  
+  width: 100%;
+  height: 90%;
+	position: absolute !important;
+
+}
+
+/* This is the position and scale of "Hard Swing" */
+.ability1css {
+
+  left: 0%;
+  top: 61%;
+  width: 10%;
+	height: 100% !important;
+  
+  padding-top: 100%; /* this makes the icons quadratic and not scaling in the same way as the text in the game */
+
+position: absolute !important;
+
+}
+
+/* This is the position and scale of "Charge" */
+.ability2css {
+  left: 10%;
+  top: 61%;
+  width: 10%;
+  padding-top: 100%;
+position: absolute !important;
+
+}
+
+/* This is the position and scale of "Empower" when not activated */
+.ability3css {
+  left: 20%;
+  top: 61%;
+  width: 10%;
+
+  padding-top: 100%;
+position: absolute !important;
+
+
+}
+
+/* Below is the position and scale of "Destruction" 
+(Notice that it is 79.3% from the top - This is the height of second row of skills) */
+
+.ability8css {
+  left: 0%;
+  top: 79.3%;
+  width: 10%;
+  padding-top: 100%;
+position: absolute !important;
+
+}
+
+/* Some skill text were visible which should not be there. If more are added, they can be hidden like this */
+#thing-text-4, #thing-text-6, #thing-text-7, #thing-text-5{
+display: none !important;
+
+}
+
+/* This is the position and scale of "Focus" */
+.ability4css {
+  left: 30%;
+  top: 61%;
+  width: 10%;
+  padding-top: 100%;
+
+position: absolute !important;
+
+}
+
+/* This is the position and scale of another defensive skill, made to be future proof */
+.ability5css {
+  left: 40%;
+  top: 61%;
+  width: 10%;
+  padding-top: 100%;
+position: absolute !important;
+
+}
+
+/* This is the position and scale of always crit */
+.acritcss {
+	  left: 13%;
+	  top: 45%;
+	  width: 6%;
+  height: 10%;
+position: absolute !important;
+z-index: 2500 !important; /* This is in front of the menus and headers */
+}
+
+/* This is the position and scale of "Regeneration" */
+.ability6css {
+  left: 50%;
+  top: 61%;
+  width: 10%;
+  padding-top: 100%;
+position: absolute !important;
+
+}
+
+/* This is the position and scale of another regen skill, made to be future proof */
+.ability7css {
+  left: 60%;
+  top: 61%;
+  width: 10%;
+  padding-top: 100%;
+position: absolute !important;
+
+}
+
+/* This is the header of the melee skills */
+.abilitymeleecss {
+    background-color: rgb(128, 128, 128);
+  left: 0%;
+  top: 55%;
+  width: 30%;
+  height: 6%;
+	position: absolute !important;
+color:  rgb(0, 0, 0);
+font-size: 18px;
+
+border-style: solid;
+border-width: 2px;
+border-color: #000000FF;
+}
+
+/* This is the header of the defensive skills */
+.abilitydefcss {
+    background-color: rgb(128, 128, 128);
+  left: 30%;
+   top: 55%;
+  width: 20%;
+  height: 6%;
+position: absolute !important;
+color:  rgb(0, 0, 0);
+font-size: 18px;
+
+border-style: solid;
+border-width: 2px;
+border-color: #000000FF;
+}
+
+
+/* This is the header of the regen skills */
+.abilityregencss {
+    background-color: rgb(128, 128, 128);
+  left: 50%;
+ top: 55%;
+  width: 25%;
+  height: 6%;
+position: absolute !important;
+color:  rgb(0, 0, 0);
+font-size: 18px;
+
+border-style: solid;
+border-width: 2px;
+border-color: #000000FF;
+}
+
+/* This is common for all skills and some other of the buttons */
+.box-things{
+left: 0% !important;
+top: 0% !important;
+position: absolute !important;
+width: 100% !important;
+height: 10% !important;
+
+}
+
+/* This is makes sure the skill icons quadratic and have a black border that fits the rest of the layout.
+If more skills are added there icons (e.g. "#thing-icon-XX") should be on this list too */
+
+#thing-icon-0, #thing-icon-1, #thing-icon-2, #thing-icon-3, #thing-icon-4, #thing-icon-5, #thing-icon-6, #thing-icon-7, #thing-icon-8, #thing-icon-9, #thing-icon-10, #thing-icon-11, #thing-icon-12 {
+
+background-repeat: no-repeat !important; /* The images should not repeat if the boxes containing them are stretched */
+ display: inline-block !important;
+width: 100% !important;
+height: 100% !important;
+
+background-size: 100% auto !important;
+
+z-index: 2000 !important;
+border-style: solid;
+border-width: 2px;
+border-color: #000000FF;
+}
+
+
+/* This is the position of the stats and levels of the player */
+.statscss {
+  left: 0%;
+  top: 5%;
+  width: 20%;
+  
+position: absolute !important;
+border-style: solid;
+border-width: 2px;
+border-color: #000000FF;
+}
+
+/* this makes sure that the images don't repeat in general */
+.thing-icon{
+background-repeat: no-repeat !important;
+
+}
+
+/* This is the tooltip text size */
+.desc{
+
+font-size: 1.6vh !important;
+line-height: 1.1;
+
+}
+
+/* This is the tooltip header text size */
+.title{
+font-size: 2vh !important;
+line-height: 1.1;
+
+}
+
+/* This is the text size of the bottom messages (for example "Game Saved") */
+#toasts{
+font-size: 18px !important;
+line-height: 1.1;
+}
+#tooltip {
+
+width: 40vh !important;
+
+}
+
+.shiny-text{
+
+display: none !important;
+
+}
