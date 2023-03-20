@@ -26459,42 +26459,50 @@ Upgrades
 	end
 	tag:equipmenthelmet2
 
-	*stonehelmet2
-	name:Equip Stone Helmet
-	desc:Press this button to equip this helmet and gain all of its stats.
-	on earn:
-	if (helmequipped=1)
-	toast You already have a helmet equipped!
-	lose stonehelmet2
-	end
-	if (helmequipped=0)
-	yield 1 helmequipped
-	yield 108 maxhp
-	yield 0.6 regenhprate
-	show stonehelmet3
-	hide stonehelmet2
-	yield -1 stonehelmet
-	end
-	end
-	req:1 stonehelmet
-	tag:equipment
 
-	*stonehelmet3
-	name:Unequip Stone Helmet
-	desc:Press this button to unequip the stone helmet to be able to use other helmets.
-	req:have stonehelmet2
-	on earn:
-	yield -0.6 regenhprate
-	yield -108 maxhp
-	if (hp>=maxhp) yield -(hp-maxhp) hp
-	lose stonehelmet3
-	yield -1 helmequipped
-	hide stonehelmet3
-	show stonehelmet2
-	lose stonehelmet2
-	yield 1 stonehelmet
-	end
-	tag:equipment
+
+
+
+	*stonehelmet2
+		name:Stone Helmet
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the stone helmet to be able to use other helmets.|Press this button to equip this helmet and gain all of its stats.]
+		tag:equipment equipment_helmet
+		req:1 stonehelmet
+		no buy
+		on earn:
+			yield helmequipped
+			//
+			yield 108 maxhp
+			yield 0.6 regenhprate
+			//
+			lose 1 stonehelmet
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose helmequipped
+			//
+			lose 108 maxhp
+			lose 0.6 regenhprate
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 stonehelmet
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_helmet
+				yield this
+			end
+		end
+
+
+
 
 	*ironhelmet2
 	name:Equip Iron Helmet
@@ -28080,44 +28088,46 @@ Upgrades
 
 
 
-
-
-
-
 	*minerleggings2
-	name:Equip Miners Leggings
-	desc:Press this button to equip the leggings and gain all of its stats.
-	on earn:
-	if (legequipped=1)
-	toast You already have some leggings equipped!
-	lose minerleggings2
-	end
-	if (legequipped=0)
-	yield 1 legequipped
-	yield 72 maxhp
-	yield 0.02 minersoutfitb
-	show minerleggings3
-	hide minerleggings2
-	yield -1 minerleggings
-	end
-	end
-	req:1 minerleggings
-	tag:equipment
+		name:Miners Leggings
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the miners leggings to be able to use other leggings/platelegs.|Press this button to equip the leggings and gain all of its stats.]
+		tag:equipment equipment_leggings
+		req:1 minerleggings
+		no buy
+		on earn:
+			yield legequipped
+			//
+			yield 72 maxhp
+			yield 0.02 minersoutfitb
+			//
+			lose 1 minerleggings
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose legequipped
+			//
+			lose 72 maxhp
+			lose 0.02 minersoutfitb
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 minerleggings
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_leggings
+				yield this
+			end
+		end
 
-	*minerleggings3
-	name:Unequip Miners Leggings
-	desc:Press this button to unequip the miners leggings to be able to use other leggings/platelegs.
-	req:have minerleggings2
-	on earn:yield -72 maxhp
-	on earn:yield -0.02 minersoutfitb
-	on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-	on earn:lose minerleggings3
-	on earn:yield -1 legequipped
-	on earn:hide minerleggings3
-	on earn:show minerleggings2
-	on earn:lose minerleggings2
-	on earn:yield 1 minerleggings
-	tag:equipment
+
+
 
 	*stoneleggings2
 	name:Equip Stone Leggings
