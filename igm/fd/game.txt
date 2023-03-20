@@ -24076,63 +24076,49 @@ Upgrades
     
     
     
+    	*woodendagger2
+		name:Wooden Dagger
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the wooden dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+		tag:equipment equipment_dagger
+		req:1 woodendagger
+		no buy
+		on earn:
+			yield mainhandequipped
+			//
+			yield 1 daggerequipped
+			yield 11 attackmin
+			yield 19 attackmax
+			//
+			lose 1 woodendagger
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose mainhandequipped
+			//
+			lose 1 daggerequipped
+			lose 11 attackmin
+			lose 19 attackmax
+			lose (ability8at) ability8at
+			//
+			yield 1 woodendagger
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_dagger
+				yield this
+			end
+		end
     
     
     
-    
-    
-    
-	*woodendagger2
-	name:Equip Wooden Dagger
-	desc:Press this button to equip this weapon and gain all of its stats.
-	on earn:
-	if (mainhandequipped=1)
-	toast You already have a weapon equipped!
-	lose woodendagger2
-	end
-	if (mainhandequipped=0) 
-	yield 1 mainhandequipped
-	yield 1 daggerequipped
-	yield 11 attackmin
-	yield 19 attackmax
-	show woodendagger3
-	hide woodendagger2
-	yield -1 woodendagger
-	end
-	end
-	req:1 woodendagger
-	tag:equipment
-
-
-	*woodendagger3
-	name:Unequip Wooden Dagger
-	desc:Press this button to unequip the wooden dagger to be able to use other weapons.
-	req:have woodendagger2
-	on earn:
-	yield -(ability8at) ability8at
-	yield -11 attackmin
-	yield -19 attackmax
-	lose woodendagger3
-	yield -1 mainhandequipped
-	yield -1 daggerequipped
-	hide woodendagger3
-	show woodendagger2
-	lose woodendagger2
-	yield 1 woodendagger
-	end
-	tag:equipment
-
-
-
-
-
-
-
-
-
-
-
-
+   
 
 
 	*stonedagger2
