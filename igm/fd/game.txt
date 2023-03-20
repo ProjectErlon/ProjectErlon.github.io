@@ -28851,9 +28851,6 @@ Upgrades
 			lose 1 minerboots
 			//
 			toast <b>[n:this]</b> надет
-			
-			//FOR TEST
-			yield 9000000000 coins
 		end
 		on lose:
 			lose bootsequipped
