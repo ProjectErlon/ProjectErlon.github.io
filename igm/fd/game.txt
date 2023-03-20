@@ -28025,40 +28025,50 @@ Upgrades
 	tag:equipment
 
 
-	*woodenleggings2
-	name:Equip Wooden Leggings
-	desc:Press this button to equip the leggings and gain all of its stats.
-	on earn:
-	if (legequipped=1)
-	toast You already have some leggings equipped!
-	lose woodenleggings2
-	end
-	if (legequipped=0)
-	yield 1 legequipped
-	yield 35 maxhp
-	yield 0.2 regenhprate
-	show woodenleggings3
-	hide woodenleggings2
-	yield -1 woodenleggings
-	end
-	end
-	req:1 woodenleggings
-	tag:equipment
 
-	*woodenleggings3
-	name:Unequip Wooden Leggings
-	desc:Press this button to unequip the wooden leggings to be able to use other leggings/platelegs.
-	req:have woodenleggings2
-	on earn:yield -0.2 regenhprate
-	on earn:yield -35 maxhp
-	on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-	on earn:lose woodenleggings3
-	on earn:yield -1 legequipped
-	on earn:hide woodenleggings3
-	on earn:show woodenleggings2
-	on earn:lose woodenleggings2
-	on earn:yield 1 woodenleggings
-	tag:equipment
+	*woodenleggings2
+		name:Wooden Leggings
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the wooden leggings to be able to use other leggings/platelegs.|Press this button to equip the leggings and gain all of its stats.]
+		tag:equipment equipment_leggings
+		req:1 woodenleggings
+		no buy
+		on earn:
+			yield legequipped
+			//
+			yield 35 maxhp
+			yield 0.2 regenhprate
+			//
+			lose 1 woodenleggings
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose legequipped
+			//
+			lose 35 maxhp
+			lose 0.2 regenhprate
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 woodenleggings
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_leggings
+				yield this
+			end
+		end
+
+
+
+
+
+
 
 	*minerleggings2
 	name:Equip Miners Leggings
@@ -28792,8 +28802,8 @@ Upgrades
 	
 	
 	*woodenboots2
-		name:Wooden Boots [*GiveMoney]
-		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		name:Wooden Boots
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b> <#db0d6a>[*GiveMoney]<#>
 		desc:[?(have this)|Press this button to unequip the wooden boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
 		tag:equipment equipment_boots
 		req:1 woodenboots
