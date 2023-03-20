@@ -28811,6 +28811,7 @@ Upgrades
 		desc:[?(have this)|Press this button to unequip the wooden boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
 		tag:equipment equipment_boots
 		req:1 woodenboots
+		no buy
 		on earn:
 			yield bootsequipped
 			
