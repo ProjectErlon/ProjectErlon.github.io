@@ -30117,39 +30117,59 @@ Upgrades
 	on earn:yield 1 treasurering
 	tag:equipment
 	
+	
+	
+	
+	
+	
 	*piercering2
-	name:Equip Pierce Ring
-	desc:Press this button to equip this ring and gain all of its stats.
-	on earn:
-	if (ringequipped=1)
-	toast You already have a ring equipped!
-	lose piercering2
-	end
-	if (ringequipped=0)
-	yield 1 ringequipped
-	yield 4 attackmin
-	yield 5 attackmax
-	show piercering3
-	hide piercering2
-	yield -1 piercering
-	end
-	end
-	req:1 piercering
-	tag:equipment
+		name:Pierce Ring
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the pierce ring to be able to use other rings.|Press this button to equip this ring and gain all of its stats.]
+		tag:equipment equipment_ring
+		req:1 piercering
+		no buy
+		on earn:
+			yield ringequipped
+			//
+			yield 4 attackmin
+			yield 5 attackmax
+			//
+			lose 1 piercering
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose ringequipped
+			//
+			lose 4 attackmin
+			lose 5 attackmax
+			//
+			yield 1 piercering
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_ring
+				yield this
+			end
+		end
+	
+	
+	
+	
+	
+	
 
-	*piercering3
-	name:Unequip Pierce Ring
-	desc:Press this button to unequip the pierce ring to be able to use other rings.
-	req:have piercering2
-	on earn:yield -4 attackmin
-	on earn:yield -5 attackmax
-	on earn:lose piercering3
-	on earn:yield -1 ringequipped
-	on earn:hide piercering3
-	on earn:show piercering2
-	on earn:lose piercering2
-	on earn:yield 1 piercering
-	tag:equipment
+
+
+
+
+
 
 	*pierceringp2
 	name:Equip Pierce Ring (+)
