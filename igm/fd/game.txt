@@ -28801,40 +28801,88 @@ Upgrades
 	end
 	tag:equipment
 	
+	
+	
+	
+	
 	*woodenboots2
-	name:Equip Wooden Boots
-	desc:Press this button to equip the boots and gain all of its stats.
-	on earn:
-	if (bootsequipped=1)
-	toast You already have some boots equipped!
-	lose woodenboots2
-	end
-	if (bootsequipped=0)
-	yield 1 bootsequipped
-	yield 24 maxhp
-	yield 0.1 regenhprate
-	show woodenboots3
-	hide woodenboots2
-	yield -1 woodenboots
-	end
-	end
-	req:1 woodenboots
-	tag:equipment
+		name:Wooden Boots
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		decs:[?(have this)|Press this button to unequip the wooden boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
+		tag:equipment equipment_boots
+		req:1 woodenboots
+		on earn:
+			yield bootsequipped
+			
+			yield 24 maxhp
+			yield 0.1 regenhprate
+			
+			lose 1 woodenboots
+		end
+		on lose:
+			lose bootsequipped
+			
+			lose 24 maxhp
+			lose 0.1 regenhprate
+			if (hp>=maxhp) hp=maxhp
+			
+			yield 1 woodenboots
+		end
+		//Toggle part
+		on earn:toast <b>[n:this]</b> надет
+		on lose:toast <b>[n:this]</b> снят
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_boots
+				yield this
+			end
+		end
+	
+	
+	
+	
+/*	
+	*woodenboots2
+		name:Equip Wooden Boots
+		desc:Press this button to equip the boots and gain all of its stats.
+		on earn:
+			if (bootsequipped=1)
+				toast You already have some boots equipped!
+				lose woodenboots2
+			end
+			if (bootsequipped=0)
+				yield 1 bootsequipped
+				yield 24 maxhp
+				yield 0.1 regenhprate
+				show woodenboots3
+				hide woodenboots2
+				yield -1 woodenboots
+			end
+		end
+		req:1 woodenboots
+		tag:equipment
 
 	*woodenboots3
-	name:Unequip Wooden Boots
-	desc:Press this button to unequip the wooden boots to be able to use other boots.
-	req:have woodenboots2
-	on earn:yield -0.1 regenhprate
-	on earn:yield -24 maxhp
-	on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-	on earn:lose woodenboots3
-	on earn:yield -1 bootsequipped
-	on earn:hide woodenboots3
-	on earn:show woodenboots2
-	on earn:lose woodenboots2
-	on earn:yield 1 woodenboots
-	tag:equipment
+		name:Unequip Wooden Boots
+		desc:Press this button to unequip the wooden boots to be able to use other boots.
+		req:have woodenboots2
+		on earn:yield -0.1 regenhprate
+		on earn:yield -24 maxhp
+		on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
+		on earn:lose woodenboots3
+		on earn:yield -1 bootsequipped
+		on earn:hide woodenboots3
+		on earn:show woodenboots2
+		on earn:lose woodenboots2
+		on earn:yield 1 woodenboots
+		tag:equipment
+*/
+
+
+
+
 
 	*minerboots2
 	name:Equip Miners Boots
@@ -28855,6 +28903,14 @@ Upgrades
 	end
 	req:1 minerboots
 	tag:equipment
+
+
+
+
+
+
+
+
 
 	*minerboots3
 	name:Unequip Miners Boots
