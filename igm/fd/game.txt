@@ -26369,42 +26369,56 @@ Upgrades
 	end
 	tag:equipment
 	
+	
+	
+	
+	
+	
 	*woodenhelmet2
-	name:Equip Wooden Helmet
-	desc:Press this button to equip this helmet and gain all of its stats.
-	on earn:
-	if (helmequipped=1)
-	toast You already have a helmet equipped!
-	lose woodenhelmet2
-	end
-	if (helmequipped=0)
-	yield 1 helmequipped
-	yield 31 maxhp
-	yield 0.2 regenhprate
-	show woodenhelmet3
-	hide woodenhelmet2
-	yield -1 woodenhelmet
-	end
-	end
-	req:1 woodenhelmet
-	tag:equipment
+		name:Wooden Helmet
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the wooden helmet to be able to use other helmets.|Press this button to equip this helmet and gain all of its stats.]
+		tag:equipment equipment_helmet
+		req:1 woodenhelmet
+		no buy
+		on earn:
+			yield helmequipped
+			//
+			yield 31 maxhp
+			yield 0.2 regenhprate
+			//
+			lose 1 woodenhelmet
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose helmequipped
+			//
+			lose 31 maxhp
+			lose 0.2 regenhprate
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 woodenhelmet
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_helmet
+				yield this
+			end
+		end
 
-	*woodenhelmet3
-	name:Unequip Wooden Helmet
-	desc:Press this button to unequip the wooden helmet to be able to use other helmets.
-	req:have woodenhelmet2
-	on earn:
-	yield -0.2 regenhprate
-	yield -31 maxhp
-	if (hp>=maxhp) yield -(hp-maxhp) hp
-	lose woodenhelmet3
-	yield -1 helmequipped
-	hide woodenhelmet3
-	show woodenhelmet2
-	lose woodenhelmet2
-	yield 1 woodenhelmet
-	end
-	tag:equipment
+	
+	
+	
+	
+	
+	
+	
 
 	//SECRET EGG: say "ZRnow:)"
 
