@@ -1,67 +1,13 @@
 Let's make a game!
-    name:Forez's Dream remake
+    name:Forez's Dream (1.5.1) remake
     by:Borland | FrenzY & kasperja
     desc:A rpg style game, fight monsters with abilities(Added) and spells(not yet added) to receive loot to sell(added) or use in your adventures, bosses included. <b>SPECIAL THANKS TO:</b><.>Cyberz<.>Agentperson<.>Heyec<.>Lolio<.>Boshki0987<.>Oreo9<.>Brainiac2019<.>Frostyclock<.>TrueWolves<.>Kasperja
 	
 Settings
 	no particles
 	no bulk particles
-	background:https://file.garden/XYIlW7cqBDVk_Xim/Black_colour.jpg
-	stylesheet:https://pastebin.com/raw/4eJdntyB
+	stylesheet:https://erlon.ru/igm/fd/style.css
 	
-CSS
-	@font-face {
-        font-family: "LunarSans";
-        src: url("https://file.garden/XYIlW7cqBDVk_Xim/LunarSans.otf");
-	}
-	.thing {
-    	font-family: "LunarSans";
-	}
-    	body, html, div {
-    	font-family: "LunarSans";
-	}
-	
-	.shiny-icon {
-        width: 174px;
-        height: 132px;
-	}
-	.itemSize1
-	{                            
-	width:192px;       
-	height:192px;
-	}
-	.rainbowEff{
-	animation: rainbow-bg 8s linear;
-	animation-iteration-count: infinite;
-	}
-	@keyframes rainbow-bg{
-	100%,0%{
-	background-color: rgb(0,0,255);
-	}
-	19%{
-	background-color: rgb(31,224,40);
-	}
-	33%{
-	background-color: rgb(0,191,255);
-	}
-	55%{
-	background-color: rgb(44,56,211);
-	}
-	77%{
-	background-color: rgb(217,38,172);
-	}
-	}
-	.titleBoxCss {
-	  left: 0%;
-	  top: -1%;
-	  width: 20%;
-	  height: 1%;
-position: absolute !important;
-border-style: solid;
-border-width: 2px;
-border-color: #000000FF;
-	}
-
 
 
 
