@@ -28808,7 +28808,7 @@ Upgrades
 	*woodenboots2
 		name:Wooden Boots
 		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-		decs:[?(have this)|Press this button to unequip the wooden boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
+		desc:[?(have this)|Press this button to unequip the wooden boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
 		tag:equipment equipment_boots
 		req:1 woodenboots
 		on earn:
