@@ -28792,7 +28792,7 @@ Upgrades
 	
 	
 	*woodenboots2
-		name:Wooden Boots
+		name:Wooden Boots [*GiveMoney]
 		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
 		desc:[?(have this)|Press this button to unequip the wooden boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
 		tag:equipment equipment_boots
@@ -28835,51 +28835,49 @@ Upgrades
 
 
 
-
-
-
 	*minerboots2
-	name:Equip Miners Boots
-	desc:Press this button to equip the boots and gain all of its stats.
-	on earn:
-	if (bootsequipped=1)
-	toast You already have some boots equipped!
-	lose minerboots2
-	end
-	if (bootsequipped=0)
-	yield 1 bootsequipped
-	yield 57 maxhp
-	yield 0.02 minersoutfitb
-	show minerboots3
-	hide minerboots2
-	yield -1 minerboots
-	end
-	end
-	req:1 minerboots
-	tag:equipment
+		name:Miners Boots
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the miners boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
+		tag:equipment equipment_boots
+		req:1 woodenboots
+		no buy
+		on earn:
+			yield bootsequipped
+			//
+			yield 57 maxhp
+			yield 0.02 minersoutfitb
+			//
+			lose 1 minerboots
+			//
+			toast <b>[n:this]</b> надет
+			
+			//FOR TEST
+			yield 9000000000 coins
+		end
+		on lose:
+			lose bootsequipped
+			//
+			lose 57 maxhp
+			lose 0.02 minersoutfitb
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 minerboots
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_boots
+				yield this
+			end
+		end
 
 
 
-
-
-
-
-
-
-	*minerboots3
-	name:Unequip Miners Boots
-	desc:Press this button to unequip the miners boots to be able to use other boots.
-	req:have minerboots2
-	on earn:yield -57 maxhp
-	on earn:yield -0.02 minersoutfitb
-	on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-	on earn:lose minerboots3
-	on earn:yield -1 bootsequipped
-	on earn:hide minerboots3
-	on earn:show minerboots2
-	on earn:lose minerboots2
-	on earn:yield 1 minerboots
-	tag:equipment
 
 	*stoneboots2
 	name:Equip Stone Boots
