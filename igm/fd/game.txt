@@ -28840,7 +28840,7 @@ Upgrades
 		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
 		desc:[?(have this)|Press this button to unequip the miners boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
 		tag:equipment equipment_boots
-		req:1 woodenboots
+		req:1 minerboots
 		no buy
 		on earn:
 			yield bootsequipped
