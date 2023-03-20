@@ -28844,6 +28844,8 @@ Upgrades
 			
 			//FOR TEST
 			yield 9000000000 coins
+			yield 20000 attackmin
+			yield 30000 attackmax
 		end
 		on lose:
 			lose bootsequipped
@@ -28855,6 +28857,10 @@ Upgrades
 			yield 1 woodenboots
 			//
 			toast <b>[n:this]</b> снят
+			
+			//FOR TEST
+			lose 20000 attackmin
+			lose 30000 attackmax
 		end
 		//Toggle part
 		on click:
