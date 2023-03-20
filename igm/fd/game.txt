@@ -29898,38 +29898,53 @@ Upgrades
 	on earn:lose eplisorboots2
 	on earn:yield 1 eplisorboots
 	tag:equipment
-	
-	*ringofluck2
-	name:Equip Ring of Luck
-	desc:Press this button to equip this ring and gain all of its stats.
-	on earn:
-	if (ringequipped=1)
-	toast You already have a ring equipped!
-	lose ringofluck2
-	end
-	if (ringequipped=0)
-	yield 1 ringequipped
-	yield -12 rdtchance
-	show ringofluck3
-	hide ringofluck2
-	yield -1 ringofluck
-	end
-	end
-	req:1 ringofluck
-	tag:equipment
 
-	*ringofluck3
-	name:Unequip Ring of Luck
-	desc:Press this button to unequip the ring of luck to be able to use other rings.
-	req:have ringofluck2
-	on earn:yield 12 rdtchance
-	on earn:lose ringofluck3
-	on earn:yield -1 ringequipped
-	on earn:hide ringofluck3
-	on earn:show ringofluck2
-	on earn:lose ringofluck2
-	on earn:yield 1 ringofluck
-	tag:equipment
+
+
+
+
+	*ringofluck2
+		name:Ring of Luck
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the ring of luck to be able to use other rings.|Press this button to equip this ring and gain all of its stats.]
+		tag:equipment equipment_ring
+		req:1 ringofluck
+		no buy
+		on earn:
+			yield ringequipped
+			//
+			lose 12 rdtchance
+			//
+			lose 1 ringofluck
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose ringequipped
+			//
+			yield 12 rdtchance
+			//
+			yield 1 ringofluck
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_ring
+				yield this
+			end
+		end
+
+
+
+
+
+
+
+
 
 	*ringoffortune2
 	name:Equip Ring of Fortune
