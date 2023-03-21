@@ -20,83 +20,106 @@ Settings
 
 Layout
 	*menu1 
-        contains:Buildings
-        class:menu1css
-        tooltip origin:right
+		contains:Buildings
+		class:menu1css
+		tooltip origin:right
+	
 	*playerhp1
-        contains:tag:playerhp
-        class:playerhpposition
+		contains:tag:playerhp
+		class:playerhpposition
+	
 	*enemyhp1
-        contains:tag:enemyhp
-        class:enemyhpposition
+		contains:tag:enemyhp
+		class:enemyhpposition
+	
 	*inventory
-        contains:Upgrades
-        class:scroll1 inventory1css
-        tooltip origin:left
+		contains:Upgrades
+		class:scroll1 inventory1css
+		tooltip origin:left
+	
 	*inventoryHeader
-        header:Inventory and Misc
-        class:inventoryHeader
-        tooltip origin:left
+		header:Inventory and Misc (Здесь вкладки меню будут)
+		class:inventoryHeader
+		tooltip origin:left
+	
 	*sellitemsMenu
-        contains:tag:sellitems
-        class:scroll1 sellitemsCss
-        tooltip origin:left
+		contains:tag:sellitems
+		class:scroll1 sellitemsCss
+		tooltip origin:left
+
 	*sellitemsHeader
-        header:Sell Items
-        class:sellitemsHeader
-        tooltip origin:left
+		header:Sell Items
+		class:sellitemsHeader
+		tooltip origin:left
+	
 	*logHeader
-        header:Forez's Dream
-        class:logHeader
-        tooltip origin:left
+		header:Forez's Dream
+		class:logHeader
+		tooltip origin:left
+	
 	*logbox
-        contains:Log
-        class:logcss
+		contains:Log
+		class:logcss
+	
 	*abiltiy1box
-        contains:tag:ability1
-        class:ability1css
+		contains:tag:ability1
+		class:ability1css
+	
 	*bowabiltiy1box
-        contains:tag:bowability1
-        class:ability1css
+		contains:tag:bowability1
+		class:ability1css
+	
 	*abiltiy8box
-        contains:tag:ability8
-        class:ability8css
+		contains:tag:ability8
+		class:ability8css
+	
 	*abiltiy2box
-        contains:tag:ability2
-        class:ability2css
+		contains:tag:ability2
+		class:ability2css
+	
 	*abiltiy3box
-        contains:tag:ability3
-        class:ability3css
+		contains:tag:ability3
+		class:ability3css
+	
 	*ability4box
-        contains:tag:ability4
-        class:ability4css
+		contains:tag:ability4
+		class:ability4css
+	
 	*ability5box
-        contains:tag:ability5
-        class:ability5css
+		contains:tag:ability5
+		class:ability5css
+	
 	*ability6box
-        contains:tag:ability6
-        class:ability6css
+		contains:tag:ability6
+		class:ability6css
+	
 	*ability7box
-        contains:tag:ability7
-        class:ability7css
+		contains:tag:ability7
+		class:ability7css
+	
 	*abilitymeleebox
-        header:Damage Abilities
-        class:abilitymeleecss
+		header:Damage Abilities
+		class:abilitymeleecss
+	
 	*abilitydefbox
-        header:Defence Abilities
-        class:abilitydefcss
+		header:Defence Abilities
+		class:abilitydefcss
+	
 	*abilityregenbox
-        header:Regen Abilities
-        class:abilityregencss
+		header:Regen Abilities
+		class:abilityregencss
+	
 	*statsbox
-        contains:tag:stats
-        class:statscss
+		contains:tag:stats
+		class:statscss
+	
 	*acritbox
-        contains:tag:alwayscrit
-        class:acritcss
+		contains:tag:alwayscrit
+		class:acritcss
+	
 	*titleBox
-        class:titleBoxCss
-        contains:tag:titleRes
+		class:titleBoxCss
+		contains:tag:titleRes
    
    
    
