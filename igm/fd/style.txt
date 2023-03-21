@@ -1,12 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 #game {
-    background-color: #000;
-    font-family: 'Inter', sans-serif;
-    text-shadow: none;
-    font-size: 14px;
-    color: #000;
+	background-color: #000;
+	font-family: 'Inter', sans-serif;
+	text-shadow: none;
+	font-size: 14px;
+	color: #fff;
 }
+
+#content {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 10vh 10vh 40vh 40vh;
+	grid-template-areas:
+		"title    menu logheader inventoryheader"
+		"stats    menu logbox    inventorybox"
+		"playerhp menu logbox    inventorybox"
+		". . . .";
+}
+
+.menu1css {
+	grid-area: menu;
+	overflow-y: scroll;
+}
+.logHeader {
+	grid-area: logheader;
+}
+.logcss {
+	grid-area: logbox;
+}
+
+.inventoryHeader {
+	grid-area: inventoryheader;
+}
+.inventory1css {
+	grid-area: inventorybox;
+	overflow-y: scroll;
+}
+.titleBoxCss {
+	grid-area: title;
+}
+.statscss {
+	grid-area: stats;
+}
+.playerhpposition {
+	grid-area: playerhp;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.box-things {
+
+}
+
+#box-things-Upgrades {
+
+}
+
+
+
+
 
 
 
@@ -77,16 +139,7 @@
 	background-color: rgb(217,38,172);
 	}
 	}
-	.titleBoxCss {
-	  left: 0%;
-	  top: -1%;
-	  width: 20%;
-	  height: 1%;
-position: absolute !important;
-border-style: solid;
-border-width: 2px;
-border-color: #000000FF;
-	}
+
 
 
 
@@ -292,53 +345,22 @@ z-index: 3000 !important; /* this makes the currently hovered ability in front o
 }
 
 
-.menu1css {
-  left: 20% !important; /* this is how far from the left edge of the window the menu is (percentage of screen width) */
-  top: 0% !important; /* this is how far from the top the menu is in percentage of screen height */
-  width: 25% !important; /* this is the width of the menu in percentage of screen width */
-  height: 55% !important; /* the height of the menu in percentage of screen height */
-overflow-x: hidden; /* the menu can't scroll horizontally */
-overflow-y: scroll; /* the menu can scroll vertically */
-position: absolute !important; /* freely place the menu on the screen */
-border-style: solid; /* the black border of the menu is solid */
-border-width: 2px; /* the border is 2 pixels wide */
-border-color: #000000FF; /* the border is black and not transparent */
-}
 
-/* below is the log header ("Forez's Dream" text) see above for explanations */
 
-.logHeader {
-   left: 45%;
-  top: 0%;
-  width: 30%;
-  height: 5% !important;
-	position: absolute !important;
-overflow-x: hidden;
-overflow-y: hidden;
 
-display: inline-block !important; /* this makes the text separate in more lines when it can't fit into the header (zoomed in) */
 
-border-style: solid;
-border-width: 2px;
-border-color: #000;
-}
 
-/* this is the log. See above for explanations */
-.logcss {
-  left: 45%;
-  top: 5%;
-  width: 30%;
-  height: 50%;
 
-position: absolute !important;
-    background-color: rgb(128, 128, 128);
-color: #000000;
-font-size: 18px;
-padding: 8px !important; /* this makes the text appear at a distance from the log edge, so the text isn't touching the border */
-border-style: solid;
-border-width: 2px;
-border-color: #000000FF;
-}
+
+
+
+
+
+
+
+
+
+
 
 #logInner {
     display: table-cell;
@@ -351,17 +373,6 @@ overflow-x: hidden;
 overflow-y: scroll;
 }
 
-/* this is the player HP and Damage boxes. See above for explanations */
-.playerhpposition {
-  left: 0%;
-  top: 30%;
-  width: 20%;
-font-size: 160%;
-position: absolute !important;
-border-style: solid;
-border-width: 2px;
-border-color: #000000FF;
-}
 /* this is the enemy HP boxes. See above for explanations */
 .enemyhpposition {
   right: 0%;
@@ -376,35 +387,7 @@ border-color: #000000FF;
 
 }
 
-/* this is the header for the inventory. See above for explanations */
-.inventoryHeader{
-  right: 0px;
-  top: 0%;
-  width: 25%;
-  height: 5% !important;
-	position: absolute !important;
-overflow-x: hidden;
-overflow-y: hidden;
 
-display: inline-block !important;
-min-height: 30px !important; /* the height of the header should be minimum 30px to contain the text when zoomed */
-border-style: solid;
-border-width: 2px;
-border-color: #000;
-z-index: 1000 !important;
-}
-
-
-/* this is the inventory. See above for explanations */
-.inventory1css {
-  right: 0%;
-  top: 5%;
-  width: 25%;
-  height: 40%;
-	position: absolute !important;
-overflow-x: hidden;
-overflow-y: scroll;
-}
 
 /* this is the sell items header. See above for explanations */
 .sellitemsHeader {
@@ -455,14 +438,7 @@ text-align:center; /* center the text */
 display: inline-block; /* this separates the text in multiple lines if it is zoomed and can't be contained in one line */
 
 }
-#box-things-Upgrades{
-right: 0%;
-  
-  width: 100%;
-  height: 90%;
-	position: absolute !important;
 
-}
 
 /* This is the position and scale of "Hard Swing" */
 .ability1css {
@@ -618,15 +594,6 @@ border-width: 2px;
 border-color: #000000FF;
 }
 
-/* This is common for all skills and some other of the buttons */
-.box-things{
-left: 0% !important;
-top: 0% !important;
-position: absolute !important;
-width: 100% !important;
-height: 10% !important;
-
-}
 
 /* This is makes sure the skill icons quadratic and have a black border that fits the rest of the layout.
 If more skills are added there icons (e.g. "#thing-icon-XX") should be on this list too */
@@ -646,18 +613,6 @@ border-width: 2px;
 border-color: #000000FF;
 }
 
-
-/* This is the position of the stats and levels of the player */
-.statscss {
-  left: 0%;
-  top: 5%;
-  width: 20%;
-  
-position: absolute !important;
-border-style: solid;
-border-width: 2px;
-border-color: #000000FF;
-}
 
 /* this makes sure that the images don't repeat in general */
 .thing-icon{
