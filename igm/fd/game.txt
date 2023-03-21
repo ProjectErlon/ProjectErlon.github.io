@@ -24080,13 +24080,13 @@ Upgrades
 		name:Wooden Dagger
 		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
 		desc:[?(have this)|Press this button to unequip the wooden dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-		tag:equipment equipment_dagger
+		tag:equipment equipment_weapon equipment_dagger
 		req:1 woodendagger
 		no buy
 		on earn:
 			yield mainhandequipped
-			//
 			yield 1 daggerequipped
+			//
 			yield 11 attackmin
 			yield 19 attackmax
 			//
@@ -24096,8 +24096,8 @@ Upgrades
 		end
 		on lose:
 			lose mainhandequipped
-			//
 			lose 1 daggerequipped
+			//
 			lose 11 attackmin
 			lose 19 attackmax
 			lose (ability8at) ability8at
@@ -24111,54 +24111,58 @@ Upgrades
 			if (have this)
 				lose this
 			else
+				lose tag:equipment_pickaxe
+				lose tag:equipment_weapon
 				lose tag:equipment_dagger
 				yield this
 			end
 		end
     
-    
+    *stonedagger2
+		name:Stone Dagger
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the stone dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+		tag:equipment equipment_weapon equipment_dagger
+		req:1 stonedagger
+		no buy
+		on earn:
+			yield mainhandequipped
+			yield 1 daggerequipped
+			//
+			yield 23 attackmin
+			yield 30 attackmax
+			//
+			lose 1 stonedagger
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose mainhandequipped
+			lose 1 daggerequipped
+			//
+			lose 23 attackmin
+			lose 30 attackmax
+			lose (ability8at) ability8at
+			//
+			yield 1 stonedagger
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_pickaxe
+				lose tag:equipment_weapon
+				lose tag:equipment_dagger
+				yield this
+			end
+		end
     
    
 
 
-	*stonedagger2
-	name:Equip Stone Dagger
-	desc:Press this button to equip this weapon and gain all of its stats.
-	on earn:
-	if (mainhandequipped=1)
-	toast You already have a weapon equipped!
-	lose stonedagger2
-	end
-	if (mainhandequipped=0)
-	yield 1 mainhandequipped
-	yield 1 daggerequipped
-	yield 23 attackmin
-	yield 30 attackmax
-	show stonedagger3
-	hide stonedagger2
-	yield -1 stonedagger
-	end
-	end
-	req:1 stonedagger
-	tag:equipment
-
-	*stonedagger3
-	name:Unequip Stone Dagger
-	desc:Press this button to unequip the stone dagger to be able to use other weapons.
-	req:have stonedagger2
-	on earn:
-	yield -(ability8at) ability8at
-	yield -23 attackmin
-	yield -30 attackmax
-	lose stonedagger3
-	yield -1 mainhandequipped
-	yield -1 daggerequipped
-	hide stonedagger3
-	show stonedagger2
-	lose stonedagger2
-	yield 1 stonedagger
-	end
-	tag:equipment
 
 	*offstonedagger2
 	name:Equip Off-Hand Stone Dagger
@@ -25617,85 +25621,100 @@ Upgrades
 	end
 	tags:equipment
 	
+	
+	
 	*woodenpickaxe2
-	name:Equip Wooden Pickaxe
-	desc:Press this button to equip this pickaxe and gain all of its stats.
-	on earn:
-	if ((pickaxeequipped=1) or (mainhandequipped=1) or (offhandequipped=1))
-	toast You already have a weapon/pickaxe equipped!
-	lose woodenpickaxe2
-	end
-	if ((mainhandequipped=0) and (mainhandequipped=0) and (offhandequipped=0))
-	yield 1 mainhandequipped
-	yield 1 offhandequipped
-	yield 1 pickaxeequipped
-	yield 5 miningprecision
-	yield 20 miningpower
-	show woodenpickaxe3
-	hide woodenpickaxe2
-	yield -1 woodenpickaxe
-	end
-	end
-	req:1 woodenpickaxe
-	tags:equipment pickaxeon
-
-	*woodenpickaxe3
-	name:Unequip Wooden Pickaxe
-	desc:Press this button to unequip the wooden pickaxe to be able to use other weapons.
-	req:have woodenpickaxe2
-	on earn:
-	yield -5 miningprecision
-	yield -20 miningpower
-	lose woodenpickaxe3
-	yield -1 mainhandequipped
-	yield -1 offhandequipped
-	yield -1 pickaxeequipped
-	hide woodenpickaxe3
-	show woodenpickaxe2
-	lose woodenpickaxe2
-	yield 1 woodenpickaxe
-	end
-	tags:equipment pickaxeon
-
+		name:Wooden Pickaxe
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the wooden pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+		tag:equipment equipment_pickaxe
+		req:1 woodenpickaxe
+		no buy
+		on earn:
+			yield mainhandequipped
+			yield offhandequipped
+			yield pickaxeequipped
+			//
+			yield 5 miningprecision
+			yield 20 miningpower
+			//
+			lose 1 woodenpickaxe
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose mainhandequipped
+			lose offhandequipped
+			lose pickaxeequipped
+			//
+			lose 5 miningprecision
+			lose 20 miningpower
+			//
+			yield 1 woodenpickaxe
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_weapon
+				lose tag:equipment_shield
+				lose tag:equipment_pickaxe
+				yield this
+			end
+		end
+	
+	
+	
 	*stonepickaxe2
-	name:Equip Stone Pickaxe
-	desc:Press this button to equip this pickaxe and gain all of its stats.
-	on earn:
-	if ((pickaxeequipped=1) or (mainhandequipped=1) or (offhandequipped=1))
-	toast You already have a weapon/pickaxe equipped!
-	lose stonepickaxe2
-	end
-	if ((mainhandequipped=0) and (mainhandequipped=0) and (offhandequipped=0))
-	yield 1 mainhandequipped
-	yield 1 offhandequipped
-	yield 1 pickaxeequipped
-	yield 7 miningprecision
-	yield 30 miningpower
-	show stonepickaxe3
-	hide stonepickaxe2
-	yield -1 stonepickaxe
-	end
-	end
-	req:1 stonepickaxe
-	tags:equipment pickaxeon
+		name:Stone Pickaxe
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the stone pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+		tag:equipment equipment_pickaxe
+		req:1 stonepickaxe
+		no buy
+		on earn:
+			yield mainhandequipped
+			yield offhandequipped
+			yield pickaxeequipped
+			//
+			yield 7 miningprecision
+			yield 30 miningpower
+			//
+			lose 1 stonepickaxe
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose mainhandequipped
+			lose offhandequipped
+			lose pickaxeequipped
+			//
+			lose 7 miningprecision
+			lose 30 miningpower
+			//
+			yield 1 stonepickaxe
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_weapon
+				lose tag:equipment_shield
+				lose tag:equipment_pickaxe
+				yield this
+			end
+		end
 
-	*stonepickaxe3
-	name:Unequip Stone Pickaxe
-	desc:Press this button to unequip the stone pickaxe to be able to use other weapons.
-	req:have stonepickaxe2
-	on earn:
-	yield -7 miningprecision
-	yield -30 miningpower
-	lose stonepickaxe3
-	yield -1 mainhandequipped
-	yield -1 offhandequipped
-	yield -1 pickaxeequipped
-	hide stonepickaxe3
-	show stonepickaxe2
-	lose stonepickaxe2
-	yield 1 stonepickaxe
-	end
-	tags:equipment pickaxeon
+
+
+
+
 
 	*ironpickaxe2
 	name:Equip Iron Pickaxe
@@ -25978,79 +25997,89 @@ Upgrades
 	end
 	tags:equipment pickaxeon
 	
+	
+	
 	*runeamulet2
-	name:Equip Rune Amulet
-	desc:Press this button to equip this amulet and gain all of its stats.
-	on earn:
-	if (amuletequipped=1)
-	toast You already have an amulet/soul equipped!
-	lose runeamulet2
-	end
-	if (amuletequipped=0)
-	yield 1 amuletequipped
-	yield 2.9 regenhprate
-	yield 2.4 bregenhprate
-	show runeamulet3
-	hide runeamulet2
-	yield -1 runeamulet
-	end
-	end
-	req:1 runeamulet
-	tag:equipment
+		name:Rune Amulet
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the rune amulet to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
+		tag:equipment equipment_amulet
+		req:1 runeamulet
+		no buy
+		on earn:
+			yield amuletequipped
+			//
+			yield 2.9 regenhprate
+			yield 2.4 bregenhprate
+			//
+			lose 1 runeamulet
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose amuletequipped
+			//
+			lose 2.9 regenhprate
+			lose 2.4 bregenhprate
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 runeamulet
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_amulet
+				yield this
+			end
+		end
 
-	*runeamulet3
-	name:Unequip Rune Amulet
-	desc:Press this button to unequip the rune amulet to be able to use other amulets.
-	req:have runeamulet2
-	on earn:
-	yield -2.9 regenhprate
-	yield -2.4 bregenhprate
-	lose runeamulet3
-	yield -1 amuletequipped
-	hide runeamulet3
-	show runeamulet2
-	lose runeamulet2
-	yield 1 runeamulet
-	end
-	tag:equipment
+
 
 	*luckamulet2
-	name:Equip Luck Amulet
-	desc:Press this button to equip this amulet and gain all of its stats.
-	on earn:
-	if (amuletequipped=1)
-	toast You already have an amulet/soul equipped!
-	lose luckamulet2
-	end
-	if (amuletequipped=0)
-	yield 1 amuletequipped
-	yield 0.7 regenhprate
-	yield 1.4 bregenhprate
-	yield 10 itemfind
-	show luckamulet3
-	hide luckamulet2
-	yield -1 luckamulet
-	end
-	end
-	tag:equipment
-	req:1 luckamulet
-	 
-	*luckamulet3
-	name:Unequip Luck Amulet
-	desc:Press this button to unequip the luck amulet to be able to use other amulets.
-	req:have luckamulet2
-	on earn:
-	yield -0.7 regenhprate
-	yield -1.4 bregenhprate
-	yield -10 itemfind
-	lose luckamulet3
-	yield -1 amuletequipped
-	hide luckamulet3
-	show luckamulet2
-	lose luckamulet2
-	yield 1 luckamulet
-	end
-	tag:equipment
+		name:Luck Amulet
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the luck amulet to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
+		tag:equipment equipment_amulet
+		req:1 luckamulet
+		no buy
+		on earn:
+			yield amuletequipped
+			//
+			yield 0.7 regenhprate
+			yield 1.4 bregenhprate
+			yield 10 itemfind
+			//
+			lose 1 luckamulet
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose amuletequipped
+			//
+			lose 0.7 regenhprate
+			lose 1.4 bregenhprate
+			lose 10 itemfind
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 luckamulet
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_amulet
+				yield this
+			end
+		end
+
+
 
 	*spiritamulet2
 	name:Equip Spirit Amulet
@@ -26234,95 +26263,109 @@ Upgrades
 	end
 	tag:equipment
 
-	*frontershield2
-	name:Equip Fronter Shield
-	desc:Press this button to equip this shield and gain all of its stats.
-	on earn:
-	if (offhandequipped=1)
-	toast You already have an off-hand/main hand item equipped!
-	lose frontershield2
-	end
-	if (offhandequipped=0)
-	yield 1 shieldequipped
-	yield 1 offhandequipped
-	yield 74 maxhp
-	yield 1.7 regenhprate
-	yield 0.6 bregenhprate
-	yield 0.11 daggerdmg
-	yield 3 critchance
-	show frontershield3
-	hide frontershield2
-	yield -1 frontershield
-	end
-	end
-	req:1 frontershield
-	tag:equipment
 
-	*frontershield3
-	name:Unequip Fronter Shield
-	desc:Press this button to unequip the off-hand fronter shield to be able to use other items.
-	req:have frontershield2
-	on earn:
-	yield -(ability8at) ability8at
-	yield -74 maxhp
-	yield -1.7 regenhprate
-	yield -0.6 bregenhprate
-	yield -0.11 daggerdmg
-	lose frontershield3
-	yield -1 offhandequipped
-	yield -1 shieldequipped
-	yield -3 critchance
-	hide frontershield3
-	show frontershield2
-	lose frontershield2
-	yield 1 frontershield
-	end
-	tag:equipment
+
+
+	*frontershield2
+		name:Fronter Shield
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the off-hand fronter shield to be able to use other items.|Press this button to equip this shield and gain all of its stats.]
+		tag:equipment equipment_shield
+		req:1 frontershield
+		no buy
+		on earn:
+			yield shieldequipped
+			yield offhandequipped
+			//
+			yield 74 maxhp
+			yield 1.7 regenhprate
+			yield 0.6 bregenhprate
+			yield 0.11 daggerdmg
+			yield 3 critchance
+			//
+			lose 1 frontershield
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose shieldequipped
+			lose offhandequipped
+			//
+			lose 74 maxhp
+			lose 1.7 regenhprate
+			lose 0.6 bregenhprate
+			lose 0.11 daggerdmg
+			lose 3 critchance
+			lose (ability8at) ability8at
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 frontershield
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_pickaxe
+				lose tag:equipment_shield
+				yield this
+			end
+		end
+
+	
 	
 	*slashershield2
-	name:Equip Slasher Shield
-	desc:Press this button to equip this shield and gain all of its stats.
-	on earn:
-	if (offhandequipped=1)
-	toast You already have an off-hand/main hand item equipped!
-	lose slashershield2
-	end
-	if (offhandequipped=0)
-	yield 1 shieldequipped
-	yield 1 offhandequipped
-	yield 189 maxhp
-	yield 3.1 regenhprate
-	yield 1.9 bregenhprate
-	yield 0.27 daggerdmg
-	yield 4.5 critchance
-	show slashershield3
-	hide slashershield2
-	yield -1 slashershield
-	end
-	end
-	req:1 slashershield
-	tag:equipment
+		name:Slasher Shield
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the off-hand slasher shield to be able to use other items.|Press this button to equip this shield and gain all of its stats.]
+		tag:equipment equipment_shield
+		req:1 slashershield
+		no buy
+		on earn:
+			yield shieldequipped
+			yield offhandequipped
+			//
+			yield 189 maxhp
+			yield 3.1 regenhprate
+			yield 1.9 bregenhprate
+			yield 0.27 daggerdmg
+			yield 4.5 critchance
+			//
+			lose 1 slashershield
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose shieldequipped
+			lose offhandequipped
+			//
+			lose 189 maxhp
+			lose 3.1 regenhprate
+			lose 1.9 bregenhprate
+			lose 0.27 daggerdmg
+			lose 4.5 critchance
+			lose (ability8at) ability8at
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 slashershield
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_pickaxe
+				lose tag:equipment_shield
+				yield this
+			end
+		end
+	
+	
 
-	*slashershield3
-	name:Unequip Slasher Shield
-	desc:Press this button to unequip the off-hand slasher shield to be able to use other items.
-	req:have slashershield2
-	on earn:
-	yield -(ability8at) ability8at
-	yield -189 maxhp
-	yield -3.1 regenhprate
-	yield -1.9 bregenhprate
-	yield -0.27 daggerdmg
-	lose slashershield3
-	yield -1 offhandequipped
-	yield -1 shieldequipped
-	yield -4.5 critchance
-	hide slashershield3
-	show slashershield2
-	lose slashershield2
-	yield 1 slashershield
-	end
-	tag:equipment
 	
 	*equisitorshield2
 	name:Equip Equisitors Shield
@@ -26412,54 +26455,49 @@ Upgrades
 			end
 		end
 
-	
-	
-	
-	
-	
-	
-	
+
 
 	//SECRET EGG: say "ZRnow:)"
 
+
+
 	*minerhelmet2
-	name:Equip Miners Helmet
-	desc:Press this button to equip this helmet and gain all of its stats.
-	on earn:
-	if (helmequipped=1)
-	toast You already have a helmet equipped!
-	lose minerhelmet2
-	end
-	if (helmequipped=0)
-	yield 1 helmequipped
-	yield 68 maxhp
-	yield 0.02 minersoutfitb
-	show minerhelmet3
-	hide minerhelmet2
-	yield -1 minerhelmet
-	end
-	end
-	req:1 minerhelmet
-	tag:equipment
-
-	*minerhelmet3
-	name:Unequip Miners Helmet
-	desc:Press this button to unequip the miners helmet to be able to use other helmets.
-	req:have minerhelmet2
-	on earn:
-	yield -68 maxhp
-	yield -0.02 minersoutfitb
-	if (hp>=maxhp) yield -(hp-maxhp) hp
-	lose minerhelmet3
-	yield -1 helmequipped
-	hide minerhelmet3
-	show minerhelmet2
-	lose minerhelmet2
-	yield 1 minerhelmet
-	end
-	tag:equipmenthelmet2
-
-
+		name:Miners Helmet
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the miners helmet to be able to use other helmets.|Press this button to equip this helmet and gain all of its stats.]
+		tag:equipment equipment_helmet
+		req:1 minerhelmet
+		no buy
+		on earn:
+			yield helmequipped
+			//
+			yield 68 maxhp
+			yield 0.02 minersoutfitb
+			//
+			lose 1 minerhelmet
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose helmequipped
+			//
+			lose 68 maxhp
+			lose 0.02 minersoutfitb
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 minerhelmet
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_helmet
+				yield this
+			end
+		end
 
 
 
@@ -30097,40 +30135,43 @@ Upgrades
 	on earn:yield 1 spelunkerring
 	tag:equipment
 
+
+
+
 	*infernalring2
-	name:Equip Infernal Ring
-	desc:Press this button to equip this ring and gain all of its stats.
-	on earn:
-	if (ringequipped=1)
-	toast You already have a ring equipped!
-	lose infernalring2
-	end
-	if (ringequipped=0)
-	yield 1 ringequipped
-	yield -24 rdtchance
-	show infernalring3
-	hide infernalring2
-	yield -1 infernalring
-	end
-	end
-	req:1 infernalring
-	tag:equipment
-
-	*infernalring3
-	name:Unequip Infernal Ring
-	desc:Press this button to unequip the infernal ring to be able to use other rings.
-	req:have infernalring2
-	on earn:yield 24 rdtchance
-	on earn:lose infernalring3
-	on earn:yield -1 ringequipped
-	on earn:hide infernalring3
-	on earn:show infernalring2
-	on earn:lose infernalring2
-	on earn:yield 1 infernalring
-	tag:equipment
-
-
-
+		name:Infernal Ring
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the infernal ring to be able to use other rings.|Press this button to equip this ring and gain all of its stats.]
+		tag:equipment equipment_ring
+		req:1 infernalring
+		no buy
+		on earn:
+			yield ringequipped
+			//
+			lose 24 rdtchance
+			//
+			lose 1 infernalring
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose ringequipped
+			//
+			yield 24 rdtchance
+			//
+			yield 1 infernalring
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_ring
+				yield this
+			end
+		end
 
 
 
