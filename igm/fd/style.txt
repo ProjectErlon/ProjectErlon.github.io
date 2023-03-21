@@ -11,12 +11,13 @@
 #content {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 10vh 10vh 40vh 40vh;
+	grid-template-rows: 6vh 18vh 31vh 6vh 39vh;
 	grid-template-areas:
 		"title    menu logheader inventoryheader"
 		"stats    menu logbox    inventorybox"
 		"playerhp menu logbox    inventorybox"
-		". . . .";
+		". . . sellheader"
+		". . . sellbox";
 }
 
 .menu1css {
@@ -46,6 +47,17 @@
 .playerhpposition {
 	grid-area: playerhp;
 }
+.sellitemsHeader {
+	grid-area: sellheader;
+}
+.sellitemsCss {
+	grid-area: sellbox;
+	overflow-y: scroll;
+}
+
+
+
+
 
 
 
@@ -388,37 +400,6 @@ border-color: #000000FF;
 }
 
 
-
-/* this is the sell items header. See above for explanations */
-.sellitemsHeader {
-  right: 0px;
-  top: 69%;
-  width: 25%;
-  height: 5% !important;
-	position: absolute !important;
-overflow-x: hidden;
-overflow-y: hidden;
-
-
-display: inline-block !important;
-
-border-style: solid;
-border-width: 2px;
-border-color: #000;
-}
-
-/* this is the sell items menu. See above for explanations */
-.sellitemsCss {
-  right: 0px;
-  top: 74%;
-  width: 25%;
-  height: 20%;
-	position: absolute !important;
-overflow-x: hidden;
-overflow-y: scroll;
-
-
-}
 
 /* these properties are the common ones for all box-headers. See above for explanations */
 .box-header {
