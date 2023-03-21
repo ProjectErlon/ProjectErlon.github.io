@@ -26621,44 +26621,49 @@ Upgrades
 	end
 	tag:equipment
 
-	*equisitorhelmet2
-	name:Equip Equisitors Helmet
-	desc:Press this button to equip this helmet and gain all of its stats.
-	on earn:
-	if (helmequipped=1)
-	toast You already have a helmet equipped!
-	lose equisitorhelmet2
-	end
-	if (helmequipped=0)
-	yield 1 helmequipped
-	yield 246 maxhp
-	yield 3.4 regenhprate
-	yield 0.3 bregenhprate
-	show equisitorhelmet3
-	hide equisitorhelmet2
-	yield -1 equisitorhelmet
-	end
-	end
-	tag:equipment
-	req:1 equisitorhelmet
 
-	*equisitorhelmet3
-	name:Unequip Equisitor Helmet
-	desc:Press this button to unequip the equisitors helmet to be able to use other helmets.
-	req:have equisitorhelmet2
-	on earn:
-	yield -3.4 regenhprate
-	yield -246 maxhp
-	yield -0.3 bregenhprate
-	if (hp>=maxhp) yield -(hp-maxhp) hp
-	lose equisitorhelmet3
-	lose helmequipped
-	hide equisitorhelmet3
-	show equisitorhelmet2
-	lose equisitorhelmet2
-	yield 1 equisitorhelmet
-	end
-	tag:equipment
+	*equisitorhelmet2
+		name:Equisitors Helmet
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the equisitors helmet to be able to use other helmets.|Press this button to equip this helmet and gain all of its stats.]
+		tag:equipment equipment_helmet
+		req:1 equisitorhelmet
+		no buy
+		on earn:
+			yield helmequipped
+			//
+			yield 246 maxhp
+			yield 3.4 regenhprate
+			yield 0.3 bregenhprate
+			//
+			lose 1 equisitorhelmet
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose helmequipped
+			//
+			lose 246 maxhp
+			lose 3.4 regenhprate
+			lose 0.3 bregenhprate
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 equisitorhelmet
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_helmet
+				yield this
+			end
+		end
+		
+		
+	
 
 	*platinumhelmet2
 	name:Equip Platinum Helmet
@@ -27216,42 +27221,46 @@ Upgrades
 	end
 	tag:equipment
 
-	*woodenchestplate2
-	name:Equip Wooden Chestplate
-	desc:Press this button to equip this chestplate and gain all of its stats.
-	on earn:
-	if (chestequipped=1)
-	toast You already have a chestplate/platebody equipped!
-	lose woodenchestplate2
-	end
-	if (chestequipped=0)
-	yield 1 chestequipped
-	yield 43 maxhp
-	yield 0.3 regenhprate
-	show woodenchestplate3
-	hide woodenchestplate2
-	yield -1 woodenchestplate
-	end
-	end
-	req:1 woodenchestplate
-	tag:equipment
 
-	*woodenchestplate3
-	name:Unequip Wooden Chestplate
-	desc:Press this button to unequip the wooden chestplate to be able to use other chestplates/platebodies.
-	req:have woodenchestplate2
-	on earn:
-	yield -0.3 regenhprate
-	yield -43 maxhp
-	if (hp>=maxhp) yield -(hp-maxhp) hp
-	lose woodenchestplate3
-	yield -1 chestequipped
-	hide woodenchestplate3
-	show woodenchestplate2
-	lose woodenchestplate2
-	yield 1 woodenchestplate
-	end
-	tag:equipment
+
+	*woodenchestplate2
+		name:Wooden Chestplate
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the wooden chestplate to be able to use other chestplates/platebodies.|Press this button to equip the chestplate and gain all of its stats.]
+		tag:equipment equipment_chestplate
+		req:1 woodenchestplate
+		no buy
+		on earn:
+			yield chestequipped
+			//
+			yield 43 maxhp
+			yield 0.3 regenhprate
+			//
+			lose 1 woodenchestplate
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose chestequipped
+			//
+			lose 43 maxhp
+			lose 0.3 regenhprate
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 woodenchestplate
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_chestplate
+				yield this
+			end
+		end
+
 
 	*minerchestplate2
 	name:Equip Miners Chestplate
@@ -27290,44 +27299,47 @@ Upgrades
 	end
 	tag:equipment
 
-	*stonechestplate2
-	name:Equip Stone Chestplate
-	desc:Press this button to equip this chestplate and gain all of its stats.
-	on earn:
-	if (chestequipped=1)
-	toast You already have a chestplate/platebody equipped!
-	lose stonechestplate2
-	end
-	if (chestequipped=0)
-	yield 1 chestequipped
-	yield 164 maxhp
-	yield 1.2 regenhprate
-	yield 0.2 bregenhprate
-	show stonechestplate3
-	hide stonechestplate2
-	yield -1 stonechestplate
-	end
-	end
-	req:1 stonechestplate
-	tag:equipment
 
-	*stonechestplate3
-	name:Unequip Stone Chestplate
-	desc:Press this button to unequip the stone chestplate to be able to use other chestplates/platebodies.
-	req:have stonechestplate2
-	on earn:
-	yield -1.2 regenhprate
-	yield -164 maxhp
-	yield -0.2 bregenhprate
-	if (hp>=maxhp) yield -(hp-maxhp) hp
-	lose stonechestplate3
-	yield -1 chestequipped
-	hide stonechestplate3
-	show stonechestplate2
-	lose stonechestplate2
-	yield 1 stonechestplate
-	end
-	tag:equipment
+	*stonechestplate2
+		name:Stone Chestplate
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the stone chestplate to be able to use other chestplates/platebodies.|Press this button to equip the chestplate and gain all of its stats.]
+		tag:equipment equipment_chestplate
+		req:1 stonechestplate
+		no buy
+		on earn:
+			yield chestequipped
+			//
+			yield 164 maxhp
+			yield 1.2 regenhprate
+			yield 0.2 bregenhprate
+			//
+			lose 1 stonechestplate
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose chestequipped
+			//
+			lose 164 maxhp
+			lose 1.2 regenhprate
+			lose 0.2 bregenhprate
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 stonechestplate
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_chestplate
+				yield this
+			end
+		end
+
 
 	*ironchestplate2
 	name:Equip Iron Platebody
@@ -28128,41 +28140,46 @@ Upgrades
 
 
 
-
 	*stoneleggings2
-	name:Equip Stone Leggings
-	desc:Press this button to equip the leggings and gain all of its stats.
-	on earn:
-	if (legequipped=1)
-	toast You already have some leggings equipped!
-	lose stoneleggings2
-	end
-	if (legequipped=0)
-	yield 1 legequipped
-	yield 121 maxhp
-	yield 0.7 regenhprate
-	show stoneleggings3
-	hide stoneleggings2
-	yield -1 stoneleggings
-	end
-	end
-	req:1 stoneleggings
-	tag:equipment
+		name:Stone Leggings
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the stone leggings to be able to use other leggings/platelegs.|Press this button to equip the leggings and gain all of its stats.]
+		tag:equipment equipment_leggings
+		req:1 stoneleggings
+		no buy
+		on earn:
+			yield legequipped
+			//
+			yield 121 maxhp
+			yield 0.7 regenhprate
+			//
+			lose 1 stoneleggings
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose legequipped
+			//
+			lose 121 maxhp
+			lose 0.7 regenhprate
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 stoneleggings
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_leggings
+				yield this
+			end
+		end
 
-	*stoneleggings3
-	name:Unequip Stone Leggings
-	desc:Press this button to unequip the stone leggings to be able to use other leggings/platelegs.
-	req:have stoneleggings2
-	on earn:yield -0.7 regenhprate
-	on earn:yield -121 maxhp
-	on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-	on earn:lose stoneleggings3
-	on earn:yield -1 legequipped
-	on earn:hide stoneleggings3
-	on earn:show stoneleggings2
-	on earn:lose stoneleggings2
-	on earn:yield 1 stoneleggings
-	tag:equipment
+
+
 
 	*ironleggings2
 	name:Equip Iron Platelegs
@@ -28275,42 +28292,49 @@ Upgrades
 	on earn:yield 1 goldleggings
 	tag:equipment
 
-	*equisitorleggings2
-	name:Equip Equisitors Leggings
-	desc:Press this button to equip the leggings and gain all of its stats.
-	on earn:
-	if (legequipped=1)
-	toast You already have some leggings equipped!
-	lose equisitorleggings2
-	end
-	if (legequipped=0)
-	yield 1 legequipped
-	yield 400 maxhp
-	yield 3.9 regenhprate
-	yield 0.4 bregenhprate
-	show equisitorleggings3
-	hide equisitorleggings2
-	yield -1 equisitorleggings
-	end
-	end
-	tag:equipment
-	req:1 equisitorleggings
 
-	*equisitorleggings3
-	name:Unequip Equisitor Leggings
-	desc:Press this button to unequip the equisitors leggings to be able to use other leggings/platelegs.
-	req:have equisitorleggings2
-	on earn:yield -3.9 regenhprate
-	on earn:yield -400 maxhp
-	on earn:yield -0.4 bregenhprate
-	on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-	on earn:lose equisitorleggings3
-	on earn:yield -1 legequipped
-	on earn:hide equisitorleggings3
-	on earn:show equisitorleggings2
-	on earn:lose equisitorleggings2
-	on earn:yield 1 equisitorleggings
-	tag:equipment
+
+	*equisitorleggings2
+		name:Equisitors Leggings
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the equisitors leggings to be able to use other leggings/platelegs.|Press this button to equip the leggings and gain all of its stats.]
+		tag:equipment equipment_leggings
+		req:1 equisitorleggings
+		no buy
+		on earn:
+			yield legequipped
+			//
+			yield 400 maxhp
+			yield 3.9 regenhprate
+			yield 0.4 bregenhprate
+			//
+			lose 1 equisitorleggings
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose legequipped
+			//
+			lose 400 maxhp
+			lose 3.9 regenhprate
+			lose 0.4 bregenhprate
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 equisitorleggings
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_leggings
+				yield this
+			end
+		end
+
+
 
 	*platinumleggings2
 	name:Equip Platinum Platelegs
@@ -29630,44 +29654,54 @@ Upgrades
 	on earn:yield 1 sglavyiorboots
 	tag:equipment
 	
+	
+	
+	
 	*zarkboots2
-	name:Equip Zark Boots
-	desc:Press this button to equip the boots and gain all of its stats.
-	on earn:
-	if (bootsequipped=1)
-	toast You already have some boots equipped!
-	lose zarkboots2
-	end
-	if (bootsequipped=0)
-	yield 1 bootsequipped
-	yield 312 maxhp
-	yield 2.4 regenhprate
-	yield 9 attackmin
-	yield 15 attackmax
-	show zarkboots3
-	hide zarkboots2
-	yield -1 zarkboots
-	end
-	end
-	tag:equipment
-	req:1 zarkboots
-
-	*zarkboots3
-	name:Unequip Zark Boots
-	desc:Press this button to unequip the zark boots to be able to use other boots.
-	req:have zarkboots2
-	on earn:yield -2.4 regenhprate
-	on earn:yield -312 maxhp
-	on earn:yield -9 attackmin
-	on earn:yield -15 attackmax
-	on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-	on earn:lose zarkboots3
-	on earn:yield -1 bootsequipped
-	on earn:hide zarkboots3
-	on earn:show zarkboots2
-	on earn:lose zarkboots2
-	on earn:yield 1 zarkboots
-	tag:equipment
+		name:Zark Boots
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the zark boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
+		tag:equipment equipment_boots
+		req:1 zarkboots
+		no buy
+		on earn:
+			yield bootsequipped
+			//
+			yield 312 maxhp
+			yield 2.4 regenhprate
+			yield 9 attackmin
+			yield 15 attackmax
+			//
+			lose 1 zarkboots
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose bootsequipped
+			//
+			lose 312 maxhp
+			lose 2.4 regenhprate
+			lose 9 attackmin
+			lose 15 attackmax
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 zarkboots
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_boots
+				yield this
+			end
+		end
+	
+	
+	
+	
 
 	*szarkboots2
 	name:Equip Superior Zark Boots
@@ -30095,37 +30129,50 @@ Upgrades
 	on earn:yield 1 infernalring
 	tag:equipment
 
-	*zrerkring2
-	name:Equip Zrerk's Ring
-	desc:Press this button to equip this ring and gain all of its stats.
-	on earn:
-	if (ringequipped=1)
-	toast You already have a ring equipped!
-	lose zrerkring2
-	end
-	if (ringequipped=0)
-	yield 1 ringequipped
-	yield -30 rdtchance
-	show zrerkring3
-	hide zrerkring2
-	yield -1 zrerkring
-	end
-	end
-	req:1 zrerkring
-	tag:equipment
 
-	*zrerkring3
-	name:Unequip Zrerk's Ring
-	desc:Press this button to unequip zrerk's ring to be able to use other rings.
-	req:have zrerkring2
-	on earn:yield 30 rdtchance
-	on earn:lose zrerkring3
-	on earn:yield -1 ringequipped
-	on earn:hide zrerkring3
-	on earn:show zrerkring2
-	on earn:lose zrerkring2
-	on earn:yield 1 zrerkring
-	tag:equipment
+
+
+
+
+	*zrerkring2
+		name:Zrerk's Ring
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the zrerk's ring to be able to use other rings.|Press this button to equip this ring and gain all of its stats.]
+		tag:equipment equipment_ring
+		req:1 zrerkring
+		no buy
+		on earn:
+			yield ringequipped
+			//
+			lose 30 rdtchance
+			//
+			lose 1 zrerkring
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose ringequipped
+			//
+			yield 30 rdtchance
+			//
+			yield 1 zrerkring
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_ring
+				yield this
+			end
+		end
+
+
+
+
+	
 
 	*treasurering2
 	name:Equip Treasure Ring
@@ -31131,38 +31178,59 @@ Upgrades
 	end
 	req:1 defendertitle2
 	
-	*blackholetitle2
-	name:Equip the 'Black Hole' Title.
-	text:Equip the '<#53590a>Black Hole<#000000>' Title
-	desc:Equip the '<#53590a>Black Hole<#d4d4d4>' Title.
-	on earn:
-	if (titleequipped=1)
-	lose blackholetitle2
-	log You already have a title equipped.
-	end
-	if (titleequipped=0)
-	log '<#53590a>Black Hole<#000000>' Title equipped.
-	hide blackholetitle2
-	yield 1 titleequipped
-	end
-	end
-	req:1 blackholetitle
 	
-	*blackholetitle3
-	name:Unequip the 'Black Hole' Title.
-	text:Unequip the '<#53590a>Black Hole<#000000>' Title
-	desc:Unequip the '<#53590a>Black Hole<#d4d4d4>' Title.
-	on earn:
-	lose blackholetitle3
-	if (titleequipped=1)
-	log '<#53590a>Black Hole<#000000>' Title unequipped.
-	show blackholetitle2
-	lose blackholetitle2
-	lose blackholetitle3
-	yield -1 titleequipped
-	end
-	end
-	req:1 blackholetitle2
+	
+	
+	
+	
+	*blackholetitle2
+		//text:Equip the '<#53590a>Black Hole<#000000>' Title
+		name:'Black Hole' Title
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Unequip the '<#53590a>Black Hole<#d4d4d4>' Title.|Equip the '<#53590a>Black Hole<#d4d4d4>' Title.]
+		tag:equipment equipment_title
+		req:1 blackholetitle
+		no buy
+		on earn:
+			yield titleequipped
+			//
+			lose 30 rdtchance
+			//
+			lose 1 blackholetitle
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose titleequipped
+			//
+			yield 30 rdtchance
+			//
+			yield 1 blackholetitle
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_title
+				yield this
+			end
+		end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	*xeronictitle2
 	name:Equip the 'Xeronic' Title.
