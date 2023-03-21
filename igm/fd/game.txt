@@ -24160,9 +24160,6 @@ Upgrades
 			end
 		end
     
-   
-
-
 
 	*offstonedagger2
 	name:Equip Off-Hand Stone Dagger
@@ -25666,23 +25663,7 @@ Upgrades
 			end
 		end
 	
-	*woodenpickaxe3
-	name:Unequip Wooden Pickaxe
-	desc:Press this button to unequip the wooden pickaxe to be able to use other weapons.
-	req:have woodenpickaxe2
-	on earn:
-	yield -5 miningprecision
-	yield -20 miningpower
-	lose woodenpickaxe3
-	yield -1 mainhandequipped
-	yield -1 offhandequipped
-	yield -1 pickaxeequipped
-	hide woodenpickaxe3
-	show woodenpickaxe2
-	lose woodenpickaxe2
-	yield 1 woodenpickaxe
-	end
-	tags:equipment pickaxeon
+	
 	
 	*stonepickaxe2
 		name:Stone Pickaxe
@@ -28924,6 +28905,8 @@ Upgrades
 			yield 9000000000 coins
 			yield 20000 attackmin
 			yield 30000 attackmax
+			yield 30000 maxhp
+			yield 15000 regenhprate
 		end
 		on lose:
 			lose bootsequipped
@@ -28939,6 +28922,8 @@ Upgrades
 			//FOR TEST
 			lose 20000 attackmin
 			lose 30000 attackmax
+			lose 30000 maxhp
+			lose 15000 regenhprate
 		end
 		//Toggle part
 		on click:
@@ -28993,41 +28978,45 @@ Upgrades
 
 
 
-
 	*stoneboots2
-	name:Equip Stone Boots
-	desc:Press this button to equip the boots and gain all of its stats.
-	on earn:
-	if (bootsequipped=1)
-	toast You already have some boots equipped!
-	lose stoneboots2
-	end
-	if (bootsequipped=0)
-	yield 1 bootsequipped
-	yield 74 maxhp
-	yield 0.5 regenhprate
-	show stoneboots3
-	hide stoneboots2
-	yield -1 stoneboots
-	end
-	end
-	req:1 stoneboots
-	tag:equipment
+		name:Stone Boots
+		text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+		desc:[?(have this)|Press this button to unequip the stone boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
+		tag:equipment equipment_boots
+		req:1 stoneboots
+		no buy
+		on earn:
+			yield bootsequipped
+			//
+			yield 74 maxhp
+			yield 0.5 regenhprate
+			//
+			lose 1 stoneboots
+			//
+			toast <b>[n:this]</b> надет
+		end
+		on lose:
+			lose bootsequipped
+			//
+			lose 74 maxhp
+			lose 0.5 regenhprate
+			if (hp>=maxhp) hp=maxhp
+			//
+			yield 1 stoneboots
+			//
+			toast <b>[n:this]</b> снят
+		end
+		//Toggle part
+		on click:
+			if (have this)
+				lose this
+			else
+				lose tag:equipment_boots
+				yield this
+			end
+		end
+		
 
-	*stoneboots3
-	name:Unequip Stone Boots
-	desc:Press this button to unequip the stone boots to be able to use other boots.
-	req:have stoneboots2
-	on earn:yield -0.5 regenhprate
-	on earn:yield -74 maxhp
-	on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-	on earn:lose stoneboots3
-	on earn:yield -1 bootsequipped
-	on earn:hide stoneboots3
-	on earn:show stoneboots2
-	on earn:lose stoneboots2
-	on earn:yield 1 stoneboots
-	tag:equipment
 
 	*ironboots2
 	name:Equip Iron Boots
