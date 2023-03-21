@@ -13,10 +13,10 @@
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: 6vh 18vh 31vh 6vh 39vh;
 	grid-template-areas:
-		"title    menu logheader inventoryheader"
-		"stats    menu logbox    inventorybox"
-		"playerhp menu logbox    inventorybox"
-		". . . sellheader"
+		"title              menu             logheader          inventoryheader"
+		"stats              menu             logbox             inventorybox"
+		"playerhp           menu             logbox             inventorybox"
+		"abilitymeleeheader abilitydefheader abilityregenheader sellheader"
 		". . . sellbox";
 }
 
@@ -54,8 +54,15 @@
 	grid-area: sellbox;
 	overflow-y: scroll;
 }
-
-
+.abilityregencss {
+	grid-area: abilityregenheader;
+}
+.abilitydefcss {
+	grid-area: abilitydefheader;
+}
+.abilitymeleecss {
+	grid-area: abilitymeleeheader;
+}
 
 
 
@@ -379,11 +386,11 @@ z-index: 3000 !important; /* this makes the currently hovered ability in front o
     vertical-align: top;
 }
 
-.scroll1 {
+/*.scroll1 {
   height: 200px;
 overflow-x: hidden;
 overflow-y: scroll;
-}
+}*/
 
 /* this is the enemy HP boxes. See above for explanations */
 .enemyhpposition {
@@ -526,54 +533,11 @@ position: absolute !important;
 
 }
 
-/* This is the header of the melee skills */
-.abilitymeleecss {
-    background-color: rgb(128, 128, 128);
-  left: 0%;
-  top: 55%;
-  width: 30%;
-  height: 6%;
-	position: absolute !important;
-color:  rgb(0, 0, 0);
-font-size: 18px;
-
-border-style: solid;
-border-width: 2px;
-border-color: #000000FF;
-}
-
-/* This is the header of the defensive skills */
-.abilitydefcss {
-    background-color: rgb(128, 128, 128);
-  left: 30%;
-   top: 55%;
-  width: 20%;
-  height: 6%;
-position: absolute !important;
-color:  rgb(0, 0, 0);
-font-size: 18px;
-
-border-style: solid;
-border-width: 2px;
-border-color: #000000FF;
-}
 
 
-/* This is the header of the regen skills */
-.abilityregencss {
-    background-color: rgb(128, 128, 128);
-  left: 50%;
- top: 55%;
-  width: 25%;
-  height: 6%;
-position: absolute !important;
-color:  rgb(0, 0, 0);
-font-size: 18px;
 
-border-style: solid;
-border-width: 2px;
-border-color: #000000FF;
-}
+
+
 
 
 /* This is makes sure the skill icons quadratic and have a black border that fits the rest of the layout.
