@@ -11,14 +11,17 @@
 #content {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 6vh 18vh 31vh 6vh 39vh;
+	grid-template-rows: 6vh 31vh 18vh 6vh 39vh;
 	grid-template-areas:
 		"title              menu             logheader          inventoryheader"
 		"stats              menu             logbox             inventorybox"
-		"playerhp           menu             logbox             inventorybox"
+		"playerhp           menu             logbox             enemyhp"
 		"abilitymeleeheader abilitydefheader abilityregenheader sellheader"
 		". . . sellbox";
 }
+
+
+
 
 .menu1css {
 	grid-area: menu;
@@ -64,6 +67,9 @@
 	grid-area: abilitymeleeheader;
 }
 
+.enemyhpposition {
+	grid-area: enemyhp;
+}
 
 
 
@@ -384,26 +390,6 @@ z-index: 3000 !important; /* this makes the currently hovered ability in front o
 #logInner {
     display: table-cell;
     vertical-align: top;
-}
-
-/*.scroll1 {
-  height: 200px;
-overflow-x: hidden;
-overflow-y: scroll;
-}*/
-
-/* this is the enemy HP boxes. See above for explanations */
-.enemyhpposition {
-  right: 0%;
-  top: 46%;
-  width: 25%;
-  height: 20%;
-font-size: 160%;
-position: absolute !important;
-border-style: solid;
-border-width: 0px;
-border-color: #000000FF;
-
 }
 
 
