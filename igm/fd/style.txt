@@ -27,6 +27,36 @@
 }
 
 
+.thing {
+	padding: 5px;
+	background-color: rgb(128, 128, 128);
+	color:  #000;
+	width: 100%;
+	font-size: 18px;
+	text-align: center !important;
+	line-height: 1.0 !important;
+}
+.thing:hover {
+	background-color: rgb(190, 190, 190); /* The light grey hover color of the buttons */
+}
+
+.upgrade {
+	background-color: #373654;
+	color: #fff;
+	cursor: pointer;
+	width: 100%;
+	display: inline-block;
+}
+.upgrade:hover {
+	background-color: #313136;
+}
+
+
+
+
+
+
+
 
 
 .menu1css {
@@ -128,29 +158,7 @@
 
 
 
-.thing {
-	padding: 5px;
-	background-color: rgb(128, 128, 128);
-	color:  #000;
-	width: 100%;
-	font-size: 18px;
-	text-align: center !important;
-	line-height: 1.0 !important;
-}
-.thing:hover {
-	background-color: rgb(190, 190, 190); /* The light grey hover color of the buttons */
-}
 
-.upgrade {
-	background-color: #373654;
-	color: #fff;
-	cursor: pointer;
-	width: 100%;
-	display: inline-block;
-}
-.upgrade:hover {
-	background-color: #313136;
-}
 
 
 
