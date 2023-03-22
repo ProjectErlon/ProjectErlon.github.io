@@ -28,9 +28,7 @@
 .thing {
 	padding: 0;
 	margin: 0;
-	
 	display: block;
-	background-color: #666;
 }
 
 
@@ -54,9 +52,6 @@
 	grid-area: menu;
 	background-color: #fdf5df;
 	color: #622C15;
-}
-#box-menu .thing {
-	background-color: #fdf5df;
 }
 #box-menuHeader {
 	display: grid;
