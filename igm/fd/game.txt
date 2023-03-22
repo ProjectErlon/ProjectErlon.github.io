@@ -16542,7 +16542,7 @@ Upgrades
 			hide tag:menuTab
 		end
 	*menuTitle
-		text:[?(menuID is 0)|Навигация|]
+		text:[?(menuID is 0)|Навигация|][?(menuID is 1)|Магазин|]
 		desc:[menuID]
 		tag:menuTitle
 		no buy
