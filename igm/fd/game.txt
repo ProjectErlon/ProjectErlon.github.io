@@ -16539,7 +16539,7 @@ Upgrades
 		on click:
 			lose tag:menuCategory
 		
-			//menuID is 0
+			menuID is 0
 			//lose tag:menuCategory
 			//lose tag:menuTab
 			//hide this
@@ -16547,7 +16547,7 @@ Upgrades
 		end
 		
 	*menuTitle
-		text:[?(menuID is 0)|Навигация|][?(menuID is 1)|Магазин|]
+		text:[?(menuID is 0)|Навигация|][?(menuID is 1)|Магазин|][?(menuID is 2)|Инвнтр|]
 		desc:[menuID]
 		tag:menuTitle
 		no buy
@@ -16604,9 +16604,9 @@ Upgrades
 			//show tag:menuCategory
 		end
 		on click:
-			toast 1
-			//lose tag:menuCategory
-			//yield this
+			//toast 1
+			lose tag:menuCategory
+			yield this
 		end
 		
 		
@@ -16621,9 +16621,9 @@ Upgrades
 			//show tag:menuCategory
 		end
 		on click:
-			toast 2
-			//lose tag:menuCategory
-			//yield this
+			//toast 2
+			lose tag:menuCategory
+			yield this
 		end
 
 /* ====== || ====== */
