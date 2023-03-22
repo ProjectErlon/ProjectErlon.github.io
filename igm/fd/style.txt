@@ -23,6 +23,7 @@
 
 
 #box-body {
+	grid-area: body;
 	display: grid;
 	grid-template-columns: 1fr 350px;
 	grid-template-rows: 100%;
