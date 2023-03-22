@@ -24,6 +24,34 @@
 .box {
 	padding: 0;
 }
+.thing {
+	padding: 0;
+	margin: 0;
+	/* Потом убрать */
+	display: block;
+	background-color: #666;
+}
+.thing:hover {
+	/* Потом убрать */
+	/*background-color: #777;/*
+}
+.upgrade {
+	//background-color: #373654;
+	//color: #fff;
+	//cursor: pointer;
+	//width: 100%;
+	//display: inline-block;
+}
+.upgrade:hover {
+	//background-color: #313136;
+}
+
+
+
+
+
+
+
 
 
 
@@ -108,27 +136,7 @@
 
 
 
-.thing {
-	padding: 0;
-	margin: 0;
-	/* Потом убрать */
-	display: block;
-	background-color: #666;
-}
-.thing:hover {
-	/* Потом убрать */
-	/*background-color: #777;/*
-}
-.upgrade {
-	//background-color: #373654;
-	//color: #fff;
-	//cursor: pointer;
-	//width: 100%;
-	//display: inline-block;
-}
-.upgrade:hover {
-	//background-color: #313136;
-}
+
 
 
 
