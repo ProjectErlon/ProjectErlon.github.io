@@ -11,14 +11,36 @@
 #content {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 12vh 25vh 18vh 6vh 39vh;
+	grid-template-rows: 50vh 12vh 25vh 18vh 6vh 39vh;
 	grid-template-areas:
+		"body               body             body               body"
 		"title              menu             logheader          inventoryheader"
 		"stats              menu             logbox             inventorybox"
 		"playerhp           menu             logbox             enemyhp"
 		"abilitymeleeheader abilitydefheader abilityregenheader sellheader"
 		". . . sellbox";
 }
+
+
+#box-body {
+	display: grid;
+	grid-template-columns: 1fr 350px;
+	grid-template-rows: 100%;
+	grid-template-areas: "left menu";
+}
+#box-left {
+	grid-area: left;
+}
+#box-menu {
+	grid-area: menu;
+}
+
+
+
+
+
+
+
 
 
 .thing {
