@@ -53,6 +53,7 @@
 #box-menu {
 	grid-area: menu;
 	background-color: #fdf5df;
+	color: #622C15;
 }
 #box-menuHeader {
 	display: grid;
@@ -77,6 +78,7 @@
 }
 #box-things-menuTitle {
 	grid-area: title;
+	border-bottom: 1px solid #EDDDC4;
 }
 .tag-menuTitle {
 	height: 48px;
@@ -114,13 +116,19 @@
 }
 .tag-menuTab.owned {
 	background-color: blue;
+	color: #fff;
 }
 #box-menuBody {
-    overflow-y: scroll;
-    height: 100%;
+	overflow-y: scroll;
+	height: 100%;
+	padding: 8px;
 }
 
-
+#box-menuBody .thing:hover {
+	border-radius: 4px;
+	background-color: #FCFAEB;
+	border: 1px solid #2E1914;
+}
 
 
 
