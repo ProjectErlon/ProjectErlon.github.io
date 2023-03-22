@@ -16525,7 +16525,7 @@ Upgrades
 			
 			show tag:menuTitle
 			
-			//menuID is 0
+			menuID is 0
 		end
 		
 	*menuBack
@@ -16534,7 +16534,7 @@ Upgrades
 		no buy
 		no tooltip
 		on click:
-			//menuID=0
+			menuID is 0
 			lose tag:menuCategory
 			//Терять не вкладку а менюИтемсы
 			lose tag:menuTab
@@ -16543,7 +16543,7 @@ Upgrades
 		end
 	*menuTitle
 		//name:0
-		text:[?(menuID is 0)|Навигация|]
+		text:[menuID] [?(menuID is 0)|Навигация|] [?(menuID is 0)|Магазин|]
 		tag:menuTitle
 		no buy
 		no tooltip
@@ -16585,7 +16585,7 @@ Upgrades
 		tag:menuCategory
 		no buy
 		on earn:
-			//menuID is 1
+			menuID is 1
 			hide tag:menuCategory
 			yield menuTabShopBuy
 			show tag:menuBack
