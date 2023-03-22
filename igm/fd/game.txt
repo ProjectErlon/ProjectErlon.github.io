@@ -16529,8 +16529,8 @@ Upgrades
 		no buy
 		no tooltip
 		on click:
+			menuID=0
 			toast kekw
-			//menuID is 0
 		end
 		
 	*menuTitle
