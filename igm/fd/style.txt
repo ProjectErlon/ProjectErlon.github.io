@@ -43,10 +43,10 @@
 }
 #box-menuHeader {
 	display: grid;
-	grid-template-columns: 48px 1fr;
-	grid-template-rows: 48px auto;
+	grid-template-columns: 1fr 48px;
+	grid-template-rows: auto auto;
 	grid-template-areas:
-		"back title"
+		"title back"
 		"tab tab";
 }
 #box-things-menuBack {
@@ -87,7 +87,7 @@
 }
 .thing:hover {
 	/* Потом убрать */
-	background-color: #777;
+	/*background-color: #777;/*
 }
 .upgrade {
 	//background-color: #373654;
