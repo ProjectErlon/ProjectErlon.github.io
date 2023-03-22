@@ -16529,7 +16529,9 @@ Upgrades
 		no buy
 		no tooltip
 		on earn:lose this
-		on lose:menuID=0
+		on lose:
+			toast kekw
+		end
 		on click:
 			yield this
 		end
