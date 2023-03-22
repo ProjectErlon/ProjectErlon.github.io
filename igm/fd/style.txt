@@ -52,8 +52,35 @@
 #box-things-menuBack {
 	grid-area: back;
 }
+.tag-menuBack {
+	height: 48px;
+	line-height: 48px;
+}
+.tag-menuBack .thing-text {
+	padding: 0;
+}
 #box-things-menuTitle {
 	grid-area: title;
+}
+.tag-menuTitle {
+	height: 48px;
+	line-height: 48px;
+	
+	background-color: #fdf5df;
+	color: #21366A;
+	font-weight: bold;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+.tag-menuTitle::before {
+	content: '}==';
+}
+.tag-menuTitle::after {
+	content: '=={';
+}
+.tag-menuTitle .thing-text {
+	padding: 0;
 }
 #box-things-menuTab {
 	grid-area: tab;
@@ -69,6 +96,9 @@
     overflow-y: scroll;
     height: 100%;
 }
+
+
+
 
 
 
