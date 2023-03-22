@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
 #game {
 	background-color: #000;
 	font-family: 'Inter', sans-serif;
@@ -34,7 +39,7 @@
 	grid-area: logbox;
 }
 
-.inventoryHeader {
+box-inventoryHeader {
 	grid-area: inventoryheader;
 }
 .inventory1css {
