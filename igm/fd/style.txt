@@ -64,6 +64,11 @@
 
 
 
+
+
+
+
+
 #box-inventoryHeader {
 	grid-area: inventoryheader;
 	margin: 0;
@@ -83,14 +88,24 @@
 	//border: none;
 	//box-sizing: border-box;
 }
-
+.tag-inventoryTabHeader::before {
+	content: '}==';
+}
+.tag-inventoryTabHeader::after {
+	content: '=={';
+}
 #box-things-inventoryTab {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 }
 .tag-inventoryTab {
-	/* === */
+	border: 1px solid red;
 }
+.tag-inventoryTab.owned {
+ba	ckground-color: blue;
+}
+
+
 
 
 
