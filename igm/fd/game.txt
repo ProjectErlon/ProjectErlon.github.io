@@ -16514,7 +16514,7 @@ Buildings
 Upgrades
 
 /* ====== || ====== */
-	*menu
+	*menuUTest
 		name: Trigger Menu
 		on load:
 			hide tag:sellitems
