@@ -16513,6 +16513,7 @@ Buildings
 Upgrades
 
 /* ====== || ====== */
+// remove menuID - не работает корректно
 	*menuUTest
 		owned
 		always hidden
@@ -16530,10 +16531,11 @@ Upgrades
 		no tooltip
 		on click:
 			lose tag:menuCategory
+			lose tag:menuTab
 		end
 		
 	*menuTitle
-		text:[?(menuID is 0)|Навигация|][?(menuID is 1)|Магазин|][?(menuID is 2)|Инвнтр|]
+		text:[?(menuID is 0)|Навигация|][?(have menuShop)|Магазин|][?(have menuInventory)|Инвентарь|]
 		desc:[menuID]
 		tag:menuTitle
 		no buy
@@ -16579,6 +16581,9 @@ Upgrades
 		no buy
 		on earn:
 			hide tag:menuCategory
+			
+			show menuTabShopBuy
+			show menuTabShopSell
 		end
 		on lose:
 			show tag:menuCategory
