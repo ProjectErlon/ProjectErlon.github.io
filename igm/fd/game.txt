@@ -16585,7 +16585,6 @@ Upgrades
 		tag:menuCategory
 		no buy
 		on earn:
-			//menuID is 1
 			hide tag:menuCategory
 			yield menuTabShopBuy
 			show tag:menuBack
@@ -16595,6 +16594,7 @@ Upgrades
 			show tag:menuCategory
 		end
 		on click:
+			menuID is 1
 			lose tag:menuCategory
 			yield this
 		end
