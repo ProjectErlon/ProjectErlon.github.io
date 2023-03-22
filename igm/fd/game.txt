@@ -16528,12 +16528,8 @@ Upgrades
 		tag:menuBack
 		no buy
 		no tooltip
-		on earn:lose this
-		on lose:
-			toast kekw
-		end
 		on click:
-			yield this
+			lose tag:menuCategory
 		end
 		
 	*menuTitle
@@ -16582,10 +16578,10 @@ Upgrades
 		tag:menuCategory
 		no buy
 		on earn:
-			menuID is 1
+			hide tag:menuCategory
 		end
 		on lose:
-			//show tag:menuCategory
+			show tag:menuCategory
 		end
 		on click:
 			lose tag:menuCategory
@@ -16598,10 +16594,10 @@ Upgrades
 		tag:menuCategory
 		no buy
 		on earn:
-			menuID is 2
+			hide tag:menuCategory
 		end
 		on lose:
-			//show tag:menuCategory
+			show tag:menuCategory
 		end
 		on click:
 			lose tag:menuCategory
