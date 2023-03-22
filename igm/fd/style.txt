@@ -21,6 +21,10 @@
 		". . . sellbox";
 }
 
+.box {
+	padding: 0;
+}
+
 
 #box-body {
 	grid-area: body;
@@ -259,9 +263,7 @@
 
 
 
-.box{
 
-}
 
 
 
