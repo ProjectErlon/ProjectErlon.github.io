@@ -6,7 +6,7 @@ Let's make a game!
 Settings
 	no particles
 	no bulk particles
-	//stylesheet:https://erlon.ru/igm/fd/style.txt
+	stylesheet:https://erlon.ru/igm/fd/style.txt
 	
 
 
@@ -30,8 +30,6 @@ Layout
 		
 	*menuHeader
 		contains:tag:menuTitle, tag:menuBack, tag:menuTab
-	//*menuHeaderL1
-		//contains:tag:menuBack, tag:menuTitle
 		
 	//Переименовать sellitems, и соответственно изменить предметам тег
 	*menuBody
@@ -6376,9 +6374,8 @@ Buttons
 Resources
 
 	*menuID
-		name:menuID
+		name:ID
 		always hidden
-
 
 
 
@@ -16540,7 +16537,7 @@ Upgrades
 			
 			show tag:menuTitle
 			
-			menuID=0
+			menuID is 0
 		end
 		
 	*menuBack
@@ -16558,7 +16555,7 @@ Upgrades
 			hide tag:menuTab
 		end
 	*menuTitle
-		text:[menuID] - [?(menuID is 0)|Навигация|][?(menuID is 1)|Магазин|]
+		text:[menuID] [?(menuID is 0)|Навигация|]
 		tag:menuTitle
 		no buy
 		no tooltip
@@ -16600,7 +16597,7 @@ Upgrades
 		tag:menuCategory
 		no buy
 		on earn:
-			menuID=1
+			menuID is 1
 			hide tag:menuCategory
 			yield menuTabShopBuy
 			show tag:menuBack
