@@ -26,10 +26,15 @@ Layout
 	*left
 	
 	*menu
-		contains:menuHeader
+		contains:menuHeader, menuBody
 		
 	*menuHeader
-		contains:tag:menuBack, tag:menuTitle, tag:menuTabs
+		contains:tag:menuBack, tag:menuTitle, tag:menuTab
+		
+	//Переименовать sellitems, и соответственно изменить предметам тег
+	*menuBody
+		contains:tag:menuCategory, tag:shopItem, tag:sellitems
+
 
 
 
@@ -16507,6 +16512,74 @@ Buildings
 
 
 Upgrades
+
+/* ====== || ====== */
+	*menuBack
+		name:back
+		tag:menuBack
+		no buy
+		no tooltip
+		on click:
+			lose tag:menuCategory
+			//Терять не вкладку а менюИтемсы
+			lose tag:menuTab
+		end
+	*menuTitle
+		name:Title
+		tag:menuTitle
+		no buy
+		no tooltip
+	
+	*menuTabShopBuy
+		name:Купить
+		desc:Всяко разно
+		tag:menuTab
+		no buy
+		on earn:
+			show tag:shopItem
+		end
+		on lose:
+			hide tag:shopItem
+		end
+		on click:
+			lose tag:menuTab
+			yield this
+		end
+		
+	*menuTabShopSell
+		name:Продать
+		desc:Всяко разно
+		tag:menuTab
+		no buy
+		on earn:
+			show tag:sellitems
+		end
+		on lose:
+			hide tag:sellitems
+		end
+		on click:
+			lose tag:menuTab
+			yield this
+		end
+		
+	*menuShop
+		name:Магазин
+		tag:menuCategory
+		no buy
+		on earn:
+			hide tag:menuCategory
+		end
+		on lose:
+			show tag:menuCategory
+		end
+		on click:
+			lose tag:menuCategory
+			yield this
+		end
+
+
+/* ====== || ====== */
+
 
 	*inventoryTabHeader
 		text:[?(have inventoryTabWeapons)|Оружие|][?(have inventoryTabApparel)|Одежда|][?(have inventoryTabMisc)|Разное|]
