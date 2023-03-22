@@ -16528,9 +16528,10 @@ Upgrades
 		tag:menuBack
 		no buy
 		no tooltip
+		on earn:lose this
+		on lose:menuID=0
 		on click:
-			menuID=0
-			toast kekw
+			yield this
 		end
 		
 	*menuTitle
