@@ -16518,7 +16518,7 @@ Upgrades
 		always hidden
 		name: Trigger Menu
 		on load:
-			menuID is 0
+			//menuID is 0
 			//hide tag:sellitems
 			//hide tag:menuBack
 			//hide tag:menuTab
