@@ -16516,12 +16516,21 @@ Upgrades
 // remove menuID - не работает корректно
 	*menuUTest
 		owned
-		always hidden
+		//always hidden
 		name: Trigger Menu
 		on load:
 			//show tag:menuTitle
 			//show tag:menuBack
 			//show tag:menuTab
+		end
+		on tick:
+			if (have menuShop)
+				menuID is 1
+			else if (have menuInventory)
+				menuID is 2
+			else
+				menuID is 0
+			end
 		end
 		
 	*menuBack
