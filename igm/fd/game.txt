@@ -29,7 +29,7 @@ Layout
 		contains:menuHeader
 		
 	*menuHeader
-		contains:tag:menuHeader, tag:menuTabs
+		contains:tag:menuBack, tag:menuTitle, tag:menuTabs
 
 
 
