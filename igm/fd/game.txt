@@ -16514,6 +16514,12 @@ Buildings
 Upgrades
 
 /* ====== || ====== */
+	*menu
+		name: Trigger Menu
+		on load:
+			hide tag:sellitems
+		end
+		
 	*menuBack
 		name:back
 		tag:menuBack
@@ -16568,6 +16574,7 @@ Upgrades
 		no buy
 		on earn:
 			hide tag:menuCategory
+			yield menuTabShopBuy
 		end
 		on lose:
 			show tag:menuCategory
