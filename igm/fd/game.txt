@@ -16526,7 +16526,9 @@ Upgrades
 			//hide tag:menuTab
 			//lose tag:menuTab
 			
-			//show tag:menuTitle
+			show tag:menuTitle
+			show tag:menuBack
+			show tag:menuTab
 		end
 		
 	*menuBack
@@ -16602,9 +16604,9 @@ Upgrades
 			//show tag:menuCategory
 		end
 		on click:
-			toast KekW
-			lose tag:menuCategory
-			yield this
+			toast 1
+			//lose tag:menuCategory
+			//yield this
 		end
 		
 		
@@ -16619,9 +16621,9 @@ Upgrades
 			//show tag:menuCategory
 		end
 		on click:
-			toast KekW
-			lose tag:menuCategory
-			yield this
+			toast 2
+			//lose tag:menuCategory
+			//yield this
 		end
 
 /* ====== || ====== */
