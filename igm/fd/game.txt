@@ -19,6 +19,22 @@ Settings
 
 
 Layout
+	
+	*body
+		contains:left, menu
+		
+	*left
+	
+	*menu
+		contains:menuHeader
+		
+	*menuHeader
+		contains:tag:menuHeader, tag:menuTabs
+
+
+
+
+
 	*menu1 
 		contains:Buildings
 		class:menu1css
