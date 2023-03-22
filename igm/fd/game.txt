@@ -62,7 +62,7 @@ Layout
 		//header:Inventory and Misc (Здесь вкладки меню будут)
 		contains:tag:inventoryTabHeader, tag:inventoryTab
 		tooltip origin:left
-	
+/*	
 	*sellitemsMenu
 		contains:tag:sellitems
 		class:scroll1 sellitemsCss
@@ -72,7 +72,7 @@ Layout
 		header:Sell Items
 		class:sellitemsHeader
 		tooltip origin:left
-	
+*/
 	*logHeader
 		header:Forez's Dream
 		class:logHeader
@@ -3073,8 +3073,8 @@ Buttons
 	hide receivedung2loot
 	hide receivedung3loot
 	show tag:enemy
-	show shopentrance
-	show tag:sellitems
+	//show shopentrance
+	//show tag:sellitems
 	yield -1 bregenhp
 	if (bregenhp=0) yield 1 regenhp
 	show minebutton1
@@ -6661,7 +6661,7 @@ Resources
 	hide lootkyplonzin
 	hide bregenhp
 	hide ability3clone
-	hide tag:shopitems
+	//hide tag:shopitems
 	hide ability1
 	hide ability2
 	hide ability3
@@ -6670,8 +6670,8 @@ Resources
 	hide ability6
 	hide ability7
 	hide ability8
-	hide tag:shopitems
-	hide shopleave
+	//hide tag:shopitems
+	//hide shopleave
 	end
 	on load:
 	if (firstkypload=0)
@@ -9088,7 +9088,7 @@ Buildings
 	on click:
 	yield -1 attackplayer
 	show tag:enemy
-	show shopentrance
+	//show shopentrance
 	if (zmbkc=5)
 	yield 1 woodendagger
 	yield 1 woodendaggervar
@@ -9217,7 +9217,7 @@ Buildings
 	on click:
 	yield -1 attackplayer
 	show tag:enemy
-	show shopentrance
+	//show shopentrance
 	yield (random(20,50)) coins2
 	log Armored Zombie dropped <#ebe834>[floor(coins2*coinpvar3)] coins<#000000>
 	yield floor(coins2*coinpvar3) coins
@@ -9367,7 +9367,7 @@ Buildings
 	on click:
 	yield -1 attackplayer
 	show tag:enemy
-	show shopentrance
+	//show shopentrance
 	yield (random(60,200)) coins2
 	log Demon dropped <#ebe834>[floor(coins2*coinpvar3)] coins<#000000>
 	yield floor(coins2*coinpvar3) coins
@@ -9548,7 +9548,7 @@ Buildings
 	if ((dinovictorybattle=1) or (dinolosebattle=1))
 	yield -1 attackplayer
 	show tag:enemy
-	show shopentrance
+	//show shopentrance
 	yield (random(300,700)) coins2
 	log Dinosaur dropped <#ebe834>[floor(coins2*coinpvar3)] coins<#000000>
 	yield floor(coins2*coinpvar3) coins
@@ -9756,7 +9756,7 @@ Buildings
 	yield -(enemyattackmax) enemyattackmax
 	yield -1 attackplayer
 	show tag:enemy
-	show shopentrance
+	//show shopentrance
 	yield (random(1500,3000)) coins2
 	if (zmbkkc=0) 
 	yield (coins2*100) coins2
@@ -10203,7 +10203,7 @@ Buildings
 	if ((krysmvictorybattle=1) or (krysmlosebattle=1))
 	yield -1 attackplayer
 	show tag:enemy
-	show shopentrance
+	//show shopentrance
 	yield (random(600,1300)) coins2
 	log Krysm dropped <#ebe834>[floor(coins2*coinpvar3)] coins<#000000>
 	yield (floor(coins2*coinpvar3)) coins
@@ -10486,7 +10486,7 @@ Buildings
 	yield -(kypdialogvar) kypdialogvar
 	yield -1 attackplayer
 	show tag:enemy
-	show shopentrance
+	//show shopentrance
 	yield (random((5000*(drscenragevar/10+1)),(10000*(drscenragevar/10+1)))) coins2
 	log Drasconix dropped <#ebe834>[floor(coins2*coinpvar3)] coins<#000000>
 	if ((drascecontract=1) and (drascecontractcmplt=0) and (drscenragevar>=drascecontractreq)) yield 1 drascecontractcmplt
@@ -10929,7 +10929,7 @@ Buildings
 	yield -(kypdialogvar) kypdialogvar
 	yield -1 attackplayer
 	show tag:enemy
-	show shopentrance
+	//show shopentrance
 	show minebutton1
 	yield -1 bregenhp
 	if (bregenhp=0) yield 1 regenhp
@@ -10954,8 +10954,8 @@ Buildings
 	yield -1 bregenhp
 	if (bregenhp=0) yield 1 regenhp
 	show tag:enemy
-	show shopentrance
-	show tag:sellitems
+	//show shopentrance
+	//show tag:sellitems
 	log You flee from the battle...
 	end
 	end
@@ -10969,7 +10969,7 @@ Buildings
 	no buy
 	on click:
 	show tag:enemy
-	show shopentrance
+	//show shopentrance
 	yield -(durm) durm
 	yield -(durs) durs
 	if (kypflawfailed=0) yield 1 theelitecompleted
@@ -11043,6 +11043,7 @@ Buildings
 	yield -(kypflawfailed) kypflawfailed
 	end
 	
+	//hide
 	*shopentrance
 	text:Enter Shop
 	name:Enter Shop
@@ -11052,10 +11053,10 @@ Buildings
 	on click:
 	hide tag:enemy
 	hide regenhp
-	hide shopentrance
+	//hide shopentrance
 	hide minebutton1
 	hide showcrystalmenu
-	show shopleave
+	//show shopleave
 	if (ability1owned=0) show sability1
 	if (ability2owned=0) show sability2
 	if (ability3owned=0) show sability3
@@ -11300,14 +11301,14 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
-	hide tag:shopitems
+	//hide tag:sellitems
+	//hide tag:shopitems
 	yield 1 attackenemy
 	yield 1 attackplayer
 	yield 1 dung1atemps
 	yield 1 dungcwave
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	if (dung1cooldown>0) log Still on cooldown: <#fc3903>[dung1cooldown/60]:[dung1cooldown2/10][dung1cooldown2%10]
@@ -11353,14 +11354,14 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
-	hide tag:shopitems
+	//hide tag:sellitems
+	//hide tag:shopitems
 	yield 1 attackenemy
 	yield 1 attackplayer
 	yield 1 dung2atemps
 	yield 1 dungcwave
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	if (dung2cooldown>0) log Still on cooldown: <#fc3903>[dung2cooldown/3600]:[dung2cooldown3/60]:[dung2cooldown2/10][dung2cooldown2%10]
@@ -11406,14 +11407,14 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
-	hide tag:shopitems
+	//hide tag:sellitems
+	//hide tag:shopitems
 	yield 1 attackenemy
 	yield 1 attackplayer
 	yield 1 dung3atemps
 	yield 1 dungcwave
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	if (dung3cooldown>0) log Still on cooldown: <#fc3903>[dung3cooldown/3600]:[dung3cooldown3/60]:[dung3cooldown2/10][dung3cooldown2%10]
@@ -11455,14 +11456,14 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
-	hide tag:shopitems
+	//hide tag:sellitems
+	//hide tag:shopitems
 	yield 1 attackenemy
 	yield 1 attackplayer
 	yield 1 zmbvictorybattle
 	yield 1 zmblosebattle
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	tag:enemy
@@ -11500,14 +11501,14 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
-	hide tag:shopitems
+	//hide tag:sellitems
+	//hide tag:shopitems
 	yield 1 attackenemy
 	yield 1 attackplayer
 	yield 1 azmbvictorybattle
 	yield 1 azmblosebattle
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	tag:enemy
@@ -11545,14 +11546,14 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
-	hide tag:shopitems
+	//hide tag:sellitems
+	//hide tag:shopitems
 	yield 1 attackenemy
 	yield 1 attackplayer
 	yield 1 dvictorybattle
 	yield 1 dlosebattle
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	tag:enemy
@@ -11590,14 +11591,14 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
-	hide tag:shopitems
+	//hide tag:sellitems
+	//hide tag:shopitems
 	yield 1 attackenemy
 	yield 1 attackplayer
 	yield 1 dinovictorybattle
 	yield 1 dinolosebattle
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	tag:enemy
@@ -11638,7 +11639,7 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
+	//hide tag:sellitems
 	end
 	if ((attacklevel>69) and ($roll=1))
 	log <#ff1100>You feel a powerful energy source coming out of Zrerk...
@@ -11659,7 +11660,7 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
+	//hide tag:sellitems
 	end
 	if ((attacklevel>69) and ($roll>1))
 	yield -1 mercenaryenter
@@ -11678,14 +11679,14 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
+	//hide tag:sellitems
 	end
 	yield 1 attackenemy
 	yield 1 attackplayer
 	yield 1 zmbkvictorybattle
 	yield 1 zmbklosebattle
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	tag:enemy
@@ -11724,14 +11725,14 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
-	hide tag:shopitems
+	//hide tag:sellitems
+	//hide tag:shopitems
 	yield 1 attackenemy
 	yield 1 attackplayer
 	yield 1 krysmvictorybattle
 	yield 1 krysmlosebattle
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	tag:enemy
@@ -11776,8 +11777,8 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
-	hide tag:shopitems
+	//hide tag:sellitems
+	//hide tag:shopitems
 	show leavebattle
 	yield 5 leavebattletimer
 	end
@@ -11788,7 +11789,7 @@ Buildings
 	yield 1 drscvictorybattle
 	yield 1 drsclosebattle
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	tag:enemy
 	limit:1
@@ -11830,12 +11831,12 @@ Buildings
 	yield -1 regenhp
 	if (regenhp=0) yield 1 bregenhp
 	show bregenhp
-	hide tag:sellitems
-	hide tag:shopitems
+	//hide tag:sellitems
+	//hide tag:shopitems
 	yield 1 attackenemy
 	yield 1 attackplayer
 	hide tag:enemy
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	tag:enemy
@@ -11851,10 +11852,10 @@ Buildings
 	hide regenhp
 	hide tag:item
 	show tag:orebar
-	hide tag:sellitems
+	//hide tag:sellitems
 	hide minebutton1
 	hide showcrystalmenu
-	hide shopentrance
+	//hide shopentrance
 	yield 1 minebpressed
 	end
 	limit:1
@@ -11943,7 +11944,7 @@ Buildings
 	hide mineplatinumore
 	hide minebutton2
 	hide minebutton1
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	on tick:do click with miningiron
@@ -11964,7 +11965,7 @@ Buildings
 	hide mineplatinumore
 	hide minebutton2
 	hide minebutton1
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	on tick:do click with miningsteel
@@ -11985,7 +11986,7 @@ Buildings
 	hide mineplatinumore
 	hide minebutton2
 	hide minebutton1
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	on tick:do click with mininggold
@@ -12006,7 +12007,7 @@ Buildings
 	hide mineplatinumore
 	hide minebutton2
 	hide minebutton1
-	hide shopentrance
+	//hide shopentrance
 	end
 	end
 	on tick:do click with miningplatinum
@@ -12022,11 +12023,11 @@ Buildings
 	show tag:item
 	show minebutton1
 	show showcrystalmenu
-	show tag:sellitems
+	//show tag:sellitems
 	yield -1 minebpressed
 	yield -1 minebutton2
 	yield -1 minebutton1
-	show shopentrance
+	//show shopentrance
 	end
 	limit:1
 	req:1 minebutton1
@@ -22948,8 +22949,8 @@ Upgrades
 	hide receivedung2loot
 	hide receivedung3loot
 	show tag:enemy
-	show shopentrance
-	show tag:sellitems
+	//show shopentrance
+	//show tag:sellitems
 	yield -(dungmonstype) dungmonstype
 	yield -1 bregenhp
 	if (bregenhp=0) yield 1 regenhp
@@ -23129,8 +23130,8 @@ Upgrades
 	yield -1 bregenhp
 	if (bregenhp=0) yield 1 regenhp
 	show tag:enemy
-	show shopentrance
-	show tag:sellitems
+	//show shopentrance
+	//show tag:sellitems
 	yield -(coins*(0.5-coinretriveamount)) coins
 	yield (maxhp/4) hp
 	end
