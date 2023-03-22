@@ -16518,14 +16518,6 @@ Upgrades
 		always hidden
 		name: Trigger Menu
 		on load:
-			lose tag:menuCategory
-		
-			//menuID is 0
-			//hide tag:sellitems
-			//hide tag:menuBack
-			//hide tag:menuTab
-			//lose tag:menuTab
-			
 			show tag:menuTitle
 			show tag:menuBack
 			show tag:menuTab
@@ -16537,13 +16529,7 @@ Upgrades
 		no buy
 		no tooltip
 		on click:
-			lose tag:menuCategory
-		
 			menuID is 0
-			//lose tag:menuCategory
-			//lose tag:menuTab
-			//hide this
-			//hide tag:menuTab
 		end
 		
 	*menuTitle
@@ -16593,18 +16579,11 @@ Upgrades
 		no buy
 		on earn:
 			menuID is 1
-			//hide tag:menuCategory
-			//yield menuTabShopBuy
-			//show tag:menuBack
-			//show tag:menuTab
-			//hide tag:menuCategory
-			//show tag:menuBack
 		end
 		on lose:
 			//show tag:menuCategory
 		end
 		on click:
-			//toast 1
 			lose tag:menuCategory
 			yield this
 		end
@@ -16621,7 +16600,6 @@ Upgrades
 			//show tag:menuCategory
 		end
 		on click:
-			//toast 2
 			lose tag:menuCategory
 			yield this
 		end
