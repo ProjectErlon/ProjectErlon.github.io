@@ -23,6 +23,7 @@ Layout
 		contains:left, menu
 		
 	*left
+		
 	
 	*menu
 		contains:menuHeader, menuBody
@@ -30,10 +31,12 @@ Layout
 		
 	*menuHeader
 		contains:tag:menuTitle, tag:menuBack, tag:menuTab
+		tooltip origin:left
 		
 	//Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
 	*menuBody
 		contains:tag:menuCategory, tag:shopitems, tag:sellitems
+		tooltip origin:left
 
 
 
@@ -55,7 +58,7 @@ Layout
 	
 	*inventory
 		contains:Upgrades
-		class:scroll1 inventory1css inventoryTabBox
+		class: inventory1css
 		tooltip origin:left
 	
 	*inventoryHeader
@@ -16610,9 +16613,9 @@ Upgrades
 			yield this
 		end
 		
-		
+//Нужен еще меню эпировки (item2),Здесь список всех вещей(item)	
 	*menuInventory
-		name:Инвнттр
+		name:Инвентарь
 		tag:menuCategory
 		no buy
 		on earn:
