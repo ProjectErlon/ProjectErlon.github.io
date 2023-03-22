@@ -102,7 +102,7 @@
 	border: 1px solid red;
 }
 .tag-inventoryTab.owned {
-ba	ckground-color: blue;
+	background-color: blue;
 }
 
 
@@ -449,23 +449,9 @@ z-index: 3000 !important; /* this makes the currently hovered ability in front o
 
 
 
-/* these properties are the common ones for all box-headers. See above for explanations */
+
 .box-header {
-background-color: rgb(128, 128, 128) !important; /* the background color */
-right: 0% !important;
-  top: 0% !important;
-width: 100% !important;
-height: 100% !important;
-position: absolute !important;
-
-padding: 10px; /* this makes the text in the center so it doesn't touch the edges of the border */
-margin-bottom 0px;
-z-index: 1000;
-color: #000000; /* the font color */
-font-size: 18px;
-text-align:center; /* center the text */
-display: inline-block; /* this separates the text in multiple lines if it is zoomed and can't be contained in one line */
-
+	/* === */
 }
 
 
