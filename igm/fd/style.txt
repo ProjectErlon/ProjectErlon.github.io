@@ -55,8 +55,6 @@
 #box-things-menuTitle {
 	grid-area: back;
 }
-
-
 #box-things-menuTab {
 	grid-area: tab;
 	
@@ -67,6 +65,16 @@
 	justify-content: flex-start;
 	align-items: center;
 }
+#box-menuBody {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+
+
+
+
+
 
 
 
