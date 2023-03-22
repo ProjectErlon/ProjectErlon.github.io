@@ -129,7 +129,7 @@
 #box-menuBody .thing:hover {
 	border-radius: 4px;
 	background-color: #FCFAEB;
-	border: 1px solid #2E1914;
+	border: 1px solid #622C15;
 }
 
 
