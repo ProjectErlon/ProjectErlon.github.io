@@ -16582,28 +16582,47 @@ Upgrades
 			yield this
 		end
 		
+		
+		
+		
 	*menuShop
 		name:Магазин
 		tag:menuCategory
 		no buy
 		on earn:
+			menuID is 1
 			//hide tag:menuCategory
 			//yield menuTabShopBuy
 			//show tag:menuBack
 			//show tag:menuTab
-			
-			hide tag:menuCategory
-			show tag:menuBack
+			//hide tag:menuCategory
+			//show tag:menuBack
 		end
 		on lose:
-			show tag:menuCategory
+			//show tag:menuCategory
 		end
 		on click:
-			menuID is 1
+			toast KekW
 			lose tag:menuCategory
 			yield this
 		end
-
+		
+		
+	*menuInventory
+		name:Инвнттр
+		tag:menuCategory
+		no buy
+		on earn:
+			menuID is 2
+		end
+		on lose:
+			//show tag:menuCategory
+		end
+		on click:
+			toast KekW
+			lose tag:menuCategory
+			yield this
+		end
 
 /* ====== || ====== */
 
