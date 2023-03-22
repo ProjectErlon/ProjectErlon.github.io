@@ -16548,10 +16548,18 @@ Upgrades
 		tag:menuTab
 		no buy
 		on earn:
-			show tag:shopItem
+			if (ability1owned=0) show sability1
+			if (ability2owned=0) show sability2
+			if (ability3owned=0) show sability3
+			show swoodhelm
+			show sringofluck
+			
+			//show tag:shopItem
 		end
 		on lose:
-			hide tag:shopItem
+			hide tag:shopitems
+		
+			//hide tag:shopItem
 		end
 		on click:
 			lose tag:menuTab
@@ -16582,26 +16590,18 @@ Upgrades
 		tag:menuCategory
 		no buy
 		on earn:
-			if (ability1owned=0) show sability1
-			if (ability2owned=0) show sability2
-			if (ability3owned=0) show sability3
-			show swoodhelm
-			show sringofluck
-		
-
 			menuTitle is 1
 		
 			hide tag:menuCategory
 			
+			//Показать вкладки
 			show menuTabShopBuy
 			show menuTabShopSell
 			
+			//Вкладка по умолчанию
 			yield menuTabShopBuy
 		end
 		on lose:
-			hide tag:shopitems
-			
-		
 			show tag:menuCategory
 		end
 		on click:
