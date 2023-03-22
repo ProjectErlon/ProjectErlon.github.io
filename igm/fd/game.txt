@@ -29,7 +29,9 @@ Layout
 		contains:menuHeader, menuBody
 		
 	*menuHeader
-		contains:tag:menuBack, tag:menuTitle, tag:menuTab
+		contains:tag:menuTitle, tag:menuBack, tag:menuTab
+	//*menuHeaderL1
+		//contains:tag:menuBack, tag:menuTitle
 		
 	//Переименовать sellitems, и соответственно изменить предметам тег
 	*menuBody
@@ -16515,13 +16517,13 @@ Upgrades
 
 /* ====== || ====== */
 	*menuUTest
+		owned
+		always hidden
 		name: Trigger Menu
 		on load:
 			hide tag:sellitems
 			hide tag:menuBack
-			hide tag:menuTitle
 			hide tag:menuTab
-			lose tag:menuTitle
 			lose tag:menuTab
 		end
 		
@@ -16583,9 +16585,7 @@ Upgrades
 		on earn:
 			hide tag:menuCategory
 			yield menuTabShopBuy
-			
 			show tag:menuBack
-			show tag:menuTitle
 			show tag:menuTab
 		end
 		on lose:
