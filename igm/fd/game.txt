@@ -16543,7 +16543,7 @@ Upgrades
 		end
 	*menuTitle
 		//name:0
-		text:[menuID] [?(menuID is 0)|Навигация|] [?(menuID is 0)|Магазин|]
+		text:[?(menuID is 0)|Навигация|]
 		tag:menuTitle
 		no buy
 		no tooltip
