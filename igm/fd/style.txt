@@ -38,6 +38,7 @@
 }
 #box-menu {
 	grid-area: menu;
+	background-color: #fdf5df;
 }
 
 
