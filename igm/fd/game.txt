@@ -26,13 +26,18 @@ Layout
 	
 	*menu
 		contains:menuHeader, menuBody
+		tooltip origin:left
 		
 	*menuHeader
 		contains:tag:menuTitle, tag:menuBack, tag:menuTab
 		
-	//Переименовать sellitems, и соответственно изменить предметам тег
+	//Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
 	*menuBody
-		contains:tag:menuCategory, tag:shopItem, tag:sellitems
+		contains:tag:menuCategory, tag:shopitems, tag:sellitems
+
+
+
+
 
 
 	*menu1 
@@ -16577,6 +16582,13 @@ Upgrades
 		tag:menuCategory
 		no buy
 		on earn:
+			if (ability1owned=0) show sability1
+			if (ability2owned=0) show sability2
+			if (ability3owned=0) show sability3
+			show swoodhelm
+			show sringofluck
+		
+
 			menuTitle is 1
 		
 			hide tag:menuCategory
@@ -16587,6 +16599,9 @@ Upgrades
 			yield menuTabShopBuy
 		end
 		on lose:
+			hide tag:shopitems
+			
+		
 			show tag:menuCategory
 		end
 		on click:
