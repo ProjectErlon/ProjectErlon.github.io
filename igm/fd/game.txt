@@ -19,26 +19,6 @@ Settings
 
 
 Layout
-	
-	*body
-		contains:left, menu
-		
-	*left
-	
-	*menu
-		contains:menuHeader, menuBody
-		
-	*menuHeader
-		contains:tag:menuTitle, tag:menuBack, tag:menuTab
-		
-	//Переименовать sellitems, и соответственно изменить предметам тег
-	*menuBody
-		contains:tag:menuCategory, tag:shopItem, tag:sellitems
-
-
-
-
-
 
 	*menu1 
 		contains:Buildings
