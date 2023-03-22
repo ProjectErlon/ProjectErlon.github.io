@@ -28,20 +28,21 @@
 	display: block;
 	background-color: #666;
 }
-/*.thing:hover {
-	background-color: rgb(190, 190, 190);
+.thing:hover {
+	/* Потом убрать */
+	background-color: #777;
 }
 .upgrade {
-	background-color: #373654;
-	color: #fff;
-	cursor: pointer;
-	width: 100%;
-	display: inline-block;
+	//background-color: #373654;
+	//color: #fff;
+	//cursor: pointer;
+	//width: 100%;
+	//display: inline-block;
 }
 .upgrade:hover {
-	background-color: #313136;
+	//background-color: #313136;
 }
-*/
+
 
 
 
