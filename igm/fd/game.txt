@@ -16493,7 +16493,7 @@ Buildings
 Upgrades
 
 	*inventoryTabHeader
-		text:[?(have inventoryTabWeapons)|Оружие|?(have inventoryTabApparel)|Одежда|===]
+		text:[?(have inventoryTabWeapons)|Оружие|][?(have inventoryTabApparel)|Одежда|][?(have inventoryTabMisc)|Разное|]
 		tag:inventoryTabHeader
 		no tooltip
 		no buy
@@ -16509,13 +16509,11 @@ Upgrades
 			hide tag:equipment_weapon
 		end
 		on click:
-			if ((no this))
-				lose tag:inventoryTab
-				yield this
-			end
+			lose tag:inventoryTab
+			yield this
 		end
 	*inventoryTabApparel
-		name:Weapons
+		name:Apparel
 		desc:Всяко разно 2
 		tag:inventoryTab
 		no buy
@@ -16526,11 +16524,29 @@ Upgrades
 			//hide tag:equipment_weapon
 		end
 		on click:
-			if ((no this))
-				lose tag:inventoryTab
-				yield this
-			end
+			lose tag:inventoryTab
+			yield this
 		end
+	*inventoryTabMisc
+		name:Misc
+		desc:Всяко разно 3
+		tag:inventoryTab
+		no buy
+		on earn:
+			//show tag:equipment_weapon
+		end
+		on lose:
+			//hide tag:equipment_weapon
+		end
+		on click:
+			lose tag:inventoryTab
+			yield this
+		end
+
+
+
+
+
 
 
 
