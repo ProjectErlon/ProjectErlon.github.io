@@ -16518,9 +16518,9 @@ Upgrades
 		always hidden
 		name: Trigger Menu
 		on load:
-			show tag:menuTitle
-			show tag:menuBack
-			show tag:menuTab
+			//show tag:menuTitle
+			//show tag:menuBack
+			//show tag:menuTab
 		end
 		
 	*menuBack
@@ -16529,7 +16529,8 @@ Upgrades
 		no buy
 		no tooltip
 		on click:
-			menuID is 0
+			toast kekw
+			//menuID is 0
 		end
 		
 	*menuTitle
