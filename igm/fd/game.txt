@@ -6,7 +6,7 @@ Let's make a game!
 Settings
 	no particles
 	no bulk particles
-	stylesheet:https://erlon.ru/igm/fd/style.txt
+	//stylesheet:https://erlon.ru/igm/fd/style.txt
 	
 
 
