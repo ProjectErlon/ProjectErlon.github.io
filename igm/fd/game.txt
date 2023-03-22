@@ -16518,7 +16518,7 @@ Upgrades
 		name: Trigger Menu
 		on load:
 			hide tag:sellitems
-			
+			hide tag:menuBack
 			hide tag:menuTitle
 			hide tag:menuTab
 			lose tag:menuTitle
@@ -16534,6 +16534,7 @@ Upgrades
 			lose tag:menuCategory
 			//Терять не вкладку а менюИтемсы
 			lose tag:menuTab
+			hide this
 			hide tag:menuTitle
 			hide tag:menuTab
 		end
@@ -16583,6 +16584,7 @@ Upgrades
 			hide tag:menuCategory
 			yield menuTabShopBuy
 			
+			show tag:menuBack
 			show tag:menuTitle
 			show tag:menuTab
 		end
