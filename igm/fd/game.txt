@@ -6374,6 +6374,16 @@ Buttons
 
 
 Resources
+
+	*menuID
+		name:menuID
+		always hidden
+
+
+
+
+
+
 	*titleRes
 	name:Title
 	text:[?(present2021var=1)|<#BB2528>Christmas <#146B3A>2021</#>|][?(christmas2022title2=1)|<#fa3438>Christmas <#188c4b>2022</#>|][?(elteristtitle2=1)|<#52eb99>Elterist</#>|][?(guardiantitle2=1)|<#8319d4>Guardian</#>|][?(defendertitle2=1)|<#fff387>Defender</#>|][?(blackholetitle2=1)|<#53590a>Black Hole</#>|][?(xeronictitle2=1)|<#a31d1d>Xeronic</#>|][?(titleequipped=0)|Player|]
@@ -16516,6 +16526,8 @@ Buildings
 Upgrades
 
 /* ====== || ====== */
+//menuID, где 0 = главное меню "Навигация"
+
 	*menuUTest
 		owned
 		always hidden
@@ -16525,6 +16537,10 @@ Upgrades
 			hide tag:menuBack
 			hide tag:menuTab
 			lose tag:menuTab
+			
+			show tag:menuTitle
+			
+			menuID=0
 		end
 		
 	*menuBack
@@ -16533,6 +16549,7 @@ Upgrades
 		no buy
 		no tooltip
 		on click:
+			menuID=0
 			lose tag:menuCategory
 			//Терять не вкладку а менюИтемсы
 			lose tag:menuTab
@@ -16541,7 +16558,7 @@ Upgrades
 			hide tag:menuTab
 		end
 	*menuTitle
-		name:Title
+		text:[menuID] | [?(menuID is 0)|Навигация|][?(menuID is 1)|Магазин|]
 		tag:menuTitle
 		no buy
 		no tooltip
@@ -16583,6 +16600,7 @@ Upgrades
 		tag:menuCategory
 		no buy
 		on earn:
+			menuID=1
 			hide tag:menuCategory
 			yield menuTabShopBuy
 			show tag:menuBack
