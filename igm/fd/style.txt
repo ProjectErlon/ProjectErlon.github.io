@@ -29,7 +29,7 @@
 	background-color: #666;
 }
 /*.thing:hover {
-	background-color: rgb(190, 190, 190); /* The light grey hover color of the buttons */
+	background-color: rgb(190, 190, 190);
 }
 .upgrade {
 	background-color: #373654;
