@@ -58,7 +58,7 @@ Layout
 	
 	*inventory
 		contains:Upgrades
-		class: inventory1css
+		class:inventory1css
 		tooltip origin:left
 	
 	*inventoryHeader
