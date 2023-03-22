@@ -26,6 +26,7 @@
 }
 
 
+
 #box-body {
 	grid-area: body;
 	display: grid;
@@ -40,12 +41,32 @@
 	grid-area: menu;
 	background-color: #fdf5df;
 }
+#box-menuHeader {
+	display: grid;
+	grid-template-columns: 48px 1fr;
+	grid-template-rows: 48px auto;
+	grid-template-areas:
+		"back title"
+		"tab tab";
+}
+#box-things-menuBack {
+	grid-area: back;
+}
+#box-things-menuTitle {
+	grid-area: back;
+}
 
 
-
-
-
-
+#box-things-menuTab {
+	grid-area: tab;
+	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: flex-start;
+	align-items: center;
+}
 
 
 
