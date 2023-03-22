@@ -53,7 +53,7 @@
 	grid-area: back;
 }
 #box-things-menuTitle {
-	grid-area: back;
+	grid-area: title;
 }
 #box-things-menuTab {
 	grid-area: tab;
