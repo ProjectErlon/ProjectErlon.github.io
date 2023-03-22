@@ -3,6 +3,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 #game {
@@ -16,7 +17,7 @@
 #content {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 6vh 31vh 18vh 6vh 39vh;
+	grid-template-rows: 12vh 25vh 18vh 6vh 39vh;
 	grid-template-areas:
 		"title              menu             logheader          inventoryheader"
 		"stats              menu             logbox             inventorybox"
@@ -39,9 +40,32 @@
 	grid-area: logbox;
 }
 
-box-inventoryHeader {
+
+
+#box-inventoryHeader {
 	grid-area: inventoryheader;
+	margin: 0;
+	padding: 0;
 }
+#box-things-inventoryTabHeader {
+	/* === */
+}
+.tag-inventoryTabHeader {
+	background-color: #fdf5df;
+	color: #21366A;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	//border: none;
+	//box-sizing: border-box;
+}
+
+
+
+
+
 .inventory1css {
 	grid-area: inventorybox;
 	overflow-y: scroll;
