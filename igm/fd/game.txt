@@ -16529,6 +16529,8 @@ Upgrades
 		no buy
 		no tooltip
 		on click:
+			menuTitle is 1
+		
 			hide tag:menuTab
 		
 			lose tag:menuCategory
@@ -16598,7 +16600,7 @@ Upgrades
 		tag:menuCategory
 		no buy
 		on earn:
-			menuTitle is 1
+			menuTitle is 2
 		
 			hide tag:menuCategory
 		end
