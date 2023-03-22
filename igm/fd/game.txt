@@ -16529,7 +16529,7 @@ Upgrades
 		no buy
 		no tooltip
 		on click:
-			menuTitle is 1
+			menuTitle is 0
 		
 			hide tag:menuTab
 		
