@@ -16519,12 +16519,12 @@ Upgrades
 		name: Trigger Menu
 		on load:
 			menuID is 0
-			hide tag:sellitems
-			hide tag:menuBack
-			hide tag:menuTab
-			lose tag:menuTab
+			//hide tag:sellitems
+			//hide tag:menuBack
+			//hide tag:menuTab
+			//lose tag:menuTab
 			
-			show tag:menuTitle
+			//show tag:menuTitle
 		end
 		
 	*menuBack
