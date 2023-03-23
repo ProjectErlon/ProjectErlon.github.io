@@ -4080,7 +4080,8 @@ Buttons
 
         if ((enemyhp>59999) and (fightdrasconix=1) and (drscachvar1=0)) yield 1 drscachvar1
         if (mercenaryenter=0) yield 1 ticker1
-        if ((enemyhp=0) and (attackenemy=0) and (shopentrance=0)) show fightdrasconix
+        // and (shopentrance=0)
+        if ((enemyhp=0) and (attackenemy=0)) show fightdrasconix
         if ((ticker1=(294-rpresencevar1))) log <b><#03fcf4>The merchant will arrive in 5 seconds!
         if ((ticker1>(299-rpresencevar1)) and (mercenaryenter=0) and (bregenhp=0))
         show mercenaryenter
