@@ -16521,16 +16521,7 @@ Buildings
 Upgrades
 
 /* ====== || ====== */
-        *menuUTest
-                owned
-                //always hidden
-                name: Trigger Menu
-                on load:
-                        //show tag:menuTitle
-                        //show tag:menuBack
-                        //show tag:menuTab
-                end
-        
+
         *menuBack
                 name:back
                 tag:menuBack
@@ -16636,6 +16627,7 @@ Upgrades
                 
         *menuShop
                 name:Магазин
+                desc:Покупай/Продавай
                 tag:menuCategory
                 no buy
                 on earn:
@@ -16661,6 +16653,7 @@ Upgrades
 //Нужен еще меню эпировки (item2),Здесь список всех вещей(item)        
         *menuInventory
                 name:Инвентарь
+                desc:Переименовать в экипировку и теги соответственно.
                 tag:menuCategory
                 no buy
                 on earn:

@@ -176,7 +176,7 @@
 
 
 .menu1css {
-        grid-area: menu;
+        /* grid-area: menu; */
         overflow-y: scroll;
 }
 
@@ -246,7 +246,7 @@
 
 
 .inventory1css {
-        grid-area: inventorybox;
+        /* grid-area: inventorybox; */
         overflow-y: scroll;
 }
 
