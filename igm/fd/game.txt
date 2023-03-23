@@ -16585,9 +16585,55 @@ Upgrades
 			lose tag:menuTab
 			yield this
 		end
+	
+	
+	*menuTabInventoryWeapon
+		name:Оружие
+		desc:Всяко разно
+		tag:menuTab
+		no buy
+		on earn:
+			//show tag:sellitems
+		end
+		on lose:
+			//hide tag:sellitems
+		end
+		on click:
+			lose tag:menuTab
+			yield this
+		end
 		
+	*menuTabInventoryApparel
+		name:Одежда
+		desc:Всяко разно
+		tag:menuTab
+		no buy
+		on earn:
+			//show tag:sellitems
+		end
+		on lose:
+			//hide tag:sellitems
+		end
+		on click:
+			lose tag:menuTab
+			yield this
+		end
 		
-		
+	*menuTabInventoryMisc
+		name:Разное
+		desc:Всяко разно
+		tag:menuTab
+		no buy
+		on earn:
+			//show tag:sellitems
+		end
+		on lose:
+			//hide tag:sellitems
+		end
+		on click:
+			lose tag:menuTab
+			yield this
+		end	
 		
 	*menuShop
 		name:Магазин
@@ -16622,6 +16668,12 @@ Upgrades
 			menuTitle is 2
 		
 			hide tag:menuCategory
+			
+			show menuTabInventoryWeapon
+			show menuTabInventoryApparel
+			show menuTabInventoryMisc
+			
+			yield menuTabInventoryWeapon
 		end
 		on lose:
 			show tag:menuCategory
