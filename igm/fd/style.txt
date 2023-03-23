@@ -14,11 +14,11 @@
         grid-template-rows: 50vh 12vh 25vh 18vh 6vh 39vh;
         grid-template-areas:
                 "body               body             body               body"
-                "title              menu             logheader          inventoryheader"
-                "stats              menu             logbox             inventorybox"
-                "playerhp           menu             logbox             enemyhp"
-                "abilitymeleeheader abilitydefheader abilityregenheader sellheader"
-                ". . . sellbox";
+                "title              menu             .                  inventoryheader"
+                "stats              menu             .                  inventorybox"
+                "playerhp           menu             .                  enemyhp"
+                "abilitymeleeheader abilitydefheader abilityregenheader ."
+                ".                  .                .                  .";
 }
 
 .box {
@@ -54,6 +54,7 @@
         grid-area: menu;
         background-color: #fdf5df;
         color: #622C15;
+        overflow-y: auto;
 }
 
 #box-menuHeader {
@@ -63,6 +64,9 @@
         grid-template-areas:
                 "title back"
                 "tab tab";
+        position: sticky;
+        top: 0;
+        z-index: 1;
 }
 
 #box-things-menuBack {
@@ -75,6 +79,7 @@
         text-align: center;
         background-color: #fdf5df;
         color: #21366A;
+        border-bottom: 1px solid #EDDDC4;
 }
 
 .tag-menuBack .thing-text {
@@ -83,7 +88,7 @@
 
 #box-things-menuTitle {
         grid-area: title;
-        border-bottom: 1px solid #EDDDC4;
+        /* border-bottom: 1px solid #EDDDC4; */
 }
 
 .tag-menuTitle {
@@ -96,6 +101,7 @@
         text-align: center;
         padding: 0;
         margin: 0;
+        border-bottom: 1px solid #EDDDC4;
 }
 
 .tag-menuTitle::before {
@@ -121,6 +127,7 @@
         align-content: center;
         justify-content: flex-start;
         align-items: center;
+        background-color: #fdf5df;
 }
 
 .tag-menuTab {}
@@ -131,7 +138,7 @@
 }
 
 #box-menuBody {
-        overflow-y: scroll;
+        /* overflow-y: scroll; */
         height: 100%;
         padding: 8px;
 }
@@ -171,13 +178,13 @@
         overflow-y: scroll;
 }
 
-.logHeader {
+/* .logHeader {
         grid-area: logheader;
-}
-
+} */
+/* 
 .logcss {
         grid-area: logbox;
-}
+} */
 
 
 
@@ -253,14 +260,14 @@
         grid-area: playerhp;
 }
 
-.sellitemsHeader {
+/* .sellitemsHeader {
         grid-area: sellheader;
 }
 
 .sellitemsCss {
         grid-area: sellbox;
         overflow-y: scroll;
-}
+} */
 
 .abilityregencss {
         grid-area: abilityregenheader;

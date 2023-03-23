@@ -13,7 +13,7 @@ Layout
                 contains:left, menu
 
         *left
-
+                contains:logbox
         
         *menu
                 contains:menuHeader, menuBody
@@ -27,6 +27,13 @@ Layout
         *menuBody
                 contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_pickaxe
                 tooltip origin:left
+
+
+
+
+
+
+
 
 
 
@@ -67,12 +74,13 @@ Layout
                 class:sellitemsHeader
                 tooltip origin:left
 */
-        *logHeader
-                header:Forez's Dream
-                class:logHeader
-                tooltip origin:left
+        // *logHeader
+        //         header:Forez's Dream
+        //         class:logHeader
+        //         tooltip origin:left
         
         *logbox
+                header:Forez's Dream
                 contains:Log
                 class:logcss
         
