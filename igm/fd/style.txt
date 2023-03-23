@@ -183,10 +183,11 @@
 /* .logHeader {
         grid-area: logheader;
 } */
-/* 
+
 .logcss {
-        grid-area: logbox;
-} */
+        /* grid-area: logbox; */
+        overflow: hidden;
+}
 
 
 

@@ -24380,8 +24380,9 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_2h_weapon
+                                // lose tag:equipment_shield
                                 yield this
                         end
                 end
@@ -24424,8 +24425,9 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_2h_weapon
+                                // lose tag:equipment_shield
                                 yield this
                         end
                 end
@@ -24466,7 +24468,8 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
+                                lose tag:equipment_oh_weapon
+                                lose tag:equipment_2h_weapon
                                 lose tag:equipment_shield
                                 yield this
                         end
@@ -24556,8 +24559,9 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_2h_weapon
+                                // lose tag:equipment_shield
                                 yield this
                         end
                 end
@@ -24598,7 +24602,8 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_oh_weapon
                                 lose tag:equipment_shield
                                 yield this
                         end
@@ -24688,8 +24693,9 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_2h_weapon
+                                // lose tag:equipment_shield
                                 yield this
                         end
                 end
@@ -24730,7 +24736,8 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_oh_weapon
                                 lose tag:equipment_shield
                                 yield this
                         end
@@ -24820,8 +24827,9 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_2h_weapon
+                                // lose tag:equipment_shield
                                 yield this
                         end
                 end
@@ -24862,7 +24870,8 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_oh_weapon
                                 lose tag:equipment_shield
                                 yield this
                         end
@@ -25044,8 +25053,9 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_2h_weapon
+                                // lose tag:equipment_shield
                                 yield this
                         end
                 end
@@ -25086,7 +25096,8 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_oh_weapon
                                 lose tag:equipment_shield
                                 yield this
                         end
@@ -25268,8 +25279,9 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_2h_weapon
+                                // lose tag:equipment_shield
                                 yield this
                         end
                 end
@@ -25310,7 +25322,8 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_oh_weapon
                                 lose tag:equipment_shield
                                 yield this
                         end
@@ -25492,8 +25505,9 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_2h_weapon
+                                // lose tag:equipment_shield
                                 yield this
                         end
                 end
@@ -25534,7 +25548,8 @@ Upgrades
                                 lose this
                         else
                                 lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
+                                lose tag:equipment_mh_weapon
+                                lose tag:equipment_oh_weapon
                                 lose tag:equipment_shield
                                 yield this
                         end
@@ -25587,7 +25602,9 @@ Upgrades
                 end
 
 
-//TODO Weapon
+//TODO Weapon - Ошибочка вышла: Переделать теги которые теряешь при надевании. Когда надеваю оффхенд вещь снимает и майн хенд
+//TODO Вроде пофиксил, но еще раз пройтись и расставить теги для луков придется
+//TODO mainhandequipped & offhandequipped можно объединить в одну по принципу binary watch и тип 0 - снято 1- одна рука 2 - вторая (1+2) - обе
 
         *elflongbow2
         name:Equip Elf Longbow
