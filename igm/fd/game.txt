@@ -16512,12 +16512,12 @@ Buildings
 
 	*menuTitle
 		text:[?(this is 0)|Навигация|][?(this is 1)|Магазин|][?(this is 2)|Инвентарь|]
-		desc:[this]
 		tag:menuTitle
 		no buy
+		no tooltip
 
 
-
+/* ====== |END BUTTONS SECTION| ====== */
 
 Upgrades
 
@@ -16587,7 +16587,7 @@ Upgrades
 		end
 	
 	
-	*menuTabInventoryWeapon
+	*menuTabInvWeapon
 		name:Оружие
 		desc:Всяко разно
 		tag:menuTab
@@ -16603,7 +16603,7 @@ Upgrades
 			yield this
 		end
 		
-	*menuTabInventoryApparel
+	*menuTabInvApparel
 		name:Одежда
 		desc:Всяко разно
 		tag:menuTab
@@ -16669,9 +16669,9 @@ Upgrades
 		
 			hide tag:menuCategory
 			
-			show menuTabInventoryWeapon
-			show menuTabInventoryApparel
-			show menuTabInventoryMisc
+			show menuTabInvWeapon
+			show menuTabInvApparel
+			show menuTabInvMisc
 			
 			yield menuTabInventoryWeapon
 		end
