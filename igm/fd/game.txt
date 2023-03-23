@@ -47,14 +47,15 @@ Layout
                 class:enemyhpposition
         
         *inventory
+                header:Inventory and Misc
                 contains:Upgrades
                 class:inventory1css
                 tooltip origin:left
         
-        *inventoryHeader
-                //header:Inventory and Misc (Здесь вкладки меню будут)
-                contains:tag:inventoryTabHeader, tag:inventoryTab
-                tooltip origin:left
+        // *inventoryHeader
+        //         //header:Inventory and Misc (Здесь вкладки меню будут)
+        //         contains:tag:inventoryTabHeader, tag:inventoryTab
+        //         tooltip origin:left
 /*        
         *sellitemsMenu
                 contains:tag:sellitems
@@ -16676,56 +16677,56 @@ Upgrades
 /* ====== || ====== */
 
 
-        *inventoryTabHeader
-                text:[?(have inventoryTabWeapons)|Оружие|][?(have inventoryTabApparel)|Одежда|][?(have inventoryTabMisc)|Разное|]
-                tag:inventoryTabHeader
-                no tooltip
-                no buy
-        *inventoryTabWeapons
-                name:Weapons
-                desc:Всяко разно
-                tag:inventoryTab
-                no buy
-                on earn:
-                        show tag:equipment_weapon
-                end
-                on lose:
-                        hide tag:equipment_weapon
-                end
-                on click:
-                        lose tag:inventoryTab
-                        yield this
-                end
-        *inventoryTabApparel
-                name:Apparel
-                desc:Всяко разно 2
-                tag:inventoryTab
-                no buy
-                on earn:
-                        //show tag:equipment_weapon
-                end
-                on lose:
-                        //hide tag:equipment_weapon
-                end
-                on click:
-                        lose tag:inventoryTab
-                        yield this
-                end
-        *inventoryTabMisc
-                name:Misc
-                desc:Всяко разно 3
-                tag:inventoryTab
-                no buy
-                on earn:
-                        //show tag:equipment_weapon
-                end
-                on lose:
-                        //hide tag:equipment_weapon
-                end
-                on click:
-                        lose tag:inventoryTab
-                        yield this
-                end
+        // *inventoryTabHeader
+        //         text:[?(have inventoryTabWeapons)|Оружие|][?(have inventoryTabApparel)|Одежда|][?(have inventoryTabMisc)|Разное|]
+        //         tag:inventoryTabHeader
+        //         no tooltip
+        //         no buy
+        // *inventoryTabWeapons
+        //         name:Weapons
+        //         desc:Всяко разно
+        //         tag:inventoryTab
+        //         no buy
+        //         on earn:
+        //                 show tag:equipment_weapon
+        //         end
+        //         on lose:
+        //                 hide tag:equipment_weapon
+        //         end
+        //         on click:
+        //                 lose tag:inventoryTab
+        //                 yield this
+        //         end
+        // *inventoryTabApparel
+        //         name:Apparel
+        //         desc:Всяко разно 2
+        //         tag:inventoryTab
+        //         no buy
+        //         on earn:
+        //                 //show tag:equipment_weapon
+        //         end
+        //         on lose:
+        //                 //hide tag:equipment_weapon
+        //         end
+        //         on click:
+        //                 lose tag:inventoryTab
+        //                 yield this
+        //         end
+        // *inventoryTabMisc
+        //         name:Misc
+        //         desc:Всяко разно 3
+        //         tag:inventoryTab
+        //         no buy
+        //         on earn:
+        //                 //show tag:equipment_weapon
+        //         end
+        //         on lose:
+        //                 //hide tag:equipment_weapon
+        //         end
+        //         on click:
+        //                 lose tag:inventoryTab
+        //                 yield this
+        //         end
 
 
 
