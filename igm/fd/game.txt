@@ -11046,25 +11046,25 @@ Buildings
         end
         
         //hide
-        *shopentrance
-        text:Enter Shop
-        name:Enter Shop
-        desc:Enter a shop which has items or abilities you can buy.
-        limit:1
-        no buy
-        on click:
-        hide tag:enemy
-        hide regenhp
-        //hide shopentrance
-        hide minebutton1
-        hide showcrystalmenu
-        //show shopleave
-        if (ability1owned=0) show sability1
-        if (ability2owned=0) show sability2
-        if (ability3owned=0) show sability3
-        show swoodhelm
-        show sringofluck
-        end
+        // *shopentrance
+        // text:Enter Shop
+        // name:Enter Shop
+        // desc:Enter a shop which has items or abilities you can buy.
+        // limit:1
+        // no buy
+        // on click:
+        // hide tag:enemy
+        // hide regenhp
+        // //hide shopentrance
+        // hide minebutton1
+        // hide showcrystalmenu
+        // //show shopleave
+        // if (ability1owned=0) show sability1
+        // if (ability2owned=0) show sability2
+        // if (ability3owned=0) show sability3
+        // show swoodhelm
+        // show sringofluck
+        // end
 
         *sability1
         text:Melee Ability: Hard Swing (800) Coins
@@ -11168,20 +11168,20 @@ Buildings
         end
         tag:shopitems
 
-        *shopleave
-        text:Leave Shop
-        name:Leave shop
-        desc:Leave the shop.
-        no buy
-        on click:
-        if (fightdrasconix=0) show tag:enemy
-        if (fightdrasconix=0) show regenhp
-        if (fightdrasconix=0) show shopentrance
-        if (fightdrasconix=0) show minebutton1
-        if (fightdrasconix=0) show showcrystalmenu
-        hide tag:shopitems
-        hide shopleave
-        end
+        // *shopleave
+        // text:Leave Shop
+        // name:Leave shop
+        // desc:Leave the shop.
+        // no buy
+        // on click:
+        // if (fightdrasconix=0) show tag:enemy
+        // if (fightdrasconix=0) show regenhp
+        // if (fightdrasconix=0) show shopentrance
+        // if (fightdrasconix=0) show minebutton1
+        // if (fightdrasconix=0) show showcrystalmenu
+        // hide tag:shopitems
+        // hide shopleave
+        // end
         
         *receivedung1loot
         name:Loot Monster
@@ -23137,7 +23137,7 @@ Upgrades
         yield -(tick) tick
         yield -(enemytick) enemytick
         yield -(enemytickmax) enemytickmax
-        show tag:sellitems
+        //show tag:sellitems
         end
 
         *endbattlelose
