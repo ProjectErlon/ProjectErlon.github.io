@@ -13,7 +13,7 @@ Layout
                 contains:left, menu
 
         *left
-                contains:logbox
+                contains:logbox, menu1, inventory
         
         *menu
                 contains:menuHeader, menuBody

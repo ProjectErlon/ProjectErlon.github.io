@@ -48,6 +48,8 @@
 
 #box-left {
         grid-area: left;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
 }
 
 #box-menu {
