@@ -16619,7 +16619,7 @@ Upgrades
 			yield this
 		end
 		
-	*menuTabInventoryMisc
+	*menuTabInvMisc
 		name:Разное
 		desc:Всяко разно
 		tag:menuTab
