@@ -16673,7 +16673,7 @@ Upgrades
 			show menuTabInvApparel
 			show menuTabInvMisc
 			
-			yield menuTabInventoryWeapon
+			yield menuTabInvWeapon
 		end
 		on lose:
 			show tag:menuCategory
