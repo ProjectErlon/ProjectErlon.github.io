@@ -1,34 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 #game {
-	background-color: #000;
-	font-family: 'Inter', sans-serif;
-	text-shadow: none;
-	font-size: 14px;
-	color: #fff;
+        background-color: #000;
+        font-family: 'Inter', sans-serif;
+        text-shadow: none;
+        font-size: 14px;
+        color: #fff;
 }
 
 #content {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 50vh 12vh 25vh 18vh 6vh 39vh;
-	grid-template-areas:
-		"body               body             body               body"
-		"title              menu             logheader          inventoryheader"
-		"stats              menu             logbox             inventorybox"
-		"playerhp           menu             logbox             enemyhp"
-		"abilitymeleeheader abilitydefheader abilityregenheader sellheader"
-		". . . sellbox";
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 50vh 12vh 25vh 18vh 6vh 39vh;
+        grid-template-areas:
+                "body               body             body               body"
+                "title              menu             logheader          inventoryheader"
+                "stats              menu             logbox             inventorybox"
+                "playerhp           menu             logbox             enemyhp"
+                "abilitymeleeheader abilitydefheader abilityregenheader sellheader"
+                ". . . sellbox";
 }
 
 .box {
-	padding: 0;
+        padding: 0;
 }
 
 .thing {
-	padding: 0;
-	margin: 0;
-	display: block;
+        padding: 0;
+        margin: 0;
+        display: block;
 }
 
 
@@ -39,97 +39,112 @@
 
 
 #box-body {
-	grid-area: body;
-	display: grid;
-	grid-template-columns: 1fr 350px;
-	grid-template-rows: 100%;
-	grid-template-areas: "left menu";
+        grid-area: body;
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: 100%;
+        grid-template-areas: "left menu";
 }
+
 #box-left {
-	grid-area: left;
+        grid-area: left;
 }
+
 #box-menu {
-	grid-area: menu;
-	background-color: #fdf5df;
-	color: #622C15;
+        grid-area: menu;
+        background-color: #fdf5df;
+        color: #622C15;
 }
+
 #box-menuHeader {
-	display: grid;
-	grid-template-columns: 1fr 48px;
-	grid-template-rows: auto auto;
-	grid-template-areas:
-		"title back"
-		"tab tab";
+        display: grid;
+        grid-template-columns: 1fr 48px;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+                "title back"
+                "tab tab";
 }
+
 #box-things-menuBack {
-	grid-area: back;
+        grid-area: back;
 }
+
 .tag-menuBack {
-	height: 48px;
-	line-height: 48px;
-	text-align: center;
-	background-color: #fdf5df;
-	color: #21366A;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        background-color: #fdf5df;
+        color: #21366A;
 }
+
 .tag-menuBack .thing-text {
-	padding: 0;
+        padding: 0;
 }
+
 #box-things-menuTitle {
-	grid-area: title;
-	border-bottom: 1px solid #EDDDC4;
+        grid-area: title;
+        border-bottom: 1px solid #EDDDC4;
 }
+
 .tag-menuTitle {
-	height: 48px;
-	line-height: 48px;
-	
-	background-color: #fdf5df;
-	color: #21366A;
-	font-weight: bold;
-	text-align: center;
-	padding: 0;
-	margin: 0;
+        height: 48px;
+        line-height: 48px;
+
+        background-color: #fdf5df;
+        color: #21366A;
+        font-weight: bold;
+        text-align: center;
+        padding: 0;
+        margin: 0;
 }
+
 .tag-menuTitle::before {
-	content: '}==';
-	margin-right: 8px
+        content: '}==';
+        margin-right: 8px
 }
+
 .tag-menuTitle::after {
-	content: '=={';
-	margin-left: 8px
+        content: '=={';
+        margin-left: 8px
 }
+
 .tag-menuTitle .thing-text {
-	padding: 0;
+        padding: 0;
 }
+
 #box-things-menuTab {
-	grid-area: tab;
-	
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-content: center;
-	justify-content: flex-start;
-	align-items: center;
+        grid-area: tab;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
 }
-.tag-menuTab {
-}
+
+.tag-menuTab {}
+
 .tag-menuTab.owned {
-	background-color: blue;
-	color: #fff;
+        background-color: blue;
+        color: #fff;
 }
+
 #box-menuBody {
-	overflow-y: scroll;
-	height: 100%;
-	padding: 8px;
+        overflow-y: scroll;
+        height: 100%;
+        padding: 8px;
 }
 
 #box-menuBody .thing {
-	border-radius: 4px;
-	border: 1px solid #fdf5df;
+        border-radius: 4px;
+        border: 1px solid #fdf5df;
 }
+
 #box-menuBody .thing:hover {
-	border-radius: 4px;
-	background-color: #FCFAEB;
-	border: 1px solid #622C15;
+        border-radius: 4px;
+        background-color: #FCFAEB;
+        border: 1px solid #622C15;
 }
 
 
@@ -152,14 +167,16 @@
 
 
 .menu1css {
-	grid-area: menu;
-	overflow-y: scroll;
+        grid-area: menu;
+        overflow-y: scroll;
 }
+
 .logHeader {
-	grid-area: logheader;
+        grid-area: logheader;
 }
+
 .logcss {
-	grid-area: logbox;
+        grid-area: logbox;
 }
 
 
@@ -170,39 +187,44 @@
 
 
 #box-inventoryHeader {
-	grid-area: inventoryheader;
-	margin: 0;
-	padding: 0;
+        grid-area: inventoryheader;
+        margin: 0;
+        padding: 0;
 }
+
 #box-things-inventoryTabHeader {
-	/* === */
+        /* === */
 }
+
 .tag-inventoryTabHeader {
-	background-color: #fdf5df;
-	color: #21366A;
-	font-weight: bold;
-	text-align: center;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	//border: none;
-	//box-sizing: border-box;
+        background-color: #fdf5df;
+        color: #21366A;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
 }
+
 .tag-inventoryTabHeader::before {
-	content: '}==';
+        content: '}==';
 }
+
 .tag-inventoryTabHeader::after {
-	content: '=={';
+        content: '=={';
 }
+
 #box-things-inventoryTab {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
 }
+
 .tag-inventoryTab {
-	border: 1px solid red;
+        border: 1px solid red;
 }
+
 .tag-inventoryTab.owned {
-	background-color: blue;
+        background-color: blue;
 }
 
 
@@ -215,37 +237,45 @@
 
 
 .inventory1css {
-	grid-area: inventorybox;
-	overflow-y: scroll;
+        grid-area: inventorybox;
+        overflow-y: scroll;
 }
+
 .titleBoxCss {
-	grid-area: title;
+        grid-area: title;
 }
+
 .statscss {
-	grid-area: stats;
+        grid-area: stats;
 }
+
 .playerhpposition {
-	grid-area: playerhp;
+        grid-area: playerhp;
 }
+
 .sellitemsHeader {
-	grid-area: sellheader;
+        grid-area: sellheader;
 }
+
 .sellitemsCss {
-	grid-area: sellbox;
-	overflow-y: scroll;
+        grid-area: sellbox;
+        overflow-y: scroll;
 }
+
 .abilityregencss {
-	grid-area: abilityregenheader;
+        grid-area: abilityregenheader;
 }
+
 .abilitydefcss {
-	grid-area: abilitydefheader;
+        grid-area: abilitydefheader;
 }
+
 .abilitymeleecss {
-	grid-area: abilitymeleeheader;
+        grid-area: abilitymeleeheader;
 }
 
 .enemyhpposition {
-	grid-area: enemyhp;
+        grid-area: enemyhp;
 }
 
 
@@ -260,65 +290,9 @@
 
 
 
-.box-things {
+.box-things {}
 
-}
-
-#box-things-Upgrades {
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	.shiny-icon {
-        width: 174px;
-        height: 132px;
-	}
-	.itemSize1
-	{                            
-	width:192px;       
-	height:192px;
-	}
-	.rainbowEff{
-	animation: rainbow-bg 8s linear;
-	animation-iteration-count: infinite;
-	}
-	@keyframes rainbow-bg{
-	100%,0%{
-	background-color: rgb(0,0,255);
-	}
-	19%{
-	background-color: rgb(31,224,40);
-	}
-	33%{
-	background-color: rgb(0,191,255);
-	}
-	55%{
-	background-color: rgb(44,56,211);
-	}
-	77%{
-	background-color: rgb(217,38,172);
-	}
-	}
+#box-things-Upgrades {}
 
 
 
@@ -342,42 +316,104 @@
 
 
 .shiny-icon {
-	  width: 200px;
-	  height: 200px;
-}
-.shiny{
-width: 200px !important;
-	  height: 200px !important;
-padding: 0px;
-    background-color: #00000000 !important;
-color:  #00000000 !important;
-width: 200px !important;
-
-font-size: 18px;
-/*height: 10%;*/
-text-align: center !important;
-line-height: 1.0 !important;
-/*display: inline-block !important;*/
-
-}
-.shiny:hover{
-width: 200px!important;
-	  height: 200px!important;
-padding: 0px;
-    background-color: #00000000 !important;
-color:  #00000000 !important;
-width: 200px !important;
-
-font-size: 18px;
-/*height: 10%;*/
-text-align: center !important;
-line-height: 1.0 !important;
-/*display: inline-block !important;*/
-
+        width: 174px;
+        height: 132px;
 }
 
-.thing-costs{
-padding: 0px !important; 
+.itemSize1 {
+        width: 192px;
+        height: 192px;
+}
+
+.rainbowEff {
+        animation: rainbow-bg 8s linear;
+        animation-iteration-count: infinite;
+}
+
+@keyframes rainbow-bg {
+
+        100%,
+        0% {
+                background-color: rgb(0, 0, 255);
+        }
+
+        19% {
+                background-color: rgb(31, 224, 40);
+        }
+
+        33% {
+                background-color: rgb(0, 191, 255);
+        }
+
+        55% {
+                background-color: rgb(44, 56, 211);
+        }
+
+        77% {
+                background-color: rgb(217, 38, 172);
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.shiny-icon {
+        width: 200px;
+        height: 200px;
+}
+
+.shiny {
+        width: 200px !important;
+        height: 200px !important;
+        padding: 0px;
+        background-color: #00000000 !important;
+        color: #00000000 !important;
+        width: 200px !important;
+
+        font-size: 18px;
+        /*height: 10%;*/
+        text-align: center !important;
+        line-height: 1.0 !important;
+        /*display: inline-block !important;*/
+
+}
+
+.shiny:hover {
+        width: 200px !important;
+        height: 200px !important;
+        padding: 0px;
+        background-color: #00000000 !important;
+        color: #00000000 !important;
+        width: 200px !important;
+
+        font-size: 18px;
+        /*height: 10%;*/
+        text-align: center !important;
+        line-height: 1.0 !important;
+        /*display: inline-block !important;*/
+
+}
+
+.thing-costs {
+        padding: 0px !important;
 }
 
 /* These things below has to do with the scaling of the ability icons, so they are quadratic and not stretched.
@@ -386,140 +422,159 @@ If more abilities are added their "#thing-X" tag should be added in the same way
 
 #thing-0 {
 
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important; /* This enables you to freely place the object on the screen */
-z-index: 2000; /* This is how much in front the things are, in this case the ability icons should be in front of the headers */
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        /* This enables you to freely place the object on the screen */
+        z-index: 2000;
+        /* This is how much in front the things are, in this case the ability icons should be in front of the headers */
 }
+
 #thing-1 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-z-index: 2000;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        z-index: 2000;
 }
+
 #thing-2 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-z-index: 2000;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        z-index: 2000;
 }
+
 #thing-3 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-z-index: 2001;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        z-index: 2001;
 }
+
 #thing-4 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-z-index: 2000;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        z-index: 2000;
 }
+
 #thing-5 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-z-index: 2000;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        z-index: 2000;
 }
+
 #thing-6 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-z-index: 2000;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        z-index: 2000;
 }
+
 #thing-7 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-z-index: 2000;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        z-index: 2000;
 }
+
 #thing-8 {
 
-left: 0%;
-  top: 0%;
-  width: 100% !important;
- height: 100% !important;
-  
-position: absolute !important;
-background-size: contain !important;
-background-repeat: no-repeat !important;
-z-index: 2000;
+        left: 0%;
+        top: 0%;
+        width: 100% !important;
+        height: 100% !important;
+
+        position: absolute !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        z-index: 2000;
 }
+
 #thing-9 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-background-repeat: no-repeat !important;
-z-index: 2000;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        background-repeat: no-repeat !important;
+        z-index: 2000;
 }
+
 #thing-10 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-background-repeat: no-repeat !important;
-z-index: 2000;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        background-repeat: no-repeat !important;
+        z-index: 2000;
 }
+
 #thing-11 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-background-repeat: no-repeat !important;
-z-index: 2000;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        background-repeat: no-repeat !important;
+        z-index: 2000;
 }
+
 #thing-12 {
-left: 0% !important;
-top: 0% !important;
-  width: 100% !important;
-  height: 100% !important;
-position: absolute !important;
-background-repeat: no-repeat !important;
-z-index: 2000;
+        left: 0% !important;
+        top: 0% !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        background-repeat: no-repeat !important;
+        z-index: 2000;
 }
 
 
 
-.thing.bigButton{
-left: 0% !important;
-top: 0% !important;
-margin-left: auto !important;
-    margin-top: auto !important;
-position: absolute !important;
-opacity: 1;
-z-index: 900;
+.thing.bigButton {
+        left: 0% !important;
+        top: 0% !important;
+        margin-left: auto !important;
+        margin-top: auto !important;
+        position: absolute !important;
+        opacity: 1;
+        z-index: 900;
 }
 
-.thing.bigButton:hover{
-	opacity: 1;
+.thing.bigButton:hover {
+        opacity: 1;
 
-z-index: 3000 !important;
+        z-index: 3000 !important;
 }
-.bigButton:hover, .thing-icon:hover {
-    transform: scale(1.05) !important; /* this is how big the ability icons get when hovered */
-    transition: transform 0.15s ease-out !important; /* this adds a nice ease effect to the animation */
 
-z-index: 3000 !important; /* this makes the currently hovered ability in front of the other abilities */
+.bigButton:hover,
+.thing-icon:hover {
+        transform: scale(1.05) !important;
+        /* this is how big the ability icons get when hovered */
+        transition: transform 0.15s ease-out !important;
+        /* this adds a nice ease effect to the animation */
+
+        z-index: 3000 !important;
+        /* this makes the currently hovered ability in front of the other abilities */
 }
 
 
@@ -541,50 +596,51 @@ z-index: 3000 !important; /* this makes the currently hovered ability in front o
 
 
 #logInner {
-    display: table-cell;
-    vertical-align: top;
+        display: table-cell;
+        vertical-align: top;
 }
 
 
 
 
 .box-header {
-	/* === */
+        /* === */
 }
 
 
 /* This is the position and scale of "Hard Swing" */
 .ability1css {
 
-  left: 0%;
-  top: 61%;
-  width: 10%;
-	height: 100% !important;
-  
-  padding-top: 100%; /* this makes the icons quadratic and not scaling in the same way as the text in the game */
+        left: 0%;
+        top: 61%;
+        width: 10%;
+        height: 100% !important;
 
-position: absolute !important;
+        padding-top: 100%;
+        /* this makes the icons quadratic and not scaling in the same way as the text in the game */
+
+        position: absolute !important;
 
 }
 
 /* This is the position and scale of "Charge" */
 .ability2css {
-  left: 10%;
-  top: 61%;
-  width: 10%;
-  padding-top: 100%;
-position: absolute !important;
+        left: 10%;
+        top: 61%;
+        width: 10%;
+        padding-top: 100%;
+        position: absolute !important;
 
 }
 
 /* This is the position and scale of "Empower" when not activated */
 .ability3css {
-  left: 20%;
-  top: 61%;
-  width: 10%;
+        left: 20%;
+        top: 61%;
+        width: 10%;
 
-  padding-top: 100%;
-position: absolute !important;
+        padding-top: 100%;
+        position: absolute !important;
 
 
 }
@@ -593,68 +649,72 @@ position: absolute !important;
 (Notice that it is 79.3% from the top - This is the height of second row of skills) */
 
 .ability8css {
-  left: 0%;
-  top: 79.3%;
-  width: 10%;
-  padding-top: 100%;
-position: absolute !important;
+        left: 0%;
+        top: 79.3%;
+        width: 10%;
+        padding-top: 100%;
+        position: absolute !important;
 
 }
 
 /* Some skill text were visible which should not be there. If more are added, they can be hidden like this */
-#thing-text-4, #thing-text-6, #thing-text-7, #thing-text-5{
-display: none !important;
+#thing-text-4,
+#thing-text-6,
+#thing-text-7,
+#thing-text-5 {
+        display: none !important;
 
 }
 
 /* This is the position and scale of "Focus" */
 .ability4css {
-  left: 30%;
-  top: 61%;
-  width: 10%;
-  padding-top: 100%;
+        left: 30%;
+        top: 61%;
+        width: 10%;
+        padding-top: 100%;
 
-position: absolute !important;
+        position: absolute !important;
 
 }
 
 /* This is the position and scale of another defensive skill, made to be future proof */
 .ability5css {
-  left: 40%;
-  top: 61%;
-  width: 10%;
-  padding-top: 100%;
-position: absolute !important;
+        left: 40%;
+        top: 61%;
+        width: 10%;
+        padding-top: 100%;
+        position: absolute !important;
 
 }
 
 /* This is the position and scale of always crit */
 .acritcss {
-	  left: 13%;
-	  top: 45%;
-	  width: 6%;
-  height: 10%;
-position: absolute !important;
-z-index: 2500 !important; /* This is in front of the menus and headers */
+        left: 13%;
+        top: 45%;
+        width: 6%;
+        height: 10%;
+        position: absolute !important;
+        z-index: 2500 !important;
+        /* This is in front of the menus and headers */
 }
 
 /* This is the position and scale of "Regeneration" */
 .ability6css {
-  left: 50%;
-  top: 61%;
-  width: 10%;
-  padding-top: 100%;
-position: absolute !important;
+        left: 50%;
+        top: 61%;
+        width: 10%;
+        padding-top: 100%;
+        position: absolute !important;
 
 }
 
 /* This is the position and scale of another regen skill, made to be future proof */
 .ability7css {
-  left: 60%;
-  top: 61%;
-  width: 10%;
-  padding-top: 100%;
-position: absolute !important;
+        left: 60%;
+        top: 61%;
+        width: 10%;
+        padding-top: 100%;
+        position: absolute !important;
 
 }
 
@@ -668,56 +728,70 @@ position: absolute !important;
 /* This is makes sure the skill icons quadratic and have a black border that fits the rest of the layout.
 If more skills are added there icons (e.g. "#thing-icon-XX") should be on this list too */
 
-#thing-icon-0, #thing-icon-1, #thing-icon-2, #thing-icon-3, #thing-icon-4, #thing-icon-5, #thing-icon-6, #thing-icon-7, #thing-icon-8, #thing-icon-9, #thing-icon-10, #thing-icon-11, #thing-icon-12 {
+#thing-icon-0,
+#thing-icon-1,
+#thing-icon-2,
+#thing-icon-3,
+#thing-icon-4,
+#thing-icon-5,
+#thing-icon-6,
+#thing-icon-7,
+#thing-icon-8,
+#thing-icon-9,
+#thing-icon-10,
+#thing-icon-11,
+#thing-icon-12 {
 
-background-repeat: no-repeat !important; /* The images should not repeat if the boxes containing them are stretched */
- display: inline-block !important;
-width: 100% !important;
-height: 100% !important;
+        background-repeat: no-repeat !important;
+        /* The images should not repeat if the boxes containing them are stretched */
+        display: inline-block !important;
+        width: 100% !important;
+        height: 100% !important;
 
-background-size: 100% auto !important;
+        background-size: 100% auto !important;
 
-z-index: 2000 !important;
-border-style: solid;
-border-width: 2px;
-border-color: #000000FF;
+        z-index: 2000 !important;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #000000FF;
 }
 
 
 /* this makes sure that the images don't repeat in general */
-.thing-icon{
-background-repeat: no-repeat !important;
+.thing-icon {
+        background-repeat: no-repeat !important;
 
 }
 
 /* This is the tooltip text size */
-.desc{
+.desc {
 
-font-size: 1.6vh !important;
-line-height: 1.1;
+        font-size: 1.6vh !important;
+        line-height: 1.1;
 
 }
 
 /* This is the tooltip header text size */
-.title{
-font-size: 2vh !important;
-line-height: 1.1;
+.title {
+        font-size: 2vh !important;
+        line-height: 1.1;
 
 }
 
 /* This is the text size of the bottom messages (for example "Game Saved") */
-#toasts{
-font-size: 18px !important;
-line-height: 1.1;
+#toasts {
+        font-size: 18px !important;
+        line-height: 1.1;
 }
+
 #tooltip {
 
-width: 40vh !important;
+        width: 40vh !important;
 
 }
 
-.shiny-text{
+.shiny-text {
 
-display: none !important;
+        display: none !important;
 
 }
