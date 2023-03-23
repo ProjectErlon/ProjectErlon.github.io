@@ -25,7 +25,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon tag:equipment_pickaxe
                 tooltip origin:left
 
 
@@ -16615,10 +16615,10 @@ Upgrades
                 tag:menuTab
                 no buy
                 on earn:
-                        //show tag:sellitems
+                        show tag:equipment_pickaxe
                 end
                 on lose:
-                        //hide tag:sellitems
+                        hide tag:equipment_pickaxe
                 end
                 on click:
                         lose tag:menuTab
@@ -24780,721 +24780,811 @@ Upgrades
                 end
 
 
-//TODO Оружие
 
         *golddagger2
-        name:Equip Gold Dagger
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if (mainhandequipped=1)
-        toast You already have a weapon equipped!
-        lose golddagger2
-        end
-        if (mainhandequipped=0)
-        yield 1 mainhandequipped
-        yield 1 daggerequipped
-        yield 65 attackmin
-        yield 90 attackmax
-        show golddagger3
-        hide golddagger2
-        yield -1 golddagger
-        end
-        end
-        req:1 golddagger
-        tag:equipment
+                name:Gold Dagger
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the gold dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
+                req:1 golddagger
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield 1 daggerequipped
+                        //
+                        yield 65 attackmin
+                        yield 90 attackmax
+                        //
+                        lose 1 golddagger
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose 1 daggerequipped
+                        //
+                        lose 65 attackmin
+                        lose 90 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 golddagger
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *golddagger3
-        name:Unequip Gold Dagger
-        desc:Press this button to unequip the gold dagger to be able to use other weapons.
-        req:have golddagger2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -65 attackmin
-        yield -90 attackmax
-        lose golddagger3
-        yield -1 mainhandequipped
-        yield -1 daggerequipped
-        hide golddagger3
-        show golddagger2
-        lose golddagger2
-        yield 1 golddagger
-        end
-        tag:equipment
+
 
         *offgolddagger2
-        name:Equip Off-Hand Gold Dagger
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if (offhandequipped=1)
-        toast You already have a weapon equipped!
-        lose offgolddagger2
-        end
-        if (offhandequipped=0)
-        yield 1 offhandequipped
-        yield 49 attackmin
-        yield 65 attackmax
-        show offgolddagger3
-        hide offgolddagger2
-        yield -1 offgolddagger
-        end
-        end
-        req:1 offgolddagger
-        tag:equipment
+                name:Off-Hand Gold Dagger
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the off-hand gold dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
+                req:1 offgolddagger
+                no buy
+                on earn:
+                        yield offhandequipped
+                        //
+                        yield 49 attackmin
+                        yield 65 attackmax
+                        //
+                        lose 1 offgolddagger
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose offhandequipped
+                        //
+                        lose 49 attackmin
+                        lose 65 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 offgolddagger
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *offgolddagger3
-        name:Unequip Off-Hand Gold Dagger
-        desc:Press this button to unequip the off-hand gold dagger to be able to use other weapons.
-        req:have offgolddagger2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -49 attackmin
-        yield -65 attackmax
-        lose offgolddagger3
-        yield -1 offhandequipped
-        hide offgolddagger3
-        show offgolddagger2
-        lose offgolddagger2
-        yield 1 offgolddagger
-        end
-        tag:equipment
+
 
         *goldlongsword2
-        name:Equip Gold Longsword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose goldlongsword2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 125 attackmin
-        yield 166 attackmax
-        show goldlongsword3
-        hide goldlongsword2
-        yield -1 goldlongsword
-        end
-        end
-        req:1 goldlongsword
-        tag:equipment
+                name:Gold Longsword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the gold longsword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 goldlongsword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 125 attackmin
+                        yield 166 attackmax
+                        //
+                        lose 1 goldlongsword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 125 attackmin
+                        lose 166 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 goldlongsword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *goldlongsword3
-        name:Unequip Gold Longsword
-        desc:Press this button to unequip the gold longsword to be able to use other weapons.
-        req:have goldlongsword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -125 attackmin
-        yield -166 attackmax
-        lose goldlongsword3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide goldlongsword3
-        show goldlongsword2
-        lose goldlongsword2
-        yield 1 goldlongsword
-        end
-        tag:equipment
+
 
         *equisitorsword2
-        name:Equip Equisitors Sword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose equisitorsword2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 139 attackmin
-        yield 187 attackmax
-        show equisitorsword3
-        hide equisitorsword2
-        yield -1 equisitorsword
-        end
-        end
-        tag:equipment
-        req:1 equisitorsword
+                name:Equisitors Sword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the equisitors sword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 equisitorsword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 139 attackmin
+                        yield 187 attackmax
+                        //
+                        lose 1 equisitorsword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 139 attackmin
+                        lose 187 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 equisitorsword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *equisitorsword3
-        name:Unequip Equisitors Sword
-        desc:Press this button to unequip the equisitors sword to be able to use other weapons.
-        req:have equisitorsword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -139 attackmin
-        yield -187 attackmax
-        lose equisitorsword3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide equisitorsword3
-        show equisitorsword2
-        lose equisitorsword2
-        yield 1 equisitorsword
-        end
-        tag:equipment
+
 
         *equisitorwarhammer2
-        name:Equip Equisitors Warhammer
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose equisitorwarhammer2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 3 tickmax
-        yield 169 attackmin
-        yield 211 attackmax
-        show equisitorwarhammer3
-        hide equisitorwarhammer2
-        yield -1 equisitorwarhammer
-        end
-        end
-        tag:equipment
-        req:1 equisitorwarhammer
+                name:Equisitors Warhammer
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the equisitors warhammer to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_warhammer
+                req:1 equisitorwarhammer
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 3 tickmax
+                        yield 169 attackmin
+                        yield 211 attackmax
+                        //
+                        lose 1 equisitorwarhammer
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 3 tickmax
+                        lose 169 attackmin
+                        lose 211 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 equisitorwarhammer
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *equisitorwarhammer3
-        name:Unequip Equisitors Warhammer
-        desc:Press this button to unequip the equisitors warhammer to be able to use other weapons.
-        req:have equisitorwarhammer2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -169 attackmin
-        yield -211 attackmax
-        lose equisitorwarhammer3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -3 tickmax
-        hide equisitorwarhammer3
-        show equisitorwarhammer2
-        lose equisitorwarhammer2
-        yield 1 equisitorwarhammer
-        end
-        tag:equipment
+
 
         *platinumdagger2
-        name:Equip platinum Dagger
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if (mainhandequipped=1)
-        toast You already have a weapon equipped!
-        lose platinumdagger2
-        end
-        if (mainhandequipped=0)
-        yield 1 mainhandequipped
-        yield 1 daggerequipped
-        yield 78 attackmin
-        yield 102 attackmax
-        show platinumdagger3
-        hide platinumdagger2
-        yield -1 platinumdagger
-        end
-        end
-        req:1 platinumdagger
-        tag:equipment
+                name:Platinum Dagger
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the platinum dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
+                req:1 platinumdagger
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield 1 daggerequipped
+                        //
+                        yield 78 attackmin
+                        yield 102 attackmax
+                        //
+                        lose 1 platinumdagger
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose 1 daggerequipped
+                        //
+                        lose 78 attackmin
+                        lose 102 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 platinumdagger
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *platinumdagger3
-        name:Unequip Platinum Dagger
-        desc:Press this button to unequip the platinum dagger to be able to use other weapons.
-        req:have platinumdagger2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -78 attackmin
-        yield -102 attackmax
-        lose platinumdagger3
-        yield -1 mainhandequipped
-        yield -1 daggerequipped
-        hide platinumdagger3
-        show platinumdagger2
-        lose platinumdagger2
-        yield 1 platinumdagger
-        end
-        tag:equipment
+
 
         *offplatinumdagger2
-        name:Equip Off-Hand Platinum Dagger
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if (offhandequipped=1)
-        toast You already have a weapon equipped!
-        lose offplatinumdagger2
-        end
-        if (offhandequipped=0)
-        yield 1 offhandequipped
-        yield 60 attackmin
-        yield 78 attackmax
-        show offplatinumdagger3
-        hide offplatinumdagger2
-        yield -1 offplatinumdagger
-        end
-        end
-        req:1 offplatinumdagger
-        tag:equipment
+                name:Off-Hand Platinum Dagger
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the off-hand platinum dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
+                req:1 offplatinumdagger
+                no buy
+                on earn:
+                        yield offhandequipped
+                        //
+                        yield 60 attackmin
+                        yield 78 attackmax
+                        //
+                        lose 1 offplatinumdagger
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose offhandequipped
+                        //
+                        lose 60 attackmin
+                        lose 78 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 offplatinumdagger
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *offplatinumdagger3
-        name:Unequip Off-Hand Platinum Dagger
-        desc:Press this button to unequip the off-hand platinum dagger to be able to use other weapons.
-        req:have offplatinumdagger2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -60 attackmin
-        yield -78 attackmax
-        lose offplatinumdagger3
-        yield -1 offhandequipped
-        hide offplatinumdagger3
-        show offplatinumdagger2
-        lose offplatinumdagger2
-        yield 1 offplatinumdagger
-        end
-        tag:equipment
+
 
         *platinumlongsword2
-        name:Equip Platinum Longsword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose platinumlongsword2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 147 attackmin
-        yield 199 attackmax
-        show platinumlongsword3
-        hide platinumlongsword2
-        yield -1 platinumlongsword
-        end
-        end
-        req:1 platinumlongsword
-        tag:equipment
+                name:Platinum Longsword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the platinum longsword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 platinumlongsword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 147 attackmin
+                        yield 199 attackmax
+                        //
+                        lose 1 platinumlongsword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 147 attackmin
+                        lose 199 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 platinumlongsword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *platinumlongsword3
-        name:Unequip Platinum Longsword
-        desc:Press this button to unequip the platinum longsword to be able to use other weapons.
-        req:have platinumlongsword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -147 attackmin
-        yield -199 attackmax
-        lose platinumlongsword3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide platinumlongsword3
-        show platinumlongsword2
-        lose platinumlongsword2
-        yield 1 platinumlongsword
-        end
-        tag:equipment
+
 
         *searingsword2
-        name:Equip Searing Sword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose searingsword2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 154 attackmin
-        yield 204 attackmax
-        show searingsword3
-        hide searingsword2
-        yield -1 searingsword
-        end
-        end
-        tag:equipment
-        req:1 searingsword
+                name:Searing Sword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the searing sword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 searingsword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 154 attackmin
+                        yield 204 attackmax
+                        //
+                        lose 1 searingsword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 154 attackmin
+                        lose 204 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 searingsword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *searingsword3
-        name:Unequip Searing Sword
-        desc:Press this button to unequip the searing sword to be able to use other weapons.
-        req:have searingsword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -154 attackmin
-        yield -204 attackmax
-        lose searingsword3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide searingsword3
-        show searingsword2
-        lose searingsword2
-        yield 1 searingsword
-        end
-        tag:equipment
+
 
         *krymsword2
-        name:Equip Krym Sword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose krymsword2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 103 attackmin
-        yield 149 attackmax
-        show krymsword3
-        hide krymsword2
-        yield -1 krymsword
-        end
-        end
-        tag:equipment
-        req:1 krymsword
+                name:Krym Sword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the krym sword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 krymsword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 103 attackmin
+                        yield 149 attackmax
+                        //
+                        lose 1 krymsword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 103 attackmin
+                        lose 149 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 krymsword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *krymsword3
-        name:Unequip Krym Sword
-        desc:Press this button to unequip the krym sword to be able to use other weapons.
-        req:have krymsword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -103 attackmin
-        yield -149 attackmax
-        lose krymsword3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide krymsword3
-        show krymsword2
-        lose krymsword2
-        yield 1 krymsword
-        end
-        tag:equipment
+
 
         *lathdagger2
-        name:Equip Lathikalkum Dagger
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if (mainhandequipped=1)
-        toast You already have a weapon equipped!
-        lose lathdagger2
-        end
-        if (mainhandequipped=0)
-        yield 1 mainhandequipped
-        yield 1 daggerequipped
-        yield 90 attackmin
-        yield 124 attackmax
-        show lathdagger3
-        hide lathdagger2
-        yield -1 lathdagger
-        end
-        end
-        req:1 lathdagger
-        tag:equipment
+                name:Lathikalkum Dagger
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the lathikalkum dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
+                req:1 lathdagger
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield 1 daggerequipped
+                        //
+                        yield 90 attackmin
+                        yield 124 attackmax
+                        //
+                        lose 1 lathdagger
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose 1 daggerequipped
+                        //
+                        lose 90 attackmin
+                        lose 124 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 lathdagger
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *lathdagger3
-        name:Unequip Lathikalkum Dagger
-        desc:Press this button to unequip the lathikalkum dagger to be able to use other weapons.
-        req:have lathdagger2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -90 attackmin
-        yield -124 attackmax
-        lose lathdagger3
-        yield -1 mainhandequipped
-        yield -1 daggerequipped
-        hide lathdagger3
-        show lathdagger2
-        lose lathdagger2
-        yield 1 lathdagger
-        end
-        tag:equipment
+
 
         *offlathdagger2
-        name:Equip Off-Hand Lathikalkum Dagger
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if (offhandequipped=1)
-        toast You already have a weapon equipped!
-        lose offlathdagger2
-        end
-        if (offhandequipped=0)
-        yield 1 offhandequipped
-        yield 72 attackmin
-        yield 88 attackmax
-        show offlathdagger3
-        hide offlathdagger2
-        yield -1 offlathdagger
-        end
-        end
-        req:1 offlathdagger
-        tag:equipment
+                name:Off-Hand Lathikalkum Dagger
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the off-hand lathikalkum dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
+                req:1 offlathdagger
+                no buy
+                on earn:
+                        yield offhandequipped
+                        //
+                        yield 72 attackmin
+                        yield 88 attackmax
+                        //
+                        lose 1 offlathdagger
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose offhandequipped
+                        //
+                        lose 72 attackmin
+                        lose 88 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 offlathdagger
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *offlathdagger3
-        name:Unequip Off-Hand Lathikalkum Dagger
-        desc:Press this button to unequip the off-hand lathikalkum dagger to be able to use other weapons.
-        req:have offlathdagger2
-        on earn:yield -72 attackmin
-        on earn:
-        yield -(ability8at) ability8at
-        end
-        on earn:yield -88 attackmax
-        on earn:lose offlathdagger3
-        on earn:yield -1 offhandequipped
-        on earn:hide offlathdagger3
-        on earn:show offlathdagger2
-        on earn:lose offlathdagger2
-        on earn:yield 1 offlathdagger
-        tag:equipment
+
 
         *lathlongsword2
-        name:Equip Lathikalkum Longsword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose lathlongsword2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 179 attackmin
-        yield 220 attackmax
-        show lathlongsword3
-        hide lathlongsword2
-        yield -1 lathlongsword
-        end
-        end
-        req:1 lathlongsword
-        tag:equipment
+                name:Lathikalkum Longsword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the lathikalkum longsword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 lathlongsword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 179 attackmin
+                        yield 220 attackmax
+                        //
+                        lose 1 lathlongsword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 179 attackmin
+                        lose 220 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 lathlongsword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *lathlongsword3
-        name:Unequip Lathikalkum Longsword
-        desc:Press this button to unequip the lathikalkum longsword to be able to use other weapons.
-        req:have lathlongsword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -179 attackmin
-        yield -220 attackmax
-        lose lathlongsword3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide lathlongsword3
-        show lathlongsword2
-        lose lathlongsword2
-        yield 1 lathlongsword
-        end
-        tag:equipment
+
 
         *dragonsword2
-        name:Equip Dragon Longsword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose dragonsword2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 2 tickmax
-        yield 189 attackmin
-        yield 246 attackmax
-        show dragonsword3
-        hide dragonsword2
-        yield -1 dragonsword
-        end
-        end
-        tag:equipment
-        req:1 dragonsword
+                name:Dragon Longsword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the dragon longsword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 dragonsword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 2 tickmax
+                        yield 189 attackmin
+                        yield 246 attackmax
+                        //
+                        lose 1 dragonsword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 2 tickmax
+                        lose 189 attackmin
+                        lose 246 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 dragonsword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *dragonsword3
-        name:Unequip Dragon Longsword
-        desc:Press this button to unequip the dragon longsword to be able to use other weapons.
-        req:have dragonsword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -189 attackmin
-        yield -246 attackmax
-        lose dragonsword3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -2 tickmax
-        hide dragonsword3
-        show dragonsword2
-        lose dragonsword2
-        yield 1 dragonsword
-        end
-        tag:equipment
+
 
         *iceshatter2
-        name:Equip Ice Shatter
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose iceshatter2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 87 attackmin
-        yield 346 attackmax
-        show iceshatter3
-        hide iceshatter2
-        yield -1 iceshatter
-        end
-        end
-        tag:equipment
-        req:1 iceshatter
+                name:Ice Shatter
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the ice shatter to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_shatter
+                req:1 iceshatter
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 87 attackmin
+                        yield 346 attackmax
+                        //
+                        lose 1 iceshatter
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 87 attackmin
+                        lose 346 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 iceshatter
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *iceshatter3
-        name:Unequip Dragon Longsword
-        desc:Press this button to unequip the dragon longsword to be able to use other weapons.
-        req:have iceshatter2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -87 attackmin
-        yield -346 attackmax
-        lose iceshatter3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide iceshatter3
-        show iceshatter2
-        lose iceshatter2
-        yield 1 iceshatter
-        end
-        tag:equipment
+
 
         *larphersword2
-        name:Equip Larpher's Sword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if (mainhandequipped=1)
-        toast You already have a weapon equipped!
-        lose larphersword2
-        end
-        if (mainhandequipped=0)
-        yield 1 mainhandequipped
-        yield 1 daggerequipped
-        yield 89 attackmin
-        yield 109 attackmax
-        show larphersword3
-        hide larphersword2
-        yield -1 larphersword
-        end
-        end
-        tag:equipment
-        req:1 larphersword
+                name:Larpher's Sword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the larpher's sword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
+                req:1 larphersword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield 1 daggerequipped
+                        //
+                        yield 89 attackmin
+                        yield 109 attackmax
+                        //
+                        lose 1 larphersword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose 1 daggerequipped
+                        //
+                        lose 89 attackmin
+                        lose 109 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 larphersword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *larphersword3
-        name:Unequip Larpher's Sword
-        desc:Press this button to unequip larpher's sword to be able to use other weapons.
-        req:have larphersword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -89 attackmin
-        yield -109 attackmax
-        lose larphersword3
-        yield -1 mainhandequipped
-        yield -1 daggerequipped
-        hide larphersword3
-        show larphersword2
-        lose larphersword2
-        yield 1 larphersword
-        end
-        tag:equipment
+
 
         *offlarphersword2
-        name:Equip Off-Hand Larpher's Sword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if (offhandequipped=1)
-        toast You already have an off-hand/main hand weapon equipped!
-        lose offlarphersword2
-        end
-        if (offhandequipped=0)
-        yield 1 offhandequipped
-        yield 64 attackmin
-        yield 86 attackmax
-        show offlarphersword3
-        hide offlarphersword2
-        yield -1 offlarphersword
-        end
-        end
-        tag:equipment
-        req:1 offlarphersword
+                name:Off-Hand Larpher's Sword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the off-hand larpher's sword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
+                req:1 offlarphersword
+                no buy
+                on earn:
+                        yield offhandequipped
+                        //
+                        yield 64 attackmin
+                        yield 86 attackmax
+                        //
+                        lose 1 offlarphersword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose offhandequipped
+                        //
+                        lose 64 attackmin
+                        lose 86 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 offlarphersword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *offlarphersword3
-        name:Unequip Off-Hand Larpher's Sword
-        desc:Press this button to unequip off-hand larpher's sword to be able to use other weapons.
-        req:have offlarphersword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -64 attackmin
-        yield -86 attackmax
-        lose offlarphersword3
-        yield -1 offhandequipped
-        hide offlarphersword3
-        show offlarphersword2
-        lose offlarphersword2
-        yield 1 offlarphersword
-        end
-        tag:equipment
+
 
         *elderdragonsword2
-        name:Equip Elder Dragon Longsword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose elderdragonsword2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 2 tickmax
-        yield 213 attackmin
-        yield 279 attackmax
-        show elderdragonsword3
-        hide elderdragonsword2
-        yield -1 elderdragonsword
-        end
-        end
-        tag:equipment
-        req:1 elderdragonsword
+                name:Elder Dragon Longsword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the elder dragon longsword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 elderdragonsword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 2 tickmax
+                        yield 213 attackmin
+                        yield 279 attackmax
+                        //
+                        lose 1 elderdragonsword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 2 tickmax
+                        lose 213 attackmin
+                        lose 279 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 elderdragonsword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *elderdragonsword3
-        name:Unequip Elder Dragon Longsword
-        desc:Press this button to unequip the elder dragon longsword to be able to use other weapons.
-        req:have elderdragonsword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -213 attackmin
-        yield -279 attackmax
-        lose elderdragonsword3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -2 tickmax
-        hide elderdragonsword3
-        show elderdragonsword2
-        lose elderdragonsword2
-        yield 1 elderdragonsword
-        end
-        tag:equipment
+
+//TODO Weapon
 
         *elflongbow2
         name:Equip Elf Longbow
