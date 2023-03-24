@@ -25602,443 +25602,465 @@ Upgrades
                 end
 
 
+
 //TODO Weapon - Ошибочка вышла: Переделать теги которые теряешь при надевании. Когда надеваю оффхенд вещь снимает и майн хенд
 //TODO Вроде пофиксил, но еще раз пройтись и расставить теги для луков придется
 //TODO mainhandequipped & offhandequipped можно объединить в одну по принципу binary watch и тип 0 - снято 1- одна рука 2 - вторая (1+2) - обе
 
-        *elflongbow2
-        name:Equip Elf Longbow
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1) or (bowequipped=1))
-        toast You already have a weapon equipped!
-        lose elflongbow2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0) and (bowequipped=0))
-        do bowequip with bowequip
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 bowequipped
-        yield 1 tickmax
-        yield 243 attackmin
-        yield 277 attackmax
-        show elflongbow3
-        hide elflongbow2
-        yield -1 elflongbow
-        end
-        end
-        tag:equipment
-        req:1 elflongbow
 
-        *elflongbow3
-        name:Unequip Elf Longbow
-        desc:Press this button to unequip the Elf Longbow to be able to use other weapons.
-        req:have elflongbow2
-        on earn:
-        do bowunequip with bowequip
-        yield -(ability8at) ability8at
-        yield -243 attackmin
-        yield -277 attackmax
-        lose elflongbow3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 bowequipped
-        yield -1 tickmax
-        hide elflongbow3
-        show elflongbow2
-        lose elflongbow2
-        yield 1 elflongbow
-        end
-        tag:equipment
+
+        *elflongbow2
+                name:Elf Longbow
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Elf Longbow to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longbow
+                req:1 elflongbow
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield bowequipped
+                        do bowequip with bowequip
+                        //
+                        yield 1 tickmax
+                        yield 243 attackmin
+                        yield 277 attackmax
+                        //
+                        lose 1 elflongbow
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        lose bowequipped
+                        do bowunequip with bowequip
+                        //
+                        lose 1 tickmax
+                        lose 243 attackmin
+                        lose 277 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 elflongbow
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
+
 
 
         *eelflongbow2
-        name:Equip Enhanced Elf Longbow
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1) or (bowequipped=1))
-        toast You already have a weapon equipped!
-        lose eelflongbow2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0) and (bowequipped=0))
-        do bowequip with bowequip
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 bowequipped
-        yield -1 tickmax
-        yield 380 attackmin
-        yield 511 attackmax
-        show eelflongbow3
-        hide eelflongbow2
-        yield -1 eelflongbow
-        end
-        end
-        tag:equipment
-        req:1 eelflongbow
+                name:Enhanced Elf Longbow
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Enhanced Elf Longbow to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longbow
+                req:1 eelflongbow
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield bowequipped
+                        do bowequip with bowequip
+                        //
+                        yield -1 tickmax
+                        yield 380 attackmin
+                        yield 511 attackmax
+                        //
+                        lose 1 eelflongbow
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        lose bowequipped
+                        do bowunequip with bowequip
+                        //
+                        lose -1 tickmax
+                        lose 380 attackmin
+                        lose 511 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 eelflongbow
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *eelflongbow3
-        name:Unequip Enhanced Elf Longbow
-        desc:Press this button to unequip the Enhanced Elf Longbow to be able to use other weapons.
-        req:have eelflongbow2
-        on earn:
-        do bowunequip with bowequip
-        yield -(ability8at) ability8at
-        yield -380 attackmin
-        yield -511 attackmax
-        lose eelflongbow3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 bowequipped
-        yield 1 tickmax
-        hide eelflongbow3
-        show eelflongbow2
-        lose eelflongbow2
-        yield 1 eelflongbow
-        end
-        tag:equipment
+
 
         *skybreaker2
-        name:Equip Skybreaker
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose skybreaker2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 344 attackmin
-        yield 412 attackmax
-        show skybreaker3
-        hide skybreaker2
-        yield -1 skybreaker
-        end
-        end
-        req:1 skybreaker
-        tag:equipment
+                name:Skybreaker
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Skybreaker to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 skybreaker
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 344 attackmin
+                        yield 412 attackmax
+                        //
+                        lose 1 skybreaker
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 344 attackmin
+                        lose 412 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 skybreaker
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *skybreaker3
-        name:Unequip Skybreaker
-        desc:Press this button to unequip the skybreaker to be able to use other weapons.
-        req:have skybreaker2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -344 attackmin
-        yield -412 attackmax
-        lose skybreaker3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide skybreaker3
-        show skybreaker2
-        lose skybreaker2
-        yield 1 skybreaker
-        end
-        tag:equipment
 
 
         *nyskybreaker2
-        name:Equip 'New Year' Skybreaker
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose nyskybreaker2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 345 attackmin
-        yield 413 attackmax
-        show nyskybreaker3
-        hide nyskybreaker2
-        yield -1 nyskybreaker
-        end
-        end
-        req:1 nyskybreaker
-        tag:equipment
+                name:'New Year' Skybreaker
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the 'New Year' Skybreaker to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 nyskybreaker
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 345 attackmin
+                        yield 413 attackmax
+                        //
+                        lose 1 nyskybreaker
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 345 attackmin
+                        lose 413 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 nyskybreaker
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
 
-        *nyskybreaker3
-        name:Unequip 'New Year' Skybreaker
-        desc:Press this button to unequip the 'New Year' Skybreaker to be able to use other weapons.
-        req:have nyskybreaker2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -345 attackmin
-        yield -413 attackmax
-        lose nyskybreaker3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide nyskybreaker3
-        show nyskybreaker2
-        lose nyskybreaker2
-        yield 1 nyskybreaker
-        end
-        tag:equipment
+
 
         *zarkossword2
-        name:Equip Zarkos Sword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose zarkossword2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 398 attackmin
-        yield 487 attackmax
-        show zarkossword3
-        hide zarkossword2
-        yield -1 zarkossword
-        end
-        end
-        tag:equipment
-        req:1 zarkossword
-         
-        *zarkossword3
-        name:Unequip Zarkos Sword
-        desc:Press this button to unequip the zarkos sword to be able to use other weapons.
-        req:have zarkossword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -398 attackmin
-        yield -487 attackmax
-        lose zarkossword3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide zarkossword3
-        show zarkossword2
-        lose zarkossword2
-        yield 1 zarkossword
-        end
-        tag:equipment
+                name:Zarkos Sword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Zarkos Sword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 zarkossword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 398 attackmin
+                        yield 487 attackmax
+                        //
+                        lose 1 zarkossword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 398 attackmin
+                        lose 487 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 zarkossword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
+
 
 
         *nyzarkossword2
-        name:Equip 'New Year' Zarkos Sword
-        desc:Press this button to equip this weapon and gain all of its stats.
-        on earn:
-        if ((mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon equipped!
-        lose nyzarkossword2
-        end
-        if ((mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 tickmax
-        yield 399 attackmin
-        yield 488 attackmax
-        show nyzarkossword3
-        hide nyzarkossword2
-        yield -1 nyzarkossword
-        end
-        end
-        tag:equipment
-        req:1 nyzarkossword
-         
-        *nyzarkossword3
-        name:Unequip 'New Year' Zarkos Sword
-        desc:Press this button to unequip the 'New Year' Zarkos Sword to be able to use other weapons.
-        req:have nyzarkossword2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -399 attackmin
-        yield -488 attackmax
-        lose nyzarkossword3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 tickmax
-        hide nyzarkossword3
-        show nyzarkossword2
-        lose nyzarkossword2
-        yield 1 nyzarkossword
-        end
-        tag:equipment
+                name:'New Year' Zarkos Sword
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the 'New Year' Zarkos Sword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
+                tag:equipment equipment_weapon equipment_2h_weapon equipment_longsword
+                req:1 nyzarkossword
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        //
+                        yield 1 tickmax
+                        yield 399 attackmin
+                        yield 488 attackmax
+                        //
+                        lose 1 nyzarkossword
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        //
+                        lose 1 tickmax
+                        lose 399 attackmin
+                        lose 488 attackmax
+                        lose (ability8at) ability8at
+                        //
+                        yield 1 nyzarkossword
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                yield this
+                        end
+                end
+
+
+
+//TODO Arrows
+
+
 
         *ancientarrow2
-        name:Equip Ancient Arrows
-        desc:Press this button to equip the arrows boosting bow damage.
-        on earn:
-        if (arrowequipped=1)
-        toast You already have arrows equipped!
-        lose ancientarrow2
-        end
-        if (arrowequipped=0) 
-        yield 1 arrowequipped
-        yield 26 arrowattackmin
-        yield 51 arrowattackmax
-        show ancientarrow3
-        hide ancientarrow2
-        end
-        end
-        req:1 ancientarrow
-        tag:equipment
-        on tick:
-        if (ancientarrow<1)
-        yield -26 arrowattackmin
-        yield -51 arrowattackmax
-        yield -1 arrowequipped
-        yield -1 ancientarrow2
-        log You have ran out of <#b89f51>Ancient Arrows</#>.
-        end
-        end
+                name:Ancient Arrows
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the arrows currently wielded.|Press this button to equip the arrows boosting bow damage.]
+                tag:equipment equipment_arrow
+                req:1 ancientarrow
+                no buy
+                on earn:
+                        yield arrowequipped
+                        //
+                        yield 26 arrowattackmin
+                        yield 51 arrowattackmax
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose arrowequipped
+                        //
+                        lose 26 arrowattackmin
+                        lose 51 arrowattackmax
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                on tick:
+                        if (ancientarrow<1)
+                                lose this
+                                log You have ran out of <#b89f51>Ancient Arrows</#>.
+                        end
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_arrow
+                                yield this
+                        end
+                end
 
-        *ancientarrow3
-        name:Unequip Ancient Arrows
-        desc:Press this button to unequip the arrows currently wielded.
-        req:have ancientarrow2
-        on earn:
-        lose ancientarrow3
-        yield -1 arrowequipped
-        yield -26 arrowattackmin
-        yield -51 arrowattackmax
-        hide ancientarrow3
-        show ancientarrow2
-        lose ancientarrow2
-        end
-        tags:equipment
-        
+
+
         *draclawarrow2
-        name:Equip Draclaw Arrows
-        desc:Press this button to equip the arrows boosting bow damage.
-        on earn:
-        if (arrowequipped=1)
-        toast You already have arrows equipped!
-        lose draclawarrow2
-        end
-        if (arrowequipped=0) 
-        yield 1 arrowequipped
-        yield 35 arrowattackmin
-        yield 67 arrowattackmax
-        show draclawarrow3
-        hide draclawarrow2
-        end
-        end
-        req:1 draclawarrow
-        tag:equipment
-        on tick:
-        if (draclawarrow<1)
-        yield -35 arrowattackmin
-        yield -67 arrowattackmax
-        yield -1 arrowequipped
-        yield -1 draclawarrow2
-        log You have ran out of <#aabcf0>Draclaw Arrows</#>.
-        end
-        end
+                name:Draclaw Arrows
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the arrows currently wielded.|Press this button to equip the arrows boosting bow damage.]
+                tag:equipment equipment_arrow
+                req:1 draclawarrow
+                no buy
+                on earn:
+                        yield arrowequipped
+                        //
+                        yield 35 arrowattackmin
+                        yield 67 arrowattackmax
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose arrowequipped
+                        //
+                        lose 35 arrowattackmin
+                        lose 67 arrowattackmax
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                on tick:
+                        if (draclawarrow<1)
+                                lose this
+                                log You have ran out of <#aabcf0>Draclaw Arrows</#>.
+                        end
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_arrow
+                                yield this
+                        end
+                end
 
-        *draclawarrow3
-        name:Unequip Draclaw Arrows
-        desc:Press this button to unequip the arrows currently wielded.
-        req:have draclawarrow2
-        on earn:
-        lose draclawarrow3
-        yield -1 arrowequipped
-        yield -35 arrowattackmin
-        yield -67 arrowattackmax
-        hide draclawarrow3
-        show draclawarrow2
-        lose draclawarrow2
-        end
-        tags:equipment
-        
+
+
         *bloodarrow2
-        name:Equip Blood Arrows
-        desc:Press this button to equip the arrows boosting bow damage.
-        on earn:
-        if (arrowequipped=1)
-        toast You already have arrows equipped!
-        lose bloodarrow2
-        end
-        if (arrowequipped=0) 
-        yield 1 arrowequipped
-        yield 49 arrowattackmin
-        yield 90 arrowattackmax
-        show bloodarrow3
-        hide bloodarrow2
-        end
-        end
-        req:1 bloodarrow
-        tag:equipment
-        on tick:
-        if (bloodarrow<1)
-        yield -49 arrowattackmin
-        yield -90 arrowattackmax
-        yield -1 arrowequipped
-        yield -1 bloodarrow2
-        log You have ran out of <#d40611>Blood Arrows</#>.
-        end
-        end
+                name:Blood Arrows
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the arrows currently wielded.|Press this button to equip the arrows boosting bow damage.]
+                tag:equipment equipment_arrow
+                req:1 bloodarrow
+                no buy
+                on earn:
+                        yield arrowequipped
+                        //
+                        yield 49 arrowattackmin
+                        yield 90 arrowattackmax
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose arrowequipped
+                        //
+                        lose 49 arrowattackmin
+                        lose 90 arrowattackmax
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                on tick:
+                        if (bloodarrow<1)
+                                lose this
+                                log You have ran out of <#d40611>Blood Arrows</#>.
+                        end
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_arrow
+                                yield this
+                        end
+                end
 
-        *bloodarrow3
-        name:Unequip Blood Arrows
-        desc:Press this button to unequip the arrows currently wielded.
-        req:have bloodarrow2
-        on earn:
-        lose bloodarrow3
-        yield -1 arrowequipped
-        yield -49 arrowattackmin
-        yield -90 arrowattackmax
-        hide bloodarrow3
-        show bloodarrow2
-        lose bloodarrow2
-        end
-        tags:equipment
-        
+
+
         *darkstararrow2
-        name:Equip Darkstar Arrows
-        desc:Press this button to equip the arrows boosting bow damage.
-        on earn:
-        if (arrowequipped=1)
-        toast You already have arrows equipped!
-        lose darkstararrow2
-        end
-        if (arrowequipped=0) 
-        yield 1 arrowequipped
-        yield 77 arrowattackmin
-        yield 145 arrowattackmax
-        show darkstararrow3
-        hide darkstararrow2
-        end
-        end
-        req:1 darkstararrow
-        tag:equipment
-        on tick:
-        if (darkstararrow<1)
-        yield -77 arrowattackmin
-        yield -145 arrowattackmax
-        yield -1 arrowequipped
-        yield -1 darkstararrow2
-        yield -(darkerousstacks) darkerousstacks
-        log You have ran out of <#528d9c>Darkstar Arrows</#>.
-        end
-        end
-        
-        *darkstararrow3
-        name:Unequip Darkstar Arrows
-        desc:Press this button to unequip the arrows currently wielded.
-        req:have darkstararrow2
-        on earn:
-        lose darkstararrow3
-        yield -1 arrowequipped
-        yield -66 arrowattackmin
-        yield -145 arrowattackmax
-        yield -(darkerousstacks) darkerousstacks
-        hide darkstararrow3
-        show darkstararrow2
-        lose darkstararrow2
-        end
-        tags:equipment
-        
-        
-        
+                name:Darkstar Arrows
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the arrows currently wielded.|Press this button to equip the arrows boosting bow damage.]
+                tag:equipment equipment_arrow
+                req:1 darkstararrow
+                no buy
+                on earn:
+                        yield arrowequipped
+                        //
+                        yield 77 arrowattackmin
+                        yield 145 arrowattackmax
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose arrowequipped
+                        //
+                        lose 77 arrowattackmin
+                        lose 145 arrowattackmax
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                on tick:
+                        if (darkstararrow<1)
+                                lose this
+                                log You have ran out of <#528d9c>Darkstar Arrows</#>.
+                        end
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_arrow
+                                yield this
+                        end
+                end
+
+
+
         *woodenpickaxe2
                 name:Wooden Pickaxe
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -26081,9 +26103,9 @@ Upgrades
                                 yield this
                         end
                 end
-        
-        
-        
+
+
+
         *stonepickaxe2
                 name:Stone Pickaxe
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -26129,292 +26151,321 @@ Upgrades
 
 
 
-
-
-
         *ironpickaxe2
-        name:Equip Iron Pickaxe
-        desc:Press this button to equip this pickaxe and gain all of its stats.
-        on earn:
-        if ((pickaxeequipped=1) or (mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon/pickaxe equipped!
-        lose ironpickaxe2
-        end
-        if ((mainhandequipped=0) and (mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 pickaxeequipped
-        yield 10 miningprecision
-        yield 45 miningpower
-        show ironpickaxe3
-        hide ironpickaxe2
-        yield -1 ironpickaxe
-        end
-        end
-        req:1 ironpickaxe
-        tags:equipment pickaxeon
+                name:Iron Pickaxe
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Iron pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+                tag:equipment equipment_pickaxe
+                req:1 ironpickaxe
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield pickaxeequipped
+                        //
+                        yield 10 miningprecision
+                        yield 45 miningpower
+                        //
+                        lose 1 ironpickaxe
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        lose pickaxeequipped
+                        //
+                        lose 10 miningprecision
+                        lose 45 miningpower
+                        //
+                        yield 1 ironpickaxe
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                lose tag:equipment_pickaxe
+                                yield this
+                        end
+                end
 
-        *ironpickaxe3
-        name:Unequip Iron Pickaxe
-        desc:Press this button to unequip the iron pickaxe to be able to use other weapons.
-        req:have ironpickaxe2
-        on earn:
-        yield -10 miningprecision
-        yield -45 miningpower
-        lose ironpickaxe3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 pickaxeequipped
-        hide ironpickaxe3
-        show ironpickaxe2
-        lose ironpickaxe2
-        yield 1 ironpickaxe
-        end
-        tags:equipment pickaxeon
+
 
         *steelpickaxe2
-        name:Equip Steel Pickaxe
-        desc:Press this button to equip this pickaxe and gain all of its stats.
-        on earn:
-        if ((pickaxeequipped=1) or (mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon/pickaxe equipped!
-        lose steelpickaxe2
-        end
-        if ((mainhandequipped=0) and (mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 pickaxeequipped
-        yield 13 miningprecision
-        yield 65 miningpower
-        show steelpickaxe3
-        hide steelpickaxe2
-        yield -1 steelpickaxe
-        end
-        end
-        req:1 steelpickaxe
-        tags:equipment pickaxeon
+                name:Steel Pickaxe
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Steel pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+                tag:equipment equipment_pickaxe
+                req:1 steelpickaxe
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield pickaxeequipped
+                        //
+                        yield 13 miningprecision
+                        yield 65 miningpower
+                        //
+                        lose 1 steelpickaxe
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        lose pickaxeequipped
+                        //
+                        lose 13 miningprecision
+                        lose 65 miningpower
+                        //
+                        yield 1 steelpickaxe
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                lose tag:equipment_pickaxe
+                                yield this
+                        end
+                end
 
-        *steelpickaxe3
-        name:Unequip Steel Pickaxe
-        desc:Press this button to unequip the steel pickaxe to be able to use other weapons.
-        req:have steelpickaxe2
-        on earn:
-        yield -13 miningprecision
-        yield -65 miningpower
-        lose steelpickaxe3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 pickaxeequipped
-        hide steelpickaxe3
-        show steelpickaxe2
-        lose steelpickaxe2
-        yield 1 steelpickaxe
-        end
-        tags:equipment pickaxeon
+
 
         *goldpickaxe2
-        name:Equip Gold Pickaxe
-        desc:Press this button to equip this pickaxe and gain all of its stats.
-        on earn:
-        if ((pickaxeequipped=1) or (mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon/pickaxe equipped!
-        lose goldpickaxe2
-        end
-        if ((mainhandequipped=0) and (mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 pickaxeequipped
-        yield 19 miningprecision
-        yield 120 miningpower
-        show goldpickaxe3
-        hide goldpickaxe2
-        yield -1 goldpickaxe
-        end
-        end
-        req:1 goldpickaxe
-        tags:equipment pickaxeon
+                name:Gold Pickaxe
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Gold pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+                tag:equipment equipment_pickaxe
+                req:1 goldpickaxe
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield pickaxeequipped
+                        //
+                        yield 19 miningprecision
+                        yield 120 miningpower
+                        //
+                        lose 1 goldpickaxe
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        lose pickaxeequipped
+                        //
+                        lose 19 miningprecision
+                        lose 120 miningpower
+                        //
+                        yield 1 goldpickaxe
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                lose tag:equipment_pickaxe
+                                yield this
+                        end
+                end
 
-        *goldpickaxe3
-        name:Unequip Gold Pickaxe
-        desc:Press this button to unequip the gold pickaxe to be able to use other weapons.
-        req:have goldpickaxe2
-        on earn:
-        yield -19 miningprecision
-        yield -120 miningpower
-        lose goldpickaxe3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 pickaxeequipped
-        hide goldpickaxe3
-        show goldpickaxe2
-        lose goldpickaxe2
-        yield 1 goldpickaxe
-        end
-        tags:equipment pickaxeon
+
 
         *equisitorpickaxe2
-        name:Equip Equisitors Pickaxe
-        desc:Press this button to equip this pickaxe and gain all of its stats.
-        on earn:
-        if ((pickaxeequipped=1) or (mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon/pickaxe equipped!
-        lose equisitorpickaxe2
-        end
-        if ((mainhandequipped=0) and (mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 pickaxeequipped
-        yield 24 miningprecision
-        yield 185 miningpower
-        show equisitorpickaxe3
-        hide equisitorpickaxe2
-        yield -1 equisitorpickaxe
-        end
-        end
-        req:1 equisitorpickaxe
-        tags:equipment pickaxeon
+                name:Equisitors Pickaxe
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Equisitors pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+                tag:equipment equipment_pickaxe
+                req:1 equisitorpickaxe
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield pickaxeequipped
+                        //
+                        yield 24 miningprecision
+                        yield 185 miningpower
+                        //
+                        lose 1 equisitorpickaxe
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        lose pickaxeequipped
+                        //
+                        lose 24 miningprecision
+                        lose 185 miningpower
+                        //
+                        yield 1 equisitorpickaxe
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                lose tag:equipment_pickaxe
+                                yield this
+                        end
+                end
 
-        *equisitorpickaxe3
-        name:Unequip Equisitor Pickaxe
-        desc:Press this button to unequip the equisitor pickaxe to be able to use other weapons.
-        req:have equisitorpickaxe2
-        on earn:
-        yield -24 miningprecision
-        yield -185 miningpower
-        lose equisitorpickaxe3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 pickaxeequipped
-        hide equisitorpickaxe3
-        show equisitorpickaxe2
-        lose equisitorpickaxe2
-        yield 1 equisitorpickaxe
-        end
-        tags:equipment pickaxeon
+
 
         *platinumpickaxe2
-        name:Equip Platinum Pickaxe
-        desc:Press this button to equip this pickaxe and gain all of its stats.
-        on earn:
-        if ((pickaxeequipped=1) or (mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon/pickaxe equipped!
-        lose platinumpickaxe2
-        end
-        if ((mainhandequipped=0) and (mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 pickaxeequipped
-        yield 32 miningprecision
-        yield 255 miningpower
-        show platinumpickaxe3
-        hide platinumpickaxe2
-        yield -1 platinumpickaxe
-        end
-        end
-        req:1 platinumpickaxe
-        tags:equipment pickaxeon
+                name:Platinum Pickaxe
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Platinum pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+                tag:equipment equipment_pickaxe
+                req:1 platinumpickaxe
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield pickaxeequipped
+                        //
+                        yield 32 miningprecision
+                        yield 255 miningpower
+                        //
+                        lose 1 platinumpickaxe
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        lose pickaxeequipped
+                        //
+                        lose 32 miningprecision
+                        lose 255 miningpower
+                        //
+                        yield 1 platinumpickaxe
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                lose tag:equipment_pickaxe
+                                yield this
+                        end
+                end
 
-        *platinumpickaxe3
-        name:Unequip Platinum Pickaxe
-        desc:Press this button to unequip the platinum pickaxe to be able to use other weapons.
-        req:have platinumpickaxe2
-        on earn:
-        yield -32 miningprecision
-        yield -255 miningpower
-        lose platinumpickaxe3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 pickaxeequipped
-        hide platinumpickaxe3
-        show platinumpickaxe2
-        lose platinumpickaxe2
-        yield 1 platinumpickaxe
-        end
-        tags:equipment pickaxeon
+
 
         *lathpickaxe2
-        name:Equip Lathikalkum Pickaxe
-        desc:Press this button to equip this pickaxe and gain all of its stats.
-        on earn:
-        if ((pickaxeequipped=1) or (mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon/pickaxe equipped!
-        lose lathpickaxe2
-        end
-        if ((mainhandequipped=0) and (mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 pickaxeequipped
-        yield 42 miningprecision
-        yield 320 miningpower
-        show lathpickaxe3
-        hide lathpickaxe2
-        yield -1 lathpickaxe
-        end
-        end
-        req:1 lathpickaxe
-        tags:equipment pickaxeon
+                name:Lathikalkum Pickaxe
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Lathikalkum pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+                tag:equipment equipment_pickaxe
+                req:1 lathpickaxe
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield pickaxeequipped
+                        //
+                        yield 42 miningprecision
+                        yield 320 miningpower
+                        //
+                        lose 1 lathpickaxe
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        lose pickaxeequipped
+                        //
+                        lose 42 miningprecision
+                        lose 320 miningpower
+                        //
+                        yield 1 lathpickaxe
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                lose tag:equipment_pickaxe
+                                yield this
+                        end
+                end
 
-        *lathpickaxe3
-        name:Unequip Lathikalkum Pickaxe
-        desc:Press this button to unequip the lathikalkum pickaxe to be able to use other weapons.
-        req:have lathpickaxe2
-        on earn:
-        yield -42 miningprecision
-        yield -320 miningpower
-        lose lathpickaxe3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 pickaxeequipped
-        hide lathpickaxe3
-        show lathpickaxe2
-        lose lathpickaxe2
-        yield 1 lathpickaxe
-        end
-        tags:equipment pickaxeon
 
 
         *predoxpickaxe2
-        name:Equip Predox Pickaxe
-        desc:Press this button to equip this pickaxe and gain all of its stats.
-        on earn:
-        if ((pickaxeequipped=1) or (mainhandequipped=1) or (offhandequipped=1))
-        toast You already have a weapon/pickaxe equipped!
-        lose predoxpickaxe2
-        end
-        if ((mainhandequipped=0) and (mainhandequipped=0) and (offhandequipped=0))
-        yield 1 mainhandequipped
-        yield 1 offhandequipped
-        yield 1 pickaxeequipped
-        yield 68 miningprecision
-        yield 405 miningpower
-        show predoxpickaxe3
-        hide predoxpickaxe2
-        yield -1 predoxpickaxe
-        end
-        end
-        req:1 predoxpickaxe
-        tags:equipment pickaxeon
+                name:Predox Pickaxe
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Predox pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+                tag:equipment equipment_pickaxe
+                req:1 predoxpickaxe
+                no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield pickaxeequipped
+                        //
+                        yield 68 miningprecision
+                        yield 405 miningpower
+                        //
+                        lose 1 predoxpickaxe
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        lose pickaxeequipped
+                        //
+                        lose 68 miningprecision
+                        lose 405 miningpower
+                        //
+                        yield 1 predoxpickaxe
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                lose tag:equipment_pickaxe
+                                yield this
+                        end
+                end
 
-        *predoxpickaxe3
-        name:Unequip Predox Pickaxe
-        desc:Press this button to unequip the predox pickaxe to be able to use other weapons.
-        req:have predoxpickaxe2
-        on earn:
-        yield -68 miningprecision
-        yield -405 miningpower
-        lose predoxpickaxe3
-        yield -1 mainhandequipped
-        yield -1 offhandequipped
-        yield -1 pickaxeequipped
-        hide predoxpickaxe3
-        show predoxpickaxe2
-        lose predoxpickaxe2
-        yield 1 predoxpickaxe
-        end
-        tags:equipment pickaxeon
-        
-        
-        
+
+
         *runeamulet2
                 name:Rune Amulet
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
