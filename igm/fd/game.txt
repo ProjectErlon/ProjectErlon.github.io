@@ -25,7 +25,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_pickaxe
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_pickaxe
                 tooltip origin:left
 
 
@@ -16600,10 +16600,12 @@ Upgrades
                 tag:menuTab
                 no buy
                 on earn:
-                        //show tag:sellitems
+                        show tag:equipment_amulet
+                        show tag:equipment_shield
                 end
                 on lose:
-                        //hide tag:sellitems
+                        hide tag:equipment_amulet
+                        hide tag:equipment_shield
                 end
                 on click:
                         lose tag:menuTab
@@ -26549,187 +26551,198 @@ Upgrades
 
 
         *spiritamulet2
-        name:Equip Spirit Amulet
-        desc:Press this button to equip this amulet and gain all of its stats.
-        on earn:
-        if (amuletequipped=1)
-        toast You already have an amulet/soul equipped!
-        lose spiritamulet2
-        end
-        if (amuletequipped=0)
-        yield 1 amuletequipped
-        show spiritamulet3
-        hide spiritamulet2
-        yield -1 spiritamulet
-        end
-        end
-        tag:equipment
-        req:1 spiritamulet
-         
-        *spiritamulet3
-        name:Unequip Spirit Amulet
-        desc:Press this button to unequip the spirit amulet to be able to use other amulets.
-        req:have spiritamulet2
-        on earn:
-        lose spiritamulet3
-        yield -1 amuletequipped
-        hide spiritamulet3
-        show spiritamulet2
-        lose spiritamulet2
-        yield 1 spiritamulet
-        end
-        tag:equipment
+                name:Spirit Amulet
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Spirit amulet to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
+                tag:equipment equipment_amulet
+                req:1 spiritamulet
+                no buy
+                on earn:
+                        yield amuletequipped
+                        //
+                        lose 1 spiritamulet
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose amuletequipped
+                        //
+                        yield 1 spiritamulet
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_amulet
+                                yield this
+                        end
+                end
+
+
 
         *equisitoramulet2
-        name:Equip Equisitors Amulet
-        desc:Press this button to equip this amulet and gain all of its stats.
-        on earn:
-        if (amuletequipped=1)
-        toast You already have an amulet/soul equipped!
-        lose equisitoramulet2
-        end
-        if (amuletequipped=0)
-        yield 1 amuletequipped
-        yield 8.5 regenhprate
-        yield 4.9 bregenhprate
-        yield 54 maxhp
-        show equisitoramulet3
-        hide equisitoramulet2
-        yield -1 equisitoramulet
-        end
-        end
-        tag:equipment
-        req:1 equisitoramulet
+                name:Equisitors Amulet
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Equisitors amulet to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
+                tag:equipment equipment_amulet
+                req:1 equisitoramulet
+                no buy
+                on earn:
+                        yield amuletequipped
+                        //
+                        yield 54 maxhp
+                        yield 8.5 regenhprate
+                        yield 4.9 bregenhprate
+                        //
+                        lose 1 equisitoramulet
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose amuletequipped
+                        //
+                        lose 54 maxhp
+                        lose 8.5 regenhprate
+                        lose 4.9 bregenhprate
+                        if (hp>=maxhp) hp=maxhp
+                        //
+                        yield 1 equisitoramulet
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_amulet
+                                yield this
+                        end
+                end
 
-        *equisitoramulet3
-        name:Unequip Equisitors Amulet
-        desc:Press this button to unequip the equisitors amulet to be able to use other amulets.
-        req:have equisitoramulet2
-        on earn:
-        yield -8.5 regenhprate
-        yield -4.9 bregenhprate
-        yield -54 maxhp
-        lose equisitoramulet3
-        yield -1 amuletequipped
-        hide equisitoramulet3
-        show equisitoramulet2
-        lose equisitoramulet2
-        yield 1 equisitoramulet
-        end
-        tag:equipment
+
 
         *liqunamulet2
-        name:Equip Liqun Amulet
-        desc:Press this button to equip this amulet and gain all of its stats.
-        on earn:
-        if (amuletequipped=1)
-        toast You already have an amulet/soul equipped!
-        lose liqunamulet2
-        end
-        if (amuletequipped=0)
-        yield 1 amuletequipped
-        yield 4.3 regenhprate
-        yield 6.1 bregenhprate
-        show liqunamulet3
-        hide liqunamulet2
-        yield -1 liqunamulet
-        end
-        end
-        tag:equipment
-        req:1 liqunamulet
+                name:Liqun Amulet
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Liqun amulet to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
+                tag:equipment equipment_amulet
+                req:1 liqunamulet
+                no buy
+                on earn:
+                        yield amuletequipped
+                        //
+                        yield 4.3 regenhprate
+                        yield 6.1 bregenhprate
+                        //
+                        lose 1 liqunamulet
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose amuletequipped
+                        //
+                        lose 4.3 regenhprate
+                        lose 6.1 bregenhprate
+                        if (hp>=maxhp) hp=maxhp
+                        //
+                        yield 1 liqunamulet
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_amulet
+                                yield this
+                        end
+                end
 
-        *liqunamulet3
-        name:Unequip Liqun Amulet
-        desc:Press this button to unequip the liqun amulet to be able to use other amulets.
-        req:have liqunamulet2
-        on earn:
-        yield -4.3 regenhprate
-        yield -6.1 bregenhprate
-        lose liqunamulet3
-        yield -1 amuletequipped
-        hide liqunamulet3
-        show liqunamulet2
-        lose liqunamulet2
-        yield 1 liqunamulet
-        end
-        tag:equipment
+
 
         *soulnecklace2
-        name:Equip Soul Necklace
-        desc:Press this button to equip this amulet and gain all of its stats.
-        on earn:
-        if (amuletequipped=1)
-        toast You already have an amulet/soul equipped!
-        lose soulnecklace2
-        end
-        if (amuletequipped=0)
-        yield 1 amuletequipped
-        show soulnecklace3
-        hide soulnecklace2
-        yield -1 soulnecklace
-        end
-        end
-        tag:equipment
-        req:1 soulnecklace
-         
-        *soulnecklace3
-        name:Unequip Soul Necklace
-        desc:Press this button to unequip the soul Necklace to be able to use other amulets.
-        req:have soulnecklace2
-        on earn:
-        lose soulnecklace3
-        yield -1 amuletequipped
-        hide soulnecklace3
-        show soulnecklace2
-        lose soulnecklace2
-        yield 1 soulnecklace
-        end
-        tag:equipment
+                name:Soul Necklace
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the Soul Necklace to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
+                tag:equipment equipment_amulet
+                req:1 soulnecklace
+                no buy
+                on earn:
+                        yield amuletequipped
+                        //
+                        lose 1 soulnecklace
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose amuletequipped
+                        //
+                        yield 1 soulnecklace
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_amulet
+                                yield this
+                        end
+                end
+
+
 
         *ffssoul2
-        name:Equip FragileFrenzY's Soul
-        desc:"Use me"
-        on earn:
-        if (amuletequipped=1)
-        toast You already have an amulet/soul equipped!
-        lose ffssoul2
-        end
-        if (amuletequipped=0)
-        yield 1 amuletequipped
-        yield 278 maxhp
-        yield 7.8 regenhprate
-        yield 9.4 bregenhprate
-        yield 26 attackmin
-        yield 63 attackmax
-        yield 95 itemfind
-        show ffssoul3
-        hide ffssoul2
-        yield -1 ffssoul
-        end
-        end
-        tag:equipment
-        req:1 ffssoul
-         
-        *ffssoul3
-        name:Unequip FragileFrenzY's Soul
-        desc:"I'll leave you alone"
-        req:have ffssoul2
-        on earn:
-        lose ffssoul3
-        yield -1 amuletequipped
-        yield -278 maxhp
-        yield -7.8 regenhprate
-        yield -9.4 bregenhprate
-        yield -26 attackmin
-        yield -63 attackmax
-        yield -95 itemfind
-        hide ffssoul3
-        show ffssoul2
-        lose ffssoul2
-        yield 1 ffssoul
-        end
-        tag:equipment
-
+                name:FragileFrenzY's Soul
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|"I'll leave you alone"|"Use me"]
+                tag:equipment equipment_amulet
+                req:1 ffssoul
+                no buy
+                on earn:
+                        yield amuletequipped
+                        //
+                        yield 278 maxhp
+                        yield 7.8 regenhprate
+                        yield 9.4 bregenhprate
+                        yield 26 attackmin
+                        yield 63 attackmax
+                        yield 95 itemfind
+                        //
+                        lose 1 ffssoul
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose amuletequipped
+                        //
+                        lose 278 maxhp
+                        lose 7.8 regenhprate
+                        lose 9.4 bregenhprate
+                        lose 26 attackmin
+                        lose 63 attackmax
+                        lose 95 itemfind
+                        if (hp>=maxhp) hp=maxhp
+                        //
+                        yield 1 ffssoul
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_amulet
+                                yield this
+                        end
+                end
 
 
 
@@ -26777,6 +26790,8 @@ Upgrades
                         else
                                 lose tag:equipment_pickaxe
                                 lose tag:equipment_shield
+                                lose tag:equipment_oh_weapon
+                                lose tag:equipment_2h_weapon
                                 yield this
                         end
                 end
@@ -26827,63 +26842,66 @@ Upgrades
                         else
                                 lose tag:equipment_pickaxe
                                 lose tag:equipment_shield
+                                lose tag:equipment_oh_weapon
+                                lose tag:equipment_2h_weapon
                                 yield this
                         end
                 end
-        
-        
 
-        
+
+
         *equisitorshield2
-        name:Equip Equisitors Shield
-        desc:Press this button to equip this shield and gain all of its stats.
-        on earn:
-        if (offhandequipped=1)
-        toast You already have an off-hand/2H hand item equipped!
-        lose equisitorshield2
-        end
-        if (offhandequipped=0)
-        yield 1 shieldequipped
-        yield 1 offhandequipped
-        yield 424 maxhp
-        yield 7.5 regenhprate
-        yield 4.4 bregenhprate
-        yield 0.52 daggerdmg
-        yield 6.7 critchance
-        show equisitorshield3
-        hide equisitorshield2
-        yield -1 equisitorshield
-        end
-        end
-        req:1 equisitorshield
-        tag:equipment
+                name:Equisitors Shield
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the off-hand Equisitors shield to be able to use other items.|Press this button to equip this shield and gain all of its stats.]
+                tag:equipment equipment_shield
+                req:1 equisitorshield
+                no buy
+                on earn:
+                        yield shieldequipped
+                        yield offhandequipped
+                        //
+                        yield 424 maxhp
+                        yield 7.5 regenhprate
+                        yield 4.4 bregenhprate
+                        yield 0.52 daggerdmg
+                        yield 6.7 critchance
+                        //
+                        lose 1 equisitorshield
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose shieldequipped
+                        lose offhandequipped
+                        //
+                        lose 424 maxhp
+                        lose 7.5 regenhprate
+                        lose 4.4 bregenhprate
+                        lose 0.52 daggerdmg
+                        lose 6.7 critchance
+                        lose (ability8at) ability8at
+                        if (hp>=maxhp) hp=maxhp
+                        //
+                        yield 1 equisitorshield
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_pickaxe
+                                lose tag:equipment_shield
+                                lose tag:equipment_oh_weapon
+                                lose tag:equipment_2h_weapon
+                                yield this
+                        end
+                end
 
-        *equisitorshield3
-        name:Unequip Equisitors Shield
-        desc:Press this button to unequip the off-hand slasher shield to be able to use other items.
-        req:have equisitorshield2
-        on earn:
-        yield -(ability8at) ability8at
-        yield -424 maxhp
-        yield -7.5 regenhprate
-        yield -4.4 bregenhprate
-        yield -0.52 daggerdmg
-        yield -6.7 critchance
-        lose equisitorshield3
-        yield -1 offhandequipped
-        yield -1 shieldequipped
-        hide equisitorshield3
-        show equisitorshield2
-        lose equisitorshield2
-        yield 1 equisitorshield
-        end
-        tag:equipment
-        
-        
-        
-        
-        
-        
+
+
         *woodenhelmet2
                 name:Wooden Helmet
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
