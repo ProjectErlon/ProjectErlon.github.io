@@ -25920,285 +25920,18 @@ Upgrades
 
 
 
-
-        *runeamulet2
-                name:Rune Amulet
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the rune amulet to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
-                tag:equipment equipment_amulet
-                req:1 runeamulet
-                no buy
-                on earn:
-                        yield amuletequipped
-                        //
-                        yield 2.9 regenhprate
-                        yield 2.4 bregenhprate
-                        //
-                        lose 1 runeamulet
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose amuletequipped
-                        //
-                        lose 2.9 regenhprate
-                        lose 2.4 bregenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 runeamulet
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_amulet
-                                yield this
-                        end
-                end
+        // IGM:SECTION:EQP Amulet
+        [include eqpamulet %id="runeamulet" %name="Rune Amulet" %regenhprate="2.9" %bregenhprate="2.4"]
+        [include eqpamulet %id="luckamulet" %name="Luck Amulet" %regenhprate="0.7" %bregenhprate="1.4" %itemfind="10"]
+        [include eqpamulet %id="spiritamulet" %name="Spirit Amulet"]
+        [include eqpamulet %id="equisitoramulet" %name="Equisitors Amulet" %maxhp="54" %regenhprate="8.5" %bregenhprate="4.9]
+        [include eqpamulet %id="liqunamulet" %name="Liqun Amulet" %regenhprate="4.3" %bregenhprate="6.1"]
+        [include eqpamulet %id="soulnecklace" %name="Soul Necklace"]
+        [include eqpamulet %id="ffssoul" %name="FragileFrenzY's Soul" %maxhp="278" %regenhprate="7.8" %bregenhprate="9.4" %attackmin="26" %attackmax="95" %itemfind="95"]
 
 
 
-        *luckamulet2
-                name:Luck Amulet
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the luck amulet to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
-                tag:equipment equipment_amulet
-                req:1 luckamulet
-                no buy
-                on earn:
-                        yield amuletequipped
-                        //
-                        yield 0.7 regenhprate
-                        yield 1.4 bregenhprate
-                        yield 10 itemfind
-                        //
-                        lose 1 luckamulet
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose amuletequipped
-                        //
-                        lose 0.7 regenhprate
-                        lose 1.4 bregenhprate
-                        lose 10 itemfind
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 luckamulet
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_amulet
-                                yield this
-                        end
-                end
-
-
-
-        *spiritamulet2
-                name:Spirit Amulet
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the Spirit amulet to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
-                tag:equipment equipment_amulet
-                req:1 spiritamulet
-                no buy
-                on earn:
-                        yield amuletequipped
-                        //
-                        lose 1 spiritamulet
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose amuletequipped
-                        //
-                        yield 1 spiritamulet
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_amulet
-                                yield this
-                        end
-                end
-
-
-
-        *equisitoramulet2
-                name:Equisitors Amulet
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the Equisitors amulet to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
-                tag:equipment equipment_amulet
-                req:1 equisitoramulet
-                no buy
-                on earn:
-                        yield amuletequipped
-                        //
-                        yield 54 maxhp
-                        yield 8.5 regenhprate
-                        yield 4.9 bregenhprate
-                        //
-                        lose 1 equisitoramulet
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose amuletequipped
-                        //
-                        lose 54 maxhp
-                        lose 8.5 regenhprate
-                        lose 4.9 bregenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 equisitoramulet
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_amulet
-                                yield this
-                        end
-                end
-
-
-
-        *liqunamulet2
-                name:Liqun Amulet
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the Liqun amulet to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
-                tag:equipment equipment_amulet
-                req:1 liqunamulet
-                no buy
-                on earn:
-                        yield amuletequipped
-                        //
-                        yield 4.3 regenhprate
-                        yield 6.1 bregenhprate
-                        //
-                        lose 1 liqunamulet
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose amuletequipped
-                        //
-                        lose 4.3 regenhprate
-                        lose 6.1 bregenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 liqunamulet
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_amulet
-                                yield this
-                        end
-                end
-
-
-
-        *soulnecklace2
-                name:Soul Necklace
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the Soul Necklace to be able to use other amulets.|Press this button to equip this amulet and gain all of its stats.]
-                tag:equipment equipment_amulet
-                req:1 soulnecklace
-                no buy
-                on earn:
-                        yield amuletequipped
-                        //
-                        lose 1 soulnecklace
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose amuletequipped
-                        //
-                        yield 1 soulnecklace
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_amulet
-                                yield this
-                        end
-                end
-
-
-
-        *ffssoul2
-                name:FragileFrenzY's Soul
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|"I'll leave you alone"|"Use me"]
-                tag:equipment equipment_amulet
-                req:1 ffssoul
-                no buy
-                on earn:
-                        yield amuletequipped
-                        //
-                        yield 278 maxhp
-                        yield 7.8 regenhprate
-                        yield 9.4 bregenhprate
-                        yield 26 attackmin
-                        yield 63 attackmax
-                        yield 95 itemfind
-                        //
-                        lose 1 ffssoul
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose amuletequipped
-                        //
-                        lose 278 maxhp
-                        lose 7.8 regenhprate
-                        lose 9.4 bregenhprate
-                        lose 26 attackmin
-                        lose 63 attackmax
-                        lose 95 itemfind
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 ffssoul
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_amulet
-                                yield this
-                        end
-                end
-
-
-
+        // IGM:SECTION:EQP Shield
         *frontershield2
                 name:Fronter Shield
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -31599,6 +31332,55 @@ Includes
                                         lose this
                                 else
                                         lose tag:equipment_arrow
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqpamulet %id %name %maxhp="0" %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %itemfind="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:<.>HP:..............<#55ff00>[%maxhp]</#><.>HP Regen:........<#55ff00>[%regenhprate]/s</#><.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#><.>Attack Min:......<#55ff00>[%attackmin]</#><.>Attack Max:......<#55ff00>[%attackmax]</#><.>Item Find:.......<#0c7994>[%itemfind]%</#>
+                        tag:equipment equipment_amulet
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield amuletequipped
+                                //
+                                yield [%maxhp] maxhp
+                                yield [%regenhprate] regenhprate
+                                yield [%bregenhprate] bregenhprate
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                yield [%itemfind] itemfind
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose amuletequipped
+                                //
+                                lose [%maxhp] maxhp
+                                lose [%regenhprate] regenhprate
+                                lose [%bregenhprate] bregenhprate
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose [%itemfind] itemfind
+                                if (hp>=maxhp) hp=maxhp
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        //Toggle part
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_amulet
                                         yield this
                                 end
                         end
