@@ -32022,8 +32022,10 @@ Shinies
 
 
 
+
+
 Includes
-        incEqpPickaxe %id %name %miningprecision %miningpower
+        *incEqpPickaxe %id %name %miningprecision %miningpower
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
