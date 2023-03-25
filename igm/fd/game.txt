@@ -26065,7 +26065,7 @@ Upgrades
 
 
         *woodenpickaxe2
-                [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
+                [include pickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
                 on earn:
                         yield mainhandequipped
                         yield offhandequipped
@@ -32062,7 +32062,7 @@ Shinies
 
 
 Includes
-        *include eqppickaxe %id %name %miningprecision %miningpower
+        *include pickaxe %id %name %miningprecision %miningpower
                 name:[%name]
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
                 desc:[?(have this)|Press this button to unequip the [n:this] to be able to use other weapons.|Press this button to equip [n:this] and gain all of its stats.]
