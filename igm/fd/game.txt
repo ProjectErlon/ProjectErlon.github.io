@@ -25895,171 +25895,17 @@ Upgrades
 
 
 
-//TODO Arrows
+        // IGM:SECTION:EQP Arrows
+        [include eqparrows %id="ancientarrow" %name="Ancient Arrows" %attackmin="26" %attackmax="51"]
+        // <#b89f51>Ancient Arrows</#>
+        [include eqparrows %id="draclawarrow" %name="Draclaw Arrows" %attackmin="35" %attackmax="67"]
+        // <#aabcf0>Draclaw Arrows</#>
+        [include eqparrows %id="bloodarrow" %name="Blood Arrows" %attackmin="49" %attackmax="90"]
+        // <#d40611>Blood Arrows</#>
+        [include eqparrows %id="darkstararrow" %name="Darkstar Arrows" %attackmin="77" %attackmax="145"]
+        // <#528d9c>Darkstar Arrows</#>
 
 
-
-        *ancientarrow2
-                name:Ancient Arrows
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the arrows currently wielded.|Press this button to equip the arrows boosting bow damage.]
-                tag:equipment equipment_arrow
-                req:1 ancientarrow
-                no buy
-                on earn:
-                        yield arrowequipped
-                        //
-                        yield 26 arrowattackmin
-                        yield 51 arrowattackmax
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose arrowequipped
-                        //
-                        lose 26 arrowattackmin
-                        lose 51 arrowattackmax
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                on tick:
-                        if (ancientarrow<1)
-                                lose this
-                                log You have ran out of <#b89f51>Ancient Arrows</#>.
-                        end
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_arrow
-                                yield this
-                        end
-                end
-
-
-
-        *draclawarrow2
-                name:Draclaw Arrows
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the arrows currently wielded.|Press this button to equip the arrows boosting bow damage.]
-                tag:equipment equipment_arrow
-                req:1 draclawarrow
-                no buy
-                on earn:
-                        yield arrowequipped
-                        //
-                        yield 35 arrowattackmin
-                        yield 67 arrowattackmax
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose arrowequipped
-                        //
-                        lose 35 arrowattackmin
-                        lose 67 arrowattackmax
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                on tick:
-                        if (draclawarrow<1)
-                                lose this
-                                log You have ran out of <#aabcf0>Draclaw Arrows</#>.
-                        end
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_arrow
-                                yield this
-                        end
-                end
-
-
-
-        *bloodarrow2
-                name:Blood Arrows
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the arrows currently wielded.|Press this button to equip the arrows boosting bow damage.]
-                tag:equipment equipment_arrow
-                req:1 bloodarrow
-                no buy
-                on earn:
-                        yield arrowequipped
-                        //
-                        yield 49 arrowattackmin
-                        yield 90 arrowattackmax
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose arrowequipped
-                        //
-                        lose 49 arrowattackmin
-                        lose 90 arrowattackmax
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                on tick:
-                        if (bloodarrow<1)
-                                lose this
-                                log You have ran out of <#d40611>Blood Arrows</#>.
-                        end
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_arrow
-                                yield this
-                        end
-                end
-
-
-
-        *darkstararrow2
-                name:Darkstar Arrows
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the arrows currently wielded.|Press this button to equip the arrows boosting bow damage.]
-                tag:equipment equipment_arrow
-                req:1 darkstararrow
-                no buy
-                on earn:
-                        yield arrowequipped
-                        //
-                        yield 77 arrowattackmin
-                        yield 145 arrowattackmax
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose arrowequipped
-                        //
-                        lose 77 arrowattackmin
-                        lose 145 arrowattackmax
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                on tick:
-                        if (darkstararrow<1)
-                                lose this
-                                log You have ran out of <#528d9c>Darkstar Arrows</#>.
-                        end
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_arrow
-                                yield this
-                        end
-                end
 
         // IGM:SECTION:EQP Pickaxe
         [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %precision="5" %power="20"]
@@ -31677,7 +31523,7 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:<.>Точность: <#55ff00>[%precision]</#><.>Сила:     <#55ff00>[%power]</#>
+                        desc:<.>Mining Precision:.<#55ff00>[%precision]</#><.>Mining Power:.....<#55ff00>[%power]</#>
                         tag:equipment equipment_pickaxe
                         req:1 [%id]
                         no buy
@@ -31712,6 +31558,47 @@ Includes
                                         lose tag:equipment_weapon
                                         lose tag:equipment_shield
                                         lose tag:equipment_pickaxe
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqparrows %id %name %attackmin %attackmax
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:<.>Arrow Attack Min:.<#55ff00>[%attackmin]</#><.>Arrow Attack Max:.<#55ff00>[%attackmax]</#>
+                        tag:equipment equipment_arrow
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield arrowequipped
+                                //
+                                yield [%attackmin] arrowattackmin
+                                yield [%attackmax] arrowattackmax
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose arrowequipped
+                                //
+                                lose [%attackmin] arrowattackmin
+                                lose [%attackmax] arrowattackmax
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on tick:
+                                if ([%id]<1)
+                                        lose this
+                                        log You have ran out of [n:this].
+                                end
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_arrow
                                         yield this
                                 end
                         end
