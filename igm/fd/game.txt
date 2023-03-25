@@ -26064,13 +26064,7 @@ Upgrades
 //SECTION Pickaxe
         // [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
         *woodenpickaxe2
-                [include utest %name="Wooden Pickaxe"]
-                //name:Wooden Pickaxe
-                //text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                //desc:[?(have this)|Press this button to unequip the wooden pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
-                //tag:equipment equipment_pickaxe
-                req:1 woodenpickaxe
-                no buy
+                [include utest %id="woodenpickaxe" %name="Wooden Pickaxe"]
                 on earn:
                         yield mainhandequipped
                         yield offhandequipped
@@ -32072,6 +32066,10 @@ Includes
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
                 desc:[?(have this)|Press this button to unequip the [n:this] to be able to use other weapons.|Press this button to equip [n:this] and gain all of its stats.]
                 tag:equipment equipment_pickaxe
+                req:1 [%id]
+                no buy
+
+
 
         *include eqppickaxe %id %name %miningprecision %miningpower
                 *[%id]2
