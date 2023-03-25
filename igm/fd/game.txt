@@ -16518,9 +16518,10 @@ Buildings
 
 
 /* ====== |END BUTTONS SECTION| ====== */
+//SECTION Upgrades
 
 Upgrades
-
+        [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
 /* ====== || ====== */
 
         *menuBack
@@ -26063,50 +26064,48 @@ Upgrades
 
 //SECTION Pickaxe
 
-        //[include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
-
-        *woodenpickaxe2
-                name:Wooden Pickaxe
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the wooden pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
-                tag:equipment equipment_pickaxe
-                req:1 woodenpickaxe
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield offhandequipped
-                        yield pickaxeequipped
-                        //
-                        yield 5 miningprecision
-                        yield 20 miningpower
-                        //
-                        lose 1 woodenpickaxe
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose offhandequipped
-                        lose pickaxeequipped
-                        //
-                        lose 5 miningprecision
-                        lose 20 miningpower
-                        //
-                        yield 1 woodenpickaxe
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
-                                lose tag:equipment_pickaxe
-                                yield this
-                        end
-                end
+        // *woodenpickaxe2
+        //         name:Wooden Pickaxe
+        //         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+        //         desc:[?(have this)|Press this button to unequip the wooden pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+        //         tag:equipment equipment_pickaxe
+        //         req:1 woodenpickaxe
+        //         no buy
+        //         on earn:
+        //                 yield mainhandequipped
+        //                 yield offhandequipped
+        //                 yield pickaxeequipped
+        //                 //
+        //                 yield 5 miningprecision
+        //                 yield 20 miningpower
+        //                 //
+        //                 lose 1 woodenpickaxe
+        //                 //
+        //                 toast <b>[n:this]</b> надет
+        //         end
+        //         on lose:
+        //                 lose mainhandequipped
+        //                 lose offhandequipped
+        //                 lose pickaxeequipped
+        //                 //
+        //                 lose 5 miningprecision
+        //                 lose 20 miningpower
+        //                 //
+        //                 yield 1 woodenpickaxe
+        //                 //
+        //                 toast <b>[n:this]</b> снят
+        //         end
+        //         //Toggle part
+        //         on click:
+        //                 if (have this)
+        //                         lose this
+        //                 else
+        //                         lose tag:equipment_weapon
+        //                         lose tag:equipment_shield
+        //                         lose tag:equipment_pickaxe
+        //                         yield this
+        //                 end
+        //         end
 
 
 
