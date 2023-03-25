@@ -26061,50 +26061,9 @@ Upgrades
                         end
                 end
 
+//SECTION Pickaxe
 
-
-        *woodenpickaxe2
-                name:Wooden Pickaxe
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the wooden pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
-                tag:equipment equipment_pickaxe
-                req:1 woodenpickaxe
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield offhandequipped
-                        yield pickaxeequipped
-                        //
-                        yield 5 miningprecision
-                        yield 20 miningpower
-                        //
-                        lose 1 woodenpickaxe
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose offhandequipped
-                        lose pickaxeequipped
-                        //
-                        lose 5 miningprecision
-                        lose 20 miningpower
-                        //
-                        yield 1 woodenpickaxe
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
-                                lose tag:equipment_pickaxe
-                                yield this
-                        end
-                end
+        [include incEqpPickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
 
 
 
@@ -27026,7 +26985,7 @@ Upgrades
 
 
 
-
+//TODO
         *ironhelmet2
         name:Equip Iron Helmet
         desc:Press this button to equip this helmet and gain all of its stats.
@@ -32060,3 +32019,51 @@ Shinies
         yield -$randam enemyhp
         log Vulnerability hit for <#98fc03>[$randam]<#000000> damage.
         end
+
+
+
+Includes
+        incEqpPickaxe %id %name %miningprecision %miningpower
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:[?(have this)|Press this button to unequip the [n:this] to be able to use other weapons.|Press this button to equip [n:this] and gain all of its stats.]
+                        tag:equipment equipment_pickaxe
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield mainhandequipped
+                                yield offhandequipped
+                                yield pickaxeequipped
+                                //
+                                yield [%miningprecision] miningprecision
+                                yield [%miningpower] miningpower
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose mainhandequipped
+                                lose offhandequipped
+                                lose pickaxeequipped
+                                //
+                                lose [%miningprecision] miningprecision
+                                lose [%miningpower] miningpower
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_weapon
+                                        lose tag:equipment_shield
+                                        lose tag:equipment_pickaxe
+                                        yield this
+                                end
+                        end
+
+/* ====== |END INCLUDES SECTION| ====== */
