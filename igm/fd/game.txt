@@ -25932,162 +25932,13 @@ Upgrades
 
 
         // IGM:SECTION:EQP Shield
-        *frontershield2
-                name:Fronter Shield
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the off-hand fronter shield to be able to use other items.|Press this button to equip this shield and gain all of its stats.]
-                tag:equipment equipment_shield
-                req:1 frontershield
-                no buy
-                on earn:
-                        yield shieldequipped
-                        yield offhandequipped
-                        //
-                        yield 74 maxhp
-                        yield 1.7 regenhprate
-                        yield 0.6 bregenhprate
-                        yield 0.11 daggerdmg
-                        yield 3 critchance
-                        //
-                        lose 1 frontershield
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose shieldequipped
-                        lose offhandequipped
-                        //
-                        lose 74 maxhp
-                        lose 1.7 regenhprate
-                        lose 0.6 bregenhprate
-                        lose 0.11 daggerdmg
-                        lose 3 critchance
-                        lose (ability8at) ability8at
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 frontershield
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_shield
-                                lose tag:equipment_oh_weapon
-                                lose tag:equipment_2h_weapon
-                                yield this
-                        end
-                end
-
-        
-        
-        *slashershield2
-                name:Slasher Shield
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the off-hand slasher shield to be able to use other items.|Press this button to equip this shield and gain all of its stats.]
-                tag:equipment equipment_shield
-                req:1 slashershield
-                no buy
-                on earn:
-                        yield shieldequipped
-                        yield offhandequipped
-                        //
-                        yield 189 maxhp
-                        yield 3.1 regenhprate
-                        yield 1.9 bregenhprate
-                        yield 0.27 daggerdmg
-                        yield 4.5 critchance
-                        //
-                        lose 1 slashershield
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose shieldequipped
-                        lose offhandequipped
-                        //
-                        lose 189 maxhp
-                        lose 3.1 regenhprate
-                        lose 1.9 bregenhprate
-                        lose 0.27 daggerdmg
-                        lose 4.5 critchance
-                        lose (ability8at) ability8at
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 slashershield
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_shield
-                                lose tag:equipment_oh_weapon
-                                lose tag:equipment_2h_weapon
-                                yield this
-                        end
-                end
+        [include eqpshield %id="frontershield" %name="Fronter Shield" %maxhp="74" %regenhprate="1.7" %bregenhprate="0.6" %daggerdmg="0.11" %critchance="3"]
+        [include eqpshield %id="slashershield" %name="Slasher Shield" %maxhp="189" %regenhprate="3.1" %bregenhprate="1.9" %daggerdmg="0.27" %critchance="4.5"]
+        [include eqpshield %id="equisitorshield" %name="Equisitors Shield" %maxhp="424" %regenhprate="7.5" %bregenhprate="4.4" %daggerdmg="0.52" %critchance="6.7"]
 
 
 
-        *equisitorshield2
-                name:Equisitors Shield
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the off-hand Equisitors shield to be able to use other items.|Press this button to equip this shield and gain all of its stats.]
-                tag:equipment equipment_shield
-                req:1 equisitorshield
-                no buy
-                on earn:
-                        yield shieldequipped
-                        yield offhandequipped
-                        //
-                        yield 424 maxhp
-                        yield 7.5 regenhprate
-                        yield 4.4 bregenhprate
-                        yield 0.52 daggerdmg
-                        yield 6.7 critchance
-                        //
-                        lose 1 equisitorshield
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose shieldequipped
-                        lose offhandequipped
-                        //
-                        lose 424 maxhp
-                        lose 7.5 regenhprate
-                        lose 4.4 bregenhprate
-                        lose 0.52 daggerdmg
-                        lose 6.7 critchance
-                        lose (ability8at) ability8at
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 equisitorshield
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_shield
-                                lose tag:equipment_oh_weapon
-                                lose tag:equipment_2h_weapon
-                                yield this
-                        end
-                end
-
-
-
+        // IGM:SECTION:EQP Helmet
         *woodenhelmet2
                 name:Wooden Helmet
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -31342,7 +31193,13 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:<.>HP:..............<#55ff00>[%maxhp]</#><.>HP Regen:........<#55ff00>[%regenhprate]/s</#><.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#><.>Attack Min:......<#55ff00>[%attackmin]</#><.>Attack Max:......<#55ff00>[%attackmax]</#><.>Item Find:.......<#0c7994>[%itemfind]%</#>
+                        desc:
+                        [?(%maxhp>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|]
+                        [?(%regenhprate>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|]
+                        [?(%bregenhprate>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|]
+                        [?(%attackmin>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|]
+                        [?(%attackmax>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|]
+                        [?(%itemfind>0)|<.>Item Find:.......<#0c7994>[%itemfind]%</#>|]
                         tag:equipment equipment_amulet
                         req:1 [%id]
                         no buy
@@ -31381,6 +31238,58 @@ Includes
                                         lose this
                                 else
                                         lose tag:equipment_amulet
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqpshield %id %name %maxhp %regenhprate %bregenhprate %daggerdmg %critchance
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:<.>HP:..............<#55ff00>[%maxhp]</#><.>HP Regen:........<#55ff00>[%regenhprate]/s</#> <.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s </#><.>Dagger Damage:...<#55ff00>[%daggerdmg]%</#><.>Crit Chance:.....<#55ff00>[%critchance]%</#>
+                        tag:equipment equipment_shield
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield shieldequipped
+                                yield offhandequipped
+                                //
+                                yield [%maxhp] maxhp
+                                yield [%regenhprate] regenhprate
+                                yield [%bregenhprate] bregenhprate
+                                yield [%daggerdmg] daggerdmg
+                                yield [%critchance] critchance
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose shieldequipped
+                                lose offhandequipped
+                                //
+                                lose [%maxhp] maxhp
+                                lose [%regenhprate] regenhprate
+                                lose [%bregenhprate] bregenhprate
+                                lose [%daggerdmg] daggerdmg
+                                lose [%critchance] critchance
+                                lose (ability8at) ability8at
+                                if (hp>=maxhp) hp=maxhp
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_pickaxe
+                                        lose tag:equipment_shield
+                                        lose tag:equipment_oh_weapon
+                                        lose tag:equipment_2h_weapon
                                         yield this
                                 end
                         end
