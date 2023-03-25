@@ -26063,6 +26063,7 @@ Upgrades
 
 //SECTION Pickaxe
 
+
         *woodenpickaxe2
                 [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
                 on earn:
