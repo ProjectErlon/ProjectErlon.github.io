@@ -26089,16 +26089,7 @@ Upgrades
                         //
                         toast <b>[n:this]</b> снят
                 end
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
-                                lose tag:equipment_pickaxe
-                                yield this
-                        end
-                end
+
 
 
 
@@ -32067,3 +32058,13 @@ Includes
                 tag:equipment equipment_pickaxe
                 req:1 [%req]
                 no buy
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                lose tag:equipment_pickaxe
+                                yield this
+                        end
+                end
