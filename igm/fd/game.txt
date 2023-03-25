@@ -26064,32 +26064,18 @@ Upgrades
 //SECTION Pickaxe
         // [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
         *woodenpickaxe2
-                [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe"]
-                on earn:
-                        yield mainhandequipped
-                        yield offhandequipped
-                        yield pickaxeequipped
-                        //
-                        yield 5 miningprecision
-                        yield 20 miningpower
-                        //
-                        lose 1 woodenpickaxe
-                        //
-                        toast <b>[n:this]</b> надет
+                [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
+                //Toggle part
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                lose tag:equipment_pickaxe
+                                yield this
+                        end
                 end
-                on lose:
-                        lose mainhandequipped
-                        lose offhandequipped
-                        lose pickaxeequipped
-                        //
-                        lose 5 miningprecision
-                        lose 20 miningpower
-                        //
-                        yield 1 woodenpickaxe
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-
 
 
 
@@ -32051,23 +32037,38 @@ Shinies
 
 
 Includes
-        *include eqppickaxe %id %name
+        *include eqppickaxe %id %name %miningprecision %miningpower
                 name:[%name]
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
                 desc:[?(have this)|Press this button to unequip the [n:this] to be able to use other weapons.|Press this button to equip [n:this] and gain all of its stats.]
                 tag:equipment equipment_pickaxe
                 req:1 [%id]
                 no buy
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
-                                lose tag:equipment_pickaxe
-                                yield this
-                        end
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield pickaxeequipped
+                        //
+                        yield [%miningprecision] miningprecision
+                        yield [%miningpower] miningpower
+                        //
+                        lose 1 [%id]
+                        //
+                        toast <b>[n:this]</b> надет
                 end
+                on lose:
+                        lose mainhandequipped
+                        lose offhandequipped
+                        lose pickaxeequipped
+                        //
+                        lose [%miningprecision] miningprecision
+                        lose [%miningpower] miningpower
+                        //
+                        yield 1 [%id]
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+
 
 
         // *include eqppickaxe %id %name %miningprecision %miningpower
