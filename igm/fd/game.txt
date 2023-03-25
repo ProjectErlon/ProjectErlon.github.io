@@ -26064,19 +26064,7 @@ Upgrades
 //SECTION Pickaxe
 
         *woodenpickaxe2
-                [include eqppickaxe %name="Wooden Pickaxe" %req="woodenpickaxe"]
-                on earn:
-                        yield mainhandequipped
-                        yield offhandequipped
-                        yield pickaxeequipped
-                        //
-                        yield 5 miningprecision
-                        yield 20 miningpower
-                        //
-                        lose 1 woodenpickaxe
-                        //
-                        toast <b>[n:this]</b> надет
-                end
+                [include eqppickaxe %name="Wooden Pickaxe" %req="woodenpickaxe" %precision]
                 on lose:
                         lose mainhandequipped
                         lose offhandequipped
@@ -32051,13 +32039,25 @@ Shinies
 
 
 Includes
-        *include eqppickaxe %name %req
+        *include eqppickaxe %name %req %precision
                 name:[%name]
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Снять|Надеть] <b>[n:this]</b></>Точность: [%precision]
                 tag:equipment equipment_pickaxe
                 req:1 [%req]
                 no buy
+                on earn:
+                        yield mainhandequipped
+                        yield offhandequipped
+                        yield pickaxeequipped
+                        //
+                        yield [%precision] miningprecision
+                        yield 20 miningpower
+                        //
+                        lose 1 [%req]
+                        //
+                        toast <b>[n:this]</b> надет
+                end
                 on click:
                         if (have this)
                                 lose this
