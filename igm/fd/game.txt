@@ -25,7 +25,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_pickaxe
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_pickaxe
                 tooltip origin:left
 
 
@@ -16602,10 +16602,12 @@ Upgrades
                 on earn:
                         show tag:equipment_amulet
                         show tag:equipment_shield
+                        show tag:equipment_helmet
                 end
                 on lose:
                         hide tag:equipment_amulet
                         hide tag:equipment_shield
+                        show tag:equipment_helmet
                 end
                 on click:
                         lose tag:menuTab
@@ -30479,7 +30481,7 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:[?([%maxhp]>0)|<.>HP:...............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|]
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|]
                         tag:equipment equipment_helmet
                         req:1 [%id]
                         no buy
