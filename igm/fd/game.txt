@@ -26063,55 +26063,9 @@ Upgrades
 
 //SECTION Pickaxe
 
-        //*woodenpickaxe2
         [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %precision="5" %power="20"]
+        [include eqppickaxe %id="stonepickaxe" %name="Stone Pickaxe" %precision="7" %power="30"]
 
-
-
-
-
-        *stonepickaxe2
-                name:Stone Pickaxe
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the stone pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
-                tag:equipment equipment_pickaxe
-                req:1 stonepickaxe
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield offhandequipped
-                        yield pickaxeequipped
-                        //
-                        yield 7 miningprecision
-                        yield 30 miningpower
-                        //
-                        lose 1 stonepickaxe
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose offhandequipped
-                        lose pickaxeequipped
-                        //
-                        lose 7 miningprecision
-                        lose 30 miningpower
-                        //
-                        yield 1 stonepickaxe
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
-                                lose tag:equipment_pickaxe
-                                yield this
-                        end
-                end
 
 
 
@@ -32032,7 +31986,7 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:[?(have this)|Снять|Надеть] <b>[n:this]</b></>Точность: [%precision]
+                        desc:<.>Точность: <#55ff00>[%precision]</#><.>Сила: <#55ff00>[%power]</#>
                         tag:equipment equipment_pickaxe
                         req:1 [%id]
                         no buy
