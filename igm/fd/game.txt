@@ -26063,8 +26063,8 @@ Upgrades
 
 //SECTION Pickaxe
 
-        *woodenpickaxe2
-                [include eqppickaxe %name="Wooden Pickaxe" %req="woodenpickaxe" %precision="5" %power="20"]
+        //*woodenpickaxe2
+        [include eqppickaxe %name="Wooden Pickaxe" %req="woodenpickaxe" %precision="5" %power="20"]
 
 
 
@@ -32029,43 +32029,44 @@ Shinies
 
 Includes
         *include eqppickaxe %name %req %precision %power
-                name:[%name]
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Снять|Надеть] <b>[n:this]</b></>Точность: [%precision]
-                tag:equipment equipment_pickaxe
-                req:1 [%req]
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield offhandequipped
-                        yield pickaxeequipped
-                        //
-                        yield [%precision] miningprecision
-                        yield [%power] miningpower
-                        //
-                        lose 1 [%req]
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose offhandequipped
-                        lose pickaxeequipped
-                        //
-                        lose [%precision] miningprecision
-                        lose [%power] miningpower
-                        //
-                        yield 1 [%req]
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
-                                lose tag:equipment_pickaxe
-                                yield this
+                *[%req]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:[?(have this)|Снять|Надеть] <b>[n:this]</b></>Точность: [%precision]
+                        tag:equipment equipment_pickaxe
+                        req:1 [%req]
+                        no buy
+                        on earn:
+                                yield mainhandequipped
+                                yield offhandequipped
+                                yield pickaxeequipped
+                                //
+                                yield [%precision] miningprecision
+                                yield [%power] miningpower
+                                //
+                                lose 1 [%req]
+                                //
+                                toast <b>[n:this]</b> надет
                         end
-                end
+                        on lose:
+                                lose mainhandequipped
+                                lose offhandequipped
+                                lose pickaxeequipped
+                                //
+                                lose [%precision] miningprecision
+                                lose [%power] miningpower
+                                //
+                                yield 1 [%req]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_weapon
+                                        lose tag:equipment_shield
+                                        lose tag:equipment_pickaxe
+                                        yield this
+                                end
+                        end
