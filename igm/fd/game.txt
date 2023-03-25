@@ -32061,7 +32061,7 @@ Shinies
 
 
 Includes
-        *include utest %name
+        *include utest %id %name
                 name:[%name]
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
                 desc:[?(have this)|Press this button to unequip the [n:this] to be able to use other weapons.|Press this button to equip [n:this] and gain all of its stats.]
