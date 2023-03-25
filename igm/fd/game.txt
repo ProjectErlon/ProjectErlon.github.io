@@ -26066,7 +26066,6 @@ Upgrades
 
         *woodenpickaxe2
                 [include eqppickaxe %name="Wooden Pickaxe"]
-                
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
                 desc:[?(have this)|Press this button to unequip the wooden pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
                 tag:equipment equipment_pickaxe
@@ -26095,6 +26094,16 @@ Upgrades
                         yield 1 woodenpickaxe
                         //
                         toast <b>[n:this]</b> снят
+                end
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_weapon
+                                lose tag:equipment_shield
+                                lose tag:equipment_pickaxe
+                                yield this
+                        end
                 end
 
 
@@ -32059,76 +32068,3 @@ Shinies
 Includes
         *include eqppickaxe %name
                 name:[%name]
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
-                                lose tag:equipment_pickaxe
-                                yield this
-                        end
-                end
-
-
-
-
-
-
-
-
-
-
-
-                // text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                // desc:[?(have this)|Press this button to unequip the [n:this] to be able to use other weapons.|Press this button to equip [n:this] and gain all of its stats.]
-                // tag:equipment equipment_pickaxe
-
-
-
-
-
-        // *include eqppickaxe %id %name %miningprecision %miningpower
-        //         *[%id]2
-        //                 name:[%name]
-        //                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-        //                 desc:[?(have this)|Press this button to unequip the [n:this] to be able to use other weapons.|Press this button to equip [n:this] and gain all of its stats.]
-        //                 tag:equipment equipment_pickaxe
-        //                 req:1 [%id]
-        //                 no buy
-        //                 on earn:
-        //                         yield mainhandequipped
-        //                         yield offhandequipped
-        //                         yield pickaxeequipped
-        //                         //
-        //                         yield [%miningprecision] miningprecision
-        //                         yield [%miningpower] miningpower
-        //                         //
-        //                         lose 1 [%id]
-        //                         //
-        //                         toast <b>[n:this]</b> надет
-        //                 end
-        //                 on lose:
-        //                         lose mainhandequipped
-        //                         lose offhandequipped
-        //                         lose pickaxeequipped
-        //                         //
-        //                         lose [%miningprecision] miningprecision
-        //                         lose [%miningpower] miningpower
-        //                         //
-        //                         yield 1 [%id]
-        //                         //
-        //                         toast <b>[n:this]</b> снят
-        //                 end
-        //                 on click:
-        //                         if (have this)
-        //                                 lose this
-        //                         else
-        //                                 lose tag:equipment_weapon
-        //                                 lose tag:equipment_shield
-        //                                 lose tag:equipment_pickaxe
-        //                                 yield this
-        //                         end
-        //                 end
-
-/* ====== |END INCLUDES SECTION| ====== */
