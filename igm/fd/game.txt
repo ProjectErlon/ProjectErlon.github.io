@@ -16607,7 +16607,7 @@ Upgrades
                 on lose:
                         hide tag:equipment_amulet
                         hide tag:equipment_shield
-                        show tag:equipment_helmet
+                        hide tag:equipment_helmet
                 end
                 on click:
                         lose tag:menuTab
