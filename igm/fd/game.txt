@@ -26062,10 +26062,13 @@ Upgrades
                 end
 
 //SECTION Pickaxe
-
+//[include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe"]
 
         *woodenpickaxe2
-                [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe"]
+                name:Wooden Pickaxe
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Press this button to unequip the wooden pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+                tag:equipment equipment_pickaxe
                 req:1 woodenpickaxe
                 no buy
                 on earn:
