@@ -26065,7 +26065,9 @@ Upgrades
 
 
         *woodenpickaxe2
-                [include utest %id="woodenpickaxe" %name="Wooden Pickaxe"]
+                [include eqppickaxe %id="woodenpickaxe" %name="Wooden Pickaxe"]
+                req:1 woodenpickaxe
+                no buy
                 on earn:
                         yield mainhandequipped
                         yield offhandequipped
@@ -32062,13 +32064,12 @@ Shinies
 
 
 Includes
-        *include utest %id %name
+        *include eqppickaxe %id %name
                 name:[%name]
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
                 desc:[?(have this)|Press this button to unequip the [n:this] to be able to use other weapons.|Press this button to equip [n:this] and gain all of its stats.]
                 tag:equipment equipment_pickaxe
-                req:1 [%id]
-                no buy
+
 
 
 
