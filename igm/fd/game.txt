@@ -25924,7 +25924,7 @@ Upgrades
         [include eqpamulet %id="runeamulet" %name="Rune Amulet" %regenhprate="2.9" %bregenhprate="2.4"]
         [include eqpamulet %id="luckamulet" %name="Luck Amulet" %regenhprate="0.7" %bregenhprate="1.4" %itemfind="10"]
         [include eqpamulet %id="spiritamulet" %name="Spirit Amulet"]
-        [include eqpamulet %id="equisitoramulet" %name="Equisitors Amulet" %maxhp="54" %regenhprate="8.5" %bregenhprate="4.9]
+        [include eqpamulet %id="equisitoramulet" %name="Equisitors Amulet" %maxhp="54" %regenhprate="8.5" %bregenhprate="4.9"]
         [include eqpamulet %id="liqunamulet" %name="Liqun Amulet" %regenhprate="4.3" %bregenhprate="6.1"]
         [include eqpamulet %id="soulnecklace" %name="Soul Necklace"]
         [include eqpamulet %id="ffssoul" %name="FragileFrenzY's Soul" %maxhp="278" %regenhprate="7.8" %bregenhprate="9.4" %attackmin="26" %attackmax="95" %itemfind="95"]
