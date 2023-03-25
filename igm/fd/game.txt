@@ -26064,9 +26064,7 @@ Upgrades
 //SECTION Pickaxe
 
         *woodenpickaxe2
-                [include eqppickaxe %name="Wooden Pickaxe"]
-                req:1 woodenpickaxe
-                no buy
+                [include eqppickaxe %name="Wooden Pickaxe" req="woodenpickaxe"]
                 on earn:
                         yield mainhandequipped
                         yield offhandequipped
@@ -32062,8 +32060,10 @@ Shinies
 
 
 Includes
-        *include eqppickaxe %name
+        *include eqppickaxe %name %req
                 name:[%name]
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
                 desc:[?(have this)|Снять|Надеть] <b>[n:this]</b>
                 tag:equipment equipment_pickaxe
+                req:1 [%req]
+                no buy
