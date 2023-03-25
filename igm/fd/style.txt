@@ -776,20 +776,6 @@ If more skills are added there icons (e.g. "#thing-icon-XX") should be on this l
 
 }
 
-/* This is the tooltip text size */
-.desc {
-
-        font-size: 1.6vh !important;
-        line-height: 1.1;
-
-}
-
-/* This is the tooltip header text size */
-.title {
-        font-size: 2vh !important;
-        line-height: 1.1;
-
-}
 
 /* This is the text size of the bottom messages (for example "Game Saved") */
 #toasts {
@@ -797,11 +783,7 @@ If more skills are added there icons (e.g. "#thing-icon-XX") should be on this l
         line-height: 1.1;
 }
 
-#tooltip {
 
-        width: 40vh !important;
-
-}
 
 .shiny-text {
 
