@@ -31193,13 +31193,7 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:
-                        [?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|]
-                        [?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|]
-                        [?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|]
-                        [?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|]
-                        [?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|]
-                        [?([%itemfind]>0)|<.>Item Find:.......<#0c7994>[%itemfind]%</#>|]
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%itemfind]>0)|<.>Item Find:.......<#0c7994>[%itemfind]%</#>|]
                         tag:equipment equipment_amulet
                         req:1 [%id]
                         no buy
