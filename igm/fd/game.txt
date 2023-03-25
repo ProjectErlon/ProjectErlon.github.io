@@ -26064,7 +26064,7 @@ Upgrades
 //SECTION Pickaxe
 
         *woodenpickaxe2
-                [include eqppickaxe %name="Wooden Pickaxe" req="woodenpickaxe"]
+                [include eqppickaxe %name="Wooden Pickaxe" %req="woodenpickaxe"]
                 on earn:
                         yield mainhandequipped
                         yield offhandequipped
