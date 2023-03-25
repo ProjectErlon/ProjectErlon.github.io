@@ -26071,10 +26071,10 @@ Upgrades
                         yield offhandequipped
                         yield pickaxeequipped
                         //
-                        yield [%miningprecision] miningprecision
-                        yield [%miningpower] miningpower
+                        yield 5 miningprecision
+                        yield 20 miningpower
                         //
-                        lose 1 [%id]
+                        lose 1 woodenpickaxe
                         //
                         toast <b>[n:this]</b> надет
                 end
@@ -26083,10 +26083,10 @@ Upgrades
                         lose offhandequipped
                         lose pickaxeequipped
                         //
-                        lose [%miningprecision] miningprecision
-                        lose [%miningpower] miningpower
+                        lose 5 miningprecision
+                        lose 20 miningpower
                         //
-                        yield 1 [%id]
+                        yield 1 woodenpickaxe
                         //
                         toast <b>[n:this]</b> снят
                 end
