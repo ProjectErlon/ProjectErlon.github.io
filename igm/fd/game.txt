@@ -32054,7 +32054,7 @@ Includes
                         yield [%precision] miningprecision
                         yield 20 miningpower
                         //
-                        lose 1 [%req]
+                        lose 1 woodenpickaxe
                         //
                         toast <b>[n:this]</b> надет
                 end
