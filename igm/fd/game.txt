@@ -26063,7 +26063,7 @@ Upgrades
 
 //SECTION Pickaxe
 
-        [include incEqpPickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
+        [include eqpPickaxe %id="woodenpickaxe" %name="Wooden Pickaxe" %miningprecision="5" %miningpower="20"]
 
 
 
@@ -32025,7 +32025,7 @@ Shinies
 
 
 Includes
-        *incEqpPickaxe %id %name %miningprecision %miningpower
+        *eqpPickaxe %id="pickaxe" %name="Pickaxe" %miningprecision="1" %miningpower="1"
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
