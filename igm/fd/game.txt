@@ -25938,851 +25938,36 @@ Upgrades
 
 
 
+        // SECRET EGG: say "ZRnow:)"
+
+
+
         // IGM:SECTION:EQP Helmet
-        *woodenhelmet2
-                name:Wooden Helmet
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the wooden helmet to be able to use other helmets.|Press this button to equip this helmet and gain all of its stats.]
-                tag:equipment equipment_helmet
-                req:1 woodenhelmet
-                no buy
-                on earn:
-                        yield helmequipped
-                        //
-                        yield 31 maxhp
-                        yield 0.2 regenhprate
-                        //
-                        lose 1 woodenhelmet
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose helmequipped
-                        //
-                        lose 31 maxhp
-                        lose 0.2 regenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 woodenhelmet
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_helmet
-                                yield this
-                        end
-                end
+        [include eqphelmet %id="woodenhelmet" %name="Wooden Helmet" %maxhp="31" %regenhprate="0.2"]
+        [include eqphelmet %id="minerhelmet" %name="Miners Helmet" %maxhp="68" %minersoutfitb="0.02"]
+        [include eqphelmet %id="stonehelmet" %name="Stone Helmet" %maxhp="108" %regenhprate="0.6"]
+        [include eqphelmet %id="ironhelmet" %name="Iron Helmet" %maxhp="134" %regenhprate="0.6" %bregenhprate="0.3"]
+        [include eqphelmet %id="steelhelmet" %name="Steel Helmet" %maxhp="166" %regenhprate="1.3" %bregenhprate="0.5"]
+        [include eqphelmet %id="goldhelmet" %name="Gold Helmet" %maxhp="189" %regenhprate="1.7" %bregenhprate="0.7"]
+        [include eqphelmet %id="equisitorhelmet" %name="Equisitors Helmet" %maxhp="246" %regenhprate="3.4" %bregenhprate="0.3"]
+        [include eqphelmet %id="platinumhelmet" %name="Platinum Helmet" %maxhp="278" %regenhprate="4.4" %bregenhprate="0.6"]
+        [include eqphelmet %id="stepfasthelmet" %name="Stepfast Helmet" %maxhp="243" %bregenhprate="2.3"]
+        [include eqphelmet %id="prinahahelmet" %name="Prinaha Helmet" %maxhp="334" %bregenhprate="3.4"]
+        [include eqphelmet %id="apechhelmet" %name="Apech Helmet" %maxhp="428" %bregenhprate="4.2"]
+        [include eqphelmet %id="nuzdelhelmet" %name="Nuzdelclock Helmet" %maxhp="561" %bregenhprate="5.4" %attackmin="3" %attackmax="6"]
+        [include eqphelmet %id="deathrinehelmet" %name="Deathrine Helmet" %maxhp="681" %regenhprate="2.9" %bregenhprate="6.4" %attackmin="8" %attackmax="14"]
+        [include eqphelmet %id="dralonichelmet" %name="Dralonic Helmet" %maxhp="809" %regenhprate="4.5" %bregenhprate="8.9" %attackmin="13" %attackmax="25"]
+        [include eqphelmet %id="amadinehelmet" %name="Amadine Helmet" %maxhp="202" %regenhprate="4.6" %bregenhprate="1.5"]
+        [include eqphelmet %id="liqunhelmet" %name="Liqun Helmet" %maxhp="154" %regenhprate="3.2" %bregenhprate="2.3"]
+        [include eqphelmet %id="lathhelmet" %name="Lathikalkum Helmet" %maxhp="474" %regenhprate="4" %bregenhprate="3"]
+        [include eqphelmet %id="roanhelmet" %name="Roan Helmet" %maxhp="614" %regenhprate="13.2"]
+        [include eqphelmet %id="glavyiorhelmet" %name="Glavyior Helmet" %maxhp="356" %regenhprate="5.3" %bregenhprate="6.8"]
+        [include eqphelmet %id="zarkhelmet" %name="Zark Helmet" %maxhp="349" %regenhprate="3" %attackmin="12" %attackmax="19"]
+        [include eqphelmet %id="kyplozinhood" %name="Kyplonzin Helmet" %maxhp="589" %regenhprate="2.5" %bregenhprate="4.4" %attackmin="11" %attackmax="17" %bleedingpower="53"]
 
 
 
-        //SECRET EGG: say "ZRnow:)"
-
-
-
-        *minerhelmet2
-                name:Miners Helmet
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the miners helmet to be able to use other helmets.|Press this button to equip this helmet and gain all of its stats.]
-                tag:equipment equipment_helmet
-                req:1 minerhelmet
-                no buy
-                on earn:
-                        yield helmequipped
-                        //
-                        yield 68 maxhp
-                        yield 0.02 minersoutfitb
-                        //
-                        lose 1 minerhelmet
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose helmequipped
-                        //
-                        lose 68 maxhp
-                        lose 0.02 minersoutfitb
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 minerhelmet
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_helmet
-                                yield this
-                        end
-                end
-
-
-
-        *stonehelmet2
-                name:Stone Helmet
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the stone helmet to be able to use other helmets.|Press this button to equip this helmet and gain all of its stats.]
-                tag:equipment equipment_helmet
-                req:1 stonehelmet
-                no buy
-                on earn:
-                        yield helmequipped
-                        //
-                        yield 108 maxhp
-                        yield 0.6 regenhprate
-                        //
-                        lose 1 stonehelmet
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose helmequipped
-                        //
-                        lose 108 maxhp
-                        lose 0.6 regenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 stonehelmet
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_helmet
-                                yield this
-                        end
-                end
-
-
-
-//TODO
-        *ironhelmet2
-        name:Equip Iron Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose stonehelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 134 maxhp
-        yield 0.6 regenhprate
-        yield 0.3 bregenhprate
-        show ironhelmet3
-        hide ironhelmet2
-        yield -1 ironhelmet
-        end
-        end
-        req:1 ironhelmet
-        tag:equipment
-
-        *ironhelmet3
-        name:Unequip Iron Helmet
-        desc:Press this button to unequip the iron helmet to be able to use other helmets.
-        req:have ironhelmet2
-        on earn:
-        yield -0.6 regenhprate
-        yield -134 maxhp
-        yield -0.3 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose ironhelmet3
-        yield -1 helmequipped
-        hide ironhelmet3
-        show ironhelmet2
-        lose ironhelmet2
-        yield 1 ironhelmet
-        end
-        tag:equipment
-
-        *steelhelmet2
-        name:Equip Steel Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose steelhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 166 maxhp
-        yield 1.3 regenhprate
-        yield 0.5 bregenhprate
-        show steelhelmet3
-        hide steelhelmet2
-        yield -1 steelhelmet
-        end
-        end
-        req:1 steelhelmet
-        tag:equipment
-
-        *steelhelmet3
-        name:Unequip Steel Helmet
-        desc:Press this button to unequip the steel helmet to be able to use other helmets.
-        req:have steelhelmet2
-        on earn:
-        yield -1.3 regenhprate
-        yield -166 maxhp
-        yield -0.5 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose steelhelmet3
-        yield -1 helmequipped
-        hide steelhelmet3
-        show steelhelmet2
-        lose steelhelmet2
-        yield 1 steelhelmet
-        end
-        tag:equipment
-
-        *goldhelmet2
-        name:Equip Gold Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose goldhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 189 maxhp
-        yield 1.7 regenhprate
-        yield 0.7 bregenhprate
-        show goldhelmet3
-        hide goldhelmet2
-        yield -1 goldhelmet
-        end
-        end
-        req:1 goldhelmet
-        tag:equipment
-
-        *goldhelmet3
-        name:Unequip Gold Helmet
-        desc:Press this button to unequip the gold helmet to be able to use other helmets.
-        req:have goldhelmet2
-        on earn:
-        yield -1.7 regenhprate
-        yield -189 maxhp
-        yield -0.7 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose goldhelmet3
-        yield -1 helmequipped
-        hide goldhelmet3
-        show goldhelmet2
-        lose goldhelmet2
-        yield 1 goldhelmet
-        end
-        tag:equipment
-
-
-        *equisitorhelmet2
-                name:Equisitors Helmet
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the equisitors helmet to be able to use other helmets.|Press this button to equip this helmet and gain all of its stats.]
-                tag:equipment equipment_helmet
-                req:1 equisitorhelmet
-                no buy
-                on earn:
-                        yield helmequipped
-                        //
-                        yield 246 maxhp
-                        yield 3.4 regenhprate
-                        yield 0.3 bregenhprate
-                        //
-                        lose 1 equisitorhelmet
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose helmequipped
-                        //
-                        lose 246 maxhp
-                        lose 3.4 regenhprate
-                        lose 0.3 bregenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 equisitorhelmet
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_helmet
-                                yield this
-                        end
-                end
-                
-                
-        
-
-        *platinumhelmet2
-        name:Equip Platinum Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose platinumhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 278 maxhp
-        yield 4.4 regenhprate
-        yield 0.6 bregenhprate
-        show platinumhelmet3
-        hide platinumhelmet2
-        yield -1 platinumhelmet
-        end
-        end
-        req:1 platinumhelmet
-        tag:equipment
-
-        *platinumhelmet3
-        name:Unequip Platinum Helmet
-        desc:Press this button to unequip the platinum helmet to be able to use other helmets.
-        req:have platinumhelmet2
-        on earn:
-        yield -4.4 regenhprate
-        yield -278 maxhp
-        yield -0.6 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose platinumhelmet3
-        yield -1 helmequipped
-        hide platinumhelmet3
-        show platinumhelmet2
-        lose platinumhelmet2
-        yield 1 platinumhelmet
-        end
-        tag:equipment
-        
-        *stepfasthelmet2
-        name:Equip Stepfast Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose stepfasthelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 243 maxhp
-        yield 2.3 bregenhprate
-        show stepfasthelmet3
-        hide stepfasthelmet2
-        yield -1 stepfasthelmet
-        end
-        end
-        req:1 stepfasthelmet
-        tag:equipment
-
-        *stepfasthelmet3
-        name:Unequip Stepfast Helmet
-        desc:Press this button to unequip the stepfast helmet to be able to use other helmets.
-        req:have stepfasthelmet2
-        on earn:
-        yield -243 maxhp
-        yield -2.3 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose stepfasthelmet3
-        yield -1 helmequipped
-        hide stepfasthelmet3
-        show stepfasthelmet2
-        lose stepfasthelmet2
-        yield 1 stepfasthelmet
-        end
-        tag:equipment
-        
-        *prinahahelmet2
-        name:Equip Prinaha Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose prinahahelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 334 maxhp
-        yield 3.4 bregenhprate
-        show prinahahelmet3
-        hide prinahahelmet2
-        yield -1 prinahahelmet
-        end
-        end
-        req:1 prinahahelmet
-        tag:equipment
-
-        *prinahahelmet3
-        name:Unequip Prinaha Helmet
-        desc:Press this button to unequip the prinaha helmet to be able to use other helmets.
-        req:have prinahahelmet2
-        on earn:
-        yield -334 maxhp
-        yield -3.4 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose prinahahelmet3
-        yield -1 helmequipped
-        hide prinahahelmet3
-        show prinahahelmet2
-        lose prinahahelmet2
-        yield 1 prinahahelmet
-        end
-        tag:equipment
-        
-        *apechhelmet2
-        name:Equip Apech Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose apechhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 428 maxhp
-        yield 4.2 bregenhprate
-        show apechhelmet3
-        hide apechhelmet2
-        yield -1 apechhelmet
-        end
-        end
-        req:1 apechhelmet
-        tag:equipment
-
-        *apechhelmet3
-        name:Unequip Apech Helmet
-        desc:Press this button to unequip the apech helmet to be able to use other helmets.
-        req:have apechhelmet2
-        on earn:
-        yield -428 maxhp
-        yield -4.2 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose apechhelmet3
-        yield -1 helmequipped
-        hide apechhelmet3
-        show apechhelmet2
-        lose apechhelmet2
-        yield 1 apechhelmet
-        end
-        tag:equipment
-        
-        *nuzdelhelmet2
-        name:Equip Nuzdelclock Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose nuzdelhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 561 maxhp
-        yield 5.4 bregenhprate
-        yield 3 attackmin
-        yield 6 attackmin
-        show nuzdelhelmet3
-        hide nuzdelhelmet2
-        yield -1 nuzdelhelmet
-        end
-        end
-        req:1 nuzdelhelmet
-        tag:equipment
-
-        *nuzdelhelmet3
-        name:Unequip Nuzdelclock Helmet
-        desc:Press this button to unequip the nuzdelclock helmet to be able to use other helmets.
-        req:have nuzdelhelmet2
-        on earn:
-        yield -561 maxhp
-        yield -5.4 bregenhprate
-        yield -3 attackmin
-        yield -6 attackmin
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose nuzdelhelmet3
-        yield -1 helmequipped
-        hide nuzdelhelmet3
-        show nuzdelhelmet2
-        lose nuzdelhelmet2
-        yield 1 nuzdelhelmet
-        end
-        tag:equipment
-        
-        *deathrinehelmet2
-        name:Equip Deathrine Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose deathrinehelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 681 maxhp
-        yield 6.4 bregenhprate
-        yield 2.9 regenhprate
-        yield 8 attackmin
-        yield 14 attackmin
-        show deathrinehelmet3
-        hide deathrinehelmet2
-        yield -1 deathrinehelmet
-        end
-        end
-        req:1 deathrinehelmet
-        tag:equipment
-
-        *deathrinehelmet3
-        name:Unequip Deathrine Helmet
-        desc:Press this button to unequip the deathrine helmet to be able to use other helmets.
-        req:have deathrinehelmet2
-        on earn:
-        yield -681 maxhp
-        yield -6.4 bregenhprate
-        yield -2.9 regenhprate
-        yield -8 attackmin
-        yield -14 attackmin
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose deathrinehelmet3
-        yield -1 helmequipped
-        hide deathrinehelmet3
-        show deathrinehelmet2
-        lose deathrinehelmet2
-        yield 1 deathrinehelmet
-        end
-        tag:equipment
-        
-        *dralonichelmet2
-        name:Equip Dralonic Godhelmet
-        desc:Press this button to equip this godhelmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose dralonichelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 809 maxhp
-        yield 8.9 bregenhprate
-        yield 4.5 regenhprate
-        yield 13 attackmin
-        yield 25 attackmin
-        show dralonichelmet3
-        hide dralonichelmet2
-        yield -1 dralonichelmet
-        end
-        end
-        req:1 dralonichelmet
-        tag:equipment
-
-        *dralonichelmet3
-        name:Unequip Dralonic Godhelmet
-        desc:Press this button to unequip the dralonic godhelmet to be able to use other helmets.
-        req:have dralonichelmet2
-        on earn:
-        yield -809 maxhp
-        yield -8.9 bregenhprate
-        yield -4.5 regenhprate
-        yield -13 attackmin
-        yield -25 attackmin
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose dralonichelmet3
-        yield -1 helmequipped
-        hide dralonichelmet3
-        show dralonichelmet2
-        lose dralonichelmet2
-        yield 1 dralonichelmet
-        end
-        tag:equipment
-        
-        *amadinehelmet2
-        name:Equip Amadine Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose amadinehelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 202 maxhp
-        yield 4.6 regenhprate
-        yield 1.5 bregenhprate
-        show amadinehelmet3
-        hide amadinehelmet2
-        yield -1 amadinehelmet
-        end
-        end
-        tag:equipment
-        req:1 amadinehelmet
-
-        *amadinehelmet3
-        name:Unequip Amadine Helmet
-        desc:Press this button to unequip the amadine helmet to be able to use other helmets.
-        req:have amadinehelmet2
-        on earn:
-        yield -4.6 regenhprate
-        yield -202 maxhp
-        yield -1.5 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose amadinehelmet3
-        lose helmequipped
-        hide amadinehelmet3
-        show amadinehelmet2
-        lose amadinehelmet2
-        yield 1 amadinehelmet
-        end
-        tag:equipment
-
-        *liqunhelmet2
-        name:Equip Liqun Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose liqunhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 154 maxhp
-        yield 3.2 regenhprate
-        yield 2.3 bregenhprate
-        show liqunhelmet3
-        hide liqunhelmet2
-        yield -1 liqunhelmet
-        end
-        end
-        tag:equipment
-        req:1 liqunhelmet
-
-        *liqunhelmet3
-        name:Unequip Liqun Helmet
-        desc:Press this button to unequip the liqun helmet to be able to use other helmets.
-        req:have liqunhelmet2
-        on earn:
-        yield -3.2 regenhprate
-        yield -154 maxhp
-        yield -2.3 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose liqunhelmet3
-        lose helmequipped
-        hide liqunhelmet3
-        show liqunhelmet2
-        lose liqunhelmet2
-        yield 1 liqunhelmet
-        end
-        tag:equipment
-
-        *lathhelmet2
-        name:Equip Lathikalkum Helmet
-        desc:Press this button to equip this helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose lathhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 474 maxhp
-        yield 4.0 regenhprate
-        yield 3.0 bregenhprate
-        show lathhelmet3
-        hide lathhelmet2
-        yield -1 lathhelmet
-        end
-        end
-        tag:equipment
-        req:1 lathhelmet
-
-        *lathhelmet3
-        name:Unequip Lathikalkum Helmet
-        desc:Press this button to unequip the lathikalkum helmet to be able to use other helmets.
-        req:have lathhelmet2
-        on earn:
-        yield -4.0 regenhprate
-        yield -474 maxhp
-        yield -3.0 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose lathhelmet3
-        lose helmequipped
-        hide lathhelmet3
-        show lathhelmet2
-        lose lathhelmet2
-        yield 1 lathhelmet
-        end
-        tag:equipment
-
-        *roanhelmet2
-        name:Equip Roan Helmet
-        desc:Press this button to equip the helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose roanhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 614 maxhp
-        yield 13.2 regenhprate
-        show roanhelmet3
-        hide roanhelmet2
-        yield -1 roanhelmet
-        end
-        end
-        tag:equipment
-        req:1 roanhelmet
-
-        *roanhelmet3
-        name:Unequip Roan Helmet
-        desc:Press this button to unequip the roan helmet to be able to use other helmets.
-        req:have roanhelmet2
-        on earn:
-        yield -13.2 regenhprate
-        yield -614 maxhp
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose roanhelmet3
-        yield -1 helmequipped
-        hide roanhelmet3
-        show roanhelmet2
-        lose roanhelmet2
-        yield 1 roanhelmet
-        end
-        tag:equipment
-
-        *glavyiorhelmet2
-        name:Equip Glavyior Helmet
-        desc:Press this button to equip the helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose glavyiorhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 356 maxhp
-        yield 5.3 regenhprate
-        yield 6.8 bregenhprate
-        show glavyiorhelmet3
-        hide glavyiorhelmet2
-        yield -1 glavyiorhelmet
-        end
-        end
-        tag:equipment
-        req:1 glavyiorhelmet
-
-        *glavyiorhelmet3
-        name:Unequip Glavyior Helmet
-        desc:Press this button to unequip the glavyior helmet to be able to use other helmets.
-        req:have glavyiorhelmet2
-        on earn:
-        yield -5.3 regenhprate
-        yield -356 maxhp
-        yield -6.8 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose glavyiorhelmet3
-        yield -1 helmequipped
-        hide glavyiorhelmet3
-        show glavyiorhelmet2
-        lose glavyiorhelmet2
-        yield 1 glavyiorhelmet
-        end
-        tag:equipment
-
-        *zarkhelmet2
-        name:Equip Zark Helmet
-        desc:Press this button to equip the helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose zarkhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 349 maxhp
-        yield 3 regenhprate
-        yield 12 attackmin
-        yield 19 attackmax
-        show zarkhelmet3
-        hide zarkhelmet2
-        yield -1 zarkhelmet
-        end
-        end
-        tag:equipment
-        req:1 zarkhelmet
-
-        *zarkhelmet3
-        name:Unequip Zark Helmet
-        desc:Press this button to unequip the zark helmet to be able to use other helmets.
-        req:have zarkhelmet2
-        on earn:
-        yield -3 regenhprate
-        yield -349 maxhp
-        yield -12 attackmin
-        yield -19 attackmax
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose zarkhelmet3
-        yield -1 helmequipped
-        hide zarkhelmet3
-        show zarkhelmet2
-        lose zarkhelmet2
-        yield 1 zarkhelmet
-        end
-        tag:equipment
-        
-        *kyplozinhood2
-        name:Equip Kyplonzin's Hood
-        desc:Press this button to equip the hood and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose kyplozinhood2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 589 maxhp
-        yield 2.5 regenhprate
-        yield 4.4 bregenhprate
-        yield 11 attackmin
-        yield 17 attackmax
-        yield 53 bleedingpower
-        show kyplozinhood3
-        hide kyplozinhood2
-        yield -1 kyplozinhood
-        end
-        end
-        tag:equipment
-        req:1 kyplozinhood
-
-        *kyplozinhood3
-        name:Unequip Kyplonzin's Hood
-        desc:Press this button to unequip the Kyplonzin's Hood to be able to use other helmets.
-        req:have kyplozinhood2
-        on earn:
-        yield -589 maxhp
-        yield -2.5 regenhprate
-        yield -4.4 bregenhprate
-        yield -11 attackmin
-        yield -17 attackmax
-        yield -53 bleedingpower
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose kyplozinhood3
-        yield -1 helmequipped
-        hide kyplozinhood3
-        show kyplozinhood2
-        lose kyplozinhood2
-        yield 1 kyplozinhood
-        end
-        tag:equipment
-
-
-
+        // IGM:SECTION:EQP Chestplate
         *woodenchestplate2
                 name:Wooden Chestplate
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -31193,7 +30378,7 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%itemfind]>0)|<.>Item Find:.......<#0c7994>[%itemfind]%</#>|]
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%itemfind]>0)|<.>Item Find:.......<#55ff00>[%itemfind]%</#>|]
                         tag:equipment equipment_amulet
                         req:1 [%id]
                         no buy
@@ -31284,6 +30469,56 @@ Includes
                                         lose tag:equipment_shield
                                         lose tag:equipment_oh_weapon
                                         lose tag:equipment_2h_weapon
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqphelmet %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %minersoutfitb="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:[?([%maxhp]>0)|<.>HP:...............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|]
+                        tag:equipment equipment_helmet
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield helmequipped
+                                //
+                                yield [%maxhp] maxhp
+                                yield [%regenhprate] regenhprate
+                                yield [%bregenhprate] bregenhprate
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                yield [%bleedingpower] bleedingpower
+                                yield [%minersoutfitb] minersoutfitb
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose helmequipped
+                                //
+                                lose [%maxhp] maxhp
+                                lose [%regenhprate] regenhprate
+                                lose [%bregenhprate] bregenhprate
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose [%bleedingpower] bleedingpower
+                                lose [%minersoutfitb] minersoutfitb
+                                if (hp>=maxhp) hp=maxhp
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_helmet
                                         yield this
                                 end
                         end
