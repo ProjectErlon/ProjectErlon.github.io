@@ -26064,7 +26064,7 @@ Upgrades
 //SECTION Pickaxe
 
         *woodenpickaxe2
-                [include eqppickaxe %name="Wooden Pickaxe" %req="woodenpickaxe" %precision]
+                [include eqppickaxe %name="Wooden Pickaxe" %req="woodenpickaxe" %precision="5"]
                 on lose:
                         lose mainhandequipped
                         lose offhandequipped
@@ -32054,7 +32054,7 @@ Includes
                         yield [%precision] miningprecision
                         yield 20 miningpower
                         //
-                        lose 1 woodenpickaxe
+                        lose 1 [%req]
                         //
                         toast <b>[n:this]</b> надет
                 end
