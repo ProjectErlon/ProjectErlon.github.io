@@ -32065,5 +32065,5 @@ Includes
         *include eqppickaxe %name
                 name:[%name]
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the wooden pickaxe to be able to use other weapons.|Press this button to equip this pickaxe and gain all of its stats.]
+                desc:[?(have this)|Снять|Надеть] <b>[n:this]</b>
                 tag:equipment equipment_pickaxe
