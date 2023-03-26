@@ -25,7 +25,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_boots, tag:equipment_ring, tag:equipment_pickaxe
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_boots, tag:equipment_ring, tag:equipment_gloves, tag:equipment_pickaxe
                 tooltip origin:left
 
 
@@ -16607,6 +16607,7 @@ Upgrades
                         show tag:equipment_leggings
                         show tag:equipment_boots
                         show tag:equipment_ring
+                        show tag:equipment_gloves
                 end
                 on lose:
                         hide tag:equipment_amulet
@@ -16616,6 +16617,7 @@ Upgrades
                         hide tag:equipment_leggings
                         hide tag:equipment_boots
                         hide tag:equipment_ring
+                        hide tag:equipment_gloves
                 end
                 on click:
                         lose tag:menuTab
@@ -26127,193 +26129,14 @@ Upgrades
 
 
         // IGM:SECTION:EQP Gloves
-        *adventurersgloves2
-        name:Equip Adventurers Gloves
-        desc:Press this button to equip these gloves and gain all of its stats.
-        on earn:
-        if (glovesequipped=1)
-        toast You already have gloves/gauntlets equipped!
-        lose adventurersgloves2
-        end
-        if (glovesequipped=0)
-        yield 1 glovesequipped
-        yield 15 itemfind
-        show adventurersgloves3
-        hide adventurersgloves2
-        yield -1 adventurersgloves
-        end
-        end
-        req:1 adventurersgloves
-        tag:equipment
+        [include eqpgloves %id="adventurersgloves" %name="Adventurers Gloves" %itemfind="15"]
+        [include eqpgloves %id="lathikalkumgaunt" %name="Lathikalkum Gauntlets" %critchance="3.8" %reflectstat="33"]
+        [include eqpgloves %id="edragonscalegaunt" %name="Elder Dragonscale Gauntlets" %critchance="8.4" %reflectstat="70"]
+        [include eqpgloves %id="bloodfrostgloves" %name="Bloodfrost Gloves" %attackmin="13" %attackmin="22" %critchance="8" %shatterpower="23"]
+        [include eqpgloves %id="deeppiercegloves" %name="Deeppierce Gloves" %attackmin="22" %attackmin="30" %critchance="13" %shatterpower="47" %daggerdmg="0.21"]
 
-        *adventurersgloves3
-        name:Unequip Adventurers Gloves
-        desc:Press this button to unequip the adventurers gloves to be able to use other gloves/gauntlets.
-        req:have adventurersgloves2
-        on earn:yield -15 itemfind
-        on earn:lose adventurersgloves3
-        on earn:yield -1 glovesequipped
-        on earn:hide adventurersgloves3
-        on earn:show adventurersgloves2
-        on earn:lose adventurersgloves2
-        on earn:yield 1 adventurersgloves
-        tag:equipment
 
-        *lathikalkumgaunt2
-        name:Equip Lathikalkum Gauntlets
-        desc:Press this button to equip these gauntlets and gain all of its stats.
-        on earn:
-        if (glovesequipped=1)
-        toast You already have gloves/gauntlets equipped!
-        lose lathikalkumgaunt2
-        end
-        if (glovesequipped=0)
-        yield 1 glovesequipped
-        yield 3.8 critchance
-        yield 33 reflectstat
-        show lathikalkumgaunt3
-        hide lathikalkumgaunt2
-        yield -1 lathikalkumgaunt
-        end
-        end
-        req:1 lathikalkumgaunt
-        tag:equipment
 
-        *lathikalkumgaunt3
-        name:Unequip Lathikalkum Gauntlets
-        desc:Press this button to unequip the lathikalkum gauntlets to be able to use other gloves/gauntlets.
-        req:have lathikalkumgaunt2
-        on earn:
-        yield -15 itemfind
-        yield -3.8 critchance
-        yield -33 reflectstat
-        lose lathikalkumgaunt3
-        yield -1 glovesequipped
-        hide lathikalkumgaunt3
-        show lathikalkumgaunt2
-        lose lathikalkumgaunt2
-        yield 1 lathikalkumgaunt
-        end
-        tag:equipment
-        
-        *edragonscalegaunt2
-        name:Equip Elder Dragonscale Gauntlets
-        desc:Press this button to equip these gauntlets and gain all of its stats.
-        on earn:
-        if (glovesequipped=1)
-        toast You already have gloves/gauntlets equipped!
-        lose edragonscalegaunt2
-        end
-        if (glovesequipped=0)
-        yield 1 glovesequipped
-        yield 8.4 critchance
-        yield 70 reflectstat
-        show edragonscalegaunt3
-        hide edragonscalegaunt2
-        yield -1 edragonscalegaunt
-        end
-        end
-        req:1 edragonscalegaunt
-        tag:equipment
-
-        *edragonscalegaunt3
-        name:Unequip Elder Dragonscale Gauntlets
-        desc:Press this button to unequip the elder dragonscale gauntlets to be able to use other gloves/gauntlets.
-        req:have edragonscalegaunt2
-        on earn:
-        yield -8.4 critchance
-        yield -70 reflectstat
-        lose edragonscalegaunt3
-        yield -1 glovesequipped
-        hide edragonscalegaunt3
-        show edragonscalegaunt2
-        lose edragonscalegaunt2
-        yield 1 edragonscalegaunt
-        end
-        tag:equipment
-
-        *bloodfrostgloves2
-        name:Equip Bloodfrost Gloves
-        desc:Press this button to equip these gloves and gain all of its stats.
-        on earn:
-        if (glovesequipped=1)
-        toast You already have gloves/gauntlets equipped!
-        lose bloodfrostgloves2
-        end
-        if (glovesequipped=0)
-        yield 1 glovesequipped
-        yield 13 attackmin
-        yield 22 attackmax
-        yield 8 critchance
-        yield 23 shatterpower
-        show bloodfrostgloves3
-        hide bloodfrostgloves2
-        yield -1 bloodfrostgloves
-        end
-        end
-        req:1 bloodfrostgloves
-        tag:equipment
-
-        *bloodfrostgloves3
-        name:Unequip Bloodfrost Gloves
-        desc:Press this button to unequip the bloodfrost gloves to be able to use other gloves/gauntlets.
-        req:have bloodfrostgloves2
-        on earn:
-        yield -8 critchance
-        yield -13 attackmin
-        yield -22 attackmax
-        yield -23 shatterpower
-        lose bloodfrostgloves3
-        yield -1 glovesequipped
-        hide bloodfrostgloves3
-        show bloodfrostgloves2
-        lose bloodfrostgloves2
-        yield 1 bloodfrostgloves
-        end
-        tag:equipment
-
-        *deeppiercegloves2
-        name:Equip Deeppierce Gloves
-        desc:Press this button to equip these gloves and gain all of its stats.
-        on earn:
-        if (glovesequipped=1)
-        toast You already have gloves/gauntlets equipped!
-        lose deeppiercegloves2
-        end
-        if (glovesequipped=0)
-        yield 1 glovesequipped
-        yield 22 attackmin
-        yield 30 attackmax
-        yield 0.21 daggerdmg
-        yield 13 critchance
-        yield 47 shatterpower
-        show deeppiercegloves3
-        hide deeppiercegloves2
-        yield -1 deeppiercegloves
-        end
-        end
-        req:1 deeppiercegloves
-        tag:equipment
-
-        *deeppiercegloves3
-        name:Unequip Deeppierce Gloves
-        desc:Press this button to unequip the deeppierce gloves to be able to use other gloves/gauntlets.
-        req:have deeppiercegloves2
-        on earn:
-        yield -13 critchance
-        yield -22 attackmin
-        yield -30 attackmax
-        yield -0.21 daggerdmg
-        yield -47 shatterpower
-        lose deeppiercegloves3
-        yield -1 glovesequipped
-        hide deeppiercegloves3
-        show deeppiercegloves2
-        lose deeppiercegloves2
-        yield 1 deeppiercegloves
-        end
-        tag:equipment
-        
         // IGM: SECTION:EQP Cape
         *luthritecape2
         name:Equip Luthrite Cape
@@ -27688,6 +27511,55 @@ Includes
                                         lose this
                                 else
                                         lose tag:equipment_ring
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqpgloves %id %name %itemfind="0" %reflectstat="0" %attackmin="0" %attackmax="0" %critchance="0" %shatterpower="0" %daggerdmg="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:[?([%itemfind]>0)|<.>Item Find:.....<#55ff00>[%itemfind]</#>|][?([%reflectstat]>0)|<.>Reflect:.......<#55ff00>[%reflectstat]%</#>|][?([%attackmin]>0)|<.>Attack Min:....<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:....<#55ff00>[%attackmax]</#>|][?([%critchance]>0)|<.>Crit Chance:...<#55ff00>[%critchance]%</#>|][?([%shatterpower]>0)|<.>Shatter Power:.<#55ff00>[%shatterpower]</#>|][?([%daggerdmg]>0)|<.>Dagger Damage:.<#55ff00>[%daggerdmg]%</#>|]
+                        tag:equipment equipment_gloves
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield glovesequipped
+                                //
+                                yield [%itemfind] itemfind
+                                yield [%reflectstat] reflectstat
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                yield [%critchance] critchance
+                                yield [%shatterpower] shatterpower
+                                yield [%daggerdmg] daggerdmg
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose glovesequipped
+                                //
+                                lose [%itemfind] itemfind
+                                lose [%reflectstat] reflectstat
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose [%critchance] critchance
+                                lose [%shatterpower] shatterpower
+                                lose [%daggerdmg] daggerdmg
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_gloves
                                         yield this
                                 end
                         end
