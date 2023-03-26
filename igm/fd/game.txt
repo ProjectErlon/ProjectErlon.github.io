@@ -4043,7 +4043,7 @@ Buttons
         yield -(alwayscritvar) alwayscritvar
         hide alwayscrit
         end
-        if (lathboots3=1) yield -1 lathboots3
+        // TODO Накой это тут? if (lathboots3=1) yield -1 lathboots3
         if (ticker4=20)
         log So you're still alive huh? Fine, let le games begin
         end
@@ -27875,6 +27875,7 @@ Includes
 
 
 
+        // TODO Добавить в описание критшанс и шаттерповер ко всем ниже
         *include eqphelmet %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %minersoutfitb="0"
                 *[%id]2
                         name:[%name]
