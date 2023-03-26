@@ -25,7 +25,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_boots, tag:equipment_ring, tag:equipment_gloves, tag:equipment_pickaxe
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_boots, tag:equipment_ring, tag:equipment_gloves, tag:equipment_cape, tag:equipment_pickaxe
                 tooltip origin:left
 
 
@@ -4067,15 +4067,6 @@ Buttons
         spawn lols2
         spawn lols3
         spawn lols4
-        end
-
-        if (lolcape2=1)
-        yield 1 ticker4
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
         end
 
         if ((enemyhp>59999) and (fightdrasconix=1) and (drscachvar1=0)) yield 1 drscachvar1
@@ -10569,10 +10560,6 @@ Buildings
         yield 1 hardcontract
         yield 1 hardcontractvar
         end
-        if (($random9=1) and (mainhandequipped=0))
-        log you feel something stupid happen in your inventory
-        yield 1 lolcape
-        end
         if (itemfind>0)
         $itemroll=ceil(random(1,max(1000-ceil(itemfind+(ceil(drscenragevar/4))),100)))
         if ($itemroll=1)
@@ -15907,14 +15894,6 @@ Buildings
         no buy
         tag:item
 
-        *lolcape
-        name:lol
-        text:absolut lol dddd
-        desc:equipp dis cape to feel the amazing effects of <B>Overhypdrated Plaztinomium Durate Drug</b>™ only forr limit taim!!!!
-        hidden when 0
-        no buy
-        tag:item
-
         *ancientarrow
         name:Ancient Arrows
         text:<#b89f51>Ancient Arrows : [ancientarrow]
@@ -16608,6 +16587,7 @@ Upgrades
                         show tag:equipment_boots
                         show tag:equipment_ring
                         show tag:equipment_gloves
+                        show tag:equipment_cape
                 end
                 on lose:
                         hide tag:equipment_amulet
@@ -16618,6 +16598,7 @@ Upgrades
                         hide tag:equipment_boots
                         hide tag:equipment_ring
                         hide tag:equipment_gloves
+                        hide tag:equipment_cape
                 end
                 on click:
                         lose tag:menuTab
@@ -22497,19 +22478,6 @@ Upgrades
         tag:sellitems
         req:1 kyplonzinterrocape
 
-        *selllolcape
-        name:burn the cape
-        desc:the cape is so bad it doesnt even have a sell option, how beep sad.
-        no buy
-        on click:
-        if (lolcape>0)
-        yield -1 lolcape
-        log you burn the cape and someone whispers: "ahahtggf buui ua9whfg"
-        end
-        end
-        tag:sellitems
-        req:1 lolcape
-
         *sellzrerkring
         name:Sell Zrerk's Ring
         desc:Click here to sell your Zrerk's Ring to earn coins
@@ -26152,283 +26120,14 @@ Upgrades
 
 
 
-        // IGM: SECTION:EQP Cape
-        *luthritecape2
-        name:Equip Luthrite Cape
-        desc:Press this button to equip this cape and gain all of its stats.
-        on earn:
-        if (capeequipped=1)
-        toast You already have a cape equipped!
-        lose luthritecape2
-        end
-        if (capeequipped=0)
-        yield 1 capeequipped
-        show luthritecape3
-        hide luthritecape2
-        yield -1 luthritecape
-        end
-        end
-        req:1 luthritecape
-        tag:equipment
+        // IGM:SECTION:EQP Cape
+        [include eqpcape %id="luthritecape" %name="Luthrite Cape"]
+        [include eqpcape %id="reheerscape" %name="Reheer's Cape" %attackmin="10" %attackmax="16" %bleedingpower="32" %critchance="1.7" %daggerdmg="0.08"]
+        [include eqpcape %id="sreheerscape" %name="Superior Reheer's Cape" %attackmin="16" %attackmax="25" %bleedingpower="70" %critchance="4" %daggerdmg="0.17"]
+        [include eqpcape %id="kyplonzinterrocape" %name="Kyplonzin's Terror Cape" %maxhp="86" %bregenhprate="2.4" %attackmin="34" %attackmax="89" %critchance="8" %shatterpower="178" %daggerdmg="0.24"]
 
-        *luthritecape3
-        name:Unequip Luthrite Cape
-        desc:Press this button to unequip the luthrite cape to be able to use other capes.
-        req:have luthritecape2
-        on earn:
-        lose luthritecape3
-        yield -1 capeequipped
-        hide luthritecape3
-        show luthritecape2
-        lose luthritecape2
-        yield 1 luthritecape
-        end
-        tag:equipment
 
-        *reheerscape2
-        name:Equip Reheer's Cape
-        desc:Press this button to equip this cape and gain all of its stats.
-        on earn:
-        if (capeequipped=1)
-        toast You already have a cape equipped!
-        lose reheerscape2
-        end
-        if (capeequipped=0)
-        yield 10 attackmin
-        yield 16 attackmax
-        yield 1.7 critchance
-        yield 0.08 daggerdmg
-        yield 1 capeequipped
-        yield 32 bleedingpower
-        show reheerscape3
-        hide reheerscape2
-        yield -1 reheerscape
-        end
-        end
-        req:1 reheerscape
-        tag:equipment
-
-        *reheerscape3
-        name:Unequip Reheer's Cape
-        desc:Press this button to unequip the Reheer's cape to be able to use other capes.
-        req:have reheerscape2
-        on earn:
-        yield -10 attackmin
-        yield -16 attackmax
-        yield -1.7 critchance
-        yield -0.08 daggerdmg
-        yield -32 bleedingpower
-        lose reheerscape3
-        yield -1 capeequipped
-        hide reheerscape3
-        show reheerscape2
-        lose reheerscape2
-        yield 1 reheerscape
-        end
-        tag:equipment
-
-        *sreheerscape2
-        name:Equip Superior Reheer's Cape
-        desc:Press this button to equip this cape and gain all of its stats.
-        on earn:
-        if (capeequipped=1)
-        toast You already have a cape equipped!
-        lose sreheerscape2
-        end
-        if (capeequipped=0)
-        yield 16 attackmin
-        yield 25 attackmax
-        yield 4 critchance
-        yield 0.17 daggerdmg
-        yield 1 capeequipped
-        yield 70 bleedingpower
-        show sreheerscape3
-        hide sreheerscape2
-        yield -1 sreheerscape
-        end
-        end
-        req:1 sreheerscape
-        tag:equipment
-
-        *sreheerscape3
-        name:Unequip Superior Reheer's Cape
-        desc:Press this button to unequip the Superior Reheer's Cape to be able to use other capes.
-        req:have sreheerscape2
-        on earn:
-        yield -16 attackmin
-        yield -25 attackmax
-        yield -4 critchance
-        yield -0.17 daggerdmg
-        yield -70 bleedingpower
-        lose sreheerscape3
-        yield -1 capeequipped
-        hide sreheerscape3
-        show sreheerscape2
-        lose sreheerscape2
-        yield 1 sreheerscape
-        end
-        tag:equipment
-
-        *kyplonzinterrocape2
-        name:Equip Kyplonzin's Terror Cape
-        desc:Press this button to equip this cape and gain all of its stats.
-        on earn:
-        if (capeequipped=1)
-        toast You already have a cape equipped!
-        lose kyplonzinterrocape2
-        end
-        if (capeequipped=0)
-        yield 86 maxhp
-        yield 2.4 bregenhprate
-        yield 34 attackmin
-        yield 89 attackmax
-        yield 8 critchance
-        yield 178 shatterpower
-        yield 0.24 daggerdmg
-        yield 1 capeequipped
-        show kyplonzinterrocape3
-        hide kyplonzinterrocape2
-        yield -1 kyplonzinterrocape
-        end
-        end
-        req:1 kyplonzinterrocape
-        tag:equipment
-
-        *kyplonzinterrocape3
-        name:Unequip Kyplonzin's Terror Cape
-        desc:Press this button to unequip the Kyplonzin's Terror Cape to be able to use other capes.
-        req:have kyplonzinterrocape2
-        on earn:
-        yield -86 maxhp
-        yield -2.4 bregenhprate
-        yield -34 attackmin
-        yield -89 attackmax
-        yield -8 critchance
-        yield -178 shatterpower
-        yield -0.24 daggerdmg
-        lose kyplonzinterrocape3
-        yield -1 capeequipped
-        hide kyplonzinterrocape3
-        show kyplonzinterrocape2
-        lose kyplonzinterrocape2
-        yield 1 kyplonzinterrocape
-        end
-        tag:equipment
-        
-        *lolcape2
-        name:Equip absolut lol dddd...?
-        desc:Press this button to equip this "thing" or whatever it is idk tbh for some reason it takes up he cape slot.
-        on earn:
-        if (capeequipped=1)
-        toast You already have a cape equipped, not like you would want to equip this.
-        lose lolcape2
-        end
-        if (capeequipped=0)
-        yield 1 capeequipped
-        show lolcape3
-        hide lolcape2
-        yield -1 lolcape
-        log You made a grave mistake...
-        end
-        end
-        req:1 lolcape
-        tag:equipment
-
-        *lolcape3
-        name:Unequip the absolut vodka cape
-        desc:Just do it lol.
-        req:have lolcape2
-        on earn:
-        yield -(ticker4) ticker4
-        lose lolcape3
-        yield -1 capeequipped
-        hide lolcape3
-        show lolcape2
-        lose lolcape2
-        yield 1 lolcape
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-        spawn lols
-
-        end
-        tag:equipment
-
+        // IGM:SECTION:EQP GUI Decorate
         *enablereddye
         name:Enable Red Flavoured Critical Text
         desc:Enable Red Flavoured Critical Text using the Dye.
@@ -26549,6 +26248,8 @@ Upgrades
         end
         req:(snowcriticaltoggle=1) and 1 snowcriticalvar
         
+
+        // IGM:SECTION:EQP Title
         *christmas2021title2
         name:Equip the 'Christmas 2021' Title.
         text:Equip the '<#BB2528>Christmas <#146B3A>2021<#000000>' Title
@@ -27008,22 +26709,6 @@ Shinies
         end
         duration:3
         icon:https://file.garden/XYIlW7cqBDVk_Xim/shadowbomb.png
-        
-        *lols
-        name:LOLOLOL
-        movement:anywhere
-        on click:
-        log hi
-        toast yOu FeeL Diz=ZZZy
-        toast yOu FeeL Diz=ZZZy
-        toast yOu FeeL Diz=ZZZy
-        log ishkkkkkki 770 aeiou  wo
-        log what did fragile do
-        log wooooo frestyl yoo
-        log download the amaszing new 3d retro diamond free 2022 beauty 5minute crafts money mod hack apk from app store now
-        end
-        frequency:0
-        duration:30
 
         *lols2
         name:NOESCAPE
@@ -27575,6 +27260,57 @@ Includes
                                         lose this
                                 else
                                         lose tag:equipment_gloves
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqpcape %id %name %maxhp="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %critchance="0" %shatterpower="0" %bleedingpower="0" %daggerdmg="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]%</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%daggerdmg]>0)|<.>Dagger Damage:...<#55ff00>[%daggerdmg]%</#>|]
+                        tag:equipment equipment_cape
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield capeequipped
+                                //
+                                yield [%maxhp] maxhp
+                                yield [%bregenhprate] bregenhprate
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                yield [%critchance] critchance
+                                yield [%shatterpower] shatterpower
+                                yield [%bleedingpower] bleedingpower
+                                yield [%daggerdmg] daggerdmg
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose capeequipped
+                                //
+                                lose [%maxhp] maxhp
+                                lose [%bregenhprate] bregenhprate
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose [%critchance] critchance
+                                lose [%shatterpower] shatterpower
+                                lose [%bleedingpower] bleedingpower
+                                lose [%daggerdmg] daggerdmg
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_cape
                                         yield this
                                 end
                         end
