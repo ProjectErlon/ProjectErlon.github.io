@@ -15419,9 +15419,9 @@ Buildings
         no buy
         tag:item
 
-        *dragonscaleplatebody
+        *dragonscalepltbody
         name:Dragonscale Platebody
-        text:<#5d02b3>Dragonscale Platebody : [dragonscaleplatebody]
+        text:<#5d02b3>Dragonscale Platebody : [dragonscalepltbody]
         desc:Professionally crafted from dragon scale, i should feel safe wearing this. <.><#55ff00>+742<#d4d4d4> HP<.><#55ff00>+9.2/s<#d4d4d4> HP Regen<.><#55ff00>+5.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[27890367] Coins<#d4d4d4><.>Tier 82 Chestplate
         hidden when 0
         no buy
@@ -19583,7 +19583,7 @@ Upgrades
         text:Create Dragonscale Platebody with [?(dragonscale>4999)|<#03ff13>5000 Dragon Scales<#000000>|<#ff2a00>5000 Dragon Scales<#000000>]
         on earn:
         if (dragonscale>4999)
-        yield 1 dragonscaleplatebody
+        yield 1 dragonscalepltbody
         yield -5000 dragonscale
         yield 8500 miningxp
         do click with checklevel
@@ -19609,10 +19609,10 @@ Upgrades
         tag:equipment
         *combine17
         name:Create Elder Dragonscale Platebody
-        text:Create Elder Dragonscale Platebody with [?(dragonscale>6999)|<#03ff13>7000 Dragon Scales<#000000>|<#ff2a00>7000 Dragon Scales<#000000>] and [?(dragonscaleplatebody>0)|<#03ff13>1 Dragonscale Platebody<#000000>|<#ff2a00>1 Dragonscale Platebody<#000000>].
+        text:Create Elder Dragonscale Platebody with [?(dragonscale>6999)|<#03ff13>7000 Dragon Scales<#000000>|<#ff2a00>7000 Dragon Scales<#000000>] and [?(dragonscalepltbody>0)|<#03ff13>1 Dragonscale Platebody<#000000>|<#ff2a00>1 Dragonscale Platebody<#000000>].
         on earn:
-        if ((dragonscale>6999) and (dragonscaleplatebody>0))
-        yield -1 dragonscaleplatebody
+        if ((dragonscale>6999) and (dragonscalepltbody>0))
+        yield -1 dragonscalepltbody
         yield -7000 dragonscale
         yield 1 edrgsclplatebody
         yield 30000 miningxp
@@ -21696,14 +21696,14 @@ Upgrades
         desc:Click here to sell your dragonscale platebody to earn coins
         no buy
         on click:
-        if (dragonscaleplatebody>0)
+        if (dragonscalepltbody>0)
         yield 27890367 coins
-        yield -1 dragonscaleplatebody
+        yield -1 dragonscalepltbody
         log You sold your dragonscale platebody for <#ebe834>[27890367] coins<#d4d4d4>!
         end
         end
         tag:sellitems
-        req:1 dragonscaleplatebody
+        req:1 dragonscalepltbody
 
         *selldragscalepltlegs
         name:Sell Dragonscale Platelegs
@@ -25990,7 +25990,7 @@ Upgrades
         [include eqpchestplate %id="amadinechestplate" %name="Amadine Chestplate" %maxhp="363" %regenhprate="6.9" %bregenhprate="2"]
         [include eqpchestplate %id="liqunchestplate" %name="Liqun Chestplate" %maxhp="224" %regenhprate="3.9" %bregenhprate="2.7"]
         [include eqpchestplate %id="lathchestplate" %name="Lathikalkum Platebody" %maxhp="643" %regenhprate="5" %bregenhprate="4.2"]
-        [include eqpchestplate %id="dragonscaleplatebody" %name="Dragonscale Platebody" %maxhp="742" %regenhprate="9.2" %bregenhprate="5.2"]
+        [include eqpchestplate %id="dragonscalepltbody" %name="Dragonscale Platebody" %maxhp="742" %regenhprate="9.2" %bregenhprate="5.2"]
         [include eqpchestplate %id="edrgsclplatebody" %name="Elder Dragonscale Platebody" %maxhp="892" %regenhprate="10.3" %bregenhprate="6.5" %bleedingpower="25"]
         [include eqpchestplate %id="kyplozinrobetop" %name="Kyplonzin's Robe Top" %maxhp="972" %regenhprate="6.3" %bregenhprate="10.6" %attackmin="11" %attackmax="17" %bleedingpower="88"]
         // TODO Добавить после инклуда ещё событие клик для снятия штанов
