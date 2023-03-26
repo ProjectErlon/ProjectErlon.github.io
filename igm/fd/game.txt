@@ -25,7 +25,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_pickaxe
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_pickaxe
                 tooltip origin:left
 
 
@@ -15427,9 +15427,9 @@ Buildings
         no buy
         tag:item
 
-        *dragonscaleplatelegs
+        *dragonscalepltlegs
         name:Dragonscale Platelegs
-        text:<#5d02b3>Dragonscale Platelegs : [dragonscaleplatelegs]
+        text:<#5d02b3>Dragonscale Platelegs : [dragonscalepltlegs]
         desc:Professionally crafted from dragon scale, amazing finish design. <.><#55ff00>+640<#d4d4d4> HP<.><#55ff00>+8.0/s<#d4d4d4> HP Regen<.><#55ff00>+4.6/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[19333221] Coins<#d4d4d4><.>Tier 72 Leggings
         hidden when 0
         no buy
@@ -19569,7 +19569,7 @@ Upgrades
         text:Create Dragonscale Platelegs with [?(dragonscale>2999)|<#03ff13>3000 Dragon Scales<#000000>|<#ff2a00>3000 Dragon Scales<#000000>].
         on earn:
         if (dragonscale>2999)
-        yield 1 dragonscaleplatelegs
+        yield 1 dragonscalepltlegs
         yield -3000 dragonscale
         yield 4500 miningxp
         do click with checklevel
@@ -19594,10 +19594,10 @@ Upgrades
         tag:equipment
         *combine16
         name:Create Elder Dragonscale Platelegs
-        text:Create Elder Dragonscale Platelegs with [?(dragonscale>4999)|<#03ff13>5000 Dragon Scales<#000000>|<#ff2a00>5000 Dragon Scales<#000000>] and [?(dragonscaleplatelegs>0)|<#03ff13>1 Dragonscale Platelegs<#000000>|<#ff2a00>1 Dragonscale Platelegs<#000000>].
+        text:Create Elder Dragonscale Platelegs with [?(dragonscale>4999)|<#03ff13>5000 Dragon Scales<#000000>|<#ff2a00>5000 Dragon Scales<#000000>] and [?(dragonscalepltlegs>0)|<#03ff13>1 Dragonscale Platelegs<#000000>|<#ff2a00>1 Dragonscale Platelegs<#000000>].
         on earn:
-        if ((dragonscale>4999) and (dragonscaleplatelegs>0))
-        yield -1 dragonscaleplatelegs
+        if ((dragonscale>4999) and (dragonscalepltlegs>0))
+        yield -1 dragonscalepltlegs
         yield -5000 dragonscale
         yield 1 edrgsclplatelegs
         yield 20000 miningxp
@@ -21705,19 +21705,19 @@ Upgrades
         tag:sellitems
         req:1 dragonscalepltbody
 
-        *selldragscalepltlegs
+        *selldragonscalepltlegs
         name:Sell Dragonscale Platelegs
         desc:Click here to sell your dragonscale platelegs to earn coins
         no buy
         on click:
-        if (dragonscaleplatelegs>0)
+        if (dragonscalepltlegs>0)
         yield 19333221 coins
-        yield -1 dragonscaleplatelegs
+        yield -1 dragonscalepltlegs
         log You sold your dragonscale platelegs for <#ebe834>[19333221] coins<#d4d4d4>!
         end
         end
         tag:sellitems
-        req:1 dragonscaleplatelegs
+        req:1 dragonscalepltlegs
 
         *sellcexopack
         name:Sell Corrupted Exo-Pack
@@ -25993,7 +25993,7 @@ Upgrades
         [include eqpchestplate %id="dragonscalepltbody" %name="Dragonscale Platebody" %maxhp="742" %regenhprate="9.2" %bregenhprate="5.2"]
         [include eqpchestplate %id="edrgsclplatebody" %name="Elder Dragonscale Platebody" %maxhp="892" %regenhprate="10.3" %bregenhprate="6.5" %bleedingpower="25"]
         [include eqpchestplate %id="kyplozinrobetop" %name="Kyplonzin's Robe Top" %maxhp="972" %regenhprate="6.3" %bregenhprate="10.6" %attackmin="11" %attackmax="17" %bleedingpower="88"]
-        // TODO Добавить после инклуда ещё событие клик для снятия штанов
+        // TODO Добавить после инклуда ещё событие клик для снятия штанов и дополнительный тег штанов
         *exopack2
                 name:Exo-Pack
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -26049,795 +26049,30 @@ Upgrades
 
 
         // IGM:SECTION:EQP Leggings
-        *woodenleggings2
-                name:Wooden Leggings
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the wooden leggings to be able to use other leggings/platelegs.|Press this button to equip the leggings and gain all of its stats.]
-                tag:equipment equipment_leggings
-                req:1 woodenleggings
-                no buy
-                on earn:
-                        yield legequipped
-                        //
-                        yield 35 maxhp
-                        yield 0.2 regenhprate
-                        //
-                        lose 1 woodenleggings
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose legequipped
-                        //
-                        lose 35 maxhp
-                        lose 0.2 regenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 woodenleggings
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_leggings
-                                yield this
-                        end
-                end
+        [include eqpleggings %id="woodenleggings" %name="Wooden Leggings" %maxhp="35" %regenhprate="0.2"]
+        [include eqpleggings %id="minerleggings" %name="Miners Leggings" %maxhp="72" %minersoutfitb="0.02"]
+        [include eqpleggings %id="stoneleggings" %name="Stone Leggings" %maxhp="121" %regenhprate="0.7"]
+        [include eqpleggings %id="ironleggings" %name="Iron Platelegs" %maxhp="157" %regenhprate="0.7" %bregenhprate="0.2"]
+        [include eqpleggings %id="steelleggings" %name="Steel Platelegs" %maxhp="209" %regenhprate="1.6" %bregenhprate="0.7"]
+        [include eqpleggings %id="goldleggings" %name="Gold Platelegs" %maxhp="233" %regenhprate="2.1" %bregenhprate="1.1"]
+        [include eqpleggings %id="equisitorleggings" %name="Equisitors Leggings" %maxhp="400" %regenhprate="3.9" %bregenhprate="0.4"]
+        [include eqpleggings %id="platinumleggings" %name="Platinum Platelegs" %maxhp="420" %regenhprate="5.3" %bregenhprate="0.9"]
+        [include eqpleggings %id="stepfastleggings" %name="Stepfast Leggings" %maxhp="304" %bregenhprate="2.7"]
+        [include eqpleggings %id="prinahaleggings" %name="Prinaha Leggings" %maxhp="396" %bregenhprate="3.9"]
+        [include eqpleggings %id="apechleggings" %name="Apech Leggings" %maxhp="516" %bregenhprate="4.8"]
+        [include eqpleggings %id="nuzdelleggings" %name="Nuzdelclock Leggings" %maxhp="689" %bregenhprate="6.4" %attackmin="4" %attackmax="8"]
+        [include eqpleggings %id="deathrineleggings" %name="Deathrine Leggings" %maxhp="815" %regenhprate="3.4" %bregenhprate="7.5" %attackmin="11" %attackmax="18"]
+        [include eqpleggings %id="dralonicleggings" %name="Dralonic Godleggings" %maxhp="940" %regenhprate="5.7" %bregenhprate="10.1" %attackmin="16" %attackmax="32"]
+        [include eqpleggings %id="amadineleggings" %name="Amadine Leggings" %maxhp="297" %regenhprate="6.0" %bregenhprate="1.8"]
+        [include eqpleggings %id="liqunleggings" %name="Liqun Leggings" %maxhp="200" %regenhprate="3.6" %bregenhprate="2.5"]
+        [include eqpleggings %id="lathleggings" %name="Lathikalkum Platelegs" %maxhp="579" %regenhprate="4.6" %bregenhprate="3.8"]
+        [include eqpleggings %id="dragonscalepltlegs" %name="Dragonscale Platelegs" %maxhp="640" %regenhprate="8" %bregenhprate="4.6"] // TODO
+        [include eqpleggings %id="edrgsclplatelegs" %name="Elder Dragonscale Platelegs" %maxhp="779" %regenhprate="9.4" %bregenhprate="5.8" %bleedingpower="22"]
+        [include eqpleggings %id="kyplozinrobebottom" %name="Kyplonzin's Robe Bottom" %maxhp="940" %regenhprate="5.7" %bregenhprate="10.1" %attackmin="16" %attackmax="32" %bleedingpower="81"]
 
 
-
-        *minerleggings2
-                name:Miners Leggings
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the miners leggings to be able to use other leggings/platelegs.|Press this button to equip the leggings and gain all of its stats.]
-                tag:equipment equipment_leggings
-                req:1 minerleggings
-                no buy
-                on earn:
-                        yield legequipped
-                        //
-                        yield 72 maxhp
-                        yield 0.02 minersoutfitb
-                        //
-                        lose 1 minerleggings
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose legequipped
-                        //
-                        lose 72 maxhp
-                        lose 0.02 minersoutfitb
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 minerleggings
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_leggings
-                                yield this
-                        end
-                end
-
-
-
-        *stoneleggings2
-                name:Stone Leggings
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the stone leggings to be able to use other leggings/platelegs.|Press this button to equip the leggings and gain all of its stats.]
-                tag:equipment equipment_leggings
-                req:1 stoneleggings
-                no buy
-                on earn:
-                        yield legequipped
-                        //
-                        yield 121 maxhp
-                        yield 0.7 regenhprate
-                        //
-                        lose 1 stoneleggings
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose legequipped
-                        //
-                        lose 121 maxhp
-                        lose 0.7 regenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 stoneleggings
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_leggings
-                                yield this
-                        end
-                end
-
-
-
-
-        *ironleggings2
-        name:Equip Iron Platelegs
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose ironleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 157 maxhp
-        yield 0.7 regenhprate
-        yield 0.2 bregenhprate
-        show ironleggings3
-        hide ironleggings2
-        yield -1 ironleggings
-        end
-        end
-        req:1 ironleggings
-        tag:equipment
-
-        *ironleggings3
-        name:Unequip Iron Platelegs
-        desc:Press this button to unequip the iron platelegs to be able to use other leggings/platelegs.
-        req:have ironleggings2
-        on earn:yield -0.7 regenhprate
-        on earn:yield -157 maxhp
-        on earn:yield -0.2 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose ironleggings3
-        on earn:yield -1 legequipped
-        on earn:hide ironleggings3
-        on earn:show ironleggings2
-        on earn:lose ironleggings2
-        on earn:yield 1 ironleggings
-        tag:equipment
-
-        *steelleggings2
-        name:Equip Steel Platelegs
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose steelleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 209 maxhp
-        yield 1.6 regenhprate
-        yield 0.7 bregenhprate
-        show steelleggings3
-        hide steelleggings2
-        yield -1 steelleggings
-        end
-        end
-        req:1 steelleggings
-        tag:equipment
-
-        *steelleggings3
-        name:Unequip Steel Platelegs
-        desc:Press this button to unequip the steel platelegs to be able to use other leggings/platelegs.
-        req:have steelleggings2
-        on earn:yield -1.6 regenhprate
-        on earn:yield -0.7 bregenhprate
-        on earn:yield -209 maxhp
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose steelleggings3
-        on earn:yield -1 legequipped
-        on earn:hide steelleggings3
-        on earn:show steelleggings2
-        on earn:lose steelleggings2
-        on earn:yield 1 steelleggings
-        tag:equipment
-
-        *goldleggings2
-        name:Equip Gold Platelegs
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose goldleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 233 maxhp
-        yield 2.1 regenhprate
-        yield 1.1 bregenhprate
-        show goldleggings3
-        hide goldleggings2
-        yield -1 goldleggings
-        end
-        end
-        req:1 goldleggings
-        tag:equipment
-
-        *goldleggings3
-        name:Unequip Gold Platelegs
-        desc:Press this button to unequip the gold platelegs to be able to use other leggings/platelegs.
-        req:have goldleggings2
-        on earn:yield -2.1 regenhprate
-        on earn:yield -233 maxhp
-        on earn:yield -1.1 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose goldleggings3
-        on earn:yield -1 legequipped
-        on earn:hide goldleggings3
-        on earn:show goldleggings2
-        on earn:lose goldleggings2
-        on earn:yield 1 goldleggings
-        tag:equipment
-
-
-
-        *equisitorleggings2
-                name:Equisitors Leggings
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the equisitors leggings to be able to use other leggings/platelegs.|Press this button to equip the leggings and gain all of its stats.]
-                tag:equipment equipment_leggings
-                req:1 equisitorleggings
-                no buy
-                on earn:
-                        yield legequipped
-                        //
-                        yield 400 maxhp
-                        yield 3.9 regenhprate
-                        yield 0.4 bregenhprate
-                        //
-                        lose 1 equisitorleggings
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose legequipped
-                        //
-                        lose 400 maxhp
-                        lose 3.9 regenhprate
-                        lose 0.4 bregenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 equisitorleggings
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_leggings
-                                yield this
-                        end
-                end
-
-
-
-        *platinumleggings2
-        name:Equip Platinum Platelegs
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose platinumleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 420 maxhp
-        yield 5.3 regenhprate
-        yield 0.9 bregenhprate
-        show platinumleggings3
-        hide platinumleggings2
-        yield -1 platinumleggings
-        end
-        end
-        req:1 platinumleggings
-        tag:equipment
-
-        *platinumleggings3
-        name:Unequip Platinum Platelegs
-        desc:Press this button to unequip the platinum platelegs to be able to use other leggings/platelegs.
-        req:have platinumleggings2
-        on earn:yield -5.3 regenhprate
-        on earn:yield -420 maxhp
-        on earn:yield -0.9 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose platinumleggings3
-        on earn:yield -1 legequipped
-        on earn:hide platinumleggings3
-        on earn:show platinumleggings2
-        on earn:lose platinumleggings2
-        on earn:yield 1 platinumleggings
-        tag:equipment
-
-        *stepfastleggings2
-        name:Equip Stepfast Leggings
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose stepfastleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 304 maxhp
-        yield 2.7 bregenhprate
-        show stepfastleggings3
-        hide stepfastleggings2
-        yield -1 stepfastleggings
-        end
-        end
-        req:1 stepfastleggings
-        tag:equipment
-
-        *stepfastleggings3
-        name:Unequip Stepfast Leggings
-        desc:Press this button to unequip the stepfast leggings to be able to use other leggings/platelegs.
-        req:have stepfastleggings2
-        on earn:
-        yield -304 maxhp
-        yield -2.7 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose stepfastleggings3
-        yield -1 legequipped
-        hide stepfastleggings3
-        show stepfastleggings2
-        lose stepfastleggings2
-        yield 1 stepfastleggings
-        end
-        tag:equipment
-
-        *prinahaleggings2
-        name:Equip Prinaha Leggings
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose prinahaleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 396 maxhp
-        yield 3.9 bregenhprate
-        show prinahaleggings3
-        hide prinahaleggings2
-        yield -1 prinahaleggings
-        end
-        end
-        req:1 prinahaleggings
-        tag:equipment
-
-        *prinahaleggings3
-        name:Unequip Prinaha Leggings
-        desc:Press this button to unequip the prinaha leggings to be able to use other leggings/platelegs.
-        req:have prinahaleggings2
-        on earn:
-        yield -396 maxhp
-        yield -3.9 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose prinahaleggings3
-        yield -1 legequipped
-        hide prinahaleggings3
-        show prinahaleggings2
-        lose prinahaleggings2
-        yield 1 prinahaleggings
-        end
-        tag:equipment
-
-        *apechleggings2
-        name:Equip Apech Leggings
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose apechleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 516 maxhp
-        yield 4.8 bregenhprate
-        show apechleggings3
-        hide apechleggings2
-        yield -1 apechleggings
-        end
-        end
-        req:1 apechleggings
-        tag:equipment
-
-        *apechleggings3
-        name:Unequip Apech Leggings
-        desc:Press this button to unequip the apech leggings to be able to use other leggings/platelegs.
-        req:have apechleggings2
-        on earn:
-        yield -516 maxhp
-        yield -4.8 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose apechleggings3
-        yield -1 legequipped
-        hide apechleggings3
-        show apechleggings2
-        lose apechleggings2
-        yield 1 apechleggings
-        end
-        tag:equipment
-
-        *nuzdelleggings2
-        name:Equip Nuzdelclock Leggings
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose nuzdelleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 689 maxhp
-        yield 6.4 bregenhprate
-        yield 4 attackmin
-        yield 8 attackmax
-        show nuzdelleggings3
-        hide nuzdelleggings2
-        yield -1 nuzdelleggings
-        end
-        end
-        req:1 nuzdelleggings
-        tag:equipment
-
-        *nuzdelleggings3
-        name:Unequip Nuzdelclock Leggings
-        desc:Press this button to unequip the nuzdelclock leggings to be able to use other leggings/platelegs.
-        req:have nuzdelleggings2
-        on earn:
-        yield -689 maxhp
-        yield -6.4 bregenhprate
-        yield -4 attackmin
-        yield -8 attackmax
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose nuzdelleggings3
-        yield -1 legequipped
-        hide nuzdelleggings3
-        show nuzdelleggings2
-        lose nuzdelleggings2
-        yield 1 nuzdelleggings
-        end
-        tag:equipment
-
-        *deathrineleggings2
-        name:Equip Deathrine Leggings
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose deathrineleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 815 maxhp
-        yield 7.5 bregenhprate
-        yield 3.4 regenhprate
-        yield 11 attackmin
-        yield 18 attackmax
-        show deathrineleggings3
-        hide deathrineleggings2
-        yield -1 deathrineleggings
-        end
-        end
-        req:1 deathrineleggings
-        tag:equipment
-
-        *deathrineleggings3
-        name:Unequip Deathrine Leggings
-        desc:Press this button to unequip the deathrine leggings to be able to use other leggings/platelegs.
-        req:have deathrineleggings2
-        on earn:
-        yield -815 maxhp
-        yield -7.5 bregenhprate
-        yield -3.4 regenhprate
-        yield -11 attackmin
-        yield -18 attackmax
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose deathrineleggings3
-        yield -1 legequipped
-        hide deathrineleggings3
-        show deathrineleggings2
-        lose deathrineleggings2
-        yield 1 deathrineleggings
-        end
-        tag:equipment
-
-        *dralonicleggings2
-        name:Equip Dralonic Leggings
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose dralonicleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 940 maxhp
-        yield 10.1 bregenhprate
-        yield 5.7 regenhprate
-        yield 16 attackmin
-        yield 32 attackmax
-        show dralonicleggings3
-        hide dralonicleggings2
-        yield -1 dralonicleggings
-        end
-        end
-        req:1 dralonicleggings
-        tag:equipment
-
-        *dralonicleggings3
-        name:Unequip Dralonic Leggings
-        desc:Press this button to unequip the dralonic leggings to be able to use other leggings/platelegs.
-        req:have dralonicleggings2
-        on earn:
-        yield -940 maxhp
-        yield -10.1 bregenhprate
-        yield -5.7 regenhprate
-        yield -16 attackmin
-        yield -32 attackmax
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose dralonicleggings3
-        yield -1 legequipped
-        hide dralonicleggings3
-        show dralonicleggings2
-        lose dralonicleggings2
-        yield 1 dralonicleggings
-        end
-        tag:equipment
-
-        *amadineleggings2
-        name:Equip Amadine Leggings
-        desc:Press this button to equip the leggings and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings equipped!
-        lose amadineleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 297 maxhp
-        yield 6.0 regenhprate
-        yield 1.8 bregenhprate
-        show amadineleggings3
-        hide amadineleggings2
-        yield -1 amadineleggings
-        end
-        end
-        tag:equipment
-        req:1 amadineleggings
-
-        *amadineleggings3
-        name:Unequip Amadine Leggings
-        desc:Press this button to unequip the amadine leggings to be able to use other leggings/platelegs.
-        req:have amadineleggings2
-        on earn:yield -6.0 regenhprate
-        on earn:yield -297 maxhp
-        on earn:yield -1.8 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose amadineleggings3
-        on earn:yield -1 legequipped
-        on earn:hide amadineleggings3
-        on earn:show amadineleggings2
-        on earn:lose amadineleggings2
-        on earn:yield 1 amadineleggings
-        tag:equipment
-
-        *liqunleggings2
-        name:Equip Liqun Leggings
-        desc:Press this button to equip the leggings and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings equipped!
-        lose liqunleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 200 maxhp
-        yield 3.6 regenhprate
-        yield 2.5 bregenhprate
-        show liqunleggings3
-        hide liqunleggings2
-        yield -1 liqunleggings
-        end
-        end
-        tag:equipment
-        req:1 liqunleggings
-
-        *liqunleggings3
-        name:Unequip Liqun Leggings
-        desc:Press this button to unequip the liqun leggings to be able to use other leggings/platelegs.
-        req:have liqunleggings2
-        on earn:yield -3.6 regenhprate
-        on earn:yield -200 maxhp
-        on earn:yield -2.5 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose liqunleggings3
-        on earn:yield -1 legequipped
-        on earn:hide liqunleggings3
-        on earn:show liqunleggings2
-        on earn:lose liqunleggings2
-        on earn:yield 1 liqunleggings
-        tag:equipment
-
-        *lathleggings2
-        name:Equip Lathikalkum Platelegs
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose lathleggings2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 579 maxhp
-        yield 4.6 regenhprate
-        yield 3.8 bregenhprate
-        show lathleggings3
-        hide lathleggings2
-        yield -1 lathleggings
-        end
-        end
-        req:1 lathleggings
-        tag:equipment
-
-        *lathleggings3
-        name:Unequip Lathikalkum Platelegs
-        desc:Press this button to unequip the lathikalkum platelegs to be able to use other leggings/platelegs.
-        req:have lathleggings2
-        on earn:yield -4.6 regenhprate
-        on earn:yield -579 maxhp
-        on earn:yield -3.8 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose lathleggings3
-        on earn:yield -1 legequipped
-        on earn:hide lathleggings3
-        on earn:show lathleggings2
-        on earn:lose lathleggings2
-        on earn:yield 1 lathleggings
-        tag:equipment
-
-        *dragonscalepltelegs2
-        name:Equip Dragonscale Platelegs
-        desc:Press this button to equip the leggings and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings equipped!
-        lose dragonscalepltelegs2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 640 maxhp
-        yield 8.0 regenhprate
-        yield 4.6 bregenhprate
-        show dragonscalepltelegs3
-        hide dragonscalepltelegs2
-        yield -1 dragonscaleplatelegs
-        end
-        end
-        tag:equipment
-        req:1 dragonscaleplatelegs
-
-        *dragonscalepltelegs3
-        name:Unequip Dragonscale Platelegs
-        desc:Press this button to unequip the dragonscale platelegs to be able to use other leggings/platelegs.
-        req:have dragonscalepltelegs2
-        on earn:yield -8.0 regenhprate
-        on earn:yield -640 maxhp
-        on earn:yield -4.6 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose dragonscalepltelegs3
-        on earn:yield -1 legequipped
-        on earn:hide dragonscalepltelegs3
-        on earn:show dragonscalepltelegs2
-        on earn:lose dragonscalepltelegs2
-        on earn:yield 1 dragonscaleplatelegs
-        tag:equipment
-
-        *edrgsclplatelegs2
-        name:Equip Elder Dragonscale Platelegs
-        desc:Press this button to equip the platelegs and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose edrgsclplatelegs2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 779 maxhp
-        yield 9.4 regenhprate
-        yield 5.8 bregenhprate
-        yield 22 bleedingpower
-        show edrgsclplatelegs3
-        hide edrgsclplatelegs2
-        yield -1 edrgsclplatelegs
-        end
-        end
-        tag:equipment
-        req:1 edrgsclplatelegs
-
-        *edrgsclplatelegs3
-        name:Unequip Elder Dragonscale Platelegs
-        desc:Press this button to unequip the elder dragonscale platelegs to be able to use other leggings/platelegs.
-        req:have edrgsclplatelegs2
-        on earn:
-        yield -9.4 regenhprate
-        yield -779 maxhp
-        yield -5.8 bregenhprate
-        yield -22 bleedingpower
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose edrgsclplatelegs3
-        yield -1 legequipped
-        hide edrgsclplatelegs3
-        show edrgsclplatelegs2
-        lose edrgsclplatelegs2
-        yield 1 edrgsclplatelegs
-        end
-        tag:equipment
         
-        *kyplozinrobebottom2
-        name:Equip Kyplonzin's Robe Bottom
-        desc:Press this button to equip the robe bottom and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have some leggings/platelegs equipped!
-        lose kyplozinrobebottom2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 940 maxhp
-        yield 16 attackmin
-        yield 32 attackmax
-        yield 5.7 regenhprate
-        yield 10.1 bregenhprate
-        yield 81 bleedingpower
-        show kyplozinrobebottom3
-        hide kyplozinrobebottom2
-        yield -1 kyplozinrobebottom
-        end
-        end
-        tag:equipment
-        req:1 kyplozinrobebottom
-
-        *kyplozinrobebottom3
-        name:Unequip Kyplonzin's Robe Bottom
-        desc:Press this button to unequip the Kyplonzin's Robe Bottom to be able to use other leggings/platelegs.
-        req:have kyplozinrobebottom2
-        on earn:
-        yield -940 maxhp
-        yield -16 attackmin
-        yield -32 attackmax
-        yield -5.7 regenhprate
-        yield -10.1 bregenhprate
-        yield -81 bleedingpower
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose kyplozinrobebottom3
-        yield -1 legequipped
-        hide kyplozinrobebottom3
-        show kyplozinrobebottom2
-        lose kyplozinrobebottom2
-        yield 1 kyplozinrobebottom
-        end
-        tag:equipment
-        
-        
-        
-        
-        // IGM: SECTION:EQP Boots
+        // IGM:SECTION:EQP Boots
         *woodenboots2
                 name:Wooden Boots
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b> <#db0d6a>GiveMoney</#>
@@ -29818,3 +29053,94 @@ Includes
                                         yield this
                                 end
                         end
+
+
+
+        *include eqpleggings %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %minersoutfitb="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|]
+                        tag:equipment equipment_leggings
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield legequipped
+                                //
+                                yield [%maxhp] maxhp
+                                yield [%regenhprate] regenhprate
+                                yield [%bregenhprate] bregenhprate
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                yield [%bleedingpower] bleedingpower
+                                yield [%minersoutfitb] minersoutfitb
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose legequipped
+                                //
+                                lose [%maxhp] maxhp
+                                lose [%regenhprate] regenhprate
+                                lose [%bregenhprate] bregenhprate
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose [%bleedingpower] bleedingpower
+                                lose [%minersoutfitb] minersoutfitb
+                                if (hp>=maxhp) hp=maxhp
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_leggings
+                                        yield this
+                                end
+                        end
+
+
+
+
+                // *woodenleggings2
+                //         name:Wooden Leggings
+                //         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                //         desc:[?(have this)|Press this button to unequip the wooden leggings to be able to use other leggings/platelegs.|Press this button to equip the leggings and gain all of its stats.]
+                //         tag:equipment equipment_leggings
+                //         req:1 woodenleggings
+                //         no buy
+                //         on earn:
+                //                 yield legequipped
+                //                 //
+                //                 yield 35 maxhp
+                //                 yield 0.2 regenhprate
+                //                 //
+                //                 lose 1 woodenleggings
+                //                 //
+                //                 toast <b>[n:this]</b> надет
+                //         end
+                //         on lose:
+                //                 lose legequipped
+                //                 //
+                //                 lose 35 maxhp
+                //                 lose 0.2 regenhprate
+                //                 if (hp>=maxhp) hp=maxhp
+                //                 //
+                //                 yield 1 woodenleggings
+                //                 //
+                //                 toast <b>[n:this]</b> снят
+                //         end
+                //         //Toggle part
+                //         on click:
+                //                 if (have this)
+                //                         lose this
+                //                 else
+                //                         lose tag:equipment_leggings
+                //                         yield this
+                //                 end
+                //         end
