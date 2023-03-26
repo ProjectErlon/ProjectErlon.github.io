@@ -25,7 +25,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_pickaxe
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_pickaxe
                 tooltip origin:left
 
 
@@ -16603,11 +16603,13 @@ Upgrades
                         show tag:equipment_amulet
                         show tag:equipment_shield
                         show tag:equipment_helmet
+                        show tag:equipment_chestplate
                 end
                 on lose:
                         hide tag:equipment_amulet
                         hide tag:equipment_shield
                         hide tag:equipment_helmet
+                        hide tag:equipment_chestplate
                 end
                 on click:
                         lose tag:menuTab
@@ -25988,7 +25990,7 @@ Upgrades
         [include eqpchestplate %id="amadinechestplate" %name="Amadine Chestplate" %maxhp="363" %regenhprate="6.9" %bregenhprate="2"]
         [include eqpchestplate %id="liqunchestplate" %name="Liqun Chestplate" %maxhp="224" %regenhprate="3.9" %bregenhprate="2.7"]
         [include eqpchestplate %id="lathchestplate" %name="Lathikalkum Platebody" %maxhp="643" %regenhprate="5" %bregenhprate="4.2"]
-        [include eqpchestplate %id="dragonscalepltebody" %name="Dragonscale Platebody" %maxhp="742" %regenhprate="9.2" %bregenhprate="5.2"]
+        [include eqpchestplate %id="dragonscaleplatebody" %name="Dragonscale Platebody" %maxhp="742" %regenhprate="9.2" %bregenhprate="5.2"]
         [include eqpchestplate %id="edrgsclplatebody" %name="Elder Dragonscale Platebody" %maxhp="892" %regenhprate="10.3" %bregenhprate="6.5" %bleedingpower="25"]
         [include eqpchestplate %id="kyplozinrobetop" %name="Kyplonzin's Robe Top" %maxhp="972" %regenhprate="6.3" %bregenhprate="10.6" %attackmin="11" %attackmax="17" %bleedingpower="88"]
         // TODO Добавить после инклуда ещё событие клик для снятия штанов
