@@ -25,7 +25,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_pickaxe
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_boots, tag:equipment_pickaxe
                 tooltip origin:left
 
 
@@ -16605,6 +16605,7 @@ Upgrades
                         show tag:equipment_helmet
                         show tag:equipment_chestplate
                         show tag:equipment_leggings
+                        show tag:equipment_boots
                 end
                 on lose:
                         hide tag:equipment_amulet
@@ -16612,6 +16613,7 @@ Upgrades
                         hide tag:equipment_helmet
                         hide tag:equipment_chestplate
                         hide tag:equipment_leggings
+                        hide tag:equipment_boots
                 end
                 on click:
                         lose tag:menuTab
@@ -25971,6 +25973,7 @@ Upgrades
         [include eqphelmet %id="glavyiorhelmet" %name="Glavyior Helmet" %maxhp="356" %regenhprate="5.3" %bregenhprate="6.8"]
         [include eqphelmet %id="zarkhelmet" %name="Zark Helmet" %maxhp="349" %regenhprate="3" %attackmin="12" %attackmax="19"]
         [include eqphelmet %id="kyplozinhood" %name="Kyplonzin's Hood" %maxhp="589" %regenhprate="2.5" %bregenhprate="4.4" %attackmin="11" %attackmax="17" %bleedingpower="53"]
+        [include eqphelmet %id="eplisorhelmet" %name="Eplisor Helmet" %maxhp="413" %attackmin="31" %attackmax="54" %critchance="4.3" %shatterpower="65"]
 
 
 
@@ -25995,6 +25998,7 @@ Upgrades
         [include eqpchestplate %id="dragonscalepltbody" %name="Dragonscale Platebody" %maxhp="742" %regenhprate="9.2" %bregenhprate="5.2"]
         [include eqpchestplate %id="edrgsclplatebody" %name="Elder Dragonscale Platebody" %maxhp="892" %regenhprate="10.3" %bregenhprate="6.5" %bleedingpower="25"]
         [include eqpchestplate %id="kyplozinrobetop" %name="Kyplonzin's Robe Top" %maxhp="972" %regenhprate="6.3" %bregenhprate="10.6" %attackmin="11" %attackmax="17" %bleedingpower="88"]
+        [include eqpchestplate %id="eplisorplatebody" %name="Eplisor Platebody" %maxhp="679" %attackmin="58" %attackmax="94" %critchance="6" %shatterpower="88"]
         // TODO Добавить после инклуда ещё событие клик для снятия штанов и дополнительный тег штанов
         *exopack2
                 name:Exo-Pack
@@ -26068,1130 +26072,43 @@ Upgrades
         [include eqpleggings %id="amadineleggings" %name="Amadine Leggings" %maxhp="297" %regenhprate="6.0" %bregenhprate="1.8"]
         [include eqpleggings %id="liqunleggings" %name="Liqun Leggings" %maxhp="200" %regenhprate="3.6" %bregenhprate="2.5"]
         [include eqpleggings %id="lathleggings" %name="Lathikalkum Platelegs" %maxhp="579" %regenhprate="4.6" %bregenhprate="3.8"]
-        [include eqpleggings %id="drgsclpltlegs" %name="Dragonscale Platelegs" %maxhp="640" %regenhprate="8" %bregenhprate="4.6"] // TODO
+        [include eqpleggings %id="drgsclpltlegs" %name="Dragonscale Platelegs" %maxhp="640" %regenhprate="8" %bregenhprate="4.6"]
         [include eqpleggings %id="edrgsclplatelegs" %name="Elder Dragonscale Platelegs" %maxhp="779" %regenhprate="9.4" %bregenhprate="5.8" %bleedingpower="22"]
         [include eqpleggings %id="kyplozinrobebottom" %name="Kyplonzin's Robe Bottom" %maxhp="940" %regenhprate="5.7" %bregenhprate="10.1" %attackmin="16" %attackmax="32" %bleedingpower="81"]
+        [include eqpleggings %id="eplisorplatelegs" %name="Eplisor Platelegs" %maxhp="631" %attackmin="53" %attackmax="83" %critchance="5.2" %shatterpower="82"]
 
 
-        
+
         // IGM:SECTION:EQP Boots
-        *woodenboots2
-                name:Wooden Boots
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b> <#db0d6a>GiveMoney</#>
-                desc:[?(have this)|Press this button to unequip the wooden boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
-                tag:equipment equipment_boots
-                req:1 woodenboots
-                no buy
-                on earn:
-                        yield bootsequipped
-                        //
-                        yield 24 maxhp
-                        yield 0.1 regenhprate
-                        //
-                        lose 1 woodenboots
-                        //
-                        toast <b>[n:this]</b> надет
-                        
-                        //FOR TEST
-                        yield 9000000000 coins
-                        yield 20000 attackmin
-                        yield 30000 attackmax
-                        yield 30000 maxhp
-                        yield 15000 regenhprate
-                end
-                on lose:
-                        lose bootsequipped
-                        //
-                        lose 24 maxhp
-                        lose 0.1 regenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 woodenboots
-                        //
-                        toast <b>[n:this]</b> снят
-                        
-                        //FOR TEST
-                        lose 20000 attackmin
-                        lose 30000 attackmax
-                        lose 30000 maxhp
-                        lose 15000 regenhprate
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_boots
-                                yield this
-                        end
-                end
-        
+        [include eqpboots %id="woodenboots" %name="Wooden Boots" %maxhp="24" %regenhprate="0.1"]
+        [include eqpboots %id="minerboots" %name="Miners Boots" %maxhp="57" %minersoutfitb="0.02"]
+        [include eqpboots %id="stoneboots" %name="Stone Boots" %maxhp="74" %regenhprate="0.5"]
+        [include eqpboots %id="ironboots" %name="Iron Boots" %maxhp="103" %regenhprate="0.5" %bregenhprate="0.1"]
+        [include eqpboots %id="steelboots" %name="Steel Boots" %maxhp="148" %regenhprate="1" %bregenhprate="0.5"]
+        [include eqpboots %id="goldboots" %name="Gold Boots" %maxhp="167" %regenhprate="1.5" %bregenhprate="0.6"]
+        [include eqpboots %id="equisitorboots" %name="Equisitors Boots" %maxhp="233" %regenhprate="3.2" %bregenhprate="0.3"]
+        [include eqpboots %id="platinumboots" %name="Platinum Boots" %maxhp="247" %regenhprate="3.8" %bregenhprate="0.6"]
+        [include eqpboots %id="stepfastboots" %name="Stepfast Boots" %maxhp="236" %bregenhprate="2.2"]
+        [include eqpboots %id="prinahaboots" %name="Prinaha Boots" %maxhp="320" %bregenhprate="3.2"]
+        [include eqpboots %id="apechboots" %name="Apech Boots" %maxhp="403" %bregenhprate="4"]
+        [include eqpboots %id="nuzdelboots" %name="Nuzdelclock Boots" %maxhp="544" %bregenhprate="5.2" %attackmin="3" %attackmax="5"]
+        [include eqpboots %id="deathrineboots" %name="Deathrine Boots" %maxhp="668" %regenhprate="2.5" %bregenhprate="6.1" %attackmin="7" %attackmax="12"]
+        [include eqpboots %id="dralonicboots" %name="Dralonic Godboots" %maxhp="781" %regenhprate="4" %bregenhprate="8.4" %attackmin="12" %attackmax="22"]
+        [include eqpboots %id="amadineboots" %name="Amadine Boots" %maxhp="168" %regenhprate="4.1" %bregenhprate="1.4"]
+        [include eqpboots %id="liqunboots" %name="Liqun Boots" %maxhp="127" %regenhprate="2.7" %bregenhprate="2"]
+        [include eqpboots %id="lathboots" %name="Lathikalkum Boots" %maxhp="411" %regenhprate="3.6" %bregenhprate="2.6"]
+        [include eqpboots %id="roanboots" %name="Roan Boots" %maxhp="499" %regenhprate="10.4"]
+        [include eqpboots %id="sroanboots" %name="Superior Roan Boots" %maxhp="1231" %regenhprate="23.8" %crushpower="144"]
+        [include eqpboots %id="glavyiorboots" %name="Glavyior Boots" %maxhp="271" %regenhprate="4.5" %bregenhprate="5.2"]
+        [include eqpboots %id="sglavyiorboots" %name="Superior Glavyior Boots" %maxhp="367" %regenhprate="6.2" %bregenhprate="8.9"]
+        [include eqpboots %id="zarkboots" %name="Zark Boots" %maxhp="312" %regenhprate="2.4" %attackmin="9" %attackmax="15"]
+        [include eqpboots %id="szarkboots" %name="Superior Zark Boots" %maxhp="387" %regenhprate="2.9" %bregenhprate="1" %attackmin="17" %attackmax="27"]
+        [include eqpboots %id="kyplozinboots" %name="Kyplonzin's Boots" %maxhp="781" %regenhprate="4" %bregenhprate="8.4" %attackmin="12" %attackmax="22" %bleedingpower="50"]
+        [include eqpboots %id="eplisorboots" %name="Eplisor Boots" %maxhp="380" %attackmin="27" %attackmax="46" %critchance="3.9" %shatterpower="63"]
 
 
 
-        *minerboots2
-                name:Miners Boots
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the miners boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
-                tag:equipment equipment_boots
-                req:1 minerboots
-                no buy
-                on earn:
-                        yield bootsequipped
-                        //
-                        yield 57 maxhp
-                        yield 0.02 minersoutfitb
-                        //
-                        lose 1 minerboots
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose bootsequipped
-                        //
-                        lose 57 maxhp
-                        lose 0.02 minersoutfitb
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 minerboots
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_boots
-                                yield this
-                        end
-                end
-
-
-
-        *stoneboots2
-                name:Stone Boots
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the stone boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
-                tag:equipment equipment_boots
-                req:1 stoneboots
-                no buy
-                on earn:
-                        yield bootsequipped
-                        //
-                        yield 74 maxhp
-                        yield 0.5 regenhprate
-                        //
-                        lose 1 stoneboots
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose bootsequipped
-                        //
-                        lose 74 maxhp
-                        lose 0.5 regenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 stoneboots
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_boots
-                                yield this
-                        end
-                end
-                
-
-
-        *ironboots2
-        name:Equip Iron Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose ironboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 103 maxhp
-        yield 0.5 regenhprate
-        yield 0.1 bregenhprate
-        show ironboots3
-        hide ironboots2
-        yield -1 ironboots
-        end
-        end
-        req:1 ironboots
-        tag:equipment
-
-        *ironboots3
-        name:Unequip Iron Boots
-        desc:Press this button to unequip the iron boots to be able to use other boots.
-        req:have ironboots2
-        on earn:yield -0.5 regenhprate
-        on earn:yield -103 maxhp
-        on earn:yield -0.1 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose ironboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide ironboots3
-        on earn:show ironboots2
-        on earn:lose ironboots2
-        on earn:yield 1 ironboots
-        tag:equipment
-
-        *steelboots2
-        name:Equip Steel Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose steelboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 148 maxhp
-        yield 1.0 regenhprate
-        yield 0.5 bregenhprate
-        show steelboots3
-        hide steelboots2
-        yield -1 steelboots
-        end
-        end
-        req:1 steelboots
-        tag:equipment
-
-        *steelboots3
-        name:Unequip Steel Boots
-        desc:Press this button to unequip the steel boots to be able to use other boots.
-        req:have steelboots2
-        on earn:yield -1.0 regenhprate
-        on earn:yield -148 maxhp
-        on earn:yield -0.5 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose steelboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide steelboots3
-        on earn:show steelboots2
-        on earn:lose steelboots2
-        on earn:yield 1 steelboots
-        tag:equipment
-
-        *goldboots2
-        name:Equip Gold Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose goldboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 167 maxhp
-        yield 1.5 regenhprate
-        yield 0.6 bregenhprate
-        show goldboots3
-        hide goldboots2
-        yield -1 goldboots
-        end
-        end
-        req:1 goldboots
-        tag:equipment
-
-        *goldboots3
-        name:Unequip Gold Boots
-        desc:Press this button to unequip the gold boots to be able to use other boots.
-        req:have goldboots2
-        on earn:yield -1.5 regenhprate
-        on earn:yield -167 maxhp
-        on earn:yield -0.6 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose goldboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide goldboots3
-        on earn:show goldboots2
-        on earn:lose goldboots2
-        on earn:yield 1 goldboots
-        tag:equipment
-        *equisitorboots2
-        name:Equip Equisitors Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose equisitorboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 233 maxhp
-        yield 3.2 regenhprate
-        yield 0.3 bregenhprate
-        show equisitorboots3
-        hide equisitorboots2
-        yield -1 equisitorboots
-        end
-        end
-        tag:equipment
-        req:1 equisitorboots
-
-        *equisitorboots3
-        name:Unequip Equisitor Boots
-        desc:Press this button to unequip the equisitors boots to be able to use other boots.
-        req:have equisitorboots2
-        on earn:yield -3.2 regenhprate
-        on earn:yield -233 maxhp
-        on earn:yield -0.3 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose equisitorboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide equisitorboots3
-        on earn:show equisitorboots2
-        on earn:lose equisitorboots2
-        on earn:yield 1 equisitorboots
-        tag:equipment
-
-        *platinumboots2
-        name:Equip Platinum Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose platinumboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 247 maxhp
-        yield 3.8 regenhprate
-        yield 0.6 bregenhprate
-        show platinumboots3
-        hide platinumboots2
-        yield -1 platinumboots
-        end
-        end
-        req:1 platinumboots
-        tag:equipment
-
-        *platinumboots3
-        name:Unequip Platinum Boots
-        desc:Press this button to unequip the platinum boots to be able to use other boots.
-        req:have platinumboots2
-        on earn:yield -3.8 regenhprate
-        on earn:yield -247 maxhp
-        on earn:yield -0.6 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose platinumboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide platinumboots3
-        on earn:show platinumboots2
-        on earn:lose platinumboots2
-        on earn:yield 1 platinumboots
-        tag:equipment
-
-        *stepfastboots2
-        name:Equip Stepfast Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose stepfastboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 236 maxhp
-        yield 2.2 bregenhprate
-        show stepfastboots3
-        hide stepfastboots2
-        yield -1 stepfastboots
-        end
-        end
-        req:1 stepfastboots
-        tag:equipment
-
-        *stepfastboots3
-        name:Unequip Stepfast Boots
-        desc:Press this button to unequip the stepfast boots to be able to use other boots.
-        req:have stepfastboots2
-        on earn:
-        yield -236 maxhp
-        yield -2.2 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose stepfastboots3
-        yield -1 bootsequipped
-        hide stepfastboots3
-        show stepfastboots2
-        lose stepfastboots2
-        yield 1 stepfastboots
-        end
-        tag:equipment
-
-        *prinahaboots2
-        name:Equip Prinaha Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose prinahaboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 320 maxhp
-        yield 3.2 bregenhprate
-        show prinahaboots3
-        hide prinahaboots2
-        yield -1 prinahaboots
-        end
-        end
-        req:1 prinahaboots
-        tag:equipment
-
-        *prinahaboots3
-        name:Unequip Prinaha Boots
-        desc:Press this button to unequip the prinaha boots to be able to use other boots.
-        req:have prinahaboots2
-        on earn:
-        yield -320 maxhp
-        yield -3.2 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose prinahaboots3
-        yield -1 bootsequipped
-        hide prinahaboots3
-        show prinahaboots2
-        lose prinahaboots2
-        yield 1 prinahaboots
-        end
-        tag:equipment
-
-        *apechboots2
-        name:Equip Apech Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose apechboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 403 maxhp
-        yield 4.0 bregenhprate
-        show apechboots3
-        hide apechboots2
-        yield -1 apechboots
-        end
-        end
-        req:1 apechboots
-        tag:equipment
-
-        *apechboots3
-        name:Unequip Apech Boots
-        desc:Press this button to unequip the apech boots to be able to use other boots.
-        req:have apechboots2
-        on earn:
-        yield -403 maxhp
-        yield -4.0 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose apechboots3
-        yield -1 bootsequipped
-        hide apechboots3
-        show apechboots2
-        lose apechboots2
-        yield 1 apechboots
-        end
-        tag:equipment
-
-        *nuzdelboots2
-        name:Equip Nuzdelclock Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose nuzdelboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 544 maxhp
-        yield 5.2 bregenhprate
-        yield 3 attackmin
-        yield 5 attackmax
-        show nuzdelboots3
-        hide nuzdelboots2
-        yield -1 nuzdelboots
-        end
-        end
-        req:1 nuzdelboots
-        tag:equipment
-
-        *nuzdelboots3
-        name:Unequip Nuzdelclock Boots
-        desc:Press this button to unequip the nuzdelclock boots to be able to use other boots.
-        req:have nuzdelboots2
-        on earn:
-        yield -544 maxhp
-        yield -5.2 bregenhprate
-        yield -3 attackmin
-        yield -5 attackmax
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose nuzdelboots3
-        yield -1 bootsequipped
-        hide nuzdelboots3
-        show nuzdelboots2
-        lose nuzdelboots2
-        yield 1 nuzdelboots
-        end
-        tag:equipment
-
-        *deathrineboots2
-        name:Equip Deathrine Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose deathrineboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 668 maxhp
-        yield 6.1 bregenhprate
-        yield 2.5 regenhprate
-        yield 7 attackmin
-        yield 12 attackmax
-        show deathrineboots3
-        hide deathrineboots2
-        yield -1 deathrineboots
-        end
-        end
-        req:1 deathrineboots
-        tag:equipment
-
-        *deathrineboots3
-        name:Unequip Deathrine Boots
-        desc:Press this button to unequip the deathrine boots to be able to use other boots.
-        req:have deathrineboots2
-        on earn:
-        yield -668 maxhp
-        yield -6.1 bregenhprate
-        yield -2.5 regenhprate
-        yield -7 attackmin
-        yield -12 attackmax
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose deathrineboots3
-        yield -1 bootsequipped
-        hide deathrineboots3
-        show deathrineboots2
-        lose deathrineboots2
-        yield 1 deathrineboots
-        end
-        tag:equipment
-
-        *dralonicboots2
-        name:Equip Dralonic Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose dralonicboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 781 maxhp
-        yield 8.4 bregenhprate
-        yield 4.0 regenhprate
-        yield 12 attackmin
-        yield 22 attackmax
-        show dralonicboots3
-        hide dralonicboots2
-        yield -1 deathrineboots
-        end
-        end
-        req:1 deathrineboots
-        tag:equipment
-
-        *dralonicboots3
-        name:Unequip Dralonic Boots
-        desc:Press this button to unequip the dralonic boots to be able to use other boots.
-        req:have dralonicboots2
-        on earn:
-        yield -781 maxhp
-        yield -8.4 bregenhprate
-        yield -4.0 regenhprate
-        yield -12 attackmin
-        yield -22 attackmax
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose dralonicboots3
-        yield -1 bootsequipped
-        hide dralonicboots3
-        show dralonicboots2
-        lose dralonicboots2
-        yield 1 deathrineboots
-        end
-        tag:equipment
-
-        *amadineboots2
-        name:Equip Amadine Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose amadineboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 168 maxhp
-        yield 4.1 regenhprate
-        yield 1.4 bregenhprate
-        show amadineboots3
-        hide amadineboots2
-        yield -1 amadineboots
-        end
-        end
-        tag:equipment
-        req:1 amadineboots
-
-        *amadineboots3
-        name:Unequip Amadine Boots
-        desc:Press this button to unequip the amadine boots to be able to use other boots.
-        req:have amadineboots2
-        on earn:yield -4.1 regenhprate
-        on earn:yield -168 maxhp
-        on earn:yield -1.4 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose amadineboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide amadineboots3
-        on earn:show amadineboots2
-        on earn:lose amadineboots2
-        on earn:yield 1 amadineboots
-        tag:equipment
-
-        *liqunboots2
-        name:Equip Liqun Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose liqunboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 127 maxhp
-        yield 2.7 regenhprate
-        yield 2.0 bregenhprate
-        show liqunboots3
-        hide liqunboots2
-        yield -1 liqunboots
-        end
-        end
-        tag:equipment
-        req:1 liqunboots
-
-        *liqunboots3
-        name:Unequip Liqun Boots
-        desc:Press this button to unequip the liqun boots to be able to use other boots.
-        req:have liqunboots2
-        on earn:yield -2.7 regenhprate
-        on earn:yield -127 maxhp
-        on earn:yield -2.0 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose liqunboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide liqunboots3
-        on earn:show liqunboots2
-        on earn:lose liqunboots2
-        on earn:yield 1 liqunboots
-        tag:equipment
-
-        *lathboots2
-        name:Equip Lathikalkum Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose lathboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 411 maxhp
-        yield 3.6 regenhprate
-        yield 2.6 bregenhprate
-        show lathboots3
-        hide lathboots2
-        yield -1 lathboots
-        end
-        end
-        req:1 lathboots
-        tag:equipment
-
-        *lathboots3
-        name:Unequip Lathikalkum Boots
-        desc:Press this button to unequip the lathikalkum boots to be able to use other boots.
-        req:have lathboots2
-        on earn:yield -3.6 regenhprate
-        on earn:yield -411 maxhp
-        on earn:yield -2.6 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose lathboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide lathboots3
-        on earn:show lathboots2
-        on earn:lose lathboots2
-        on earn:yield 1 lathboots
-        tag:equipment
-
-        *roanboots2
-        name:Equip Roan Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose roanboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 499 maxhp
-        yield 10.4 regenhprate
-        show roanboots3
-        hide roanboots2
-        yield -1 roanboots
-        end
-        end
-        tag:equipment
-        req:1 roanboots
-
-        *roanboots3
-        name:Unequip Roan Boots
-        desc:Press this button to unequip the roan boots to be able to use other boots.
-        req:have roanboots2
-        on earn:yield -10.4 regenhprate
-        on earn:yield -499 maxhp
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose roanboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide roanboots3
-        on earn:show roanboots2
-        on earn:lose roanboots2
-        on earn:yield 1 roanboots
-        tag:equipment
-
-        *sroanboots2
-        name:Equip Superior Roan Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose sroanboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 1231 maxhp
-        yield 23.8 regenhprate
-        yield 144 crushpower
-        show sroanboots3
-        hide sroanboots2
-        yield -1 sroanboots
-        end
-        end
-        tag:equipment
-        req:1 sroanboots
-
-        *sroanboots3
-        name:Unequip Superior Roan Boots
-        desc:Press this button to unequip the superior roan boots to be able to use other boots.
-        req:have sroanboots2
-        on earn:yield -23.8 regenhprate
-        on earn:yield -1231 maxhp
-        on earn:yield -144 crushpower
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose sroanboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide sroanboots3
-        on earn:show sroanboots2
-        on earn:lose sroanboots2
-        on earn:yield 1 sroanboots
-        tag:equipment
-        
-        *glavyiorboots2
-        name:Equip Glavyior Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose glavyiorboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 271 maxhp
-        yield 4.5 regenhprate
-        yield 5.2 bregenhprate
-        show glavyiorboots3
-        hide glavyiorboots2
-        yield -1 glavyiorboots
-        end
-        end
-        tag:equipment
-        req:1 glavyiorboots
-
-        *glavyiorboots3
-        name:Unequip Glavyior Boots
-        desc:Press this button to unequip the glavyior boots to be able to use other boots.
-        req:have glavyiorboots2
-        on earn:yield -4.5 regenhprate
-        on earn:yield -271 maxhp
-        on earn:yield -5.2 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose glavyiorboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide glavyiorboots3
-        on earn:show glavyiorboots2
-        on earn:lose glavyiorboots2
-        on earn:yield 1 glavyiorboots
-        tag:equipment
-
-        *sglavyiorboots2
-        name:Equip Superior Glavyior Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose sglavyiorboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 367 maxhp
-        yield 6.2 regenhprate
-        yield 8.9 bregenhprate
-        show sglavyiorboots3
-        hide sglavyiorboots2
-        yield -1 sglavyiorboots
-        end
-        end
-        tag:equipment
-        req:1 sglavyiorboots
-
-        *sglavyiorboots3
-        name:Unequip Superior Glavyior Boots
-        desc:Press this button to unequip the superior glavyior boots to be able to use other boots.
-        req:have sglavyiorboots2
-        on earn:yield -6.2 regenhprate
-        on earn:yield -367 maxhp
-        on earn:yield -8.9 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose sglavyiorboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide sglavyiorboots3
-        on earn:show sglavyiorboots2
-        on earn:lose sglavyiorboots2
-        on earn:yield 1 sglavyiorboots
-        tag:equipment
-        
-        
-        
-        
-        *zarkboots2
-                name:Zark Boots
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the zark boots to be able to use other boots.|Press this button to equip the boots and gain all of its stats.]
-                tag:equipment equipment_boots
-                req:1 zarkboots
-                no buy
-                on earn:
-                        yield bootsequipped
-                        //
-                        yield 312 maxhp
-                        yield 2.4 regenhprate
-                        yield 9 attackmin
-                        yield 15 attackmax
-                        //
-                        lose 1 zarkboots
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose bootsequipped
-                        //
-                        lose 312 maxhp
-                        lose 2.4 regenhprate
-                        lose 9 attackmin
-                        lose 15 attackmax
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 zarkboots
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_boots
-                                yield this
-                        end
-                end
-        
-        
-        
-        
-
-        *szarkboots2
-        name:Equip Superior Zark Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose szarkboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 387 maxhp
-        yield 2.9 regenhprate
-        yield 1.0 bregenhprate
-        yield 17 attackmin
-        yield 27 attackmax
-        show szarkboots3
-        hide szarkboots2
-        yield -1 szarkboots
-        end
-        end
-        tag:equipment
-        req:1 szarkboots
-
-        *szarkboots3
-        name:Unequip Superior Zark Boots
-        desc:Press this button to unequip the uperior zark boots to be able to use other boots.
-        req:have szarkboots2
-        on earn:yield -2.9 regenhprate
-        on earn:yield -1.0 bregenhprate
-        on earn:yield -387 maxhp
-        on earn:yield -17 attackmin
-        on earn:yield -27 attackmax
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose szarkboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide szarkboots3
-        on earn:show szarkboots2
-        on earn:lose szarkboots2
-        on earn:yield 1 szarkboots
-        tag:equipment
-        
-        *kyplozinboots2
-        name:Equip Kyplonzin's Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose kyplozinboots2
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 781 maxhp
-        yield 4 regenhprate
-        yield 8.4 bregenhprate
-        yield 12 attackmin
-        yield 22 attackmax
-        yield 50 bleedingpower
-        show kyplozinboots3
-        hide kyplozinboots2
-        yield -1 kyplozinboots
-        end
-        end
-        tag:equipment
-        req:1 kyplozinboots
-
-        *kyplozinboots3
-        name:Unequip Kyplonzin's Boots
-        desc:Press this button to unequip the Kyplonzin's Boots to be able to use other boots.
-        req:have kyplozinboots2
-        on earn:
-        yield -781 maxhp
-        yield -4 regenhprate
-        yield -8.4 bregenhprate
-        yield -12 attackmin
-        yield -22 attackmax
-        yield -50 bleedingpower
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose kyplozinboots3
-        yield -1 bootsequipped
-        hide kyplozinboots3
-        show kyplozinboots2
-        lose kyplozinboots2
-        yield 1 kyplozinboots
-        end
-        tag:equipment
-
-
-        *eplisorhelmet2
-        name:Equip Eplisor Helmet
-        desc:Press this button to equip the helmet and gain all of its stats.
-        on earn:
-        if (helmequipped=1)
-        toast You already have a helmet equipped!
-        lose eplisorhelmet2
-        end
-        if (helmequipped=0)
-        yield 1 helmequipped
-        yield 413 maxhp
-        yield 31 attackmin
-        yield 54 attackmax
-        yield 4.3 critchance
-        yield 65 shatterpower
-        show eplisorhelmet3
-        hide eplisorhelmet2
-        yield -1 eplisorhelmet
-        end
-        end
-        tag:equipment
-        req:1 eplisorhelmet
-
-        *eplisorhelmet3
-        name:Unequip Eplisor Helmet
-        desc:Press this button to unequip the Eplisor Helmet to be able to use other helmets.
-        req:have eplisorhelmet2
-        on earn:yield -413 maxhp
-        on earn:yield -31 attackmin
-        on earn:yield -54 attackmax
-        on earn:yield -4.3 critchance
-        on earn:yield -65 shatterpower
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose eplisorhelmet3
-        on earn:yield -1 helmequipped
-        on earn:hide eplisorhelmet3
-        on earn:show eplisorhelmet2
-        on earn:lose eplisorhelmet2
-        on earn:yield 1 eplisorhelmet
-        tag:equipment
-        
-        *eplisorplatebody2
-        name:Equip Eplisor Platebody
-        desc:Press this button to equip the platebody and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose eplisorplatebody2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 679 maxhp
-        yield 58 attackmin
-        yield 94 attackmax
-        yield 6.0 critchance
-        yield 88 shatterpower
-        show eplisorplatebody3
-        hide eplisorplatebody2
-        yield -1 eplisorplatebody
-        end
-        end
-        tag:equipment
-        req:1 eplisorplatebody
-
-        *eplisorplatebody3
-        name:Unequip Eplisor Platebody
-        desc:Press this button to unequip the Eplisor Platebody to be able to use other boots.
-        req:have eplisorplatebody2
-        on earn:yield -679 maxhp
-        on earn:yield -58 attackmin
-        on earn:yield -94 attackmax
-        on earn:yield -6.0 critchance
-        on earn:yield -88 shatterpower
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose eplisorplatebody3
-        on earn:yield -1 chestequipped
-        on earn:hide eplisorplatebody3
-        on earn:show eplisorplatebody2
-        on earn:lose eplisorplatebody2
-        on earn:yield 1 eplisorplatebody
-        tag:equipment
-        
-        *eplisorplatelegs2
-        name:Equip Eplisor Platelegs
-        desc:Press this button to equip the platebody and gain all of its stats.
-        on earn:
-        if (legequipped=1)
-        toast You already have leggings equipped!
-        lose eplisorplatelegs2
-        end
-        if (legequipped=0)
-        yield 1 legequipped
-        yield 631 maxhp
-        yield 53 attackmin
-        yield 83 attackmax
-        yield 5.2 critchance
-        yield 82 shatterpower
-        show eplisorplatelegs3
-        hide eplisorplatelegs2
-        yield -1 eplisorplatelegs
-        end
-        end
-        tag:equipment
-        req:1 eplisorplatelegs
-
-        *eplisorplatelegs3
-        name:Unequip Eplisor Platelegs
-        desc:Press this button to unequip the Eplisor Platelegs to be able to use other leggings.
-        req:have eplisorplatelegs2
-        on earn:yield -631 maxhp
-        on earn:yield -53 attackmin
-        on earn:yield -83 attackmax
-        on earn:yield -5.2 critchance
-        on earn:yield -82 shatterpower
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose eplisorplatelegs3
-        on earn:yield -1 legequipped
-        on earn:hide eplisorplatelegs3
-        on earn:show eplisorplatelegs2
-        on earn:lose eplisorplatelegs2
-        on earn:yield 1 eplisorplatelegs
-        tag:equipment
-        
-        *eplisorboots2
-        name:Equip Eplisor Boots
-        desc:Press this button to equip the boots and gain all of its stats.
-        on earn:
-        if (bootsequipped=1)
-        toast You already have some boots equipped!
-        lose eplisorboots3
-        end
-        if (bootsequipped=0)
-        yield 1 bootsequipped
-        yield 380 maxhp
-        yield 27 attackmin
-        yield 46 attackmax
-        yield 3.9 critchance
-        yield 63 shatterpower
-        show eplisorboots3
-        hide eplisorboots2
-        yield -1 eplisorboots
-        end
-        end
-        tag:equipment
-        req:1 eplisorboots
-
-        *eplisorboots3
-        name:Unequip Eplisor Boots
-        desc:Press this button to unequip the Eplisor Boots to be able to use other boots.
-        req:have eplisorboots2
-        on earn:yield -380 maxhp
-        on earn:yield -27 attackmin
-        on earn:yield -46 attackmax
-        on earn:yield -3.9 critchance
-        on earn:yield -63 shatterpower
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose eplisorboots3
-        on earn:yield -1 bootsequipped
-        on earn:hide eplisorboots3
-        on earn:show eplisorboots2
-        on earn:lose eplisorboots2
-        on earn:yield 1 eplisorboots
-        tag:equipment
-
-
-
-
-        // IGM: SECTION:EQP Ring
+        // IGM:SECTION:EQP Ring
         *ringofluck2
                 name:Ring of Luck
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -28958,7 +27875,7 @@ Includes
 
 
 
-        *include eqphelmet %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %minersoutfitb="0"
+        *include eqphelmet %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %minersoutfitb="0"
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -28975,6 +27892,8 @@ Includes
                                 yield [%attackmin] attackmin
                                 yield [%attackmax] attackmax
                                 yield [%bleedingpower] bleedingpower
+                                yield [%critchance] critchance
+                                yield [%shatterpower] shatterpower
                                 yield [%minersoutfitb] minersoutfitb
                                 //
                                 lose 1 [%id]
@@ -28990,6 +27909,8 @@ Includes
                                 lose [%attackmin] attackmin
                                 lose [%attackmax] attackmax
                                 lose [%bleedingpower] bleedingpower
+                                lose [%critchance] critchance
+                                lose [%shatterpower] shatterpower
                                 lose [%minersoutfitb] minersoutfitb
                                 if (hp>=maxhp) hp=maxhp
                                 //
@@ -29008,7 +27929,7 @@ Includes
 
 
 
-        *include eqpchestplate %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %minersoutfitb="0"
+        *include eqpchestplate %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %minersoutfitb="0"
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -29025,6 +27946,8 @@ Includes
                                 yield [%attackmin] attackmin
                                 yield [%attackmax] attackmax
                                 yield [%bleedingpower] bleedingpower
+                                yield [%critchance] critchance
+                                yield [%shatterpower] shatterpower
                                 yield [%minersoutfitb] minersoutfitb
                                 //
                                 lose 1 [%id]
@@ -29040,6 +27963,8 @@ Includes
                                 lose [%attackmin] attackmin
                                 lose [%attackmax] attackmax
                                 lose [%bleedingpower] bleedingpower
+                                lose [%critchance] critchance
+                                lose [%shatterpower] shatterpower
                                 lose [%minersoutfitb] minersoutfitb
                                 if (hp>=maxhp) hp=maxhp
                                 //
@@ -29058,7 +27983,7 @@ Includes
 
 
 
-        *include eqpleggings %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %minersoutfitb="0"
+        *include eqpleggings %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %minersoutfitb="0"
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -29075,6 +28000,8 @@ Includes
                                 yield [%attackmin] attackmin
                                 yield [%attackmax] attackmax
                                 yield [%bleedingpower] bleedingpower
+                                yield [%critchance] critchance
+                                yield [%shatterpower] shatterpower
                                 yield [%minersoutfitb] minersoutfitb
                                 //
                                 lose 1 [%id]
@@ -29090,6 +28017,8 @@ Includes
                                 lose [%attackmin] attackmin
                                 lose [%attackmax] attackmax
                                 lose [%bleedingpower] bleedingpower
+                                lose [%critchance] critchance
+                                lose [%shatterpower] shatterpower
                                 lose [%minersoutfitb] minersoutfitb
                                 if (hp>=maxhp) hp=maxhp
                                 //
@@ -29108,41 +28037,56 @@ Includes
 
 
 
-
-                // *woodenleggings2
-                //         name:Wooden Leggings
-                //         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                //         desc:[?(have this)|Press this button to unequip the wooden leggings to be able to use other leggings/platelegs.|Press this button to equip the leggings and gain all of its stats.]
-                //         tag:equipment equipment_leggings
-                //         req:1 woodenleggings
-                //         no buy
-                //         on earn:
-                //                 yield legequipped
-                //                 //
-                //                 yield 35 maxhp
-                //                 yield 0.2 regenhprate
-                //                 //
-                //                 lose 1 woodenleggings
-                //                 //
-                //                 toast <b>[n:this]</b> надет
-                //         end
-                //         on lose:
-                //                 lose legequipped
-                //                 //
-                //                 lose 35 maxhp
-                //                 lose 0.2 regenhprate
-                //                 if (hp>=maxhp) hp=maxhp
-                //                 //
-                //                 yield 1 woodenleggings
-                //                 //
-                //                 toast <b>[n:this]</b> снят
-                //         end
-                //         //Toggle part
-                //         on click:
-                //                 if (have this)
-                //                         lose this
-                //                 else
-                //                         lose tag:equipment_leggings
-                //                         yield this
-                //                 end
-                //         end
+        *include eqpboots %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %crushpower="0" %minersoutfitb="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%crushpower]>0)|<.>Crush Power:.....<#55ff00>[%crushpower]</#>|]
+                        tag:equipment equipment_boots
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield bootsequipped
+                                //
+                                yield [%maxhp] maxhp
+                                yield [%regenhprate] regenhprate
+                                yield [%bregenhprate] bregenhprate
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                yield [%bleedingpower] bleedingpower
+                                yield [%critchance] critchance
+                                yield [%shatterpower] shatterpower
+                                yield [%crushpower] crushpower
+                                yield [%minersoutfitb] minersoutfitb
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose bootsequipped
+                                //
+                                lose [%maxhp] maxhp
+                                lose [%regenhprate] regenhprate
+                                lose [%bregenhprate] bregenhprate
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose [%bleedingpower] bleedingpower
+                                lose [%critchance] critchance
+                                lose [%shatterpower] shatterpower
+                                lose [%crushpower] crushpower
+                                lose [%minersoutfitb] minersoutfitb
+                                if (hp>=maxhp) hp=maxhp
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_boots
+                                        yield this
+                                end
+                        end
