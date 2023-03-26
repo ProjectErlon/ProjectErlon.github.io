@@ -25898,6 +25898,7 @@ Upgrades
 
 
         // IGM:SECTION:EQP Arrows
+        // TODO Вынести лог в иную сущность
         [include eqparrows %id="ancientarrow" %name="Ancient Arrows" %attackmin="26" %attackmax="51"]
         // <#b89f51>Ancient Arrows</#>
         [include eqparrows %id="draclawarrow" %name="Draclaw Arrows" %attackmin="35" %attackmax="67"]
@@ -25958,855 +25959,94 @@ Upgrades
         [include eqphelmet %id="apechhelmet" %name="Apech Helmet" %maxhp="428" %bregenhprate="4.2"]
         [include eqphelmet %id="nuzdelhelmet" %name="Nuzdelclock Helmet" %maxhp="561" %bregenhprate="5.4" %attackmin="3" %attackmax="6"]
         [include eqphelmet %id="deathrinehelmet" %name="Deathrine Helmet" %maxhp="681" %regenhprate="2.9" %bregenhprate="6.4" %attackmin="8" %attackmax="14"]
-        [include eqphelmet %id="dralonichelmet" %name="Dralonic Helmet" %maxhp="809" %regenhprate="4.5" %bregenhprate="8.9" %attackmin="13" %attackmax="25"]
+        [include eqphelmet %id="dralonichelmet" %name="Dralonic Godhelmet" %maxhp="809" %regenhprate="4.5" %bregenhprate="8.9" %attackmin="13" %attackmax="25"]
         [include eqphelmet %id="amadinehelmet" %name="Amadine Helmet" %maxhp="202" %regenhprate="4.6" %bregenhprate="1.5"]
         [include eqphelmet %id="liqunhelmet" %name="Liqun Helmet" %maxhp="154" %regenhprate="3.2" %bregenhprate="2.3"]
         [include eqphelmet %id="lathhelmet" %name="Lathikalkum Helmet" %maxhp="474" %regenhprate="4" %bregenhprate="3"]
         [include eqphelmet %id="roanhelmet" %name="Roan Helmet" %maxhp="614" %regenhprate="13.2"]
         [include eqphelmet %id="glavyiorhelmet" %name="Glavyior Helmet" %maxhp="356" %regenhprate="5.3" %bregenhprate="6.8"]
         [include eqphelmet %id="zarkhelmet" %name="Zark Helmet" %maxhp="349" %regenhprate="3" %attackmin="12" %attackmax="19"]
-        [include eqphelmet %id="kyplozinhood" %name="Kyplonzin Helmet" %maxhp="589" %regenhprate="2.5" %bregenhprate="4.4" %attackmin="11" %attackmax="17" %bleedingpower="53"]
+        [include eqphelmet %id="kyplozinhood" %name="Kyplonzin's Hood" %maxhp="589" %regenhprate="2.5" %bregenhprate="4.4" %attackmin="11" %attackmax="17" %bleedingpower="53"]
 
 
 
         // IGM:SECTION:EQP Chestplate
-        *woodenchestplate2
-                name:Wooden Chestplate
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the wooden chestplate to be able to use other chestplates/platebodies.|Press this button to equip the chestplate and gain all of its stats.]
-                tag:equipment equipment_chestplate
-                req:1 woodenchestplate
-                no buy
-                on earn:
-                        yield chestequipped
-                        //
-                        yield 43 maxhp
-                        yield 0.3 regenhprate
-                        //
-                        lose 1 woodenchestplate
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose chestequipped
-                        //
-                        lose 43 maxhp
-                        lose 0.3 regenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 woodenchestplate
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_chestplate
-                                yield this
-                        end
-                end
-
-
-        *minerchestplate2
-        name:Equip Miners Chestplate
-        desc:Press this button to equip this chestplate and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose minerchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 84 maxhp
-        yield 0.02 minersoutfitb
-        show minerchestplate3
-        hide minerchestplate2
-        yield -1 minerchestplate
-        end
-        end
-        req:1 minerchestplate
-        tag:equipment
-
-        *minerchestplate3
-        name:Unequip Miners Chestplate
-        desc:Press this button to unequip the miners chestplate to be able to use other chestplates/platebodies.
-        req:have minerchestplate2
-        on earn:
-        yield -84 maxhp
-        yield -0.02 minersoutfitb
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose minerchestplate3
-        yield -1 chestequipped
-        hide minerchestplate3
-        show minerchestplate2
-        lose minerchestplate2
-        yield 1 minerchestplate
-        end
-        tag:equipment
-
-
-        *stonechestplate2
-                name:Stone Chestplate
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the stone chestplate to be able to use other chestplates/platebodies.|Press this button to equip the chestplate and gain all of its stats.]
-                tag:equipment equipment_chestplate
-                req:1 stonechestplate
-                no buy
-                on earn:
-                        yield chestequipped
-                        //
-                        yield 164 maxhp
-                        yield 1.2 regenhprate
-                        yield 0.2 bregenhprate
-                        //
-                        lose 1 stonechestplate
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose chestequipped
-                        //
-                        lose 164 maxhp
-                        lose 1.2 regenhprate
-                        lose 0.2 bregenhprate
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 stonechestplate
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_chestplate
-                                yield this
-                        end
-                end
-
-
-        *ironchestplate2
-        name:Equip Iron Platebody
-        desc:Press this button to equip this platebody and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose ironchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 200 maxhp
-        yield 1.2 regenhprate
-        yield 0.5 bregenhprate
-        show ironchestplate3
-        hide ironchestplate2
-        yield -1 ironchestplate
-        end
-        end
-        req:1 ironchestplate
-        tag:equipment
-
-        *ironchestplate3
-        name:Unequip Iron Platebody
-        desc:Press this button to unequip the iron platebody to be able to use other chestplates/platebodies.
-        req:have ironchestplate2
-        on earn:
-        yield -1.2 regenhprate
-        yield -200 maxhp
-        yield -0.5 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose ironchestplate3
-        yield -1 chestequipped
-        hide ironchestplate3
-        show ironchestplate2
-        lose ironchestplate2
-        yield 1 ironchestplate
-        end
-        tag:equipment
-
-        *steelchestplate2
-        name:Equip Steel Platebody
-        desc:Press this button to equip this platebody and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose steelchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 246 maxhp
-        yield 1.8 regenhprate
-        yield 0.8 bregenhprate
-        show steelchestplate3
-        hide steelchestplate2
-        yield -1 steelchestplate
-        end
-        end
-        req:1 steelchestplate
-        tag:equipment
-
-        *steelchestplate3
-        name:Unequip Steel Platebody
-        desc:Press this button to unequip the steel platebody to be able to use other chestplates/platebodies.
-        req:have steelchestplate2
-        on earn:
-        yield -1.8 regenhprate
-        yield -246 maxhp
-        yield -0.8 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose steelchestplate3
-        yield -1 chestequipped
-        hide steelchestplate3
-        show steelchestplate2
-        lose steelchestplate2
-        yield 1 steelchestplate
-        end
-        tag:equipment
-
-        *goldchestplate2
-        name:Equip Gold Platebody
-        desc:Press this button to equip this platebody and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose goldchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 280 maxhp
-        yield 2.4 regenhprate
-        yield 1.2 bregenhprate
-        show goldchestplate3
-        hide goldchestplate2
-        yield -1 goldchestplate
-        end
-        end
-        req:1 goldchestplate
-        tag:equipment
-
-        *goldchestplate3
-        name:Unequip Gold Platebody
-        desc:Press this button to unequip the gold platebody to be able to use other chestplates/platebodies.
-        req:have goldchestplate2
-        on earn:
-        yield -2.4 regenhprate
-        yield -280 maxhp
-        yield -1.2 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose goldchestplate3
-        yield -1 chestequipped
-        hide goldchestplate3
-        show goldchestplate2
-        lose goldchestplate2
-        yield 1 goldchestplate
-        end
-        tag:equipment
-
-        *equisitorchestplate2
-        name:Equip Equisitors Chestplate
-        desc:Press this button to equip this chestplate and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose equisitorchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 496 maxhp
-        yield 5 regenhprate
-        yield 0.6 bregenhprate
-        show equisitorchestplate3
-        hide equisitorchestplate2
-        yield -1 equisitorchestplate
-        end
-        end
-        tag:equipment
-        req:1 equisitorchestplate
-
-        *equisitorchestplate3
-        name:Unequip Equisitor Chestplate
-        desc:Press this button to unequip the equisitors chestplate to be able to use other chestplates/platebodies.
-        req:have equisitorchestplate2
-        on earn:
-        yield -5 regenhprate
-        yield -496 maxhp
-        yield -0.6 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose equisitorchestplate3
-        yield -1 chestequipped
-        hide equisitorchestplate3
-        show equisitorchestplate2
-        lose equisitorchestplate2
-        yield 1 equisitorchestplate
-        end
-        tag:equipment
-
-        *platinumchestplate2
-        name:Equip Platinum Platebody
-        desc:Press this button to equip this platebody and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose platinumchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 513 maxhp
-        yield 5.6 regenhprate
-        yield 1.0 bregenhprate
-        show platinumchestplate3
-        hide platinumchestplate2
-        yield -1 platinumchestplate
-        end
-        end
-        req:1 platinumchestplate
-        tag:equipment
-
-        *platinumchestplate3
-        name:Unequip Platinum Platebody
-        desc:Press this button to unequip the platinum platebody to be able to use other chestplates/platebodies.
-        req:have platinumchestplate2
-        on earn:yield -5.3 regenhprate
-        on earn:yield -513 maxhp
-        on earn:yield -1.0 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose platinumchestplate3
-        on earn:yield -1 chestequipped
-        on earn:hide platinumchestplate3
-        on earn:show platinumchestplate2
-        on earn:lose platinumchestplate2
-        on earn:yield 1 platinumchestplate
-        tag:equipment
-
-        *stepfastchestplate2
-        name:Equip Stepfast Chestplate
-        desc:Press this button to equip this chestplate and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose stepfastchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 317 maxhp
-        yield 2.9 bregenhprate
-        show stepfastchestplate3
-        hide stepfastchestplate2
-        yield -1 stepfastchestplate
-        end
-        end
-        req:1 stepfastchestplate
-        tag:equipment
-
-        *stepfastchestplate3
-        name:Unequip Stepfast Chestplate
-        desc:Press this button to unequip the stepfast chestplate to be able to use other chestplates/platebodies.
-        req:have stepfastchestplate2
-        on earn:
-        yield -317 maxhp
-        yield -2.9 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose stepfastchestplate3
-        yield -1 chestequipped
-        hide stepfastchestplate3
-        show stepfastchestplate2
-        lose stepfastchestplate2
-        yield 1 stepfastchestplate
-        end
-        tag:equipment
-
-        *prinahachestplate2
-        name:Equip Prinaha Chestplate
-        desc:Press this button to equip this chestplate and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose prinahachestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 423 maxhp
-        yield 4.1 bregenhprate
-        show prinahachestplate3
-        hide prinahachestplate2
-        yield -1 prinahachestplate
-        end
-        end
-        req:1 prinahachestplate
-        tag:equipment
-
-        *prinahachestplate3
-        name:Unequip Prinaha Chestplate
-        desc:Press this button to unequip the prinaha chestplate to be able to use other chestplates/platebodies.
-        req:have prinahachestplate2
-        on earn:
-        yield -423 maxhp
-        yield -4.1 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose prinahachestplate3
-        yield -1 chestequipped
-        hide prinahachestplate3
-        show prinahachestplate2
-        lose prinahachestplate2
-        yield 1 prinahachestplate
-        end
-        tag:equipment
-
-        *apechchestplate2
-        name:Equip Apech Chestplate
-        desc:Press this button to equip this chestplate and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose apechchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 539 maxhp
-        yield 5.1 bregenhprate
-        show apechchestplate3
-        hide apechchestplate2
-        yield -1 apechchestplate
-        end
-        end
-        req:1 apechchestplate
-        tag:equipment
-
-        *apechchestplate3
-        name:Unequip Apech Chestplate
-        desc:Press this button to unequip the apech chestplate to be able to use other chestplates/platebodies.
-        req:have apechchestplate2
-        on earn:
-        yield -539 maxhp
-        yield -5.1 bregenhprate
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose apechchestplate3
-        yield -1 chestequipped
-        hide apechchestplate3
-        show apechchestplate2
-        lose apechchestplate2
-        yield 1 apechchestplate
-        end
-        tag:equipment
-
-        *nuzdelchestplate2
-        name:Equip Nuzdelclock Chestplate
-        desc:Press this button to equip this chestplate and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose nuzdelchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 713 maxhp
-        yield 6.7 bregenhprate
-        yield 5 attackmin
-        yield 9 attackmax
-        show nuzdelchestplate3
-        hide nuzdelchestplate2
-        yield -1 nuzdelchestplate
-        end
-        end
-        req:1 nuzdelchestplate
-        tag:equipment
-
-        *nuzdelchestplate3
-        name:Unequip Nuzdelclock Chestplate
-        desc:Press this button to unequip the nuzdelclock chestplate to be able to use other chestplates/platebodies.
-        req:have nuzdelchestplate2
-        on earn:
-        yield -713 maxhp
-        yield -6.7 bregenhprate
-        yield -5 attackmin
-        yield -9 attackmax
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose nuzdelchestplate3
-        yield -1 chestequipped
-        hide nuzdelchestplate3
-        show nuzdelchestplate2
-        lose nuzdelchestplate2
-        yield 1 nuzdelchestplate
-        end
-        tag:equipment
-
-        *deathrinechestplate2
-        name:Equip Deathrine Chestplate
-        desc:Press this button to equip this chestplate and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose deathrinechestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 868 maxhp
-        yield 7.8 bregenhprate
-        yield 3.6 bregenhprate
-        yield 11 attackmin
-        yield 20 attackmax
-        show deathrinechestplate3
-        hide deathrinechestplate2
-        yield -1 deathrinechestplate
-        end
-        end
-        req:1 deathrinechestplate
-        tag:equipment
-
-        *deathrinechestplate3
-        name:Unequip Deathrine Chestplate
-        desc:Press this button to unequip the deathrine chestplate to be able to use other chestplates/platebodies.
-        req:have deathrinechestplate2
-        on earn:
-        yield -868 maxhp
-        yield -7.8 bregenhprate
-        yield -3.6 bregenhprate
-        yield -11 attackmin
-        yield -20 attackmax
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose deathrinechestplate3
-        yield -1 chestequipped
-        hide deathrinechestplate3
-        show deathrinechestplate2
-        lose deathrinechestplate2
-        yield 1 deathrinechestplate
-        end
-        tag:equipment
-
-        *dralonicchestplate2
-        name:Equip Dralonic Godchestplate
-        desc:Press this button to equip this godchestplate and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose dralonicchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 972 maxhp
-        yield 10.6 bregenhprate
-        yield 6.3 bregenhprate
-        yield 18 attackmin
-        yield 37 attackmax
-        show dralonicchestplat3
-        hide dralonicchestplate2
-        yield -1 dralonicchestplate
-        end
-        end
-        req:1 dralonicchestplate
-        tag:equipment
-
-        *dralonicchestplat3
-        name:Unequip Dralonic Godchestplate
-        desc:Press this button to unequip the dralonic godchestplate to be able to use other chestplates/platebodies.
-        req:have dralonicchestplate2
-        on earn:
-        yield -972 maxhp
-        yield -10.6 bregenhprate
-        yield -6.3 bregenhprate
-        yield -18 attackmin
-        yield -37 attackmax
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose dralonicchestplat3
-        yield -1 chestequipped
-        hide dralonicchestplat3
-        show dralonicchestplate2
-        lose dralonicchestplate2
-        yield 1 dralonicchestplate
-        end
-        tag:equipment
-
-        *amadinechestplate2
-        name:Equip Amadine Chestplate
-        desc:Press this button to equip this chestplate and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose amadinechestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 363 maxhp
-        yield 6.9 regenhprate
-        yield 2.0 bregenhprate
-        show amadinechestplate3
-        hide amadinechestplate2
-        yield -1 amadinechestplate
-        end
-        end
-        tag:equipment
-        req:1 amadinechestplate
-
-        *amadinechestplate3
-        name:Unequip Amadine Chestplate
-        desc:Press this button to unequip the amadine chestplate to be able to use other chestplates/platebodies.
-        req:have amadinechestplate2
-        on earn:yield -6.9 regenhprate
-        on earn:yield -363 maxhp
-        on earn:yield -2.0 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose amadinechestplate3
-        on earn:yield -1 chestequipped
-        on earn:hide amadinechestplate3
-        on earn:show amadinechestplate2
-        on earn:lose amadinechestplate2
-        on earn:yield 1 amadinechestplate
-        tag:equipment
-
-        *liqunchestplate2
-        name:Equip Liqun Chestplate
-        desc:Press this button to equip this chestplate and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose liqunchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 224 maxhp
-        yield 3.9 regenhprate
-        yield 2.7 bregenhprate
-        show liqunchestplate3
-        hide liqunchestplate2
-        yield -1 liqunchestplate
-        end
-        end
-        tag:equipment
-        req:1 liqunchestplate
-
-        *liqunchestplate3
-        name:Unequip Liqun Chestplate
-        desc:Press this button to unequip the liqun chestplate to be able to use other chestplates/platebodies.
-        req:have liqunchestplate2
-        on earn:yield -3.9 regenhprate
-        on earn:yield -224 maxhp
-        on earn:yield -2.7 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose liqunchestplate3
-        on earn:yield -1 chestequipped
-        on earn:hide liqunchestplate3
-        on earn:show liqunchestplate2
-        on earn:lose liqunchestplate2
-        on earn:yield 1 liqunchestplate
-        tag:equipment
-
-        *lathchestplate2
-        name:Equip Lathikalkum Platebody
-        desc:Press this button to equip this platebody and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose lathchestplate2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 643 maxhp
-        yield 5.0 regenhprate
-        yield 4.2 bregenhprate
-        show lathchestplate3
-        hide lathchestplate2
-        yield -1 lathchestplate
-        end
-        end
-        tag:equipment
-        req:1 lathchestplate
-
-        *lathchestplate3
-        name:Unequip Lathikalkum Platebody
-        desc:Press this button to unequip the lathikalkum platebody to be able to use other chestplates/platebodies.
-        req:have lathchestplate2
-        on earn:yield -5.0 regenhprate
-        on earn:yield -643 maxhp
-        on earn:yield -4.2 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose lathchestplate3
-        on earn:yield -1 chestequipped
-        on earn:hide lathchestplate3
-        on earn:show lathchestplate2
-        on earn:lose lathchestplate2
-        on earn:yield 1 lathchestplate
-        tag:equipment
-
-        *dragonscalepltebody2
-        name:Equip Dragonscale Platebody
-        desc:Press this button to equip this platebody and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose dragonscalepltebody2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 742 maxhp
-        yield 9.2 regenhprate
-        yield 5.2 bregenhprate
-        show dragonscalepltebody3
-        hide dragonscalepltebody2
-        yield -1 dragonscaleplatebody
-        end
-        end
-        tag:equipment
-        req:1 dragonscaleplatebody
-
-        *dragonscalepltebody3
-        name:Unequip Dragonscale Platebody
-        desc:Press this button to unequip the dragonscale platebody to be able to use other chestplates/platebodies.
-        req:have dragonscalepltebody2
-        on earn:yield -9.2 regenhprate
-        on earn:yield -742 maxhp
-        on earn:yield -5.2 bregenhprate
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose dragonscalepltebody3
-        on earn:yield -1 chestequipped
-        on earn:hide dragonscalepltebody3
-        on earn:show dragonscalepltebody2
-        on earn:lose dragonscalepltebody2
-        on earn:yield 1 dragonscaleplatebody
-        tag:equipment
-
-        *edrgsclplatebody2
-        name:Equip Elder Dragonscale Platebody
-        desc:Press this button to equip this platebody and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose edrgsclplatebody2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 892 maxhp
-        yield 10.3 regenhprate
-        yield 6.5 bregenhprate
-        yield 25 bleedingpower
-        show edrgsclplatebody3
-        hide edrgsclplatebody2
-        yield -1 edrgsclplatebody
-        end
-        end
-        tag:equipment
-        req:1 edrgsclplatebody
-
-        *edrgsclplatebody3
-        name:Unequip Elder Dragonscale Platebody
-        desc:Press this button to unequip the elder dragonscale platebody to be able to use other chestplates/platebodies.
-        req:have edrgsclplatebody2
-        on earn:
-        yield -10.3 regenhprate
-        yield -892 maxhp
-        yield -6.5 bregenhprate
-        yield -25 bleedingpower
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose edrgsclplatebody3
-        yield -1 chestequipped
-        hide edrgsclplatebody3
-        show edrgsclplatebody2
-        lose edrgsclplatebody2
-        yield 1 edrgsclplatebody
-        end
-        tag:equipment
-
+        [include eqpchestplate %id="woodenchestplate" %name="Wooden Chestplate" %maxhp="43" %regenhprate="0.3"]
+        [include eqpchestplate %id="minerchestplate" %name="Miners Chestplate" %maxhp="84" %minersoutfitb="0.02"]
+        [include eqpchestplate %id="stonechestplate" %name="Stone Chestplate" %maxhp="164" %regenhprate="1.2" %bregenhprate="0.2"]
+        [include eqpchestplate %id="ironchestplate" %name="Iron Platebody" %maxhp="200" %regenhprate="1.2" %bregenhprate="0.5"]
+        [include eqpchestplate %id="steelchestplate" %name="Steel Platebody" %maxhp="246" %regenhprate="1.8" %bregenhprate="0.8"]
+        [include eqpchestplate %id="goldchestplate" %name="Gold Platebody" %maxhp="280" %regenhprate="2.4" %bregenhprate="1.2"]
+        [include eqpchestplate %id="equisitorchestplate" %name="Equisitors Chestplate" %maxhp="496" %regenhprate="5" %bregenhprate="0.6"]
+        [include eqpchestplate %id="platinumchestplate" %name="Platinum Platebody" %maxhp="513" %regenhprate="5.6" %bregenhprate="1"]
+        [include eqpchestplate %id="stepfastchestplate" %name="Stepfast Chestplate" %maxhp="317" %bregenhprate="2.9"]
+        [include eqpchestplate %id="prinahachestplate" %name="Prinaha Chestplate" %maxhp="423" %bregenhprate="4.1"]
+        [include eqpchestplate %id="apechchestplate" %name="Apech Chestplate" %maxhp="539" %bregenhprate="5.1"]
+        [include eqpchestplate %id="nuzdelchestplate" %name="Nuzdelclock Chestplate" %maxhp="713" %bregenhprate="6.7" %attackmin="5" %attackmax="9"]
+        [include eqpchestplate %id="deathrinechestplate" %name="Deathrine Chestplate" %maxhp="868" %regenhprate="7.8" %bregenhprate="3.6" %attackmin="11" %attackmax="20"]
+        [include eqpchestplate %id="dralonicchestplate" %name="Dralonic Godchestplate" %maxhp="972" %regenhprate="10.6" %bregenhprate="6.3" %attackmin="18" %attackmax="37"]
+        [include eqpchestplate %id="amadinechestplate" %name="Amadine Chestplate" %maxhp="363" %regenhprate="6.9" %bregenhprate="2"]
+        [include eqpchestplate %id="liqunchestplate" %name="Liqun Chestplate" %maxhp="224" %regenhprate="3.9" %bregenhprate="2.7"]
+        [include eqpchestplate %id="lathchestplate" %name="Lathikalkum Platebody" %maxhp="643" %regenhprate="5" %bregenhprate="4.2"]
+        [include eqpchestplate %id="dragonscalepltebody" %name="Dragonscale Platebody" %maxhp="742" %regenhprate="9.2" %bregenhprate="5.2"]
+        [include eqpchestplate %id="edrgsclplatebody" %name="Elder Dragonscale Platebody" %maxhp="892" %regenhprate="10.3" %bregenhprate="6.5" %bleedingpower="25"]
+        [include eqpchestplate %id="kyplozinrobetop" %name="Kyplonzin's Robe Top" %maxhp="972" %regenhprate="6.3" %bregenhprate="10.6" %attackmin="11" %attackmax="17" %bleedingpower="88"]
+        // TODO Добавить после инклуда ещё событие клик для снятия штанов
         *exopack2
-        name:Equip Exo-Pack
-        desc:Press this button to equip this hybird armor and gain all of its stats.
-        on earn:
-        if ((chestequipped=1) or (legequipped=1))
-        toast You already have a chestplate/platebody or leggings/platelegs equipped!
-        lose exopack2
-        end
-        if ((chestequipped=0) and (legequipped=0))
-        yield 1 chestequipped
-        yield 1 legequipped
-        yield 2881 maxhp
-        yield 15.4 regenhprate
-        yield 18.5 bregenhprate
-        yield 39 attackmin
-        yield 68 attackmax
-        yield 15 itemfind
-        yield 37 bleedingpower
-        yield 30 shatterpower
-        yield 12 crushpower
-        show exopack3
-        hide exopack2
-        yield -1 exopack
-        end
-        end
-        tag:equipment
-        req:1 exopack
-         
-        *exopack3
-        name:Unequip Exo-Pack
-        desc:Press this button to unequip the exo-pack to be able to use other chestplates/platebodies and leggings/platelegs.
-        req:have exopack2
-        on earn:yield -2881 maxhp
-        on earn:yield -15.4 regenhprate
-        on earn:yield -18.5 bregenhprate
-        on earn:yield -39 attackmin
-        on earn:yield -68 attackmax
-        on earn:yield -15 itemfind
-        on earn:yield -37 bleedingpower
-        on earn:yield -30 shatterpower
-        on earn:yield -12 crushpower
-        on earn:if (hp>=maxhp) yield -(hp-maxhp) hp
-        on earn:lose exopack3
-        on earn:yield -1 chestequipped
-        on earn:yield -1 legequipped
-        on earn:hide exopack3
-        on earn:show exopack2
-        on earn:lose exopack2
-        on earn:yield 1 exopack
-        tag:equipment
-
-
-        *kyplozinrobetop2
-        name:Equip Kyplonzin's Robe Top
-        desc:Press this button to equip this robe top and gain all of its stats.
-        on earn:
-        if (chestequipped=1)
-        toast You already have a chestplate/platebody equipped!
-        lose kyplozinrobetop2
-        end
-        if (chestequipped=0)
-        yield 1 chestequipped
-        yield 972 maxhp
-        yield 11 attackmin
-        yield 17 attackmax
-        yield 6.3 regenhprate
-        yield 10.6 bregenhprate
-        yield 88 bleedingpower
-        show kyplozinrobetop3
-        hide kyplozinrobetop2
-        yield -1 kyplozinrobetop
-        end
-        end
-        tag:equipment
-        req:1 kyplozinrobetop
-
-        *kyplozinrobetop3
-        name:Unequip Kyplonzin's Robe Top
-        desc:Press this button to unequip the Kyplonzin's Robe Top to be able to use other chestplates/platebodies.
-        req:have kyplozinrobetop2
-        on earn:
-        yield -972 maxhp
-        yield -11 attackmin
-        yield -17 attackmax
-        yield -6.3 regenhprate
-        yield -10.6 bregenhprate
-        yield -88 bleedingpower
-        if (hp>=maxhp) yield -(hp-maxhp) hp
-        lose kyplozinrobetop3
-        yield -1 chestequipped
-        hide kyplozinrobetop3
-        show kyplozinrobetop2
-        lose kyplozinrobetop2
-        yield 1 kyplozinrobetop
-        end
-        tag:equipment
+                name:Exo-Pack
+                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                desc:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                tag:equipment equipment_chestplate equipment_leggings
+                req:1 exopack
+                no buy
+                on earn:
+                        yield chestequipped
+                        //
+                        yield 2881 maxhp
+                        yield 15.4 regenhprate
+                        yield 18.5 bregenhprate
+                        yield 39 attackmin
+                        yield 68 attackmax
+                        yield 37 bleedingpower
+                        yield 30 shatterpower
+                        yield 12 crushpower
+                        yield 15 itemfind
+                        //
+                        lose 1 exopack
+                        //
+                        toast <b>[n:this]</b> надет
+                end
+                on lose:
+                        lose chestequipped
+                        //
+                        lose 2881 maxhp
+                        lose 15.4 regenhprate
+                        lose 18.5 bregenhprate
+                        lose 39 attackmin
+                        lose 68 attackmax
+                        lose 37 bleedingpower
+                        lose 30 shatterpower
+                        lose 12 crushpower
+                        lose 15 itemfind
+                        if (hp>=maxhp) hp=maxhp
+                        //
+                        yield 1 exopack
+                        //
+                        toast <b>[n:this]</b> снят
+                end
+                on click:
+                        if (have this)
+                                lose this
+                        else
+                                lose tag:equipment_chestplate
+                                lose tag:equipment_leggings
+                                yield this
+                        end
+                end
 
 
 
+        // IGM:SECTION:EQP Leggings
         *woodenleggings2
                 name:Wooden Leggings
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -27595,7 +26835,7 @@ Upgrades
         
         
         
-        
+        // IGM: SECTION:EQP Boots
         *woodenboots2
                 name:Wooden Boots
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b> <#db0d6a>GiveMoney</#>
@@ -28712,7 +27952,7 @@ Upgrades
 
 
 
-
+        // IGM: SECTION:EQP Ring
         *ringofluck2
                 name:Ring of Luck
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -29184,6 +28424,7 @@ Upgrades
         end
         tag:equipment
         
+        // IGM: SECTION:EQP Gloves
         *adventurersgloves2
         name:Equip Adventurers Gloves
         desc:Press this button to equip these gloves and gain all of its stats.
@@ -29371,6 +28612,7 @@ Upgrades
         end
         tag:equipment
         
+        // IGM: SECTION:EQP Cape
         *luthritecape2
         name:Equip Luthrite Cape
         desc:Press this button to equip this cape and gain all of its stats.
@@ -30521,6 +29763,56 @@ Includes
                                         lose this
                                 else
                                         lose tag:equipment_helmet
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqpchestplate %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %minersoutfitb="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|]
+                        tag:equipment equipment_chestplate
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield chestequipped
+                                //
+                                yield [%maxhp] maxhp
+                                yield [%regenhprate] regenhprate
+                                yield [%bregenhprate] bregenhprate
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                yield [%bleedingpower] bleedingpower
+                                yield [%minersoutfitb] minersoutfitb
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose chestequipped
+                                //
+                                lose [%maxhp] maxhp
+                                lose [%regenhprate] regenhprate
+                                lose [%bregenhprate] bregenhprate
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose [%bleedingpower] bleedingpower
+                                lose [%minersoutfitb] minersoutfitb
+                                if (hp>=maxhp) hp=maxhp
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_chestplate
                                         yield this
                                 end
                         end
