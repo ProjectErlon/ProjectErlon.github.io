@@ -26084,7 +26084,22 @@ Upgrades
 
 
         // IGM:SECTION:EQP Boots
-        [include eqpboots %id="woodenboots" %name="Wooden Boots" %maxhp="24" %regenhprate="0.1"]
+        [include eqpboots %id="woodenboots" %name="Wooden Boots *CHEAT TEST*" %maxhp="24" %regenhprate="0.1"]
+                on earn:
+                        //FOR TEST
+                        yield 9000000000 coins
+                        yield 20000 attackmin
+                        yield 30000 attackmax
+                        yield 30000 maxhp
+                        yield 15000 regenhprate
+                end
+                on lose:
+                        //FOR TEST
+                        lose 20000 attackmin
+                        lose 30000 attackmax
+                        lose 30000 maxhp
+                        lose 15000 regenhprate
+                end
         [include eqpboots %id="minerboots" %name="Miners Boots" %maxhp="57" %minersoutfitb="0.02"]
         [include eqpboots %id="stoneboots" %name="Stone Boots" %maxhp="74" %regenhprate="0.5"]
         [include eqpboots %id="ironboots" %name="Iron Boots" %maxhp="103" %regenhprate="0.5" %bregenhprate="0.1"]
