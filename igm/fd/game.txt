@@ -27425,7 +27425,7 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|]
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]%</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|]
                         tag:equipment equipment_helmet
                         req:1 [%id]
                         no buy
@@ -27479,7 +27479,7 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|]
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]%</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|]
                         tag:equipment equipment_chestplate
                         req:1 [%id]
                         no buy
@@ -27533,7 +27533,7 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|]
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]%</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|]
                         tag:equipment equipment_leggings
                         req:1 [%id]
                         no buy
@@ -27587,7 +27587,7 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|][?([%crushpower]>0)|<.>Crush Power:.....<#55ff00>[%crushpower]</#>|]
+                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]%</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|][?([%crushpower]>0)|<.>Crush Power:.....<#55ff00>[%crushpower]</#>|]
                         tag:equipment equipment_boots
                         req:1 [%id]
                         no buy
@@ -27639,11 +27639,11 @@ Includes
 
 
 
-        *include eqpring %id %name %rdtchance="0" %itemfind="0" %miningprecision="0" %attackmin="0" %attackmin="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %crushpower="0" %daggerdmg="0"
+        *include eqpring %id %name %rdtchance="0" %itemfind="0" %miningprecision="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %crushpower="0" %daggerdmg="0"
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:[?(have this)|Press this button to unequip the ring of luck to be able to use other rings.|Press this button to equip this ring and gain all of its stats.]
+                        desc:[?([%itemfind]>0)|<.>Item Find:........<#55ff00>[%itemfind]</#>|][?([%miningprecision]>0)|<.>Mining Precision:.<#55ff00>[%miningprecision]</#>|][?([%attackmin]>0)|<.>Attack Min:.......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:.......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:...<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:......<#55ff00>[%critchance]%</#>|][?([%shatterpower]>0)|<.>Shatter Power:....<#55ff00>[%shatterpower]</#>|][?([%crushpower]>0)|<.>Crush Power:......<#55ff00>[%crushpower]</#>|][?([%daggerdmg]>0)|<.>Dagger Damage:....<#55ff00>[%daggerdmg]%</#>|]
                         tag:equipment equipment_ring
                         req:1 [%id]
                         no buy
@@ -27683,7 +27683,6 @@ Includes
                                 //
                                 toast <b>[n:this]</b> снят
                         end
-                        //Toggle part
                         on click:
                                 if (have this)
                                         lose this
