@@ -25,7 +25,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_boots, tag:equipment_pickaxe
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_boots, tag:equipment_ring, tag:equipment_pickaxe
                 tooltip origin:left
 
 
@@ -16606,6 +16606,7 @@ Upgrades
                         show tag:equipment_chestplate
                         show tag:equipment_leggings
                         show tag:equipment_boots
+                        show tag:equipment_ring
                 end
                 on lose:
                         hide tag:equipment_amulet
@@ -16614,6 +16615,7 @@ Upgrades
                         hide tag:equipment_chestplate
                         hide tag:equipment_leggings
                         hide tag:equipment_boots
+                        hide tag:equipment_ring
                 end
                 on click:
                         lose tag:menuTab
@@ -26109,478 +26111,22 @@ Upgrades
 
 
         // IGM:SECTION:EQP Ring
-        *ringofluck2
-                name:Ring of Luck
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the ring of luck to be able to use other rings.|Press this button to equip this ring and gain all of its stats.]
-                tag:equipment equipment_ring
-                req:1 ringofluck
-                no buy
-                on earn:
-                        yield ringequipped
-                        //
-                        lose 12 rdtchance
-                        //
-                        lose 1 ringofluck
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose ringequipped
-                        //
-                        yield 12 rdtchance
-                        //
-                        yield 1 ringofluck
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_ring
-                                yield this
-                        end
-                end
+        [include eqpring %id="ringofluck" %name="Ring of Luck" %rdtchance="12"]
+        [include eqpring %id="ringoffortune" %name="Ring of Fortune" %itemfind="10"]
+        [include eqpring %id="ringoffortunep" %name="Ring of Fortune (+)" %itemfind="25"]
+        [include eqpring %id="spelunkerring" %name="Spelunker Ring" %miningprecision="5"]
+        [include eqpring %id="infernalring" %name="Infernal Ring" %rdtchance="24"]
+        [include eqpring %id="zrerkring" %name="Zrerk's Ring" %rdtchance="30"]
+        [include eqpring %id="treasurering" %name="Treasure Ring"]
+        [include eqpring %id="piercering" %name="Pierce Ring" %attackmin="4" %attackmin="5"]
+        [include eqpring %id="pierceringp" %name="Pierce Ring (+)" %attackmin="6" %attackmin="10" %bleedingpower="9"]
+        [include eqpring %id="pierceringpp" %name="Pierce Ring (++)" %attackmin="9" %attackmin="16" %bleedingpower="14" %critchance="2.5" %shatterpower="8"]
+        [include eqpring %id="fracturedring" %name="Fractured Ring" %attackmin="23" %attackmin="36" %bleedingpower="24" %critchance="3.6" %shatterpower="15" %crushpower="13" %daggerdmg="0.16"]
+        [include eqpring %id="eplisorring" %name="Eplisor Ring" %attackmin="34" %attackmin="55" %bleedingpower="68" %critchance="6.4" %shatterpower="54" %crushpower="50"]
 
 
 
-
-
-
-
-
-
-        *ringoffortune2
-        name:Equip Ring of Fortune
-        desc:Press this button to equip this ring and gain all of its stats.
-        on earn:
-        if (ringequipped=1)
-        toast You already have a ring equipped!
-        lose ringoffortune2
-        end
-        if (ringequipped=0)
-        yield 1 ringequipped
-        yield 10 itemfind
-        show ringoffortune3
-        hide ringoffortune2
-        yield -1 ringoffortune
-        end
-        end
-        req:1 ringoffortune
-        tag:equipment
-
-        *ringoffortune3
-        name:Unequip Ring of Fortune
-        desc:Press this button to unequip the ring of fortune to be able to use other rings.
-        req:have ringoffortune2
-        on earn:yield -10 itemfind
-        on earn:lose ringoffortune3
-        on earn:yield -1 ringequipped
-        on earn:hide ringoffortune3
-        on earn:show ringoffortune2
-        on earn:lose ringoffortune2
-        on earn:yield 1 ringoffortune
-        tag:equipment
-
-        *ringoffortunep2
-        name:Equip Ring of Fortune (+)
-        desc:Press this button to equip this ring and gain all of its stats.
-        on earn:
-        if (ringequipped=1)
-        toast You already have a ring equipped!
-        lose ringoffortunep2
-        end
-        if (ringequipped=0)
-        yield 1 ringequipped
-        yield 25 itemfind
-        show ringoffortunep3
-        hide ringoffortunep2
-        yield -1 ringoffortunep
-        end
-        end
-        req:1 ringoffortunep
-        tag:equipment
-
-        *ringoffortunep3
-        name:Unequip Ring of Fortune (+)
-        desc:Press this button to unequip the ring of fortune (+) to be able to use other rings.
-        req:have ringoffortunep2
-        on earn:yield -25 itemfind
-        on earn:lose ringoffortunep3
-        on earn:yield -1 ringequipped
-        on earn:hide ringoffortunep3
-        on earn:show ringoffortunep2
-        on earn:lose ringoffortunep2
-        on earn:yield 1 ringoffortunep
-        tag:equipment
-
-        *spelunkerring2
-        name:Equip Spelunker Ring
-        desc:Press this button to equip this ring and gain all of its stats.
-        on earn:
-        if (ringequipped=1)
-        toast You already have a ring equipped!
-        lose spelunkerring2
-        end
-        if (ringequipped=0)
-        yield 1 ringequipped
-        yield 5 miningprecision
-        show spelunkerring3
-        hide spelunkerring2
-        yield -1 spelunkerring
-        end
-        end
-        req:1 spelunkerring
-        tag:equipment
-
-        *spelunkerring3
-        name:Unequip Spelunker Ring
-        desc:Press this button to unequip the Spelunker Ring to be able to use other rings.
-        req:have spelunkerring2
-        on earn:yield -5 miningprecision
-        on earn:lose spelunkerring3
-        on earn:yield -1 ringequipped
-        on earn:hide spelunkerring3
-        on earn:show spelunkerring2
-        on earn:lose spelunkerring2
-        on earn:yield 1 spelunkerring
-        tag:equipment
-
-
-
-
-        *infernalring2
-                name:Infernal Ring
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the infernal ring to be able to use other rings.|Press this button to equip this ring and gain all of its stats.]
-                tag:equipment equipment_ring
-                req:1 infernalring
-                no buy
-                on earn:
-                        yield ringequipped
-                        //
-                        lose 24 rdtchance
-                        //
-                        lose 1 infernalring
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose ringequipped
-                        //
-                        yield 24 rdtchance
-                        //
-                        yield 1 infernalring
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_ring
-                                yield this
-                        end
-                end
-
-
-
-        *zrerkring2
-                name:Zrerk's Ring
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the zrerk's ring to be able to use other rings.|Press this button to equip this ring and gain all of its stats.]
-                tag:equipment equipment_ring
-                req:1 zrerkring
-                no buy
-                on earn:
-                        yield ringequipped
-                        //
-                        lose 30 rdtchance
-                        //
-                        lose 1 zrerkring
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose ringequipped
-                        //
-                        yield 30 rdtchance
-                        //
-                        yield 1 zrerkring
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_ring
-                                yield this
-                        end
-                end
-
-
-
-
-        
-
-        *treasurering2
-        name:Equip Treasure Ring
-        desc:Press this button to equip this ring and gain all of its stats.
-        on earn:
-        if (ringequipped=1)
-        toast You already have a ring equipped!
-        lose treasurering2
-        end
-        if (ringequipped=0)
-        yield 1 ringequipped
-        show treasurering3
-        hide treasurering2
-        yield -1 treasurering
-        end
-        end
-        req:1 treasurering
-        tag:equipment
-
-        *treasurering3
-        name:Unequip Treasure Ring
-        desc:Press this button to unequip treasure ring to be able to use other rings.
-        req:have treasurering2
-        on earn:lose treasurering3
-        on earn:yield -1 ringequipped
-        on earn:hide treasurering3
-        on earn:show treasurering2
-        on earn:lose treasurering2
-        on earn:yield 1 treasurering
-        tag:equipment
-        
-        
-        
-        
-        
-        
-        *piercering2
-                name:Pierce Ring
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the pierce ring to be able to use other rings.|Press this button to equip this ring and gain all of its stats.]
-                tag:equipment equipment_ring
-                req:1 piercering
-                no buy
-                on earn:
-                        yield ringequipped
-                        //
-                        yield 4 attackmin
-                        yield 5 attackmax
-                        //
-                        lose 1 piercering
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose ringequipped
-                        //
-                        lose 4 attackmin
-                        lose 5 attackmax
-                        //
-                        yield 1 piercering
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_ring
-                                yield this
-                        end
-                end
-        
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-        *pierceringp2
-        name:Equip Pierce Ring (+)
-        desc:Press this button to equip this ring and gain all of its stats.
-        on earn:
-        if (ringequipped=1)
-        toast You already have a ring equipped!
-        lose pierceringp2
-        end
-        if (ringequipped=0)
-        yield 1 ringequipped
-        yield 6 attackmin
-        yield 10 attackmax
-        yield 9 bleedingpower
-        show pierceringp3
-        hide pierceringp2
-        yield -1 pierceringp
-        end
-        end
-        req:1 pierceringp
-        tag:equipment
-
-        *pierceringp3
-        name:Unequip Pierce Ring (+)
-        desc:Press this button to unequip the pierce ring (+) to be able to use other rings.
-        req:have pierceringp2
-        on earn:yield -6 attackmin
-        on earn:yield -10 attackmax
-        on earn:yield -9 bleedingpower
-        on earn:lose pierceringp3
-        on earn:yield -1 ringequipped
-        on earn:hide pierceringp3
-        on earn:show pierceringp2
-        on earn:lose pierceringp2
-        on earn:yield 1 pierceringp
-        tag:equipment
-
-        *pierceringpp2
-        name:Equip Pierce Ring (++)
-        desc:Press this button to equip this ring and gain all of its stats.
-        on earn:
-        if (ringequipped=1)
-        toast You already have a ring equipped!
-        lose pierceringpp2
-        end
-        if (ringequipped=0)
-        yield 1 ringequipped
-        yield 9 attackmin
-        yield 16 attackmax
-        yield 2.5 critchance
-        yield 14 bleedingpower
-        yield 8 shatterpower
-        show pierceringpp3
-        hide pierceringpp2
-        yield -1 pierceringpp
-        end
-        end
-        req:1 pierceringpp
-        tag:equipment
-
-        *pierceringpp3
-        name:Unequip Pierce Ring (++)
-        desc:Press this button to unequip the pierce ring (++) to be able to use other rings.
-        req:have pierceringpp2
-        on earn:
-        yield -2.5 critchance
-        yield -9 attackmin
-        yield -16 attackmax
-        yield -14 bleedingpower
-        yield -8 shatterpower
-        lose pierceringpp3
-        yield -1 ringequipped
-        hide pierceringpp3
-        show pierceringpp2
-        lose pierceringpp2
-        yield 1 pierceringpp
-        end
-        tag:equipment
-
-        *fracturedring2
-        name:Equip Fractured Ring
-        desc:Press this button to equip this ring and gain all of its stats.
-        on earn:
-        if (ringequipped=1)
-        toast You already have a ring equipped!
-        lose fracturedring2
-        end
-        if (ringequipped=0)
-        yield 1 ringequipped
-        yield 23 attackmin
-        yield 36 attackmax
-        yield 3.6 critchance
-        yield 0.16 daggerdmg
-        yield 24 bleedingpower
-        yield 15 shatterpower
-        yield 13 crushpower
-        show fracturedring3
-        hide fracturedring2
-        yield -1 fracturedring
-        end
-        end
-        req:1 fracturedring
-        tag:equipment
-
-        *fracturedring3
-        name:Unequip Fractured Ring
-        desc:Press this button to unequip the fractured ring to be able to use other rings.
-        req:have fracturedring2
-        on earn:
-        yield -3.6 critchance
-        yield -0.16 daggerdmg
-        yield -23 attackmin
-        yield -36 attackmax
-        yield -24 bleedingpower
-        yield -15 shatterpower
-        yield -13 crushpower
-        lose fracturedring3
-        yield -1 ringequipped
-        hide fracturedring3
-        show fracturedring2
-        lose fracturedring2
-        yield 1 fracturedring
-        end
-        tag:equipment
-        
-        *eplisorring2
-        name:Equip Eplisor Ring
-        desc:Press this button to equip this ring and gain all of its stats.
-        on earn:
-        if (ringequipped=1)
-        toast You already have a ring equipped!
-        lose eplisorring2
-        end
-        if (ringequipped=0)
-        yield 1 ringequipped
-        yield 34 attackmin
-        yield 55 attackmax
-        yield 6.4 critchance
-        yield 68 bleedingpower
-        yield 54 shatterpower
-        yield 50 crushpower
-        show eplisorring3
-        hide eplisorring2
-        yield -1 eplisorring
-        end
-        end
-        req:1 eplisorring
-        tag:equipment
-
-        *eplisorring3
-        name:Unequip Eplisor Ring
-        desc:Press this button to unequip the Eplisor Ring to be able to use other rings.
-        req:have eplisorring2
-        on earn:
-        yield -6.4 critchance
-        yield -34 attackmin
-        yield -55 attackmax
-        yield -68 bleedingpower
-        yield -54 shatterpower
-        yield -50 crushpower
-        lose eplisorring3
-        yield -1 ringequipped
-        hide eplisorring3
-        show eplisorring2
-        lose eplisorring2
-        yield 1 eplisorring
-        end
-        tag:equipment
-        
-        // IGM: SECTION:EQP Gloves
+        // IGM:SECTION:EQP Gloves
         *adventurersgloves2
         name:Equip Adventurers Gloves
         desc:Press this button to equip these gloves and gain all of its stats.
@@ -28087,6 +27633,62 @@ Includes
                                         lose this
                                 else
                                         lose tag:equipment_boots
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqpring %id %name %rdtchance="0" %itemfind="0" %miningprecision="0" %attackmin="0" %attackmin="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %crushpower="0" %daggerdmg="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:[?(have this)|Press this button to unequip the ring of luck to be able to use other rings.|Press this button to equip this ring and gain all of its stats.]
+                        tag:equipment equipment_ring
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield ringequipped
+                                //
+                                lose [%rdtchance] rdtchance
+                                yield [%itemfind] itemfind
+                                yield [%miningprecision] miningprecision
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                yield [%bleedingpower] bleedingpower
+                                yield [%critchance] critchance
+                                yield [%shatterpower] shatterpower
+                                yield [%crushpower] crushpower
+                                yield [%daggerdmg] daggerdmg
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose ringequipped
+                                //
+                                yield [%rdtchance] rdtchance
+                                lose [%itemfind] itemfind
+                                lose [%miningprecision] miningprecision
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose [%bleedingpower] bleedingpower
+                                lose [%critchance] critchance
+                                lose [%shatterpower] shatterpower
+                                lose [%crushpower] crushpower
+                                lose [%daggerdmg] daggerdmg
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        //Toggle part
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_ring
                                         yield this
                                 end
                         end
