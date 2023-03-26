@@ -15427,9 +15427,9 @@ Buildings
         no buy
         tag:item
 
-        *dragonscalepltlegs
+        *drgsclpltlegs
         name:Dragonscale Platelegs
-        text:<#5d02b3>Dragonscale Platelegs : [dragonscalepltlegs]
+        text:<#5d02b3>Dragonscale Platelegs : [drgsclpltlegs]
         desc:Professionally crafted from dragon scale, amazing finish design. <.><#55ff00>+640<#d4d4d4> HP<.><#55ff00>+8.0/s<#d4d4d4> HP Regen<.><#55ff00>+4.6/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[19333221] Coins<#d4d4d4><.>Tier 72 Leggings
         hidden when 0
         no buy
@@ -19569,7 +19569,7 @@ Upgrades
         text:Create Dragonscale Platelegs with [?(dragonscale>2999)|<#03ff13>3000 Dragon Scales<#000000>|<#ff2a00>3000 Dragon Scales<#000000>].
         on earn:
         if (dragonscale>2999)
-        yield 1 dragonscalepltlegs
+        yield 1 drgsclpltlegs
         yield -3000 dragonscale
         yield 4500 miningxp
         do click with checklevel
@@ -19594,10 +19594,10 @@ Upgrades
         tag:equipment
         *combine16
         name:Create Elder Dragonscale Platelegs
-        text:Create Elder Dragonscale Platelegs with [?(dragonscale>4999)|<#03ff13>5000 Dragon Scales<#000000>|<#ff2a00>5000 Dragon Scales<#000000>] and [?(dragonscalepltlegs>0)|<#03ff13>1 Dragonscale Platelegs<#000000>|<#ff2a00>1 Dragonscale Platelegs<#000000>].
+        text:Create Elder Dragonscale Platelegs with [?(dragonscale>4999)|<#03ff13>5000 Dragon Scales<#000000>|<#ff2a00>5000 Dragon Scales<#000000>] and [?(drgsclpltlegs>0)|<#03ff13>1 Dragonscale Platelegs<#000000>|<#ff2a00>1 Dragonscale Platelegs<#000000>].
         on earn:
-        if ((dragonscale>4999) and (dragonscalepltlegs>0))
-        yield -1 dragonscalepltlegs
+        if ((dragonscale>4999) and (drgsclpltlegs>0))
+        yield -1 drgsclpltlegs
         yield -5000 dragonscale
         yield 1 edrgsclplatelegs
         yield 20000 miningxp
@@ -21705,19 +21705,19 @@ Upgrades
         tag:sellitems
         req:1 dragonscalepltbody
 
-        *selldragonscalepltlegs
+        *selldrgsclpltlegs
         name:Sell Dragonscale Platelegs
         desc:Click here to sell your dragonscale platelegs to earn coins
         no buy
         on click:
-        if (dragonscalepltlegs>0)
+        if (drgsclpltlegs>0)
         yield 19333221 coins
-        yield -1 dragonscalepltlegs
+        yield -1 drgsclpltlegs
         log You sold your dragonscale platelegs for <#ebe834>[19333221] coins<#d4d4d4>!
         end
         end
         tag:sellitems
-        req:1 dragonscalepltlegs
+        req:1 drgsclpltlegs
 
         *sellcexopack
         name:Sell Corrupted Exo-Pack
@@ -26066,7 +26066,7 @@ Upgrades
         [include eqpleggings %id="amadineleggings" %name="Amadine Leggings" %maxhp="297" %regenhprate="6.0" %bregenhprate="1.8"]
         [include eqpleggings %id="liqunleggings" %name="Liqun Leggings" %maxhp="200" %regenhprate="3.6" %bregenhprate="2.5"]
         [include eqpleggings %id="lathleggings" %name="Lathikalkum Platelegs" %maxhp="579" %regenhprate="4.6" %bregenhprate="3.8"]
-        [include eqpleggings %id="dragonscalepltlegs" %name="Dragonscale Platelegs" %maxhp="640" %regenhprate="8" %bregenhprate="4.6"] // TODO
+        [include eqpleggings %id="drgsclpltlegs" %name="Dragonscale Platelegs" %maxhp="640" %regenhprate="8" %bregenhprate="4.6"] // TODO
         [include eqpleggings %id="edrgsclplatelegs" %name="Elder Dragonscale Platelegs" %maxhp="779" %regenhprate="9.4" %bregenhprate="5.8" %bleedingpower="22"]
         [include eqpleggings %id="kyplozinrobebottom" %name="Kyplonzin's Robe Bottom" %maxhp="940" %regenhprate="5.7" %bregenhprate="10.1" %attackmin="16" %attackmax="32" %bleedingpower="81"]
 
