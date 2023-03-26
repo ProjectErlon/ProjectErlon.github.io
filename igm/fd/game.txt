@@ -16604,12 +16604,14 @@ Upgrades
                         show tag:equipment_shield
                         show tag:equipment_helmet
                         show tag:equipment_chestplate
+                        show tag:equipment_leggings
                 end
                 on lose:
                         hide tag:equipment_amulet
                         hide tag:equipment_shield
                         hide tag:equipment_helmet
                         hide tag:equipment_chestplate
+                        hide tag:equipment_leggings
                 end
                 on click:
                         lose tag:menuTab
