@@ -18225,6 +18225,9 @@ Upgrades
         yield -(chance1) chance1
         end
         req:1 shadowycrystal
+
+
+
         *craft1
         name:Craft Iron Helmet
         text:Craft Iron Helmet with [?(ironbar>24)|<#03ff13>25 Iron Bars<#000000>|<#ff2a00>25 Iron Bars<#000000>]
@@ -18237,7 +18240,7 @@ Upgrades
         end
         lose craft1
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft2
         name:Craft Iron Platebody
@@ -18251,7 +18254,7 @@ Upgrades
         end
         lose craft2
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft3
         name:Craft Iron Platelegs
@@ -18270,7 +18273,7 @@ Upgrades
         end
         lose craft3
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft4
         name:Craft Iron Boots
@@ -18284,7 +18287,7 @@ Upgrades
         end
         lose craft4
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft5
         name:Craft Steel Helmet
@@ -18298,7 +18301,7 @@ Upgrades
         end
         lose craft5
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft6
         name:Craft Steel Platebody
@@ -18312,7 +18315,7 @@ Upgrades
         end
         lose craft6
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft7
         name:Craft Steel Platelegs
@@ -18326,7 +18329,7 @@ Upgrades
         end
         lose craft7
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft8
         name:Craft Steel Boots
@@ -18340,7 +18343,7 @@ Upgrades
         end
         lose craft8
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft9
         name:Craft Gold Helmet
@@ -18354,7 +18357,7 @@ Upgrades
         end
         lose craft9
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft10
         name:Craft Gold Platebody
@@ -18368,7 +18371,7 @@ Upgrades
         end
         lose craft10
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft11
         name:Craft Gold Platelegs
@@ -18382,7 +18385,7 @@ Upgrades
         end
         lose craft11
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft12
         name:Craft Gold Boots
@@ -18396,7 +18399,7 @@ Upgrades
         end
         lose craft12
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft13
         name:Craft Platinum Helmet
@@ -18410,7 +18413,7 @@ Upgrades
         end
         lose craft13
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft14
         name:Craft Platinum Platebody
@@ -18424,7 +18427,7 @@ Upgrades
         end
         lose craft14
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft15
         name:Craft Platinum Platelegs
@@ -18438,7 +18441,7 @@ Upgrades
         end
         lose craft15
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft16
         name:Craft Platinum Boots
@@ -18452,7 +18455,7 @@ Upgrades
         end
         lose craft16
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft17
         name:Craft Lathikalkum Helmet
@@ -18466,7 +18469,7 @@ Upgrades
         end
         lose craft17
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft18
         name:Craft Lathikalkum Platebody
@@ -18480,7 +18483,7 @@ Upgrades
         end
         lose craft18
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft19
         name:Craft Lathikalkum Platelegs
@@ -18494,7 +18497,7 @@ Upgrades
         end
         lose craft19
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft20
         name:Craft Lathikalkum Boots
@@ -18508,7 +18511,7 @@ Upgrades
         end
         lose craft20
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft21
         name:Craft Iron Dagger
@@ -18522,7 +18525,7 @@ Upgrades
         end
         lose craft21
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft22
         name:Craft Off-Hand Iron Dagger
@@ -18536,7 +18539,7 @@ Upgrades
         end
         lose craft22
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft23
         name:Craft Iron Longsword
@@ -18550,7 +18553,7 @@ Upgrades
         end
         lose craft23
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft24
         name:Craft Steel Dagger
@@ -18564,7 +18567,7 @@ Upgrades
         end
         lose craft24
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft25
         name:Craft Off-Hand Steel Dagger
@@ -18578,7 +18581,7 @@ Upgrades
         end
         lose craft25
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft26
         name:Craft Steel Longsword
@@ -18592,7 +18595,7 @@ Upgrades
         end
         lose craft26
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft27
         name:Craft Gold Dagger
@@ -18606,7 +18609,7 @@ Upgrades
         end
         lose craft27
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft28
         name:Craft Off-Hand Gold Dagger
@@ -18620,7 +18623,7 @@ Upgrades
         end
         lose craft28
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft29
         name:Craft Gold Longsword
@@ -18634,7 +18637,7 @@ Upgrades
         end
         lose craft29
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft30
         name:Craft Platinum Dagger
@@ -18648,7 +18651,7 @@ Upgrades
         end
         lose craft30
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft31
         name:Craft Off-Hand Platinum Dagger
@@ -18662,7 +18665,7 @@ Upgrades
         end
         lose craft31
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft32
         name:Craft Platinum Longsword
@@ -18676,7 +18679,7 @@ Upgrades
         end
         lose craft32
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft33
         name:Craft Lathikalkum Dagger
@@ -18690,7 +18693,7 @@ Upgrades
         end
         lose craft33
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft34
         name:Craft Off-Hand Lathikalkum Dagger
@@ -18704,7 +18707,7 @@ Upgrades
         end
         lose craft34
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft35
         name:Craft Lathikalkum Longsword
@@ -18718,7 +18721,7 @@ Upgrades
         end
         lose craft35
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft36
         name:Craft Iron Pickaxe
@@ -18732,7 +18735,7 @@ Upgrades
         end
         lose craft36
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft37
         name:Craft Steel Pickaxe
@@ -18747,7 +18750,7 @@ Upgrades
         end
         lose craft37
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft38
         name:Craft Gold Pickaxe
@@ -18762,7 +18765,7 @@ Upgrades
         end
         lose craft38
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft39
         name:Craft Equisitors Pickaxe
@@ -18778,7 +18781,7 @@ Upgrades
         end
         lose craft39
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft40
         name:Craft Platinum Pickaxe
@@ -18794,7 +18797,7 @@ Upgrades
         end
         lose craft40
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft41
         name:Craft Lathikalkum Pickaxe
@@ -18809,7 +18812,7 @@ Upgrades
         end
         lose craft41
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft53
         name:Craft Predox Pickaxe
@@ -18827,7 +18830,7 @@ Upgrades
         end
         lose craft53
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft42
         name:Craft Lathikalkum Bar
@@ -18843,7 +18846,7 @@ Upgrades
         end
         lose craft42
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft43
         name:Craft Skybreaker
@@ -18862,7 +18865,7 @@ Upgrades
         end
         lose craft43
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft44
         name:Craft Spirit Amulet
@@ -18878,7 +18881,7 @@ Upgrades
         end
         lose craft44
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft45
         name:Craft Luthrite Cape
@@ -18894,7 +18897,7 @@ Upgrades
         end
         lose craft45
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft46
         name:Craft Reheer's Cape
@@ -18910,7 +18913,7 @@ Upgrades
         end
         lose craft46
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft47
         name:Craft Superior Reheer's Cape
@@ -18928,7 +18931,7 @@ Upgrades
         end
         lose craft47
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft48
         name:Craft a Book of Safekeeping
@@ -18945,7 +18948,7 @@ Upgrades
         end
         lose craft48
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft49
         name:Craft a Book of Evasion
@@ -18963,7 +18966,7 @@ Upgrades
         end
         lose craft49
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft50
         name:Craft a Book of Vulnerability
@@ -18980,7 +18983,7 @@ Upgrades
         end
         lose craft50
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         *craft51
         name:Craft Equisitors Shield
         text:Craft Equisitors Shield with [?(equisitorbottomleft>0)|<#03ff13>1 Equisitor Bottom Left Shield Piece<#000000>|<#ff2a00>1 Equisitor Bottom Left Shield Piece<#000000>], [?(equisitorbottomright>0)|<#03ff13>1 Equisitor Bottom Right Shield Piece<#000000>|<#ff2a00>1 Equisitor Bottom Right Shield Piece<#000000>], [?(equisitortop>0)|<#03ff13>1 Equisitor Top Shield Piece<#000000>|<#ff2a00>1 Equisitor Top Shield Piece<#000000>] and [?(equisitorcore>0)|<#03ff13>1 Equisitor Core Shield Piece<#000000>|<#ff2a00>1 Equisitor Core Shield Piece<#000000>]
@@ -18994,7 +18997,7 @@ Upgrades
         end
         lose craft51
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft52
         name:Craft a Fractured Ring
@@ -19007,7 +19010,7 @@ Upgrades
         end
         lose craft52
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft54
         name:Craft Lathikalkum Gauntlets
@@ -19019,7 +19022,7 @@ Upgrades
         end
         lose craft54
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft85
         name:Craft Elder Dragonscale Gauntlets
@@ -19032,7 +19035,7 @@ Upgrades
         end
         lose craft85
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft55
         name:Craft Stepfast Fragment
@@ -19046,7 +19049,7 @@ Upgrades
         end
         lose craft55
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft56
         name:Craft Prinaha Fragment
@@ -19061,7 +19064,7 @@ Upgrades
         end
         lose craft56
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft57
         name:Craft Apech Fragment
@@ -19076,7 +19079,7 @@ Upgrades
         end
         lose craft57
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft58
         name:Craft Nuzdelclock Fragment
@@ -19091,7 +19094,7 @@ Upgrades
         end
         lose craft58
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft59
         name:Craft Deathrine Fragment
@@ -19106,7 +19109,7 @@ Upgrades
         end
         lose craft59
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft60
         name:Craft Dralonic Fragment
@@ -19121,7 +19124,7 @@ Upgrades
         end
         lose craft60
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft61
         name:Craft Stepfast Helmet
@@ -19134,7 +19137,7 @@ Upgrades
         end
         lose craft61
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft62
         name:Craft Stepfast Chestplate
@@ -19147,7 +19150,7 @@ Upgrades
         end
         lose craft62
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft63
         name:Craft Stepfast Leggings
@@ -19160,7 +19163,7 @@ Upgrades
         end
         lose craft63
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft64
         name:Craft Stepfast Boots
@@ -19173,7 +19176,7 @@ Upgrades
         end
         lose craft64
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft65
         name:Craft Prinaha Helmet
@@ -19187,7 +19190,7 @@ Upgrades
         end
         lose craft65
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft66
         name:Craft Prinaha Chestplate
@@ -19201,7 +19204,7 @@ Upgrades
         end
         lose craft66
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft67
         name:Craft Prinaha Leggings
@@ -19215,7 +19218,7 @@ Upgrades
         end
         lose craft67
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft68
         name:Craft Prinaha Boots
@@ -19229,7 +19232,7 @@ Upgrades
         end
         lose craft68
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft69
         name:Craft Apech Helmet
@@ -19243,7 +19246,7 @@ Upgrades
         end
         lose craft69
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft70
         name:Craft Apech Chestplate
@@ -19257,7 +19260,7 @@ Upgrades
         end
         lose craft70
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft71
         name:Craft Apech Leggings
@@ -19271,7 +19274,7 @@ Upgrades
         end
         lose craft71
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft72
         name:Craft Apech Boots
@@ -19285,7 +19288,7 @@ Upgrades
         end
         lose craft72
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft73
         name:Craft Nuzdelclock Helmet
@@ -19299,7 +19302,7 @@ Upgrades
         end
         lose craft73
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft74
         name:Craft Nuzdelclock Chestplate
@@ -19313,7 +19316,7 @@ Upgrades
         end
         lose craft74
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft75
         name:Craft Nuzdelclock Leggings
@@ -19327,7 +19330,7 @@ Upgrades
         end
         lose craft75
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft76
         name:Craft Nuzdelclock Boots
@@ -19341,7 +19344,7 @@ Upgrades
         end
         lose craft76
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft77
         name:Craft Deathrine Helmet
@@ -19355,7 +19358,7 @@ Upgrades
         end
         lose craft77
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft78
         name:Craft Deathrine Chestplate
@@ -19369,7 +19372,7 @@ Upgrades
         end
         lose craft78
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft79
         name:Craft Deathrine Leggings
@@ -19383,7 +19386,7 @@ Upgrades
         end
         lose craft79
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft80
         name:Craft Deathrine Boots
@@ -19397,7 +19400,7 @@ Upgrades
         end
         lose craft80
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft81
         name:Craft Dralonic Godhelmet
@@ -19411,7 +19414,7 @@ Upgrades
         end
         lose craft81
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft82
         name:Craft Dralonic Godchestplate
@@ -19425,7 +19428,7 @@ Upgrades
         end
         lose craft82
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft83
         name:Craft Dralonic Godleggings
@@ -19439,7 +19442,7 @@ Upgrades
         end
         lose craft83
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft84
         name:Craft Dralonic Godboots
@@ -19453,7 +19456,7 @@ Upgrades
         end
         lose craft84
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *craft86
         name:Craft Enhanced Elf Longbow
@@ -19467,7 +19470,7 @@ Upgrades
         end
         lose craft86
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
         tags:equipment craftables
         *combine1
         name:Combine Equisitor Sword and Krysm Soul
@@ -19482,8 +19485,8 @@ Upgrades
         end
         lose combine1
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine2
         name:Combine Equisitor Amulet and Broken Amulet
         text:Combine [?(equisitoramulet>0)|<#03ff13>1 Equisitor Amulet<#000000>|<#ff2a00>1 Equisitor Amulet<#000000>] and [?(brokenamulet>0)|<#03ff13>1 Broken Amulet<#000000>|<#ff2a00>1 Broken Amulet<#000000>].
@@ -19497,8 +19500,8 @@ Upgrades
         end
         lose combine2
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine3
         name:Combine Equisitor Helmet and Broken Helmet
         text:Combine [?(equisitorhelmet>0)|<#03ff13>1 Equisitor Helmet<#000000>|<#ff2a00>1 Equisitor Helmet<#000000>] and [?(brokenhelmet>0)|<#03ff13>1 Broken Helmet<#000000>|<#ff2a00>1 Broken Helmet<#000000>].
@@ -19512,8 +19515,8 @@ Upgrades
         end
         lose combine3
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine4
         name:Combine Equisitor Chestplate and Broken Chestplate
         text:Combine [?(equisitorchestplate>0)|<#03ff13>1 Equisitor Chestplate<#000000>|<#ff2a00>1 Equisitor Chestplate<#000000>] and [?(brokenchestplate>0)|<#03ff13>1 Broken Chestplate<#000000>|<#ff2a00>1 Broken Chestplate<#000000>].
@@ -19527,8 +19530,8 @@ Upgrades
         end
         lose combine4
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine5
         name:Combine Equisitor Leggings and Broken Leggings
         text:Combine [?(equisitorleggings>0)|<#03ff13>1 Equisitor Leggings<#000000>|<#ff2a00>1 Equisitor Leggings<#000000>] and [?(brokenleggings>0)|<#03ff13>1 Broken Leggings<#000000>|<#ff2a00>1 Broken Leggings<#000000>].
@@ -19542,8 +19545,8 @@ Upgrades
         end
         lose combine5
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine6
         name:Combine Equisitor Boots and Broken Boots
         text:Combine [?(equisitorboots>0)|<#03ff13>1 Equisitor Boots<#000000>|<#ff2a00>1 Equisitor Boots<#000000>] and [?(brokenboots>0)|<#03ff13>1 Broken Boots<#000000>|<#ff2a00>1 Broken Boots<#000000>].
@@ -19557,8 +19560,8 @@ Upgrades
         end
         lose combine6
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine7
         name:Create Dragonscale Platelegs
         text:Create Dragonscale Platelegs with [?(dragonscale>2999)|<#03ff13>3000 Dragon Scales<#000000>|<#ff2a00>3000 Dragon Scales<#000000>].
@@ -19571,8 +19574,8 @@ Upgrades
         end
         lose combine7
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine8
         name:Create Dragonscale Platebody
         text:Create Dragonscale Platebody with [?(dragonscale>4999)|<#03ff13>5000 Dragon Scales<#000000>|<#ff2a00>5000 Dragon Scales<#000000>]
@@ -19585,8 +19588,8 @@ Upgrades
         end
         lose combine8
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine16
         name:Create Elder Dragonscale Platelegs
         text:Create Elder Dragonscale Platelegs with [?(dragonscale>4999)|<#03ff13>5000 Dragon Scales<#000000>|<#ff2a00>5000 Dragon Scales<#000000>] and [?(drgsclpltlegs>0)|<#03ff13>1 Dragonscale Platelegs<#000000>|<#ff2a00>1 Dragonscale Platelegs<#000000>].
@@ -19600,8 +19603,8 @@ Upgrades
         end
         lose combine16
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine17
         name:Create Elder Dragonscale Platebody
         text:Create Elder Dragonscale Platebody with [?(dragonscale>6999)|<#03ff13>7000 Dragon Scales<#000000>|<#ff2a00>7000 Dragon Scales<#000000>] and [?(dragonscalepltbody>0)|<#03ff13>1 Dragonscale Platebody<#000000>|<#ff2a00>1 Dragonscale Platebody<#000000>].
@@ -19615,8 +19618,8 @@ Upgrades
         end
         lose combine17
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine9
         name:Combine Blood, Shadow and Nature Crystals
         text:Combine [?(stablebloodcrystal>0)|<#03ff13>1 Stable Blood Crystal<#000000>|<#ff2a00>1 Stable Blood Crystal<#000000>], [?(stableshadowcrystal>0)|<#03ff13>1 Stable Shadow Crystal<#000000>|<#ff2a00>1 Stable Shadow Crystal<#000000>] and [?(stablenaturecrystal>0)|<#03ff13>1 Stable Nature Crystal<#000000>|<#ff2a00>1 Stable Nature Crystal<#000000>] to create something.
@@ -19631,8 +19634,8 @@ Upgrades
         end
         lose combine9
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine10
         name:Combine Pierce Ring and 10 Ancient Runes.
         text:Combine [?(piercering>0)|<#03ff13>1 Pierce Ring<#000000>|<#ff2a00>1 Pierce Ring<#000000>] and [?(ancientrune>9)|<#03ff13>10 Ancient Runes<#000000>|<#ff2a00>10 Ancient Runes<#000000>] to create an Upgraded version.
@@ -19646,8 +19649,8 @@ Upgrades
         end
         lose combine10
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine11
         name:Combine Pierce Ring (+), 20 Ancient Runes and 1 Drasconixes Claw.
         text:Combine [?(pierceringp>0)|<#03ff13>1 Pierce Ring(+)<#000000>|<#ff2a00>1 Pierce Ring(+)<#000000>], [?(ancientrune>19)|<#03ff13>20 Ancient Runes<#000000>|<#ff2a00>20 Ancient Runes<#000000>] and [?(drasconixclaw>0)|<#03ff13>1 Drasconixes Claw<#000000>|<#ff2a00>1 Drasconixes Claw<#000000>] to create an Upgraded version.
@@ -19662,7 +19665,8 @@ Upgrades
         end
         lose combine11
         end
-        req:1 showcraftmenu
+        req:1 menuCraft
+        tag: equipment craftables
         *combine14
         name:Combine Ring of Fortune and 3 Drasconixes Claw.
         text:Combine [?(ringoffortune>0)|<#03ff13>1 Ring of Fortune<#000000>|<#ff2a00>1 Ring of Fortune<#000000>] and [?(drasconixclaw>2)|<#03ff13>3 Drasconixes Claws<#000000>|<#ff2a00>3 Drasconixes Claws<#000000>] to create an Upgraded version.
@@ -19676,8 +19680,8 @@ Upgrades
         end
         lose combine14
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine12
         name:Combine Orb of Cyndir, Elxvers and Legulous with Corrupted Zarkos Sword.
         text:Combine [?(orbofcyndir>0)|<#03ff13>1 Orb of Cyndir<#000000>|<#ff2a00>1 Orb of Cyndir<#000000>], [?(orbofelxvers>0)|<#03ff13>1 Orb of Elxvers<#000000>|<#ff2a00>1 Orb of Elxvers<#000000>] and [?(orboflegulous>0)|<#03ff13>1 Orb of Legulous<#000000>|<#ff2a00>1 Orb of Legulous<#000000>] with [?(czarkossword>0)|<#03ff13>1 Corrupted Zarkos Sword<#000000>|<#ff2a00>1 Corrupted Zarkos Sword<#000000>] to create a weapon.
@@ -19693,8 +19697,8 @@ Upgrades
         end
         lose combine12
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine13
         name:Combine Orb of Cyndir, Elxvers and Legulous with Corrupted Exo-Pack.
         text:Combine [?(orbofcyndir>0)|<#03ff13>1 Orb of Cyndir<#000000>|<#ff2a00>1 Orb of Cyndir<#000000>], [?(orbofelxvers>0)|<#03ff13>1 Orb of Elxvers<#000000>|<#ff2a00>1 Orb of Elxvers<#000000>] and [?(orboflegulous>0)|<#03ff13>1 Orb of Legulous<#000000>|<#ff2a00>1 Orb of Legulous<#000000>] with [?(cexopack>0)|<#03ff13>1 Corrupted Exo-Pack<#000000>|<#ff2a00>1 Corrupted Exo-Pack<#000000>] to create armor.
@@ -19710,8 +19714,8 @@ Upgrades
         end
         lose combine13
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine15
         name:Craft an Elder Dragon Longsword.
         text:Craft an Elder Dragon Longsword with [?(dragonsword>0)|<#03ff13>1 Dragon Longsword<#000000>|<#ff2a00>1 Dragon Longsword<#000000>] and [?(dragonscale>3999)|<#03ff13>4000 Dragon Scales<#000000>|<#ff2a00>4000 Dragon Scales<#000000>].
@@ -19725,8 +19729,8 @@ Upgrades
         end
         lose combine15
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine18
         name:Combine 10 Common Crystals to 1 Uncommon Crystal
         text:Combine [?(commoncrystal>9)|<#03ff13>10 Common Crystals<#000000>|<#ff2a00>10 Common Crystals<#000000>] to get 1 Uncommon Crystal.
@@ -19737,8 +19741,8 @@ Upgrades
         end
         lose combine18
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine19
         name:Combine 8 Uncommon Crystals to 1 Rare Crystal
         text:Combine [?(uncommoncrystal>7)|<#03ff13>8 Uncommon Crystals<#000000>|<#ff2a00>8 Uncommon Crystals<#000000>] to get 1 Rare Crystal.
@@ -19749,8 +19753,8 @@ Upgrades
         end
         lose combine19
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine20
         name:Combine 6 Rare Crystals to 1 Epic Crystal
         text:Combine [?(rarecrystal>5)|<#03ff13>6 Rare Crystals<#000000>|<#ff2a00>6 Rare Crystals<#000000>] to get 1 Epic Crystal.
@@ -19761,8 +19765,8 @@ Upgrades
         end
         lose combine20
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine21
         name:Combine 10 Epic Crystals to 1 Legenadry Crystal
         text:Combine [?(epiccrystal>9)|<#03ff13>10 Epic Crystals<#000000>|<#ff2a00>10 Epic Crystals<#000000>] to get 1 Legenadry Crystal.
@@ -19773,8 +19777,8 @@ Upgrades
         end
         lose combine21
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine22
         name:Combine a pair of Roan Boots with a Pulsing Core
         text:Combine [?(roanboots>0)|<#03ff13>1 Roan Boots<#000000>|<#ff2a00>1 Roan Boots<#000000>] with [?(pulsingcore>0)|<#03ff13>1 Pulsing Core<#000000>|<#ff2a00>1 Pulsing Core<#000000>]
@@ -19786,8 +19790,8 @@ Upgrades
         end
         lose combine22
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine23
         name:Combine a pair of Glavyior Boots with a Pulsing Core
         text:Combine [?(glavyiorboots>0)|<#03ff13>1 Glavyior Boots<#000000>|<#ff2a00>1 Glavyior Boots<#000000>] with [?(pulsingcore>0)|<#03ff13>1 Pulsing Core<#000000>|<#ff2a00>1 Pulsing Core<#000000>]
@@ -19799,8 +19803,8 @@ Upgrades
         end
         lose combine23
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine24
         name:Combine a pair of Zark Boots with a Pulsing Core
         text:Combine [?(zarkboots>0)|<#03ff13>1 Zark Boots<#000000>|<#ff2a00>1 Zark Boots<#000000>] with [?(pulsingcore>0)|<#03ff13>1 Pulsing Core<#000000>|<#ff2a00>1 Pulsing Core<#000000>]
@@ -19812,8 +19816,8 @@ Upgrades
         end
         lose combine24
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *combine25
         name:Create an 'Ice Shatter' with 3,000 Ice Shards
         text:Create an 'Ice Shatter' with [?(iceshards>2999)|<#03ff13>3000 Ice Shards<#000000>|<#ff2a00>3000 Ice Shards<#000000>]
@@ -19824,8 +19828,8 @@ Upgrades
         end
         lose combine25
         end
-        req:1 showcraftmenu
-        tag:equipment
+        req:1 menuCraft
+        tag:equipment craftables
         *darkcrystal2
         name:Use 'Dark Crystal'
         desc:Increases max affixes by 1.
