@@ -24328,95 +24328,6 @@ Upgrades
 
 
 
-        *woodendagger2
-                name:Wooden Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the wooden dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
-                req:1 woodendagger
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield 1 daggerequipped
-                        //
-                        yield 11 attackmin
-                        yield 19 attackmax
-                        //
-                        lose 1 woodendagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose 1 daggerequipped
-                        //
-                        lose 11 attackmin
-                        lose 19 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 woodendagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_2h_weapon
-                                // lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-
-        *stonedagger2
-                name:Stone Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the stone dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
-                req:1 stonedagger
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield 1 daggerequipped
-                        //
-                        yield 23 attackmin
-                        yield 30 attackmax
-                        //
-                        lose 1 stonedagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose 1 daggerequipped
-                        //
-                        lose 23 attackmin
-                        lose 30 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 stonedagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_2h_weapon
-                                // lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
 
         *offstonedagger2
                 name:Off-Hand Stone Dagger
@@ -24460,52 +24371,6 @@ Upgrades
                 end
 
 
-
-        *irondagger2
-                name:Iron Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the iron dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
-                req:1 irondagger
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield 1 daggerequipped
-                        //
-                        yield 46 attackmin
-                        yield 65 attackmax
-                        //
-                        lose 1 irondagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose 1 daggerequipped
-                        //
-                        lose 46 attackmin
-                        lose 65 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 irondagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_2h_weapon
-                                // lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-
         *offirondagger2
                 name:Off-Hand Iron Dagger
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -24543,51 +24408,6 @@ Upgrades
                                 lose tag:equipment_mh_weapon
                                 lose tag:equipment_oh_weapon
                                 lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-
-        *steeldagger2
-                name:Steel Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the steel dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
-                req:1 steeldagger
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield 1 daggerequipped
-                        //
-                        yield 57 attackmin
-                        yield 75 attackmax
-                        //
-                        lose 1 steeldagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose 1 daggerequipped
-                        //
-                        lose 57 attackmin
-                        lose 75 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 steeldagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_2h_weapon
-                                // lose tag:equipment_shield
                                 yield this
                         end
                 end
@@ -24636,52 +24456,6 @@ Upgrades
                 end
 
 
-
-        *golddagger2
-                name:Gold Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the gold dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
-                req:1 golddagger
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield 1 daggerequipped
-                        //
-                        yield 65 attackmin
-                        yield 90 attackmax
-                        //
-                        lose 1 golddagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose 1 daggerequipped
-                        //
-                        lose 65 attackmin
-                        lose 90 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 golddagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_2h_weapon
-                                // lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-
         *offgolddagger2
                 name:Off-Hand Gold Dagger
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -24724,52 +24498,6 @@ Upgrades
                 end
 
 
-
-        *platinumdagger2
-                name:Platinum Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the platinum dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
-                req:1 platinumdagger
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield 1 daggerequipped
-                        //
-                        yield 78 attackmin
-                        yield 102 attackmax
-                        //
-                        lose 1 platinumdagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose 1 daggerequipped
-                        //
-                        lose 78 attackmin
-                        lose 102 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 platinumdagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_2h_weapon
-                                // lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-
         *offplatinumdagger2
                 name:Off-Hand Platinum Dagger
                 text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
@@ -24807,51 +24535,6 @@ Upgrades
                                 lose tag:equipment_mh_weapon
                                 lose tag:equipment_oh_weapon
                                 lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-
-        *lathdagger2
-                name:Lathikalkum Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the lathikalkum dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
-                req:1 lathdagger
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield 1 daggerequipped
-                        //
-                        yield 90 attackmin
-                        yield 124 attackmax
-                        //
-                        lose 1 lathdagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose 1 daggerequipped
-                        //
-                        lose 90 attackmin
-                        lose 124 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 lathdagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_2h_weapon
-                                // lose tag:equipment_shield
                                 yield this
                         end
                 end
@@ -24898,52 +24581,6 @@ Upgrades
                                 yield this
                         end
                 end
-
-
-
-        *larphersword2
-                name:Larpher's Sword
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the larpher's sword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_mh_weapon equipment_dagger
-                req:1 larphersword
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield 1 daggerequipped
-                        //
-                        yield 89 attackmin
-                        yield 109 attackmax
-                        //
-                        lose 1 larphersword
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose 1 daggerequipped
-                        //
-                        lose 89 attackmin
-                        lose 109 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 larphersword
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_2h_weapon
-                                // lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
 
 
         *offlarphersword2
@@ -25096,25 +24733,36 @@ Upgrades
 
 
 
+        // IGM:SECTION:EQP MHWeapon
+        [include eqpMHWeapon %id="woodendagger" %name="Wooden Dagger" %attackmin="11" %attackmax="19"]
+        [include eqpMHWeapon %id="stonedagger" %name="Stone Dagger" %attackmin="23" %attackmax="30"]
+        [include eqpMHWeapon %id="irondagger" %name="Iron Dagger" %attackmin="46" %attackmax="65"]
+        [include eqpMHWeapon %id="steeldagger" %name="Steel Dagger" %attackmin="57" %attackmax="75"]
+        [include eqpMHWeapon %id="golddagger" %name="Gold Dagger" %attackmin="65" %attackmax="90"]
+        [include eqpMHWeapon %id="platinumdagger" %name="Platinum Dagger" %attackmin="78" %attackmax="102"]
+        [include eqpMHWeapon %id="lathdagger" %name="Lathikalkum Dagger" %attackmin="90" %attackmax="124"]
+        [include eqpMHWeapon %id="larphersword" %name="Larpher's Sword" %attackmin="89" %attackmax="109"]
 
-        //IGM:SECTION:EQP 2HWeapon
-        [include 2HWeapon %id="copperlongsword" %name="Copper Longsword" %attackmin="66" %attackmax="98" %tickmax="1"]
-        [include 2HWeapon %id="ironlongsword" %name="Iron Longsword" %attackmin="97" %attackmax="123" %tickmax="1"]
-        [include 2HWeapon %id="steellongsword" %name="Steel Longsword" %attackmin="112" %attackmax="140" %tickmax="1"]
-        [include 2HWeapon %id="goldlongsword" %name="Gold Longsword" %attackmin="125" %attackmax="166" %tickmax="1"]
-        [include 2HWeapon %id="equisitorsword" %name="Equisitors Sword" %attackmin="139" %attackmax="187" %tickmax="1"]
-        [include 2HWeapon %id="equisitorwarhammer" %name="Equisitors Warhammer" %attackmin="169" %attackmax="211" %tickmax="3"]
-        [include 2HWeapon %id="platinumlongsword" %name="Platinum Longsword" %attackmin="147" %attackmax="199" %tickmax="1"]
-        [include 2HWeapon %id="searingsword" %name="Searing Sword" %attackmin="154" %attackmax="204" %tickmax="1"]
-        [include 2HWeapon %id="krymsword" %name="Krym Sword" %attackmin="103" %attackmax="149" %tickmax="1"]
-        [include 2HWeapon %id="lathlongsword" %name="Lathikalkum Longsword" %attackmin="179" %attackmax="220" %tickmax="1"]
-        [include 2HWeapon %id="dragonsword" %name="Dragon Longsword" %attackmin="189" %attackmax="246" %tickmax="2"]
-        [include 2HWeapon %id="iceshatter" %name="Ice Shatter" %attackmin="87" %attackmax="346" %tickmax="1"]
-        [include 2HWeapon %id="elderdragonsword" %name="Dragon Longsword" %attackmin="213" %attackmax="279" %tickmax="2"]
-        [include 2HWeapon %id="skybreaker" %name="Skybreaker" %attackmin="344" %attackmax="412" %tickmax="1"]
-        [include 2HWeapon %id="nyskybreaker" %name="'New Year' Skybreaker" %attackmin="345" %attackmax="413" %tickmax="1"]
-        [include 2HWeapon %id="zarkossword" %name="Zarkos Sword" %attackmin="398" %attackmax="487" %tickmax="1"]
-        [include 2HWeapon %id="nyzarkossword" %name="'New Year' Zarkos Sword" %attackmin="399" %attackmax="488" %tickmax="1"]
+
+
+        //IGM:SECTION:EQP eqp2HWeapon
+        [include eqp2HWeapon %id="copperlongsword" %name="Copper Longsword" %attackmin="66" %attackmax="98" %tickmax="1"]
+        [include eqp2HWeapon %id="ironlongsword" %name="Iron Longsword" %attackmin="97" %attackmax="123" %tickmax="1"]
+        [include eqp2HWeapon %id="steellongsword" %name="Steel Longsword" %attackmin="112" %attackmax="140" %tickmax="1"]
+        [include eqp2HWeapon %id="goldlongsword" %name="Gold Longsword" %attackmin="125" %attackmax="166" %tickmax="1"]
+        [include eqp2HWeapon %id="equisitorsword" %name="Equisitors Sword" %attackmin="139" %attackmax="187" %tickmax="1"]
+        [include eqp2HWeapon %id="equisitorwarhammer" %name="Equisitors Warhammer" %attackmin="169" %attackmax="211" %tickmax="3"]
+        [include eqp2HWeapon %id="platinumlongsword" %name="Platinum Longsword" %attackmin="147" %attackmax="199" %tickmax="1"]
+        [include eqp2HWeapon %id="searingsword" %name="Searing Sword" %attackmin="154" %attackmax="204" %tickmax="1"]
+        [include eqp2HWeapon %id="krymsword" %name="Krym Sword" %attackmin="103" %attackmax="149" %tickmax="1"]
+        [include eqp2HWeapon %id="lathlongsword" %name="Lathikalkum Longsword" %attackmin="179" %attackmax="220" %tickmax="1"]
+        [include eqp2HWeapon %id="dragonsword" %name="Dragon Longsword" %attackmin="189" %attackmax="246" %tickmax="2"]
+        [include eqp2HWeapon %id="iceshatter" %name="Ice Shatter" %attackmin="87" %attackmax="346" %tickmax="1"]
+        [include eqp2HWeapon %id="elderdragonsword" %name="Dragon Longsword" %attackmin="213" %attackmax="279" %tickmax="2"]
+        [include eqp2HWeapon %id="skybreaker" %name="Skybreaker" %attackmin="344" %attackmax="412" %tickmax="1"]
+        [include eqp2HWeapon %id="nyskybreaker" %name="'New Year' Skybreaker" %attackmin="345" %attackmax="413" %tickmax="1"]
+        [include eqp2HWeapon %id="zarkossword" %name="Zarkos Sword" %attackmin="398" %attackmax="487" %tickmax="1"]
+        [include eqp2HWeapon %id="nyzarkossword" %name="'New Year' Zarkos Sword" %attackmin="399" %attackmax="488" %tickmax="1"]
 
 
 
@@ -26337,11 +25985,55 @@ Includes
 
 
 
-        *include 2HWeapon %id %name %attackmin="0" %attackmax="0" %tickmax="0"
+        *include eqpMHWeapon %id %name %attackmin="0" %attackmax="0"
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:<.>Attack Min:...<#55ff00>[%attackmin]</#><.>Attack Max:...<#55ff00>[%attackmax</#><.>Attack Speed:.<#d98f21>[%tickmax]</#>
+                        desc:<.>Attack Min:.<#55ff00>[%attackmin]</#><.>Attack Max:.<#55ff00>[%attackmax]</#>
+                        tag:equipment equipment_weapon equipment_mh_weapon
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield mainhandequipped
+                                yield 1 daggerequipped
+                                //
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose mainhandequipped
+                                lose 1 daggerequipped
+                                //
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose (ability8at) ability8at
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_pickaxe
+                                        lose tag:equipment_mh_weapon
+                                        lose tag:equipment_2h_weapon
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqp2HWeapon %id %name %attackmin="0" %attackmax="0" %tickmax="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:<.>Attack Min:...<#55ff00>[%attackmin]</#><.>Attack Max:...<#55ff00>[%attackmax]</#><.>Attack Speed:.<#55ff00>[%tickmax]</#>
                         tag:equipment equipment_weapon equipment_2h_weapon
                         req:1 [%id]
                         no buy
