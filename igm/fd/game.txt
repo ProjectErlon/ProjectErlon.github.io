@@ -7392,6 +7392,9 @@ Resources
         always hidden
         start with:64
         
+
+        // TODO Убрать вар2, где-то в2. И возможно вообще всё перенести в просто максисмально полученое thing:max
+        // Используются в списке уникального дропа для трекинга, но вар еще где-то. Нужно подумать как выпиливать
         *woodendaggervar
         always hidden
         
@@ -8482,6 +8485,11 @@ Resources
         do endbattleloss with endbattlelose
         end
         end
+
+
+
+
+
         *maxhp
                 always hidden
                 start with:100
@@ -13930,6 +13938,8 @@ Buildings
         yield -(dralfragamt) dralfragamt
         end
 
+
+        //TODO Можно просто переменая НЕОБХОДИМОУБИТЬ и вторая ТИПМОНСТРА(Он же ИД (0 1 2 ... 999 ...)). И так уже обсчитывать
         *bountyhunter
         name:Get a Bounty
         text:Get a Bounty
@@ -14406,6 +14416,15 @@ Buildings
                 end
         end
         end
+
+
+
+
+
+        // TODO Ниже просто список предметов что у тебя есть их думаю скрыть (И получать максимум thing:max), а статы в описания эквип шмоток
+
+
+
         *woodendagger
         name:Wooden Dagger
         text:<#b5863e>Wooden Dagger : [woodendagger]
@@ -24337,7 +24356,7 @@ Upgrades
 
 
         // IGM:SECTION:EQP MHWeapon
-        [include eqpMHWeapon %id="woodendagger" %name="Wooden Dagger" %attackmin="11" %attackmax="19" %text=" | [woodendagger:max] | [woodendaggervar:max] | [woodendaggervar2:max]"]
+        [include eqpMHWeapon %id="woodendagger" %name="Wooden Dagger" %attackmin="11" %attackmax="19"]
         [include eqpMHWeapon %id="stonedagger" %name="Stone Dagger" %attackmin="23" %attackmax="30"]
         [include eqpMHWeapon %id="irondagger" %name="Iron Dagger" %attackmin="46" %attackmax="65"]
         [include eqpMHWeapon %id="steeldagger" %name="Steel Dagger" %attackmin="57" %attackmax="75"]
@@ -24566,6 +24585,7 @@ Upgrades
                         yield 30000 attackmax
                         yield 30000 maxhp
                         yield 15000 regenhprate
+                        yield -3 tickmax
                 end
                 on lose:
                         //FOR TEST
@@ -24573,6 +24593,7 @@ Upgrades
                         lose 30000 attackmax
                         lose 30000 maxhp
                         lose 15000 regenhprate
+                        lose -3 tickmax
                 end
         [include eqpboots %id="minerboots" %name="Miners Boots" %maxhp="57" %minersoutfitb="0.02"]
         [include eqpboots %id="stoneboots" %name="Stone Boots" %maxhp="74" %regenhprate="0.5"]
@@ -25607,10 +25628,10 @@ Includes
 
 
 
-        *include eqpMHWeapon %id %name %attackmin="0" %attackmax="0" %text=""
+        *include eqpMHWeapon %id %name %attackmin="0" %attackmax="0"
                 *[%id]2
                         name:[%name]
-                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b> [%text]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
                         desc:<.>Attack Min:.<#55ff00>[%attackmin]</#><.>Attack Max:.<#55ff00>[%attackmax]</#>
                         tag:equipment equipment_weapon equipment_mh_weapon
                         req:1 [%id]
