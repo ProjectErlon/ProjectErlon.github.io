@@ -25919,10 +25919,6 @@ Upgrades
 
 
 
-        // SECRET EGG: say "ZRnow:)"
-
-
-
         // IGM:SECTION:EQP Helmet
         [include eqphelmet %id="woodenhelmet" %name="Wooden Helmet" %maxhp="31" %regenhprate="0.2"]
         [include eqphelmet %id="minerhelmet" %name="Miners Helmet" %maxhp="68" %minersoutfitb="0.02"]
@@ -26250,269 +26246,13 @@ Upgrades
         
 
         // IGM:SECTION:EQP Title
-        *christmas2021title2
-        name:Equip the 'Christmas 2021' Title.
-        text:Equip the '<#BB2528>Christmas <#146B3A>2021<#000000>' Title
-        desc:Equip the '<#BB2528>Christmas <#146B3A>2021<#d4d4d4>' Title.
-        on earn:
-        if (titleequipped=1)
-        lose christmas2021title2
-        log You already have a title equipped.
-        end
-        if (titleequipped=0)
-        yield 1 present2021var
-        log '<#BB2528>Christmas <#146B3A>2021<#000000>' Title equipped.
-        hide christmas2021title2
-        yield 1 titleequipped
-        end
-        end
-        req:1 christmas2021title
-        
-        *christmas2021title3
-        name:Unequip the 'Christmas 2021' Title.
-        text:Unequip the '<#BB2528>Christmas <#146B3A>2021<#000000>' Title
-        desc:Unequip the '<#BB2528>Christmas <#146B3A>2021<#d4d4d4>' Title.
-        on earn:
-        lose christmas2021title3
-        if (titleequipped=1)
-        yield -1 present2021var
-        log '<#BB2528>Christmas <#146B3A>2021<#000000>' Title unequipped.
-        show christmas2021title2
-        lose christmas2021title2
-        lose christmas2021title3
-        yield -1 titleequipped
-        end
-        end
-        req:1 christmas2021title2
-        
-        
-        *christmas2022title2
-        name:Equip the 'Christmas 2022' Title.
-        text:Equip the '<#fa3438>Christmas <#188c4b>2022<#000000>' Title
-        desc:Equip the '<#fa3438>Christmas <#188c4b>2022<#d4d4d4>' Title.
-        on earn:
-        if (titleequipped=1)
-        lose christmas2022title2
-        log You already have a title equipped.
-        end
-        if (titleequipped=0)
-        log '<#fa3438>Christmas <#188c4b>2022<#000000>' Title equipped.
-        hide christmas2022title2
-        yield 1 titleequipped
-        end
-        end
-        req:1 christmas2022title
-        
-        *christmas2022title3
-        name:Unequip the 'Christmas 2022' Title.
-        text:Unequip the '<#fa3438>Christmas <#188c4b>2022<#000000>' Title
-        desc:Unequip the '<#fa3438>Christmas <#188c4b>2022<#d4d4d4>' Title.
-        on earn:
-        lose christmas2022title3
-        if (titleequipped=1)
-        log '<#fa3438>Christmas <#188c4b>2022<#000000>' Title unequipped.
-        show christmas2022title2
-        lose christmas2022title2
-        lose christmas2022title3
-        yield -1 titleequipped
-        end
-        end
-        req:1 christmas2022title2
-        
-        *elteristtitle2
-        name:Equip the 'Elterist' Title.
-        text:Equip the '<#52eb99>Elterist<#000000>' Title
-        desc:Equip the '<#52eb99>Elterist<#d4d4d4>' Title.
-        on earn:
-        if (titleequipped=1)
-        lose elteristtitle2
-        log You already have a title equipped.
-        end
-        if (titleequipped=0)
-        log '<#52eb99>Elterist<#000000>' Title equipped.
-        hide elteristtitle2
-        yield 1 titleequipped
-        end
-        end
-        req:1 elteristtitle
-        
-        *elteristtitle3
-        name:Unequip the 'Elterist' Title.
-        text:Unequip the '<#52eb99>Elterist<#000000>' Title
-        desc:Unequip the '<#52eb99>Elterist<#d4d4d4>' Title.
-        on earn:
-        lose elteristtitle3
-        if (titleequipped=1)
-        log '<#52eb99>Elterist<#000000>' Title unequipped.
-        show elteristtitle2
-        lose elteristtitle2
-        lose elteristtitle3
-        yield -1 titleequipped
-        end
-        end
-        req:1 elteristtitle2
-        
-        *guardiantitle2
-        name:Equip the 'Guardian' Title.
-        text:Equip the '<#8319d4>Guardian<#000000>' Title
-        desc:Equip the '<#8319d4>Guardian<#d4d4d4>' Title.
-        on earn:
-        if (titleequipped=1)
-        lose guardiantitle2
-        log You already have a title equipped.
-        end
-        if (titleequipped=0)
-        log '<#8319d4>Guardian<#000000>' Title equipped.
-        hide guardiantitle2
-        yield 1 titleequipped
-        end
-        end
-        req:1 guardiantitle
-        
-        *guardiantitle3
-        name:Unequip the 'Guardian' Title.
-        text:Unequip the '<#8319d4>Guardian<#000000>' Title
-        desc:Unequip the '<#8319d4>Guardian<#d4d4d4>' Title.
-        on earn:
-        lose guardiantitle3
-        if (titleequipped=1)
-        log '<#8319d4>Guardian<#000000>' Title unequipped.
-        show guardiantitle2
-        lose guardiantitle2
-        lose guardiantitle3
-        yield -1 titleequipped
-        end
-        end
-        req:1 guardiantitle2
-        
-        
-        *defendertitle2
-        name:Equip the 'Defender' Title.
-        text:Equip the '<#fff387>Defender<#000000>' Title
-        desc:Equip the '<#fff387>Defender<#d4d4d4>' Title.
-        on earn:
-        if (titleequipped=1)
-        lose defendertitle2
-        log You already have a title equipped.
-        end
-        if (titleequipped=0)
-        log '<#fff387>Defender<#000000>' Title equipped.
-        hide defendertitle2
-        yield 1 titleequipped
-        end
-        end
-        req:1 defendertitle
-        
-        *defendertitle3
-        name:Unequip the 'Defender' Title.
-        text:Unequip the '<#fff387>Defender<#000000>' Title
-        desc:Unequip the '<#fff387>Defender<#d4d4d4>' Title.
-        on earn:
-        lose defendertitle3
-        if (titleequipped=1)
-        log '<#fff387>Defender<#000000>' Title unequipped.
-        show defendertitle2
-        lose defendertitle2
-        lose defendertitle3
-        yield -1 titleequipped
-        end
-        end
-        req:1 defendertitle2
-        
-        
-        
-        
-        
-        
-        *blackholetitle2
-                //text:Equip the '<#53590a>Black Hole<#000000>' Title
-                name:'Black Hole' Title
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Unequip the '<#53590a>Black Hole<#d4d4d4>' Title.|Equip the '<#53590a>Black Hole<#d4d4d4>' Title.]
-                tag:equipment equipment_title
-                req:1 blackholetitle
-                no buy
-                on earn:
-                        yield titleequipped
-                        //
-                        lose 30 rdtchance
-                        //
-                        lose 1 blackholetitle
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose titleequipped
-                        //
-                        yield 30 rdtchance
-                        //
-                        yield 1 blackholetitle
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_title
-                                yield this
-                        end
-                end
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        *xeronictitle2
-        name:Equip the 'Xeronic' Title.
-        text:Equip the '<#a31d1d>Xeronic<#000000>' Title
-        desc:Equip the '<#a31d1d>Xeronic<#d4d4d4>' Title.
-        on earn:
-        if (titleequipped=1)
-        lose xeronictitle2
-        log You already have a title equipped.
-        end
-        if (titleequipped=0)
-        log '<#a31d1d>Xeronic<#000000>' Title equipped.
-        hide xeronictitle2
-        yield 1 titleequipped
-        end
-        end
-        req:1 xeronictitle
-        
-        *xeronictitle3
-        name:Unequip the 'Xeronic' Title.
-        text:Unequip the '<#a31d1d>Xeronic<#000000>' Title
-        desc:Unequip the '<#a31d1d>Xeronic<#d4d4d4>' Title.
-        on earn:
-        lose xeronictitle3
-        if (titleequipped=1)
-        log '<#a31d1d>Xeronic<#000000>' Title unequipped.
-        show xeronictitle2
-        lose xeronictitle2
-        lose xeronictitle3
-        yield -1 titleequipped
-        end
-        end
-        req:1 xeronictitle2
-
-
-
-
-
-
-
-
+        [include eqptitle %id="christmas2021title" %name="Christmas 2021" %txt="<#BB2528>Christmas</#> <#146B3A>2021</#>"]
+        [include eqptitle %id="christmas2022title" %name="Christmas 2022" %txt="<#fa3438>Christmas</#> <#188c4b>2022</#>"]
+        [include eqptitle %id="elteristtitle" %name="Elterist" %txt="<#52eb99>Elterist</#>"]
+        [include eqptitle %id="guardiantitle" %name="Guardian" %txt="<#8319d4>Guardian</#>"]
+        [include eqptitle %id="defendertitle" %name="Defender" %txt="<#fff387>Defender</#>"]
+        [include eqptitle %id="blackholetitle" %name="Black Hole" %txt="<#53590a>Black Hole</#>" %rdtchance="30"]
+        [include eqptitle %id="xeronictitle" %name="Xeronic" %txt="<#a31d1d>Xeronic</#>"]
 
 
 
@@ -27311,6 +27051,43 @@ Includes
                                         lose this
                                 else
                                         lose tag:equipment_cape
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqptitle %id %name %txt %rdtchance="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b> Title
+                        desc:[%txt] Title
+                        tag:equipment equipment_title
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield titleequipped
+                                //
+                                lose [%rdtchance] rdtchance
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> Title надет
+                        end
+                        on lose:
+                                lose titleequipped
+                                //
+                                yield [%rdtchance] rdtchance
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> Title снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_title
                                         yield this
                                 end
                         end
