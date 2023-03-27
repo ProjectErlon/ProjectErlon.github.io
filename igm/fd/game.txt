@@ -18190,16 +18190,17 @@ Upgrades
 
         // IGM:SECTION:CRFT
         *craft1
-        name:Craft Iron Helmet
+        name:Iron Helmet
+        text:Craft <b>[n:this]</#>
         desc:Требуется:<.>[?(ironbar>24)|<#03ff13>25 Iron Bars</#>|<#ff2a00>25 Iron Bars</#>]
         on earn:
-        if (ironbar>24)
-        yield -25 ironbar
-        yield 1 ironhelmet
-        yield 65 miningxp
-        do click with checklevel
-        end
-        lose craft1
+                if (ironbar>24)
+                        yield -25 ironbar
+                        yield 1 ironhelmet
+                        yield 65 miningxp
+                        do click with checklevel
+                end
+                lose craft1
         end
         req:1 menuCraft
         tags:equipment craftables
