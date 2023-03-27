@@ -24585,7 +24585,7 @@ Upgrades
                         yield 300000 attackmax
                         yield 300000 maxhp
                         yield 150000 regenhprate
-                        yield 150000 begenhprate
+                        yield 150000 bregenhprate
                         yield -2 tickmax
                 end
                 on lose:
@@ -24594,7 +24594,7 @@ Upgrades
                         lose 300000 attackmax
                         lose 300000 maxhp
                         lose 150000 regenhprate
-                        lose 150000 begenhprate
+                        lose 150000 bregenhprate
                         lose -2 tickmax
                 end
         [include eqpboots %id="minerboots" %name="Miners Boots" %maxhp="57" %minersoutfitb="0.02"]
