@@ -26341,7 +26341,7 @@ Includes
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:!!!
+                        desc:<.>Attack Min:...<#55ff00>[%attackmin]</#><.>Attack Max:...<#55ff00>[%attackmax</#><.>Attack Speed:.<#d98f21>[%tickmax]</#>
                         tag:equipment equipment_weapon equipment_2h_weapon
                         req:1 [%id]
                         no buy
