@@ -25610,7 +25610,7 @@ Includes
         *include eqpMHWeapon %id %name %attackmin="0" %attackmax="0"
                 *[%id]2
                         name:[%name]
-                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b> | [[%id]:max] | [[%id]2:max]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b> | [[%id]:max] | [[%id]var:max] | [[%id]var2:max]
                         desc:<.>Attack Min:.<#55ff00>[%attackmin]</#><.>Attack Max:.<#55ff00>[%attackmax]</#>
                         tag:equipment equipment_weapon equipment_mh_weapon
                         req:1 [%id]
