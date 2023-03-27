@@ -25,7 +25,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_boots, tag:equipment_ring, tag:equipment_gloves, tag:equipment_cape, tag:equipment_pickaxe, tag:equipment_title
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:craftables, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_boots, tag:equipment_ring, tag:equipment_gloves, tag:equipment_cape, tag:equipment_pickaxe, tag:equipment_title
                 tooltip origin:left
 
 
@@ -12901,30 +12901,6 @@ Buildings
         limit:1
         req:1 showcmenu
 
-
-        *showcraftmenu
-        name:Show All Crafting Recipes
-        text:Show All Crafting Recipes
-        desc:Show all crafting recipes even if you cannot craft them.
-        on earn:
-        show tag:craftables
-        hide showcraftmenu
-        show hidecraftmenu
-        end
-        limit:1
-        
-        *hidecraftmenu
-        name:Hide All Crafting Recipes
-        text:Hide All Crafting Recipes
-        desc:Hide all crafting recipes.
-        on earn:
-        hide hidecraftmenu
-        show showcraftmenu
-        yield -1 hidecraftmenu
-        yield -1 showcraftmenu
-        end
-        limit:1
-        req:1 showcraftmenu
         
         *mercenaryenter
         name:Merchant Shop
@@ -16509,7 +16485,7 @@ Buildings
 
 
         *menuTitle
-                text:[?(this is 0)|Навигация|][?(this is 1)|Магазин|][?(this is 2)|Инвентарь|]
+                text:[?(this is 0)|Навигация|][?(this is 1)|Магазин|][?(this is 2)|Инвентарь|][?(this is 3)|Кузня|]
                 tag:menuTitle
                 no buy
                 no tooltip
@@ -16692,59 +16668,68 @@ Upgrades
                         yield this
                 end
 
-/* ====== || ====== */
 
 
-        // *inventoryTabHeader
-        //         text:[?(have inventoryTabWeapons)|Оружие|][?(have inventoryTabApparel)|Одежда|][?(have inventoryTabMisc)|Разное|]
-        //         tag:inventoryTabHeader
-        //         no tooltip
-        //         no buy
-        // *inventoryTabWeapons
-        //         name:Weapons
-        //         desc:Всяко разно
-        //         tag:inventoryTab
-        //         no buy
-        //         on earn:
-        //                 show tag:equipment_weapon
-        //         end
-        //         on lose:
-        //                 hide tag:equipment_weapon
-        //         end
-        //         on click:
-        //                 lose tag:inventoryTab
-        //                 yield this
-        //         end
-        // *inventoryTabApparel
-        //         name:Apparel
-        //         desc:Всяко разно 2
-        //         tag:inventoryTab
-        //         no buy
-        //         on earn:
-        //                 //show tag:equipment_weapon
-        //         end
-        //         on lose:
-        //                 //hide tag:equipment_weapon
-        //         end
-        //         on click:
-        //                 lose tag:inventoryTab
-        //                 yield this
-        //         end
-        // *inventoryTabMisc
-        //         name:Misc
-        //         desc:Всяко разно 3
-        //         tag:inventoryTab
-        //         no buy
-        //         on earn:
-        //                 //show tag:equipment_weapon
-        //         end
-        //         on lose:
-        //                 //hide tag:equipment_weapon
-        //         end
-        //         on click:
-        //                 lose tag:inventoryTab
-        //                 yield this
-        //         end
+        *menuCraft
+                name:Кузня
+                desc:нуу
+                tag:menuCategory
+                no buy
+                on earn:
+                        menuTitle is 3
+                
+                        hide tag:menuCategory
+                        
+                        show tag:craftables
+                end
+                on lose:
+                        show tag:menuCategory
+
+                        hide tag:craftables
+                end
+                on click:
+                        lose tag:menuCategory
+                        yield this
+                end
+
+
+
+
+        // *showcraftmenu
+        // name:Show All Crafting Recipes
+        // text:Show All Crafting Recipes
+        // desc:Show all crafting recipes even if you cannot craft them.
+        // on earn:
+        // show tag:craftables
+        // hide showcraftmenu
+        // show hidecraftmenu
+        // end
+        // limit:1
+        
+        // *hidecraftmenu
+        // name:Hide All Crafting Recipes
+        // text:Hide All Crafting Recipes
+        // desc:Hide all crafting recipes.
+        // on earn:
+        // hide hidecraftmenu
+        // show showcraftmenu
+        // yield -1 hidecraftmenu
+        // yield -1 showcraftmenu
+        // end
+        // limit:1
+        // req:1 showcraftmenu
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
