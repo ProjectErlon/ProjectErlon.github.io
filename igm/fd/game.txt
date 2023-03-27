@@ -24337,7 +24337,7 @@ Upgrades
 
 
         // IGM:SECTION:EQP MHWeapon
-        [include eqpMHWeapon %id="woodendagger" %name="Wooden Dagger" %attackmin="11" %attackmax="19"]
+        [include eqpMHWeapon %id="woodendagger" %name="Wooden Dagger" %attackmin="11" %attackmax="19" %text=" | [woodendagger:max] | [woodendaggervar:max] | [woodendaggervar2:max]"]
         [include eqpMHWeapon %id="stonedagger" %name="Stone Dagger" %attackmin="23" %attackmax="30"]
         [include eqpMHWeapon %id="irondagger" %name="Iron Dagger" %attackmin="46" %attackmax="65"]
         [include eqpMHWeapon %id="steeldagger" %name="Steel Dagger" %attackmin="57" %attackmax="75"]
@@ -25607,10 +25607,10 @@ Includes
 
 
 
-        *include eqpMHWeapon %id %name %attackmin="0" %attackmax="0"
+        *include eqpMHWeapon %id %name %attackmin="0" %attackmax="0" %text=""
                 *[%id]2
                         name:[%name]
-                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b> | [[%id]:max] | [[%id]var:max] | [[%id]var2:max]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b> [%text]
                         desc:<.>Attack Min:.<#55ff00>[%attackmin]</#><.>Attack Max:.<#55ff00>[%attackmax]</#>
                         tag:equipment equipment_weapon equipment_mh_weapon
                         req:1 [%id]
