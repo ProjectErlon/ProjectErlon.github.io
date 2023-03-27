@@ -1,7 +1,8 @@
 Let's make a game!
         name:Forez's Dream (1.5.1) remake
-        by:Borland | FrenzY & kasperja
-        desc:A rpg style game, fight monsters with abilities(Added) and spells(not yet added) to receive loot to sell(added) or use in your adventures, bosses included. <b>SPECIAL THANKS TO:</b><.>Cyberz<.>Agentperson<.>Heyec<.>Lolio<.>Boshki0987<.>Oreo9<.>Brainiac2019<.>Frostyclock<.>TrueWolves<.>Kasperja
+        by:Borland
+        desc:A rpg style game, fight monsters with abilities(Added) and spells(not yet added) to receive loot to sell(added) or use in your adventures, bosses included
+        version:1.5.1
 
 Settings
         no particles
@@ -18984,6 +18985,7 @@ Upgrades
         lose craft50
         end
         req:1 menuCraft
+        tags:equipment craftables
         *craft51
         name:Craft Equisitors Shield
         text:Craft Equisitors Shield with [?(equisitorbottomleft>0)|<#03ff13>1 Equisitor Bottom Left Shield Piece<#000000>|<#ff2a00>1 Equisitor Bottom Left Shield Piece<#000000>], [?(equisitorbottomright>0)|<#03ff13>1 Equisitor Bottom Right Shield Piece<#000000>|<#ff2a00>1 Equisitor Bottom Right Shield Piece<#000000>], [?(equisitortop>0)|<#03ff13>1 Equisitor Top Shield Piece<#000000>|<#ff2a00>1 Equisitor Top Shield Piece<#000000>] and [?(equisitorcore>0)|<#03ff13>1 Equisitor Core Shield Piece<#000000>|<#ff2a00>1 Equisitor Core Shield Piece<#000000>]
