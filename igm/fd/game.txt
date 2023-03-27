@@ -24329,407 +24329,10 @@ Upgrades
 
 
 
-        *offstonedagger2
-                name:Off-Hand Stone Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the off-hand stone dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
-                req:1 offstonedagger
-                no buy
-                on earn:
-                        yield offhandequipped
-                        //
-                        yield 15 attackmin
-                        yield 17 attackmax
-                        //
-                        lose 1 offstonedagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose offhandequipped
-                        //
-                        lose 15 attackmin
-                        lose 17 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 offstonedagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_oh_weapon
-                                lose tag:equipment_2h_weapon
-                                lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-        *offirondagger2
-                name:Off-Hand Iron Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the off-hand iron dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
-                req:1 offirondagger
-                no buy
-                on earn:
-                        yield offhandequipped
-                        //
-                        yield 31 attackmin
-                        yield 45 attackmax
-                        //
-                        lose 1 offirondagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose offhandequipped
-                        //
-                        lose 31 attackmin
-                        lose 45 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 offirondagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_oh_weapon
-                                lose tag:equipment_shield
-                                yield this
-                        end
-                end
 
 
 
-        *offsteeldagger2
-                name:Off-Hand Steel Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the off-hand steel dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
-                req:1 offsteeldagger
-                no buy
-                on earn:
-                        yield offhandequipped
-                        //
-                        yield 40 attackmin
-                        yield 54 attackmax
-                        //
-                        lose 1 offsteeldagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose offhandequipped
-                        //
-                        lose 40 attackmin
-                        lose 54 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 offsteeldagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_oh_weapon
-                                lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-        *offgolddagger2
-                name:Off-Hand Gold Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the off-hand gold dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
-                req:1 offgolddagger
-                no buy
-                on earn:
-                        yield offhandequipped
-                        //
-                        yield 49 attackmin
-                        yield 65 attackmax
-                        //
-                        lose 1 offgolddagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose offhandequipped
-                        //
-                        lose 49 attackmin
-                        lose 65 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 offgolddagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_oh_weapon
-                                lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-        *offplatinumdagger2
-                name:Off-Hand Platinum Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the off-hand platinum dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
-                req:1 offplatinumdagger
-                no buy
-                on earn:
-                        yield offhandequipped
-                        //
-                        yield 60 attackmin
-                        yield 78 attackmax
-                        //
-                        lose 1 offplatinumdagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose offhandequipped
-                        //
-                        lose 60 attackmin
-                        lose 78 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 offplatinumdagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_oh_weapon
-                                lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-
-        *offlathdagger2
-                name:Off-Hand Lathikalkum Dagger
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the off-hand lathikalkum dagger to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
-                req:1 offlathdagger
-                no buy
-                on earn:
-                        yield offhandequipped
-                        //
-                        yield 72 attackmin
-                        yield 88 attackmax
-                        //
-                        lose 1 offlathdagger
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose offhandequipped
-                        //
-                        lose 72 attackmin
-                        lose 88 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 offlathdagger
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_oh_weapon
-                                lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-        *offlarphersword2
-                name:Off-Hand Larpher's Sword
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the off-hand larpher's sword to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_oh_weapon equipment_dagger
-                req:1 offlarphersword
-                no buy
-                on earn:
-                        yield offhandequipped
-                        //
-                        yield 64 attackmin
-                        yield 86 attackmax
-                        //
-                        lose 1 offlarphersword
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose offhandequipped
-                        //
-                        lose 64 attackmin
-                        lose 86 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 offlarphersword
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_mh_weapon
-                                lose tag:equipment_oh_weapon
-                                lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-
-
-//TODO Weapon - Ошибочка вышла: Переделать теги которые теряешь при надевании. Когда надеваю оффхенд вещь снимает и майн хенд
-//TODO Вроде пофиксил, но еще раз пройтись и расставить теги для луков придется
-//TODO mainhandequipped & offhandequipped можно объединить в одну по принципу binary watch и тип 0 - снято 1- одна рука 2 - вторая (1+2) - обе
-
-
-
-        *elflongbow2
-                name:Elf Longbow
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the Elf Longbow to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_2h_weapon equipment_bow
-                req:1 elflongbow
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield offhandequipped
-                        yield bowequipped
-                        do bowequip with bowequip
-                        //
-                        yield 1 tickmax
-                        yield 243 attackmin
-                        yield 277 attackmax
-                        //
-                        lose 1 elflongbow
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose offhandequipped
-                        lose bowequipped
-                        do bowunequip with bowequip
-                        //
-                        lose 1 tickmax
-                        lose 243 attackmin
-                        lose 277 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 elflongbow
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
-                                yield this
-                        end
-                end
-
-
-
-        *eelflongbow2
-                name:Enhanced Elf Longbow
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Press this button to unequip the Enhanced Elf Longbow to be able to use other weapons.|Press this button to equip this weapon and gain all of its stats.]
-                tag:equipment equipment_weapon equipment_2h_weapon equipment_bow
-                req:1 eelflongbow
-                no buy
-                on earn:
-                        yield mainhandequipped
-                        yield offhandequipped
-                        yield bowequipped
-                        do bowequip with bowequip
-                        //
-                        yield -1 tickmax
-                        yield 380 attackmin
-                        yield 511 attackmax
-                        //
-                        lose 1 eelflongbow
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose mainhandequipped
-                        lose offhandequipped
-                        lose bowequipped
-                        do bowunequip with bowequip
-                        //
-                        lose -1 tickmax
-                        lose 380 attackmin
-                        lose 511 attackmax
-                        lose (ability8at) ability8at
-                        //
-                        yield 1 eelflongbow
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                //Toggle part
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_pickaxe
-                                lose tag:equipment_weapon
-                                lose tag:equipment_shield
-                                yield this
-                        end
-                end
+// TODO mainhandequipped & offhandequipped можно объединить в одну по принципу binary watch и тип 0 - снято 1- одна рука 2 - вторая (1+2) - обе
 
 
 
@@ -24745,7 +24348,18 @@ Upgrades
 
 
 
-        //IGM:SECTION:EQP eqp2HWeapon
+        // IGM:SECTION:EQP OHWeapon
+        [include eqpOHWeapon %id="offstonedagger" %name="Stone Dagger" %attackmin="15" %attackmax="17"]
+        [include eqpOHWeapon %id="offirondagger" %name="Iron Dagger" %attackmin="31" %attackmax="45"]
+        [include eqpOHWeapon %id="offsteeldagger" %name="Steel Dagger" %attackmin="40" %attackmax="54"]
+        [include eqpOHWeapon %id="offgolddagger" %name="Gold Dagger" %attackmin="49" %attackmax="65"]
+        [include eqpOHWeapon %id="offplatinumdagger" %name="Platinum Dagger" %attackmin="60" %attackmax="78"]
+        [include eqpOHWeapon %id="offlathdagger" %name="Lathikalkum Dagger" %attackmin="72" %attackmax="88"]
+        [include eqpOHWeapon %id="offlarphersword" %name="Larpher's Sword" %attackmin="64" %attackmax="86"]
+
+
+
+        // IGM:SECTION:EQP eqp2HWeapon
         [include eqp2HWeapon %id="copperlongsword" %name="Copper Longsword" %attackmin="66" %attackmax="98" %tickmax="1"]
         [include eqp2HWeapon %id="ironlongsword" %name="Iron Longsword" %attackmin="97" %attackmax="123" %tickmax="1"]
         [include eqp2HWeapon %id="steellongsword" %name="Steel Longsword" %attackmin="112" %attackmax="140" %tickmax="1"]
@@ -24763,6 +24377,11 @@ Upgrades
         [include eqp2HWeapon %id="nyskybreaker" %name="'New Year' Skybreaker" %attackmin="345" %attackmax="413" %tickmax="1"]
         [include eqp2HWeapon %id="zarkossword" %name="Zarkos Sword" %attackmin="398" %attackmax="487" %tickmax="1"]
         [include eqp2HWeapon %id="nyzarkossword" %name="'New Year' Zarkos Sword" %attackmin="399" %attackmax="488" %tickmax="1"]
+
+
+        // IGM:SECTION:EQP Bow
+        [include eqpBow %id="elflongbow" %name="Elf Longbow" %attackmin="243" %attackmax="277" %tickmax="1"]
+        [include eqpBow %id="eelflongbow" %name="Enhanced Elf Longbow" %attackmin="380" %attackmax="511" %tickmax="-1"]
 
 
 
@@ -25015,6 +24634,7 @@ Upgrades
 
 
         // IGM:SECTION:EQP GUI Decorate
+        // TODO Инклуд сделать тут крит и дамаг тексты
         *enablereddye
         name:Enable Red Flavoured Critical Text
         desc:Enable Red Flavoured Critical Text using the Dye.
@@ -26029,6 +25649,49 @@ Includes
 
 
 
+        *include eqpOHWeapon %id %name %attackmin="0" %attackmax="0"
+                *[%id]2
+                        name:Off-Hand [%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:<.>Attack Min:.<#55ff00>[%attackmin]</#><.>Attack Max:.<#55ff00>[%attackmax]</#>
+                        tag:equipment equipment_weapon equipment_oh_weapon
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield offhandequipped
+                                //
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose offhandequipped
+                                //
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose (ability8at) ability8at
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_pickaxe
+                                        lose tag:equipment_2h_weapon
+                                        lose tag:equipment_oh_weapon
+                                        lose tag:equipment_shield
+                                        yield this
+                                end
+                        end
+
+
+
         *include eqp2HWeapon %id %name %attackmin="0" %attackmax="0" %tickmax="0"
                 *[%id]2
                         name:[%name]
@@ -26052,6 +25715,56 @@ Includes
                         on lose:
                                 lose mainhandequipped
                                 lose offhandequipped
+                                //
+                                lose [%tickmax] tickmax
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose (ability8at) ability8at
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        lose tag:equipment_pickaxe
+                                        lose tag:equipment_weapon
+                                        lose tag:equipment_shield
+                                        yield this
+                                end
+                        end
+
+
+
+        *include eqpBow %id %name %attackmin="0" %attackmax="0" %tickmax="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:<.>Attack Min:...<#55ff00>[%attackmin]</#><.>Attack Max:...<#55ff00>[%attackmax]</#><.>Attack Speed:.<#55ff00>[%tickmax]</#>
+                        tag:equipment equipment_weapon equipment_2h_weapon equipment_bow
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                yield mainhandequipped
+                                yield offhandequipped
+                                yield bowequipped
+                                do bowequip with bowequip
+                                //
+                                yield [%tickmax] tickmax
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                lose mainhandequipped
+                                lose offhandequipped
+                                lose bowequipped
+                                do bowunequip with bowequip
                                 //
                                 lose [%tickmax] tickmax
                                 lose [%attackmin] attackmin
