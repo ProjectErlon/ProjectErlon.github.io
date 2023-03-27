@@ -24765,7 +24765,7 @@ Upgrades
         [include eqptitle %id="blackholetitle" %name="Black Hole" %txt="<#53590a>Black Hole</#>" %rdtchance="30"]
         [include eqptitle %id="xeronictitle" %name="Xeronic" %txt="<#a31d1d>Xeronic</#>"]
 
-
+/* === [/Upgrades] === */
 
 Achievements
 
@@ -24906,7 +24906,8 @@ Achievements
         yield 60 attackmax
         yield 80 itemfind
         end
-        
+
+/* === [/Achievements] === */
 
 
 
@@ -25003,6 +25004,7 @@ Shinies
         log Vulnerability hit for <#98fc03>[$randam]<#000000> damage.
         end
 
+/* === [/Shinies] === */
 
 
 
@@ -25608,7 +25610,7 @@ Includes
         *include eqpMHWeapon %id %name %attackmin="0" %attackmax="0"
                 *[%id]2
                         name:[%name]
-                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b> | [[%id]:max] | [[%id]:earned]
                         desc:<.>Attack Min:.<#55ff00>[%attackmin]</#><.>Attack Max:.<#55ff00>[%attackmax]</#>
                         tag:equipment equipment_weapon equipment_mh_weapon
                         req:1 [%id]
