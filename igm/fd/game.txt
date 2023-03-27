@@ -6619,11 +6619,11 @@ Resources
         end
         if (fightkyplonzin=1) yield 1 kypflawfailed
         hide leavebattle
+
         log Running Forez's Dream (Beta Update) V1.5.1
-        log Discord Link: https://discord.gg/DruCky8W2b or code DruCky8W2b
-        log Join the discord to suggest ideas, report bugs, see latest events and updates or to hang out with other players.
         log Note: The V1.5 Update is huge, if you find any bugs please report to me!
         log <b>CURRENT EVENTS:</b> Double Caskets from monster.
+
         hide mercenaryenter
         hide enemyatk
         hide hp2
@@ -6656,7 +6656,6 @@ Resources
         hide lootkyplonzin
         hide bregenhp
         hide ability3clone
-        //hide tag:shopitems
         hide ability1
         hide ability2
         hide ability3
@@ -6665,8 +6664,6 @@ Resources
         hide ability6
         hide ability7
         hide ability8
-        //hide tag:shopitems
-        //hide shopleave
         end
         on load:
         if (firstkypload=0)
@@ -11042,26 +11039,12 @@ Buildings
         yield -(kypflawfailed) kypflawfailed
         end
         
-        //hide
-        // *shopentrance
-        // text:Enter Shop
-        // name:Enter Shop
-        // desc:Enter a shop which has items or abilities you can buy.
-        // limit:1
-        // no buy
-        // on click:
-        // hide tag:enemy
-        // hide regenhp
-        // //hide shopentrance
-        // hide minebutton1
-        // hide showcrystalmenu
-        // //show shopleave
-        // if (ability1owned=0) show sability1
-        // if (ability2owned=0) show sability2
-        // if (ability3owned=0) show sability3
-        // show swoodhelm
-        // show sringofluck
-        // end
+
+
+
+
+
+
 
         *sability1
         text:Melee Ability: Hard Swing (800) Coins
@@ -11165,20 +11148,11 @@ Buildings
         end
         tag:shopitems
 
-        // *shopleave
-        // text:Leave Shop
-        // name:Leave shop
-        // desc:Leave the shop.
-        // no buy
-        // on click:
-        // if (fightdrasconix=0) show tag:enemy
-        // if (fightdrasconix=0) show regenhp
-        // if (fightdrasconix=0) show shopentrance
-        // if (fightdrasconix=0) show minebutton1
-        // if (fightdrasconix=0) show showcrystalmenu
-        // hide tag:shopitems
-        // hide shopleave
-        // end
+
+
+
+
+
         
         *receivedung1loot
         name:Loot Monster
@@ -16618,7 +16592,38 @@ Upgrades
                         lose tag:menuTab
                         yield this
                 end        
+
+
+
+
+
+//Нужен еще меню эпировки (item2),Здесь список всех вещей(item)        
+        *menuInventory
+                name:Инвентарь
+                desc:Переименовать в экипировку и теги соответственно.
+                tag:menuCategory
+                no buy
+                on earn:
+                        menuTitle is 2
                 
+                        hide tag:menuCategory
+                        
+                        show menuTabInvWeapon
+                        show menuTabInvApparel
+                        show menuTabInvMisc
+                        
+                        yield menuTabInvWeapon
+                end
+                on lose:
+                        show tag:menuCategory
+                end
+                on click:
+                        lose tag:menuCategory
+                        yield this
+                end
+
+
+
         *menuShop
                 name:Магазин
                 desc:Покупай/Продавай
@@ -16644,30 +16649,7 @@ Upgrades
                         yield this
                 end
                 
-//Нужен еще меню эпировки (item2),Здесь список всех вещей(item)        
-        *menuInventory
-                name:Инвентарь
-                desc:Переименовать в экипировку и теги соответственно.
-                tag:menuCategory
-                no buy
-                on earn:
-                        menuTitle is 2
-                
-                        hide tag:menuCategory
-                        
-                        show menuTabInvWeapon
-                        show menuTabInvApparel
-                        show menuTabInvMisc
-                        
-                        yield menuTabInvWeapon
-                end
-                on lose:
-                        show tag:menuCategory
-                end
-                on click:
-                        lose tag:menuCategory
-                        yield this
-                end
+
 
 
 
@@ -16696,29 +16678,7 @@ Upgrades
 
 
 
-        // *showcraftmenu
-        // name:Show All Crafting Recipes
-        // text:Show All Crafting Recipes
-        // desc:Show all crafting recipes even if you cannot craft them.
-        // on earn:
-        // show tag:craftables
-        // hide showcraftmenu
-        // show hidecraftmenu
-        // end
-        // limit:1
-        
-        // *hidecraftmenu
-        // name:Hide All Crafting Recipes
-        // text:Hide All Crafting Recipes
-        // desc:Hide all crafting recipes.
-        // on earn:
-        // hide hidecraftmenu
-        // show showcraftmenu
-        // yield -1 hidecraftmenu
-        // yield -1 showcraftmenu
-        // end
-        // limit:1
-        // req:1 showcraftmenu
+
 
 
 
@@ -18228,10 +18188,10 @@ Upgrades
         req:1 shadowycrystal
 
 
-
+        // IGM:SECTION:CRFT
         *craft1
         name:Craft Iron Helmet
-        text:Craft Iron Helmet with [?(ironbar>24)|<#03ff13>25 Iron Bars<#000000>|<#ff2a00>25 Iron Bars<#000000>]
+        desc:Требуется:<.>[?(ironbar>24)|<#03ff13>25 Iron Bars</#>|<#ff2a00>25 Iron Bars</#>]
         on earn:
         if (ironbar>24)
         yield -25 ironbar
@@ -18243,6 +18203,7 @@ Upgrades
         end
         req:1 menuCraft
         tags:equipment craftables
+
         *craft2
         name:Craft Iron Platebody
         text:Craft Iron Platebody with [?(ironbar>39)|<#03ff13>40 Iron Bars<#000000>|<#ff2a00>40 Iron Bars<#000000>]
