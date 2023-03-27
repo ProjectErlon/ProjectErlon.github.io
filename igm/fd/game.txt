@@ -24583,16 +24583,18 @@ Upgrades
                         yield 9000000000 coins
                         yield 100000 attackmin
                         yield 300000 attackmax
-                        yield 30000 maxhp
+                        yield 300000 maxhp
                         yield 150000 regenhprate
+                        yield 150000 begenhprate
                         yield -2 tickmax
                 end
                 on lose:
                         //FOR TEST
                         lose 100000 attackmin
                         lose 300000 attackmax
-                        lose 30000 maxhp
+                        lose 300000 maxhp
                         lose 150000 regenhprate
+                        lose 150000 begenhprate
                         lose -2 tickmax
                 end
         [include eqpboots %id="minerboots" %name="Miners Boots" %maxhp="57" %minersoutfitb="0.02"]
