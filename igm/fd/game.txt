@@ -18192,18 +18192,23 @@ Upgrades
         *craft1
         name:Iron Helmet
         text:Craft <b>[n:this]</#>
-        desc:Требуется:<.>[?(ironbar>24)|<#03ff13>25 Iron Bars</#>|<#ff2a00>25 Iron Bars</#>]
-        on earn:
-                if (ironbar>24)
-                        yield -25 ironbar
+        desc:Требуется:<.>[?(ironbar>=25)|<#03ff13>25 [n:ironbar]</#>|<#ff2a00>25 [n:ironbar]</#>]
+        no buy
+        on click:
+                if (ironbar>=25)
+                        lose 25 ironbar
                         yield 1 ironhelmet
                         yield 65 miningxp
                         do click with checklevel
+                        toast [n:ironhelmet] создан
+                else
+                        toast Недостаточно материалов
                 end
-                lose craft1
         end
         req:1 menuCraft
         tags:equipment craftables
+
+
 
         *craft2
         name:Craft Iron Platebody
