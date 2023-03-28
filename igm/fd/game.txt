@@ -18190,74 +18190,81 @@ Upgrades
 
         // IGM:SECTION:CRFT
         *craft1
-        name:Iron Helmet
-        text:Craft <b>[n:this]</b>
-        desc:Требуется:<.>[n:ironbar]:.[ironbar] / 25
-        //[?(ironbar>=25)|<#03ff13>25</#>|<#ff2a00>25</#>]
-        no buy
-        on click:
-                if (ironbar>=25)
-                        lose 25 ironbar
-                        yield 1 ironhelmet
-                        yield 65 miningxp
-                        do click with checklevel
-                        toast [n:ironhelmet] создан
-                else
-                        toast Недостаточно материалов
+                name:Iron Helmet
+                text:Craft <b>[n:this]</b>
+                desc:Требуется:<.>[n:ironbar]: [ironbar] / 25
+                no buy
+                on click:
+                        if (ironbar>=25)
+                                lose 25 ironbar
+                                yield 1 ironhelmet
+                                yield 65 miningxp
+                                do click with checklevel
+                                toast [n:this] создан
+                        else
+                                toast Недостаточно материалов
+                        end
                 end
-        end
-        req:1 menuCraft
-        tags:equipment craftables
-
-
+                req:1 menuCraft
+                tag:craftables
 
         *craft2
-        name:Craft Iron Platebody
-        text:Craft Iron Platebody with [?(ironbar>39)|<#03ff13>40 Iron Bars<#000000>|<#ff2a00>40 Iron Bars<#000000>]
-        on earn:
-        if (ironbar>39)
-        yield -40 ironbar
-        yield 1 ironchestplate
-        yield 120 miningxp
-        do click with checklevel
-        end
-        lose craft2
-        end
-        req:1 menuCraft
-        tags:equipment craftables
+                name:Iron Platebody
+                text:Craft <b>[n:this]</b>
+                desc:Требуется:<.>[n:ironbar]: [ironbar] / 40
+                no buy
+                on click:
+                        if (ironbar>=40)
+                                lose 40 ironbar
+                                yield 1 ironchestplate
+                                yield 120 miningxp
+                                do click with checklevel
+                                toast [n:this] создан
+                        else
+                                toast Недостаточно материалов
+                        end
+                end
+                req:1 menuCraft
+                tag:craftables
+
         *craft3
-        name:Craft Iron Platelegs
-        text:Craft Iron Platelegs with [?(ironbar>34)|<#03ff13>35 Iron Bars<#000000>|<#ff2a00>35 Iron Bars<#000000>]
-        on earn:
-        if (ironbar>34)
-        yield -35 ironbar
-        yield 1 ironleggings
-        yield 100 miningxp
-        if (miningxp>miningxpreq)
-        yield (miningxpreq*1.15-miningxpreq) miningxpreq
-        yield 1 mininglevel
-        toast You leveled up to mining level [mininglevel]!
-        do click with hidenfromview
-        end
-        end
-        lose craft3
-        end
-        req:1 menuCraft
-        tags:equipment craftables
+                name:Iron Platelegs
+                text:Craft <b>[n:this]</b>
+                desc:Требуется:<.>[n:ironbar]: [ironbar] / 35
+                no buy
+                on click:
+                        if (ironbar>=35)
+                                lose 35 ironbar
+                                yield 1 ironleggings
+                                yield 100 miningxp
+                                do click with checklevel
+                                toast [n:this] создан
+                        else
+                                toast Недостаточно материалов
+                        end
+                end
+                req:1 menuCraft
+                tag:craftables
+
         *craft4
-        name:Craft Iron Boots
-        text:Craft Iron Boots with [?(ironbar>19)|<#03ff13>20 Iron Bars<#000000>|<#ff2a00>20 Iron Bars<#000000>]
-        on earn:
-        if (ironbar>19)
-        yield -20 ironbar
-        yield 1 ironboots
-        yield 50 miningxp
-        do click with checklevel
-        end
-        lose craft4
-        end
-        req:1 menuCraft
-        tags:equipment craftables
+                name:Iron Boots
+                text:Craft <b>[n:this]</b>
+                desc:Требуется:<.>[n:ironbar]: [ironbar] / 20
+                no buy
+                on click:
+                        if (ironbar>=20)
+                                lose 20 ironbar
+                                yield 1 ironboots
+                                yield 50 miningxp
+                                do click with checklevel
+                                toast [n:this] создан
+                        else
+                                toast Недостаточно материалов
+                        end
+                end
+                req:1 menuCraft
+                tag:craftables
+
         *craft5
         name:Craft Steel Helmet
         text:Craft Steel Helmet with [?(steelbar>24)|<#03ff13>25 Steel Bars<#000000>|<#ff2a00>25 Steel Bars<#000000>]
