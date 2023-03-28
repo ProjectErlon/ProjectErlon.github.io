@@ -18191,8 +18191,9 @@ Upgrades
         // IGM:SECTION:CRFT
         *craft1
         name:Iron Helmet
-        text:Craft <b>[n:this]</#>
-        desc:Требуется:<.>[?(ironbar>=25)|<#03ff13>25 [n:ironbar]</#>|<#ff2a00>25 [n:ironbar]</#>]
+        text:Craft <b>[n:this]</b>
+        desc:Требуется:<.>[n:ironbar]:.[ironbar] / 25
+        //[?(ironbar>=25)|<#03ff13>25</#>|<#ff2a00>25</#>]
         no buy
         on click:
                 if (ironbar>=25)
