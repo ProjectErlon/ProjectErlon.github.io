@@ -18192,7 +18192,7 @@ Upgrades
         *craft1
                 name:Iron Helmet
                 text:Craft <b>[n:this]</b>
-                desc:Требуется:<.>[n:ironbar]: [ironbar] / 25
+                desc:Требуется:<.>[n:ironbar]:.[?(ironbar>=25)|<#55ff00>25</#>|<#ff5500>25</#>]
                 no buy
                 on click:
                         if (ironbar>=25)
@@ -18211,7 +18211,7 @@ Upgrades
         *craft2
                 name:Iron Platebody
                 text:Craft <b>[n:this]</b>
-                desc:Требуется:<.>[n:ironbar]: [ironbar] / 40
+                desc:Требуется:<.>[n:ironbar]:.[?(ironbar>=40)|<#55ff00>40</#>|<#ff5500>40</#>]
                 no buy
                 on click:
                         if (ironbar>=40)
@@ -18230,7 +18230,7 @@ Upgrades
         *craft3
                 name:Iron Platelegs
                 text:Craft <b>[n:this]</b>
-                desc:Требуется:<.>[n:ironbar]: [ironbar] / 35
+                desc:Требуется:<.>[n:ironbar]:.[?(ironbar>=35)|<#55ff00>35</#>|<#ff5500>35</#>]
                 no buy
                 on click:
                         if (ironbar>=35)
@@ -18249,7 +18249,7 @@ Upgrades
         *craft4
                 name:Iron Boots
                 text:Craft <b>[n:this]</b>
-                desc:Требуется:<.>[n:ironbar]: [ironbar] / 20
+                desc:Требуется:<.>[n:ironbar]:.[?(ironbar>=20)|<#55ff00>20</#>|<#ff5500>20</#>]
                 no buy
                 on click:
                         if (ironbar>=20)
@@ -18745,7 +18745,7 @@ Upgrades
         tags:equipment craftables
         *craft39
         name:Craft Equisitors Pickaxe
-        text:Craft Equisitors Pickaxe with [?(equisitorsword>0)|<#03ff13>1 Equisitor Sword<#000000>|<#ff2a00>1 Equisitor Sword<#000000>], [?(goldbar>74)|<#03ff13>75 Gold Bars<#000000>|<#ff2a00>75 Gold Bars<#000000>] and [?(steelbar>149)|<#03ff13>150 Steel Bars<#000000>|<#ff2a00>150 Steel Bars<#000000>]
+        text:Craft Equisitors Pickaxe with [?(equisitorsword>0)|<#55ff00>1 Equisitor Sword</#>|<#ff5500>1 Equisitor Sword</#>], [?(goldbar>74)|<#03ff13>75 Gold Bars<#000000>|<#ff2a00>75 Gold Bars<#000000>] and [?(steelbar>149)|<#03ff13>150 Steel Bars<#000000>|<#ff2a00>150 Steel Bars<#000000>]
         on earn:
         if ((goldbar>74) and (steelbar>149) and (equisitorsword>0))
         yield -150 steelbar
