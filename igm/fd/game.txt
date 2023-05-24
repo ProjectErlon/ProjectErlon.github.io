@@ -7,7 +7,7 @@ Let's make a game!
 Settings
         no particles
         no bulk particles
-        stylesheet:https://erlon.ru/igm/fd/style.txt
+        stylesheet:https://erlon.ru/user/pages/igm/fd/style.txt
 
 Layout
         *body
@@ -26,7 +26,7 @@ Layout
                 
         //Переименовать sellitems, и соответственно изменить предметам тег tag:shopItem
         *menuBody
-                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:craftables, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:equipment_helmet, tag:equipment_chestplate, tag:equipment_leggings, tag:equipment_boots, tag:equipment_ring, tag:equipment_gloves, tag:equipment_cape, tag:equipment_pickaxe, tag:equipment_title
+                contains:tag:menuCategory, tag:shopitems, tag:sellitems, tag:craftables, tag:equipment_weapon, tag:equipment_amulet, tag:equipment_shield, tag:eqp_1, tag:eqp_2, tag:equipment_leggings, tag:equipment_boots, tag:equipment_ring, tag:equipment_gloves, tag:equipment_cape, tag:equipment_pickaxe, tag:equipment_title, tag:titleRes, tag:stats
                 tooltip origin:left
 
 
@@ -84,7 +84,17 @@ Layout
                 header:Forez's Dream
                 contains:Log
                 class:logcss
+
+
         
+        // Temp
+        *abilityTab1
+                contains:abiltiy1box, bowabiltiy1box, abiltiy8box, abiltiy2box, abiltiy3box
+        *abilityTab2
+                contains:ability4box, ability5box
+        *abilityTab3
+                contains:ability6box, ability7box
+
         *abiltiy1box
                 contains:tag:ability1
                 class:ability1css
@@ -133,17 +143,17 @@ Layout
                 header:Regen Abilities
                 class:abilityregencss
         
-        *statsbox
-                contains:tag:stats
-                class:statscss
+        // *statsbox
+        //         contains:tag:stats
+        //         class:statscss
         
         *acritbox
                 contains:tag:alwayscrit
                 class:acritcss
         
-        *titleBox
-                class:titleBoxCss
-                contains:tag:titleRes
+        // *titleBox
+        //         class:titleBoxCss
+        //         contains:tag:titleRes
    
    
    
@@ -354,7 +364,7 @@ Buttons
         if (hardswingcontract=1) yield (atk2) hardswingcdamagedone
         if ((ability3at>0) and (empowercontract=1)) yield (atk2*(atkmulti-1)) empowercdamagedone
         if (skybreaker2=1 or nyskybreaker2=1) yield ceil(atk2/7) otdamagevar
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -549,7 +559,7 @@ Buttons
         if (snowcriticaltoggle=0) spawn critical
         if (snowcriticaltoggle=1) spawn snowcritical
         if (skybreaker2=1 or nyskybreaker2=1) yield ceil(atk2/7) otdamagevar
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -719,7 +729,7 @@ Buttons
         end
         end
         yield -(eplisordamage) eplisordamage
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -865,7 +875,7 @@ Buttons
         if ((eplisorboots2=1) and (eplisorplatebody2=1) and (eplisorplatelegs2=1) and (eplisorhelmet2=1)) yield 0.12 eplisordamage
         if (snowcriticaltoggle=0) spawn critical
         if (snowcriticaltoggle=1) spawn snowcritical
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -1050,7 +1060,7 @@ Buttons
         if (greaterchargevar1=0) yield ceil(atk2/7) otdamagevar
         if (greaterchargevar1=1) yield ceil(atk2/7*2.66) otdamagevar
         end
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -1227,7 +1237,7 @@ Buttons
         if (greaterchargevar1=0) yield ceil(atk2/7) otdamagevar
         if (greaterchargevar1=1) yield ceil(atk2/7*1.66) otdamagevar
         end
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -1489,7 +1499,7 @@ Buttons
         if (shadlcontract=1) yield (atk2) shadlcdamagehealed
         if ((ability3at>0) and (empowercontract=1)) yield (atk2*(atkmulti-1)) empowercdamagedone
         if (skybreaker2=1 or nyskybreaker2=1) yield ceil(atk2/7) otdamagevar
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -1652,7 +1662,7 @@ Buttons
                 if (snowcriticaltoggle=0) spawn critical
         if (snowcriticaltoggle=1) spawn snowcritical
         if (skybreaker2=1 or nyskybreaker2=1) yield ceil(atk2/7) otdamagevar
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -3127,7 +3137,7 @@ Buttons
         if ((offlarphersword2=1) and (zrerktask=1) and (fightkzombie=1) and (zrerkcurrentkills<zrerkreqkills)) yield (round(atk*0.32)) atk
         if ((offlarphersword2=1) and (krysmtask=1) and (fightkrysm=1) and (krysmcurrentkills<krysmreqkills)) yield (round(atk*0.32)) atk
         if ((offlarphersword2=1) and (drsctask=1) and (fightdrasconix=1) and (drsccurrentkills<drscreqkills)) yield (round(atk*0.32)) atk
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (atk>0)
@@ -4074,12 +4084,14 @@ Buttons
         if (mercenaryenter=0) yield 1 ticker1
         // and (shopentrance=0)
         if ((enemyhp=0) and (attackenemy=0)) show fightdrasconix
-        if ((ticker1=(294-rpresencevar1))) log <b><#03fcf4>The merchant will arrive in 5 seconds!
+
+        // if ((ticker1=(294-rpresencevar1))) log <#C42021><b>The merchant will arrive in 5 seconds!</b></#>
         if ((ticker1>(299-rpresencevar1)) and (mercenaryenter=0) and (bregenhp=0))
-        show mercenaryenter
-        log <b><#03fcf4>A new Merchant appeared!
-        yield -(ticker1) ticker1
+                show mercenaryenter
+                log <#C42021><b>Торговец прибыл</b></#>
+                yield -(ticker1) ticker1
         end
+
         if ((attackxp>99999) and (xpreward1=0))
         yield 1 xpreward1
         log You have reached 100000 xp, and you can claim the following rewards:
@@ -5364,7 +5376,7 @@ Buttons
         log <b><#992e91>1x Amadine Helmet
         end
         if (($roll>=1570) and ($roll<=1600))
-        yield 1 amadinechestplate
+        yield 1 amadinechest
         yield 1 amadinechestplatevar
         log <b><#992e91>1x Amadine Chestplate
         end
@@ -5564,7 +5576,7 @@ Buttons
         yield 0.03 iceshatterdmg
         if ((ability3at>0) and (empowercontract=1)) yield (ceil(atk2/2)*(atkmulti-1)) empowercdamagedone
         if (skybreaker2=1 or nyskybreaker2=1) yield ceil(ceil(atk2/2)/7) otdamagevar
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -5720,7 +5732,7 @@ Buttons
         yield -(eplisordamage) eplisordamage
         if ((ability3at>0) and (empowercontract=1)) yield (atk2*(atkmulti-1)) empowercdamagedone
         if (skybreaker2=1 or nyskybreaker2=1) yield ceil(atk2/7) otdamagevar
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -5894,7 +5906,7 @@ Buttons
                 if (snowcriticaltoggle=0) spawn critical
         if (snowcriticaltoggle=1) spawn snowcritical
         if (skybreaker2=1 or nyskybreaker2=1) yield ceil(atk2/7) otdamagevar
-        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechestplate2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
+        if ((amadineboots2=1) and (amadineleggings2=1) and (amadinechest2=1) and (amadinehelmet2=1) and (chance(10%)) and (svar5=0))
         yield 1 svar5
         end
         if (svar5>0)
@@ -6603,6 +6615,24 @@ Resources
         *diceroll
         *uselessinforoll
         *lootconfirmtimer
+        
+        
+        
+        *R0000
+                name:Log System
+                always hidden
+                on load:
+                        log <#21366A><b>Текущая версия</b></#>: FDbyB 1.5.1
+                        log <#21366A><b>Текущие события</b></#>: Удвоенные шкатулки с монстров
+                        log --------
+                end
+                on start:
+                        log Hello, welcome to Forez's Dream!
+                        log This is a notification to go to the settings(bottom-right wrench icon) and set "<b>Number display</b>" to "<b>Full</b>" to see all numbers(default uses shortcuts as K, M, B... etc)
+                end
+        
+        
+        
         *chance1
         always hidden
         on load:
@@ -6620,10 +6650,6 @@ Resources
         if (fightkyplonzin=1) yield 1 kypflawfailed
         hide leavebattle
 
-        log Running Forez's Dream (Beta Update) V1.5.1
-        log Note: The V1.5 Update is huge, if you find any bugs please report to me!
-        log <b>CURRENT EVENTS:</b> Double Caskets from monster.
-
         hide mercenaryenter
         hide enemyatk
         hide hp2
@@ -6635,8 +6661,6 @@ Resources
         if (ability8owned=0) hide ability8
         end
         on start:
-        log Hello, welcome to Forez's Dream!
-        log This is a notification to go to the settings(bottom-right wrench icon) and set "<b>Number display</b>" to "<b>Full</b>" to see all numbers(default uses shortcuts as K, M, B... etc)
         hide mercenaryenter
         hide tag:mercenaryitem
         hide mercenaryleave
@@ -9955,7 +9979,7 @@ Buildings
         if (chance1=2)
         yield 1 equisitorchestvar
         yield 1 equisitorchestvar2
-        yield 1 equisitorchestplate
+        yield 1 equisitorchest
         log <b><#b04e09>Zrerk, the Zombie King Dropped: 1x Equisitors Chestplate
         if (dropcontract=1) yield 24907 dropcontractrcvd
         yield 1 svar2
@@ -10016,7 +10040,7 @@ Buildings
         if ($select=2)
         yield 1 equisitorchestvar
         yield 1 equisitorchestvar2
-        yield 1 equisitorchestplate
+        yield 1 equisitorchest
         log <b><#b04e09>Zrerk, the Zombie King Dropped: 1x Equisitors Chestplate
         if (dropcontract=1) yield 24907 dropcontractrcvd
         yield 1 svar2
@@ -11121,6 +11145,7 @@ Buildings
         if (coins>399)
         yield -400 coins
         yield 1 woodenhelmet
+        yield 1 woodenhelmetvar
         log You successfully bought the wooden helmet.
         lose swoodhelm
         end
@@ -13026,6 +13051,7 @@ Buildings
         end
         if (rollitemsrem>0) do rollitem with mercenaryenter
         end
+
         *mzrerkring
         text:Zrerk's Ring M (67,626,803 Coins)
         name:Zrerk's Ring M
@@ -13047,6 +13073,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mbloodfrostgloves
         text:Bloodfrost Gloves M (7,212,983 Coins)
         name:Bloodfrost Gloves M
@@ -13068,6 +13095,7 @@ Buildings
         end
         end
         limit:1
+
         *mzarkboots
         text:Zark Boots M (3,180,128 Coins)
         name:Zark Boots M
@@ -13089,6 +13117,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mroanboots
         text:Roan Boots M (859,034 Coins)
         name:Roan Boots M
@@ -13131,6 +13160,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mepiccrystal
         text:Epic Crystal M (1,000,000 Coins)
         name:Epic Crystal M
@@ -13151,6 +13181,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mpiercering
         text:Pierce Ring M (702,889 Coins)
         name:Pierce Ring M
@@ -13194,6 +13225,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *measycasket
         text:Casket (Easy) M (2,000 Coins)
         name:Casket (Easy) M
@@ -13214,6 +13246,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mmediumcasket
         text:Casket (Medium) M (5,000 Coins)
         name:Casket (Medium) M
@@ -13234,6 +13267,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mhardcasket
         text:Casket (Hard) M (10,000 Coins)
         name:Casket (Hard) M
@@ -13254,6 +13288,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mdragonscale
         text:[dragonscaleamount] Dragon Scales ([dragonscaleamount*9500] Coins)
         name:Dragon Scales
@@ -13276,6 +13311,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mstepfastfrag
         text:[stepfastfragamt] Stepfast Fragments ([stepfastfragamt*287750] Coins)
         name:Stepfast Fragments
@@ -13298,6 +13334,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mprinahafrag
         text:[prinahafragamt] Prinaha Fragments ([prinahafragamt*914585] Coins)
         name:Prinaha Fragments
@@ -13320,6 +13357,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mapechfrag
         text:[apechfragamt] Apech Fragments ([apechfragamt*2354120] Coins)
         name:Apech Fragments
@@ -13342,6 +13380,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mnuzdelclockfrag
         text:[nuzdelclockfragamt] Nuzdelclock Fragments ([nuzdelclockfragamt*6412502] Coins)
         name:Nuzdelclock Fragments
@@ -13364,6 +13403,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mdeathrinefrag
         text:[deathrinefragamt] Deathrine Fragments ([deathrinefragamt*17854210] Coins)
         name:Deathrine Fragments
@@ -13386,6 +13426,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mdralfrag
         text:[dralfragamt] Dralonic Fragments ([dralfragamt*41785015] Coins)
         name:Dralonic Fragments
@@ -13408,6 +13449,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mregencodex
         text:Regeneration Ability Codex M (2,347 Coins)
         name:Regeneration Ability Codex M
@@ -13429,6 +13471,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mfocuscodex
         text:Focus Ability Codex M (706 Coins)
         name:Focus Ability Codex M
@@ -13450,6 +13493,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mbrokenboots
         text:Broken Boots M (5,486 Coins)
         name:Broken Boots M
@@ -13471,6 +13515,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mbrokenleggings
         text:Broken Leggings M (14,978 Coins)
         name:Broken Leggings M
@@ -13492,6 +13537,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mbrokenchestplate
         text:Broken Chestplate M (39,002 Coins)
         name:Broken Chestplate M
@@ -13514,6 +13560,7 @@ Buildings
         tag:mercenaryitem
         limit:1
         *mbrokenhelmet
+
         text:Broken Helmet M (8,222 Coins)
         name:Broken Helmet M
         desc:A broken helmet, maybe could be fixed or combined with something to make equipment?
@@ -13534,6 +13581,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mcopperlongsword
         text:Copper Longsword M (562 Coins)
         name:Copper Longsword M
@@ -13555,6 +13603,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *moffstonedagger
         text:Off-Hand Stone Dagger M (405 Coins)
         name:Off-Hand Stone Dagger M
@@ -13576,6 +13625,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mstonehelmet
         text:Stone Helmet M (111 Coins)
         name:Stone Helmet M
@@ -13597,6 +13647,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mstonechestplate
         text:Stone Chestplate M (320 Coins)
         name:Stone Chestplate M
@@ -13618,6 +13669,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mstoneleggings
         text:Stone Leggings M (172 Coins)
         name:Stone Leggings M
@@ -13639,6 +13691,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mstoneboots
         text:Stone Boots M (93 Coins)
         name:Stone Boots M
@@ -13660,6 +13713,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mstonedagger
         text:Stone Dagger M (103 Coins)
         name:Stone Dagger M
@@ -13681,6 +13735,8 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
+
         *mminerhelmet
         text:Miners Helmet M (6,612 Coins)
         name:Miners Helmet M
@@ -13702,6 +13758,8 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
+
         *mminerchestplate
         text:Miners Chestplate M (14,069 Coins)
         name:Miners Chestplate M
@@ -13723,6 +13781,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mminerleggings
         text:Miners Leggings M (9,909 Coins)
         name:Miners Leggings M
@@ -13744,6 +13803,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mminerboots
         text:Miners Boots M (4,512 Coins)
         name:Miners Boots M
@@ -13765,6 +13825,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mwoodenchestplate
         text:Wooden Chestplate M (53 Coins)
         name:Wooden Chestplate M
@@ -13786,6 +13847,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mwoodenleggings
         text:Wooden Leggings M (47 Coins)
         name:Wooden Leggings M
@@ -13807,6 +13869,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mwoodenboots
         text:Wooden Boots M (18 Coins)
         name:Wooden Boots M
@@ -13828,6 +13891,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mwoodendagger
         text:Wooden Dagger M (23 Coins)
         name:Wooden Dagger M
@@ -13849,6 +13913,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mancientmanuscript
         text:Ancient Manuscript M (4,582,128 Coins)
         name:Ancient Manuscript M
@@ -13870,6 +13935,7 @@ Buildings
         end
         tag:mercenaryitem
         limit:1
+
         *mercenaryleave
         text:Leave the Merchant Shop
         name:Leave the Merchant Shop
@@ -14784,21 +14850,38 @@ Buildings
         no buy
         tag:item
         class:rainbowEff
+
+
+
+
+
+
+
+
+
         *woodenhelmet
-        name:Wooden Helmet
-        text:<#b5863e>Wooden Helmet : [woodenhelmet]
-        desc:Pretty hard to keep this on your head. <.><#55ff00>+31<#d4d4d4> HP<.><#55ff00>+0.2/s<#d4d4d4> HP Regen<.>Price:<#ebe834>[36] Coins<#d4d4d4><.>Tier 8 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Wooden Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:[?(have menuTabShopSell)|Жмякай что бы продать 1<//>|]Pretty hard to keep this on your head. <.><#55ff00>+31<#d4d4d4> HP<.><#55ff00>+0.2/s<#d4d4d4> HP Regen<.>Price:<#ebe834>[36] Coins<#d4d4d4><.>Tier 8 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellwoodenhelmet with U0000
+                end
+
+
 
         *woodenchestplate
-        name:Wooden Chestplate
-        text:<#b5863e>Wooden Chestplate : [woodenchestplate]
-        desc:A sturdy chestplate made of wood. <.><#55ff00>+43<#d4d4d4> HP<.><#55ff00>+0.3/s<#d4d4d4> HP Regen<.>Price:<#ebe834>[49] Coins<#d4d4d4><.>Tier 10 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+                name:Wooden Chestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A sturdy chestplate made of wood. <.><#55ff00>+43<#d4d4d4> HP<.><#55ff00>+0.3/s<#d4d4d4> HP Regen<.>Price:<#ebe834>[49] Coins<#d4d4d4><.>Tier 10 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellwoodenchestplate with U0000
+                end
 
         *woodenleggings
         name:Wooden Leggings
@@ -14816,21 +14899,33 @@ Buildings
         no buy
         tag:item
 
+
+
         *minerhelmet
-        name:Miners Helmet
-        text:<#828acf>Miners Helmet : [minerhelmet]
-        desc:Has a very dim light, just enough for you to see in the dark. <.><#55ff00>+68<#d4d4d4> HP<.>Price:<#ebe834>[6011] Coins<#d4d4d4><.>Tier 13 Helmet<.>Passive Effect, <#82c2a6>Miners Outfit<#d4d4d4>: Every Miners Armor piece increases Mining Power by +2%(Max +8%)
-        hidden when 0
-        no buy
-        tag:item
+                name:Miners Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Has a very dim light, just enough for you to see in the dark. <.><#55ff00>+68<#d4d4d4> HP<.>Price:<#ebe834>[6011] Coins<#d4d4d4><.>Tier 13 Helmet<.>Passive Effect, <#82c2a6>Miners Outfit<#d4d4d4>: Every Miners Armor piece increases Mining Power by +2%(Max +8%)
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellminerhelmet with U0000
+                end
+
+
+
+
 
         *minerchestplate
-        name:Miners Chestplate
-        text:<#828acf>Miners Chestplate : [minerchestplate]
-        desc:Weak, but is good for mining. <.><#55ff00>+84<#d4d4d4> HP<.>Price:<#ebe834>[12790] Coins<#d4d4d4><.>Tier 15 Chestplate<.>Passive Effect, <#82c2a6>Miners Outfit<#d4d4d4>: Every Miners Armor piece increases Mining Power by +2%(Max +8%)
-        hidden when 0
-        no buy
-        tag:item
+                name:Miners Chestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Weak, but is good for mining. <.><#55ff00>+84<#d4d4d4> HP<.>Price:<#ebe834>[12790] Coins<#d4d4d4><.>Tier 15 Chestplate<.>Passive Effect, <#82c2a6>Miners Outfit<#d4d4d4>: Every Miners Armor piece increases Mining Power by +2%(Max +8%)
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellminerchestplate with U0000
+                end
 
         *minerleggings
         name:Miners Leggings
@@ -14849,20 +14944,26 @@ Buildings
         tag:item
 
         *stonehelmet
-        name:Stone Helmet
-        text:<#383a3b>Stone Helmet : [stonehelmet]
-        desc:Very cold to the touch. <.><#55ff00>+108<#d4d4d4> HP<.><#55ff00>+0.6/s<#d4d4d4> HP Regen<.>Price:<#ebe834>101 Coins<#d4d4d4><.>Tier 18 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Stone Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Very cold to the touch. <.><#55ff00>+108<#d4d4d4> HP<.><#55ff00>+0.6/s<#d4d4d4> HP Regen<.>Price:<#ebe834>101 Coins<#d4d4d4><.>Tier 18 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellstonehelmet with U0000
+                end
 
         *stonechestplate
-        name:Stone Chestplate
-        text:<#383a3b>Stone Chestplate : [stonechestplate]
-        desc:Blends in with rocks. <.><#55ff00>+164<#d4d4d4> HP<.><#55ff00>+1.2/s<#d4d4d4> HP Regen<.><#55ff00>+0.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>291 Coins<#d4d4d4><.>Tier 23 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+                name:Stone Chestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Blends in with rocks. <.><#55ff00>+164<#d4d4d4> HP<.><#55ff00>+1.2/s<#d4d4d4> HP Regen<.><#55ff00>+0.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>291 Coins<#d4d4d4><.>Tier 23 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellstonechestplate with U0000
+                end
 
         *stoneleggings
         name:Stone Leggings
@@ -14881,20 +14982,27 @@ Buildings
         tag:item
 
         *ironhelmet
-        name:Iron Helmet
-        text:<#e6ddca>Iron Helmet : [ironhelmet]
-        desc:An Iron Helmet crafted from Iron Bars. <.><#55ff00>+134<#d4d4d4> HP<.><#55ff00>+0.6/s<#d4d4d4> HP Regen<.><#55ff00>+0.3/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[4101] Coins<#d4d4d4><.>Tier 20 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Iron Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:An Iron Helmet crafted from Iron Bars. <.><#55ff00>+134<#d4d4d4> HP<.><#55ff00>+0.6/s<#d4d4d4> HP Regen<.><#55ff00>+0.3/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[4101] Coins<#d4d4d4><.>Tier 20 Helmet
+                // always hidden
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellironhelmet with U0000
+                end
 
         *ironchestplate
-        name:Iron Platebody
-        text:<#e6ddca>Iron Platebody : [ironchestplate]
-        desc:An Iron Platebody crafted from Iron Bars. <.><#55ff00>+200<#d4d4d4> HP<.><#55ff00>+1.2/s<#d4d4d4> HP Regen<.><#55ff00>+0.5/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[6444] Coins<#d4d4d4><.>Tier 26 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+                name:Iron Platebody
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:An Iron Platebody crafted from Iron Bars. <.><#55ff00>+200<#d4d4d4> HP<.><#55ff00>+1.2/s<#d4d4d4> HP Regen<.><#55ff00>+0.5/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[6444] Coins<#d4d4d4><.>Tier 26 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellironchestplate with U0000
+                end
 
         *ironleggings
         name:Iron Platelegs
@@ -14913,20 +15021,26 @@ Buildings
         tag:item
 
         *steelhelmet
-        name:Steel Helmet
-        text:<#9c9586>Steel Helmet : [steelhelmet]
-        desc:A Steel Helmet crafted from Steel Bars. <.><#55ff00>+166<#d4d4d4> HP<.><#55ff00>+1.3/s<#d4d4d4> HP Regen<.><#55ff00>+0.5/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[28555] Coins<#d4d4d4><.>Tier 24 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Steel Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A Steel Helmet crafted from Steel Bars. <.><#55ff00>+166<#d4d4d4> HP<.><#55ff00>+1.3/s<#d4d4d4> HP Regen<.><#55ff00>+0.5/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[28555] Coins<#d4d4d4><.>Tier 24 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellsteelhelmet with U0000
+                end
 
         *steelchestplate
-        name:Steel Platebody
-        text:<#9c9586>Steel Platebody : [steelchestplate]
-        desc:A Steel Platebody crafted from Steel Bars. <.><#55ff00>+246<#d4d4d4> HP<.><#55ff00>+1.8/s<#d4d4d4> HP Regen<.><#55ff00>+0.8/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[45000] Coins<#d4d4d4><.>Tier 30 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+                name:Steel Platebody
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A Steel Platebody crafted from Steel Bars. <.><#55ff00>+246<#d4d4d4> HP<.><#55ff00>+1.8/s<#d4d4d4> HP Regen<.><#55ff00>+0.8/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[45000] Coins<#d4d4d4><.>Tier 30 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellsteelchestplate with U0000
+                end
 
         *steelleggings
         name:Steel Platelegs
@@ -14945,20 +15059,26 @@ Buildings
         tag:item
 
         *goldhelmet
-        name:Gold Helmet
-        text:<#dbc42c>Gold Helmet : [goldhelmet]
-        desc:A Gold Helmet crafted from Gold Bars. <.><#55ff00>+189<#d4d4d4> HP<.><#55ff00>+1.7/s<#d4d4d4> HP Regen<.><#55ff00>+0.7/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[62344] Coins<#d4d4d4><.>Tier 26 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Gold Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A Gold Helmet crafted from Gold Bars. <.><#55ff00>+189<#d4d4d4> HP<.><#55ff00>+1.7/s<#d4d4d4> HP Regen<.><#55ff00>+0.7/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[62344] Coins<#d4d4d4><.>Tier 26 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellgoldhelmet with U0000
+                end
 
         *goldchestplate
-        name:Gold Platebody
-        text:<#dbc42c>Gold Platebody : [goldchestplate]
-        desc:A Gold Platebody crafted from Gold Bars. <.><#55ff00>+280<#d4d4d4> HP<.><#55ff00>+2.4/s<#d4d4d4> HP Regen<.><#55ff00>+1.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[102605] Coins<#d4d4d4><.>Tier 34 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+                name:Gold Platebody
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A Gold Platebody crafted from Gold Bars. <.><#55ff00>+280<#d4d4d4> HP<.><#55ff00>+2.4/s<#d4d4d4> HP Regen<.><#55ff00>+1.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[102605] Coins<#d4d4d4><.>Tier 34 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellgoldchestplate with U0000
+                end
 
         *goldleggings
         name:Gold Platelegs
@@ -14985,20 +15105,26 @@ Buildings
         tag:item
 
         *equisitorhelmet
-        name:Equisitors Helmet
-        text:<#e38929>Equisitors Helmet : [equisitorhelmet]
-        desc:You feel your head getting dizzy wearing this. <.><#55ff00>+246<#d4d4d4> HP<.><#55ff00>+3.4/s<#d4d4d4> HP Regen<.><#55ff00>+0.3/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[5980] Coins<#d4d4d4><.>Tier 32 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Equisitors Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:You feel your head getting dizzy wearing this. <.><#55ff00>+246<#d4d4d4> HP<.><#55ff00>+3.4/s<#d4d4d4> HP Regen<.><#55ff00>+0.3/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[5980] Coins<#d4d4d4><.>Tier 32 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellequisitorhelmet with U0000
+                end
 
-        *equisitorchestplate
-        name:Equisitors Chestplate
-        text:<#e38929>Equisitors Chestplate : [equisitorchestplate]
-        desc:Made from the finest materials for the dead. <.><#55ff00>+496<#d4d4d4> HP<.><#55ff00>+5.0/s<#d4d4d4> HP Regen<.><#55ff00>+0.6/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[24907] Coins<#d4d4d4><.>Tier 49 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+        *equisitorchest
+                name:Equisitors Chestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Made from the finest materials for the dead. <.><#55ff00>+496<#d4d4d4> HP<.><#55ff00>+5.0/s<#d4d4d4> HP Regen<.><#55ff00>+0.6/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[24907] Coins<#d4d4d4><.>Tier 49 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellequisitorchest with U0000
+                end
 
         *equisitorleggings
         name:Equisitors Leggings
@@ -15017,20 +15143,26 @@ Buildings
         tag:item
 
         *platinumhelmet
-        name:Platinum Helmet
-        text:<#e5e4e2>Platinum Helmet : [platinumhelmet]
-        desc:A Platinum Helmet crafted from Platinum Bars. <.><#55ff00>+278<#d4d4d4> HP<.><#55ff00>+4.4/s<#d4d4d4> HP Regen<.><#55ff00>+0.6/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[411341] Coins<#d4d4d4><.>Tier 36 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Platinum Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A Platinum Helmet crafted from Platinum Bars. <.><#55ff00>+278<#d4d4d4> HP<.><#55ff00>+4.4/s<#d4d4d4> HP Regen<.><#55ff00>+0.6/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[411341] Coins<#d4d4d4><.>Tier 36 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellplatinumhelmet with U0000
+                end
 
-        *platinumchestplate
-        name:Platinum Platebody
-        text:<#e5e4e2>Platinum Platebody : [platinumchestplate]
-        desc:A Platinum Platebody crafted from Platinum Bars. <.><#55ff00>+513<#d4d4d4> HP<.><#55ff00>+5.6/s<#d4d4d4> HP Regen<.><#55ff00>+1.0/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[604210] Coins<#d4d4d4><.>Tier 52 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+        *platinumchest
+                name:Platinum Platebody
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A Platinum Platebody crafted from Platinum Bars. <.><#55ff00>+513<#d4d4d4> HP<.><#55ff00>+5.6/s<#d4d4d4> HP Regen<.><#55ff00>+1.0/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[604210] Coins<#d4d4d4><.>Tier 52 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellplatinumchest with U0000
+                end
 
         *platinumleggings
         name:Platinum Platelegs
@@ -15049,20 +15181,26 @@ Buildings
         tag:item
 
         *stepfasthelmet
-        name:Stepfast Helmet
-        text:<#7edea4>Stepfast Helmet : [stepfasthelmet]
-        desc:Crafted from Stepfast Fragments, this isn't the most durabable armor by any means.<.><#55ff00>+243<#d4d4d4> HP<.><#55ff00>+2.3/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[4125003] Coins<#d4d4d4><.>Tier 31 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Stepfast Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Stepfast Fragments, this isn't the most durabable armor by any means.<.><#55ff00>+243<#d4d4d4> HP<.><#55ff00>+2.3/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[4125003] Coins<#d4d4d4><.>Tier 31 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellstepfasthelmet with U0000
+                end
 
-        *stepfastchestplate
-        name:Stepfast Chestplate
-        text:<#7edea4>Stepfast Chestplate : [stepfastchestplate]
-        desc:Crafted from Stepfast Fragments, this isn't the most durabable armor by any means.<.><#55ff00>+317<#d4d4d4> HP<.><#55ff00>+2.9/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[6412232] Coins<#d4d4d4><.>Tier 38 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+        *stepfastchest
+                name:Stepfast Chestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Stepfast Fragments, this isn't the most durabable armor by any means.<.><#55ff00>+317<#d4d4d4> HP<.><#55ff00>+2.9/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[6412232] Coins<#d4d4d4><.>Tier 38 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellstepfastchest with U0000
+                end
 
         *stepfastleggings
         name:Stepfast Leggings
@@ -15081,20 +15219,26 @@ Buildings
         tag:item
 
         *prinahahelmet
-        name:Prinaha Helmet
-        text:<#7edea4>Prinaha Helmet : [prinahahelmet]
-        desc:Crafted from Prinaha Fragments, this is much stronger than before.<.><#55ff00>+334<#d4d4d4> HP<.><#55ff00>+3.4/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[16412320] Coins<#d4d4d4><.>Tier 40 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Prinaha Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Prinaha Fragments, this is much stronger than before.<.><#55ff00>+334<#d4d4d4> HP<.><#55ff00>+3.4/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[16412320] Coins<#d4d4d4><.>Tier 40 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellprinahahelmet with U0000
+                end
 
-        *prinahachestplate
+        *prinahachest
         name:Prinaha Chestplate
-        text:<#7edea4>Prinaha Chestplate : [prinahachestplate]
+        text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
         desc:Crafted from Prinaha Fragments, this is much stronger than before.<.><#55ff00>+423<#d4d4d4> HP<.><#55ff00>+4.1/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[24159850] Coins<#d4d4d4><.>Tier 48 Chestplate
         hidden when 0
         no buy
-        tag:item
+        tag:item sellable
+                on click:
+                        do sellprinahachest with U0000
+                end
 
         *prinahaleggings
         name:Prinaha Leggings
@@ -15113,20 +15257,26 @@ Buildings
         tag:item
 
         *apechhelmet
-        name:Apech Helmet
-        text:<#7edea4>Apech Helmet : [apechhelmet]
-        desc:Crafted from Apech Fragments, technology evolution makes this armor set super strong!<.><#55ff00>+428<#d4d4d4> HP<.><#55ff00>+4.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[42785012] Coins<#d4d4d4><.>Tier 48 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Apech Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Apech Fragments, technology evolution makes this armor set super strong!<.><#55ff00>+428<#d4d4d4> HP<.><#55ff00>+4.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[42785012] Coins<#d4d4d4><.>Tier 48 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellapechhelmet with U0000
+                end
 
-        *apechchestplate
-        name:Apech Chestplate
-        text:<#7edea4>Apech Chestplate : [apechchestplate]
-        desc:Crafted from Apech Fragments, technology evolution makes this armor set super strong!<.><#55ff00>+539<#d4d4d4> HP<.><#55ff00>+5.1/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[65989520] Coins<#d4d4d4><.>Tier 58 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+        *apechchest
+                name:Apech Chestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Apech Fragments, technology evolution makes this armor set super strong!<.><#55ff00>+539<#d4d4d4> HP<.><#55ff00>+5.1/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[65989520] Coins<#d4d4d4><.>Tier 58 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellapechchest with U0000
+                end
 
         *apechleggings
         name:Apech Leggings
@@ -15145,20 +15295,26 @@ Buildings
         tag:item
 
         *nuzdelhelmet
-        name:Nuzdelclock Helmet
-        text:<#7edea4>Nuzdelclock Helmet : [nuzdelhelmet]
-        desc:Crafted from Nuzdelclock Fragments, who knew old school ways were fancy.<.><#55ff00>+561<#d4d4d4> HP<.><#55ff00>+5.4/s <#d4d4d4>Battle HP Regen<.><#55ff00>+3<#d4d4d4> Attack Min<.><#55ff00>+6<#d4d4d4> Attack Max<.>Price:<#ebe834>[172458052] Coins<#d4d4d4><.>Tier 65 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Nuzdelclock Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Nuzdelclock Fragments, who knew old school ways were fancy.<.><#55ff00>+561<#d4d4d4> HP<.><#55ff00>+5.4/s <#d4d4d4>Battle HP Regen<.><#55ff00>+3<#d4d4d4> Attack Min<.><#55ff00>+6<#d4d4d4> Attack Max<.>Price:<#ebe834>[172458052] Coins<#d4d4d4><.>Tier 65 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellnuzdelhelmet with U0000
+                end
 
-        *nuzdelchestplate
-        name:Nuzdelclock Chestplate
-        text:<#7edea4>Nuzdelclock Chestplate : [nuzdelchestplate]
-        desc:Crafted from Nuzdelclock Fragments, twho knew old school ways were fancy.<.><#55ff00>+713<#d4d4d4> HP<.><#55ff00>+6.7/s <#d4d4d4>Battle HP Regen<.><#55ff00>+5<#d4d4d4> Attack Min<.><#55ff00>+9<#d4d4d4> Attack Max<.>Price:<#ebe834>[268452012] Coins<#d4d4d4><.>Tier 79 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+        *nuzdelchest
+                name:Nuzdelclock Chestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Nuzdelclock Fragments, twho knew old school ways were fancy.<.><#55ff00>+713<#d4d4d4> HP<.><#55ff00>+6.7/s <#d4d4d4>Battle HP Regen<.><#55ff00>+5<#d4d4d4> Attack Min<.><#55ff00>+9<#d4d4d4> Attack Max<.>Price:<#ebe834>[268452012] Coins<#d4d4d4><.>Tier 79 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellnuzdelchest with U0000
+                end
 
         *nuzdelleggings
         name:Nuzdelclock Leggings
@@ -15177,20 +15333,26 @@ Buildings
         tag:item
 
         *deathrinehelmet
-        name:Deathrine Helmet
-        text:<#7edea4>Deathrine Helmet : [deathrinehelmet]
-        desc:Crafted from Deathrine Fragments, does <b>NOT</> come apart.<.><#55ff00>+681<#d4d4d4> HP<.><#55ff00>+2.9/s <#d4d4d4>HP Regen<.><#55ff00>+6.4/s <#d4d4d4>Battle HP Regen<.><#55ff00>+8<#d4d4d4> Attack Min<.><#55ff00>+14<#d4d4d4> Attack Max<.>Price:<#ebe834>[669512003] Coins<#d4d4d4><.>Tier 81 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Deathrine Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Deathrine Fragments, does <b>NOT</> come apart.<.><#55ff00>+681<#d4d4d4> HP<.><#55ff00>+2.9/s <#d4d4d4>HP Regen<.><#55ff00>+6.4/s <#d4d4d4>Battle HP Regen<.><#55ff00>+8<#d4d4d4> Attack Min<.><#55ff00>+14<#d4d4d4> Attack Max<.>Price:<#ebe834>[669512003] Coins<#d4d4d4><.>Tier 81 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do selldeathrinehelmet with U0000
+                end
 
-        *deathrinechestplate
-        name:Deathrine Chestplate
-        text:<#7edea4>Deathrine Chestplate : [deathrinechestplate]
-        desc:Crafted from Deathrine Fragments, does <b>NOT</> come apart.<.><#55ff00>+868<#d4d4d4> HP<.><#55ff00>+3.6/s <#d4d4d4>HP Regen<.><#55ff00>+7.8/s <#d4d4d4>Battle HP Regen<.><#55ff00>+11<#d4d4d4> Attack Min<.><#55ff00>+20<#d4d4d4> Attack Max<.>Price:<#ebe834>[914587520] Coins<#d4d4d4><.>Tier 99 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+        *deathrinechest
+                name:Deathrine Chestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Deathrine Fragments, does <b>NOT</> come apart.<.><#55ff00>+868<#d4d4d4> HP<.><#55ff00>+3.6/s <#d4d4d4>HP Regen<.><#55ff00>+7.8/s <#d4d4d4>Battle HP Regen<.><#55ff00>+11<#d4d4d4> Attack Min<.><#55ff00>+20<#d4d4d4> Attack Max<.>Price:<#ebe834>[914587520] Coins<#d4d4d4><.>Tier 99 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do selldeathrinechest with U0000
+                end
 
         *deathrineleggings
         name:Deathrine Leggings
@@ -15209,20 +15371,26 @@ Buildings
         tag:item
 
         *dralonichelmet
-        name:Dralonic Godhelmet
-        text:<#7edea4>Dralonic Godhelmet : [dralonichelmet]
-        desc:Crafted from Dralonic Fragments, this is what people do just for an armor set, you deserve it.<.><#55ff00>+809<#d4d4d4> HP<.><#55ff00>+4.5/s <#d4d4d4>HP Regen<.><#55ff00>+8.9/s <#d4d4d4>Battle HP Regen<.><#55ff00>+13<#d4d4d4> Attack Min<.><#55ff00>+25<#d4d4d4> Attack Max<.>Price:<#ebe834>[2764852100] Coins<#d4d4d4><.>Tier 106 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Dralonic Godhelmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Dralonic Fragments, this is what people do just for an armor set, you deserve it.<.><#55ff00>+809<#d4d4d4> HP<.><#55ff00>+4.5/s <#d4d4d4>HP Regen<.><#55ff00>+8.9/s <#d4d4d4>Battle HP Regen<.><#55ff00>+13<#d4d4d4> Attack Min<.><#55ff00>+25<#d4d4d4> Attack Max<.>Price:<#ebe834>[2764852100] Coins<#d4d4d4><.>Tier 106 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do selldralonichelmet with U0000
+                end
 
-        *dralonicchestplate
-        name:Dralonic Godchestplate
-        text:<#7edea4>Dralonic Godchestplate : [dralonicchestplate]
-        desc:Crafted from Dralonic Fragments, this is what people do just for an armor set, you deserve it.<.><#55ff00>+972<#d4d4d4> HP<.><#55ff00>+6.3/s <#d4d4d4>HP Regen<.><#55ff00>+10.6/s <#d4d4d4>Battle HP Regen<.><#55ff00>+18<#d4d4d4> Attack Min<.><#55ff00>+37<#d4d4d4> Attack Max<.>Price:<#ebe834>[3914520052] Coins<#d4d4d4><.>Tier 128 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+        *dralonicchest
+                name:Dralonic Godchestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Crafted from Dralonic Fragments, this is what people do just for an armor set, you deserve it.<.><#55ff00>+972<#d4d4d4> HP<.><#55ff00>+6.3/s <#d4d4d4>HP Regen<.><#55ff00>+10.6/s <#d4d4d4>Battle HP Regen<.><#55ff00>+18<#d4d4d4> Attack Min<.><#55ff00>+37<#d4d4d4> Attack Max<.>Price:<#ebe834>[3914520052] Coins<#d4d4d4><.>Tier 128 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do selldralonicchest with U0000
+                end
 
         *dralonicleggings
         name:Dralonic Godleggings
@@ -15241,20 +15409,26 @@ Buildings
         tag:item
 
         *kyplozinhood
-        name:Kyplonzin's Hood
-        text:<#17291d>Kyplonzin's Hood : [kyplozinhood]
-        desc:The hood of a wicked caster known to destroy dreams of valuable people.<.><#55ff00>+589<#d4d4d4> HP<.><#55ff00>+2.5/s <#d4d4d4>HP Regen<.><#55ff00>+4.4/s <#d4d4d4>Battle HP Regen<.><#55ff00>+11<#d4d4d4> Attack Min<.><#55ff00>+17<#d4d4d4> Attack Max<.><#55ff00>+53<#d4d4d4> Bleeding Power<.>Price:<#ebe834>[1995102309] Coins<#d4d4d4><.>Tier 116 Helmet<.>Set Bonus(4):<.><#612f2f>Torment<#d4d4d4>:Gain damage boost on health missing, up to 71% boost.<.><#5f89ad>Annihilation<#d4d4d4>:Critical Hits extend active Bleeds, Shatters and Crushes.
-        hidden when 0
-        no buy
-        tag:item
+                name:Kyplonzin's Hood
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:The hood of a wicked caster known to destroy dreams of valuable people.<.><#55ff00>+589<#d4d4d4> HP<.><#55ff00>+2.5/s <#d4d4d4>HP Regen<.><#55ff00>+4.4/s <#d4d4d4>Battle HP Regen<.><#55ff00>+11<#d4d4d4> Attack Min<.><#55ff00>+17<#d4d4d4> Attack Max<.><#55ff00>+53<#d4d4d4> Bleeding Power<.>Price:<#ebe834>[1995102309] Coins<#d4d4d4><.>Tier 116 Helmet<.>Set Bonus(4):<.><#612f2f>Torment<#d4d4d4>:Gain damage boost on health missing, up to 71% boost.<.><#5f89ad>Annihilation<#d4d4d4>:Critical Hits extend active Bleeds, Shatters and Crushes.
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellkyplozinhood with U0000
+                end
 
         *kyplozinrobetop
-        name:Kyplonzin's Robe Top
-        text:<#17291d>Kyplonzin's Robe Top : [kyplozinrobetop]
-        desc:Wearing this hides every part of your body that is sealed behind it.<.><#55ff00>+972<#d4d4d4> HP<.><#55ff00>+6.3/s <#d4d4d4>HP Regen<.><#55ff00>+10.6/s <#d4d4d4>Battle HP Regen<.><#55ff00>+18<#d4d4d4> Attack Min<.><#55ff00>+37<#d4d4d4> Attack Max<.><#55ff00>+88<#d4d4d4> Bleeding Power<.>Price:<#ebe834>[1691020100] Coins<#d4d4d4><.>Tier 142 Chestplate<.>Set Bonus(4):<.><#612f2f>Torment<#d4d4d4>:Gain damage boost on health missing, up to 71% boost.<.><#5f89ad>Annihilation<#d4d4d4>:Critical Hits extend active Bleeds, Shatters and Crushes.
-        hidden when 0
-        no buy
-        tag:item
+                name:Kyplonzin's Robe Top
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Wearing this hides every part of your body that is sealed behind it.<.><#55ff00>+972<#d4d4d4> HP<.><#55ff00>+6.3/s <#d4d4d4>HP Regen<.><#55ff00>+10.6/s <#d4d4d4>Battle HP Regen<.><#55ff00>+18<#d4d4d4> Attack Min<.><#55ff00>+37<#d4d4d4> Attack Max<.><#55ff00>+88<#d4d4d4> Bleeding Power<.>Price:<#ebe834>[1691020100] Coins<#d4d4d4><.>Tier 142 Chestplate<.>Set Bonus(4):<.><#612f2f>Torment<#d4d4d4>:Gain damage boost on health missing, up to 71% boost.<.><#5f89ad>Annihilation<#d4d4d4>:Critical Hits extend active Bleeds, Shatters and Crushes.
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellkyplozinrobetop with U0000
+                end
 
         *kyplozinrobebottom
         name:Kyplonzin's Robe Bottom
@@ -15273,20 +15447,26 @@ Buildings
         tag:item
 
         *amadinehelmet
-        name:Amadine Helmet
-        text:<#9fbfaa>Amadine Helmet : [amadinehelmet]
-        desc:A helmet worn by the Amadine Faction. <.><#55ff00>+202<#d4d4d4> HP<.><#55ff00>+4.6/s<#d4d4d4> HP Regen<.><#55ff00>+1.5/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[433712] Coins<#d4d4d4><.>Tier 33 Helmet<.><#22d631>Set Bonus(4)<#d4d4d4>:When hitting an enemy, you have a 10% chance to increase your damage dealt by 20% for that attack.
-        hidden when 0
-        no buy
-        tag:item
+                name:Amadine Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A helmet worn by the Amadine Faction. <.><#55ff00>+202<#d4d4d4> HP<.><#55ff00>+4.6/s<#d4d4d4> HP Regen<.><#55ff00>+1.5/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[433712] Coins<#d4d4d4><.>Tier 33 Helmet<.><#22d631>Set Bonus(4)<#d4d4d4>:When hitting an enemy, you have a 10% chance to increase your damage dealt by 20% for that attack.
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellamadinehelmet with U0000
+                end
 
-        *amadinechestplate
-        name:Amadine Chestplate
-        text:<#9fbfaa>Amadine Chestplate : [amadinechestplate]
-        desc:A chestplate worn by the Amadine Faction. <.><#55ff00>+363<#d4d4d4> HP<.><#55ff00>+6.9/s<#d4d4d4> HP Regen<.><#55ff00>+2.0/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[1677000] Coins<#d4d4d4><.>Tier 48 Chestplate<.><#22d631>Set Bonus(4)<#d4d4d4>:When hitting an enemy, you have a 10% chance to increase your damage dealt by 20% for that attack.
-        hidden when 0
-        no buy
-        tag:item
+        *amadinechest
+                name:Amadine Chestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A chestplate worn by the Amadine Faction. <.><#55ff00>+363<#d4d4d4> HP<.><#55ff00>+6.9/s<#d4d4d4> HP Regen<.><#55ff00>+2.0/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[1677000] Coins<#d4d4d4><.>Tier 48 Chestplate<.><#22d631>Set Bonus(4)<#d4d4d4>:When hitting an enemy, you have a 10% chance to increase your damage dealt by 20% for that attack.
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellamadinechest with U0000
+                end
 
         *amadineleggings
         name:Amadine Leggings
@@ -15313,20 +15493,26 @@ Buildings
         tag:item
 
         *liqunhelmet
-        name:Liqun Helmet
-        text:<#50ebc4>Liqun Helmet : [liqunhelmet]
-        desc:Has a Light-blue color on it. <.><#55ff00>+154<#d4d4d4> HP<.><#55ff00>+3.2/s<#d4d4d4> HP Regen<.><#55ff00>+2.3/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[26992] Coins<#d4d4d4><.>Tier 29 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Liqun Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Has a Light-blue color on it. <.><#55ff00>+154<#d4d4d4> HP<.><#55ff00>+3.2/s<#d4d4d4> HP Regen<.><#55ff00>+2.3/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[26992] Coins<#d4d4d4><.>Tier 29 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellliqunhelmet with U0000
+                end
 
-        *liqunchestplate
-        name:Liqun Chestplate
-        text:<#50ebc4>Liqun Chestplate : [liqunchestplate]
-        desc:Has sharp blades on its side. <.><#55ff00>+224<#d4d4d4> HP<.><#55ff00>+3.9/s<#d4d4d4> HP Regen<.><#55ff00>+2.7/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[94231] Coins<#d4d4d4><.>Tier 36 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+        *liqunchest
+                name:Liqun Chestplate
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Has sharp blades on its side. <.><#55ff00>+224<#d4d4d4> HP<.><#55ff00>+3.9/s<#d4d4d4> HP Regen<.><#55ff00>+2.7/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[94231] Coins<#d4d4d4><.>Tier 36 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellliqunchest with U0000
+                end
 
         *liqunleggings
         name:Liqun Leggings
@@ -15345,20 +15531,26 @@ Buildings
         tag:item
 
         *lathhelmet
-        name:Lathikalkum Helmet
-        text:<#53298a>Lathikalkum Helmet : [lathhelmet]
-        desc:A Lathikalkum Helmet crafted from Lathikalkum Bars. <.><#55ff00>+474<#d4d4d4> HP<.><#55ff00>+4.0/s<#d4d4d4> HP Regen<.><#55ff00>+3.0/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[11562250] Coins<#d4d4d4><.>Tier 52 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Lathikalkum Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A Lathikalkum Helmet crafted from Lathikalkum Bars. <.><#55ff00>+474<#d4d4d4> HP<.><#55ff00>+4.0/s<#d4d4d4> HP Regen<.><#55ff00>+3.0/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[11562250] Coins<#d4d4d4><.>Tier 52 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do selllathhelmet with U0000
+                end
 
-        *lathchestplate
-        name:Lathikalkum Platebody
-        text:<#53298a>Lathikalkum Platebody : [lathchestplate]
-        desc:A Lathikalkum Platebody crafted from Lathikalkum Bars. <.><#55ff00>+643<#d4d4d4> HP<.><#55ff00>+5.0/s<#d4d4d4> HP Regen<.><#55ff00>+4.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[18217644] Coins<#d4d4d4><.>Tier 66 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+        *lathchest
+                name:Lathikalkum Platebody
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:A Lathikalkum Platebody crafted from Lathikalkum Bars. <.><#55ff00>+643<#d4d4d4> HP<.><#55ff00>+5.0/s<#d4d4d4> HP Regen<.><#55ff00>+4.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[18217644] Coins<#d4d4d4><.>Tier 66 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do selllathchest with U0000
+                end
 
         *lathleggings
         name:Lathikalkum Platelegs
@@ -15376,13 +15568,16 @@ Buildings
         no buy
         tag:item
 
-        *dragonscalepltbody
-        name:Dragonscale Platebody
-        text:<#5d02b3>Dragonscale Platebody : [dragonscalepltbody]
-        desc:Professionally crafted from dragon scale, i should feel safe wearing this. <.><#55ff00>+742<#d4d4d4> HP<.><#55ff00>+9.2/s<#d4d4d4> HP Regen<.><#55ff00>+5.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[27890367] Coins<#d4d4d4><.>Tier 82 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+        *dragonscalechest
+                name:Dragonscale Platebody
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Professionally crafted from dragon scale, i should feel safe wearing this. <.><#55ff00>+742<#d4d4d4> HP<.><#55ff00>+9.2/s<#d4d4d4> HP Regen<.><#55ff00>+5.2/s <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[27890367] Coins<#d4d4d4><.>Tier 82 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do selldragonscalechest with U0000
+                end
 
         *drgsclpltlegs
         name:Dragonscale Platelegs
@@ -15393,12 +15588,15 @@ Buildings
         tag:item
 
         *edrgsclplatebody
-        name:Elder Dragonscale Platebody
-        text:<#a761e8>Elder Dragonscale Platebody : [edrgsclplatebody]
-        desc:Upgraded further with more dragon scales, this is atleast 1.5 times as harder than the original<.><#55ff00>+892<#d4d4d4> HP<.><#55ff00>+10.3/s<#d4d4d4> HP Regen<.><#55ff00>+6.5/s <#d4d4d4>Battle HP Regen<.><#55ff00>+25<#d4d4d4> Bleed Power<.>Price:<#ebe834>[55099100] Coins<#d4d4d4><.>Tier 103 Chestplate
-        hidden when 0
-        no buy
-        tag:item
+                name:Elder Dragonscale Platebody
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Upgraded further with more dragon scales, this is atleast 1.5 times as harder than the original<.><#55ff00>+892<#d4d4d4> HP<.><#55ff00>+10.3/s<#d4d4d4> HP Regen<.><#55ff00>+6.5/s <#d4d4d4>Battle HP Regen<.><#55ff00>+25<#d4d4d4> Bleed Power<.>Price:<#ebe834>[55099100] Coins<#d4d4d4><.>Tier 103 Chestplate
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do selledrgsclplatebody with U0000
+                end
 
         *edrgsclplatelegs
         name:Elder Dragonscale Platelegs
@@ -15409,28 +15607,37 @@ Buildings
         tag:item
 
         *roanhelmet
-        name:Roan Helmet
-        text:<#3272d1>Roan Helmet : [roanhelmet]
-        desc:Agile af. <.><#55ff00>+614<#d4d4d4> HP<.><#55ff00>+13.2/s<#d4d4d4> HP Regen<.>Price:<#ebe834>[14944134] Coins<#d4d4d4><.>Tier 70 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Roan Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Agile af. <.><#55ff00>+614<#d4d4d4> HP<.><#55ff00>+13.2/s<#d4d4d4> HP Regen<.>Price:<#ebe834>[14944134] Coins<#d4d4d4><.>Tier 70 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellroanhelmet with U0000
+                end
 
         *glavyiorhelmet
-        name:Glavyior Helmet
-        text:<#c35cc4>Glavyior Helmet : [glavyiorhelmet]
-        desc:Auto-adjust? <.><#55ff00>+356<#d4d4d4> HP<.><#55ff00>+5.3/s<#d4d4d4> HP Regen<.><#55ff00>+6.8/s<#d4d4d4> <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[25731023] Coins<#d4d4d4><.>Tier 63 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Glavyior Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Auto-adjust? <.><#55ff00>+356<#d4d4d4> HP<.><#55ff00>+5.3/s<#d4d4d4> HP Regen<.><#55ff00>+6.8/s<#d4d4d4> <#d4d4d4>Battle HP Regen<.>Price:<#ebe834>[25731023] Coins<#d4d4d4><.>Tier 63 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellglavyiorhelmet with U0000
+                end
 
         *zarkhelmet
-        name:Zark Helmet
-        text:<#3bbf46>Zark Helmet : [zarkhelmet]
-        desc:Now you look badass wearing this. <.><#55ff00>+349<#d4d4d4> HP<.><#55ff00>+3.0/s<#d4d4d4> HP Regen<.><#55ff00>+12<#d4d4d4> Attack Min<.><#55ff00>+19<#d4d4d4> Attack Max<.>Price:<#ebe834>[74222221] Coins<#d4d4d4><.>Tier 53 Helmet
-        hidden when 0
-        no buy
-        tag:item
+                name:Zark Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:Now you look badass wearing this. <.><#55ff00>+349<#d4d4d4> HP<.><#55ff00>+3.0/s<#d4d4d4> HP Regen<.><#55ff00>+12<#d4d4d4> Attack Min<.><#55ff00>+19<#d4d4d4> Attack Max<.>Price:<#ebe834>[74222221] Coins<#d4d4d4><.>Tier 53 Helmet
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellzarkhelmet with U0000
+                end
 
         *roanboots
         name:Roan Boots
@@ -15481,28 +15688,37 @@ Buildings
         tag:item
         
         *exopack
-        name:Exo-Pack
-        text:<#5d02b3>Exo-Pack : [exopack]
-        desc:This armor uses high-level tech to not only boost the weilders health, but also attack and luck. <.><#55ff00>+2881<#d4d4d4> HP<.><#55ff00>+15.4/s<#d4d4d4> HP Regen<.><#55ff00>+18.5/s <#d4d4d4>Battle HP Regen<.><#55ff00>+39<#d4d4d4> Attack Min<.><#55ff00>+68<#d4d4d4> Attack Max<.><#0c7994>+15%<#d4d4d4> Item Find<.><#55ff00>+37<#d4d4d4> Bleed Power<.><#55ff00>+30<#d4d4d4> Shatter Power<.><#55ff00>+12<#d4d4d4> Crush Power<.>Price:<#ebe834>[1245200000] Coins<#d4d4d4><.>Tier 273 Hybrid
-        hidden when 0
-        no buy
-        tag:item
+                name:Exo-Pack
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:This armor uses high-level tech to not only boost the weilders health, but also attack and luck. <.><#55ff00>+2881<#d4d4d4> HP<.><#55ff00>+15.4/s<#d4d4d4> HP Regen<.><#55ff00>+18.5/s <#d4d4d4>Battle HP Regen<.><#55ff00>+39<#d4d4d4> Attack Min<.><#55ff00>+68<#d4d4d4> Attack Max<.><#0c7994>+15%<#d4d4d4> Item Find<.><#55ff00>+37<#d4d4d4> Bleed Power<.><#55ff00>+30<#d4d4d4> Shatter Power<.><#55ff00>+12<#d4d4d4> Crush Power<.>Price:<#ebe834>[1245200000] Coins<#d4d4d4><.>Tier 273 Hybrid
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do sellexopack with U0000
+                end
          
         *eplisorhelmet
-        name:Eplisor Helmet
-        text:<#b3ffcc>Eplisor Helmet : [eplisorhelmet]
-        desc:No description provided. <.><#55ff00>+413<#d4d4d4> HP<.><#55ff00>+31<#d4d4d4> Attack Min<.><#55ff00>+54<#d4d4d4> Attack Max<.><#55ff00>+4.3%<#d4d4d4> Crit Chance<.><#55ff00>+65<#d4d4d4> Shatter Power<.>Price:<#ebe834>[1990123086] Coins<#d4d4d4><.>Tier 98 Helmet<.>Set Bonus(4): Every <#b043d1>Crit<#d4d4d4> increases damage dealt by <#54d6d4>12%<#d4d4d4>, resets back to normal when a <#8ebd8e>non-crit<#d4d4d4> hit occurs.
-        hidden when 0
-        no buy
-        tag:item
+                name:Eplisor Helmet
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:No description provided. <.><#55ff00>+413<#d4d4d4> HP<.><#55ff00>+31<#d4d4d4> Attack Min<.><#55ff00>+54<#d4d4d4> Attack Max<.><#55ff00>+4.3%<#d4d4d4> Crit Chance<.><#55ff00>+65<#d4d4d4> Shatter Power<.>Price:<#ebe834>[1990123086] Coins<#d4d4d4><.>Tier 98 Helmet<.>Set Bonus(4): Every <#b043d1>Crit<#d4d4d4> increases damage dealt by <#54d6d4>12%<#d4d4d4>, resets back to normal when a <#8ebd8e>non-crit<#d4d4d4> hit occurs.
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do selleplisorhelmet with U0000
+                end
 
         *eplisorplatebody
-        name:Eplisor Platebody
-        text:<#b3ffcc>Eplisor Platebody : [eplisorplatebody]
-        desc:No description provided. <.><#55ff00>+679<#d4d4d4> HP<.><#55ff00>+58<#d4d4d4> Attack Min<.><#55ff00>+94<#d4d4d4> Attack Max<.><#55ff00>+6.0%<#d4d4d4> Crit Chance<.><#55ff00>+88<#d4d4d4> Shatter Power<.>Price:<#ebe834>[2641981461] Coins<#d4d4d4><.>Tier 144 Chestplate<.>Set Bonus(4): Every <#b043d1>Crit<#d4d4d4> increases damage dealt by <#54d6d4>12%<#d4d4d4>, resets back to normal when a <#8ebd8e>non-crit<#d4d4d4> hit occurs.
-        hidden when 0
-        no buy
-        tag:item
+                name:Eplisor Platebody
+                text:[?(have menuTabShopSell)|Продать |]<b>[n:this]</b> : [this]
+                desc:No description provided. <.><#55ff00>+679<#d4d4d4> HP<.><#55ff00>+58<#d4d4d4> Attack Min<.><#55ff00>+94<#d4d4d4> Attack Max<.><#55ff00>+6.0%<#d4d4d4> Crit Chance<.><#55ff00>+88<#d4d4d4> Shatter Power<.>Price:<#ebe834>[2641981461] Coins<#d4d4d4><.>Tier 144 Chestplate<.>Set Bonus(4): Every <#b043d1>Crit<#d4d4d4> increases damage dealt by <#54d6d4>12%<#d4d4d4>, resets back to normal when a <#8ebd8e>non-crit<#d4d4d4> hit occurs.
+                hidden when 0
+                no buy
+                tag:item sellable
+                on click:
+                        do selleplisorplatebody with U0000
+                end
 
         *eplisorplatelegs
         name:Eplisor Platelegs
@@ -16433,8 +16649,8 @@ Buildings
 
         *blackholetitle
         name:Black Hole Title
-        text:'<#53590a>Black Hole<#000000>' Title
-        desc:A title received when achieving <#e0d0a4>66,000,000,000 Coins<#d4d4d4> earned in total.
+        text:<b>[n:this]</b>
+        desc:За получение <#fbe000>[66000000000] монет</#> за всю игру.
         hidden when 0
         no buy
         tag:item
@@ -16450,7 +16666,7 @@ Buildings
         *stats
         name:Stats
         text:[?(stats=0)|<#7eff2b>Stats (1/5)|][?(stats=1)|<#7eff2b>Stats (2/5)|][?(stats=2)|<#7eff2b>Stats (3/5)|][?(stats=3)|<#7eff2b>Stats (4/5)|][?(stats=4)|<#7eff2b>Stats (5/5)|]
-        desc:[?(stats=0)|<b>Current Stats:<.><b><#ffca2b>Amount of Zombies Killed: <#a934f7>[zmbkc]<.><b><#ffca2b>Amount of Armored Zombies Killed: <#a934f7>[azmbkc]<.><b><#ff952b>Amount of Demons Killed: <#a934f7>[demonkc]<.><b><#ff952b>Amount of Dinosaurs Killed: <#a934f7>[dinokc]<.><b><#fc5026>Amount of Zrerks Killed: <#a934f7>[zmbkkc]<.><b><#fc5026>Amount of Krysms Killed: <#a934f7>[krysmkc]<.><b><#7f3791>Amount of Drasconixs Killed: <#a934f7>[drasconixkc]<.><b><#73ba86>Amount of Kyplonzins Killed: <#a934f7>[kyplonzinkc]<.><b><#2bad6b>Highest Damage Dealt in an Ability: <#922bd6>[atk2:max]<.><b><#42f5ef>Fastest Zrerk Kill: [zrerkdurm]:[zrerkdurs]<.><b><#42f5ef>Fastest Drasconix Kill: [drscdurm]:[drscdurs]<.><b><#1b6585>Highest Drasconix Enrage: [drscenragevar:max]%<.><b><#1b6585>Highest Drasconix Killstreak: [drscenragecurrent:max]<.><b><#c86ee6>◄►◄►◄►◄►◄►◄►◄►◄►<.><b><#bf8c91>Collection Log: Page 1/5<.><b><#6de802>Weapons:<#d4d4d4></>Wooden Daggers: [woodendaggervar]</>Stone Daggers: [stonedaggervar]</>Off-Hand Stone Daggers: [offstonedaggervar]</>Iron Daggers: [irondaggervar]</>Copper Longswords: [copperlongswordvar]</>Iron Longswords: [ironlongswordvar]</>Steel Longswords: [steellongswordvar]</>Gold Longswords: [goldlongswordvar]</>Equisitor Swords: [equisitorswordvar]</>Equisitor Warhammers: [equisitorwhammervar]</>Searing Swords: [searingswordvar]</>Dragon Longswords: [dragonswordvar]</>Elf Longbows : [elflongbowvar]</>Larpher's Swords: [larpherswordvar]</>Off-Hand Larpher's Swords: [offlarpherswordvar]|][?(stats=1)|<b><#bf8c91>Collection Log: Page 2/5<.><b><#6de802>Shields:<#d4d4d4></>Fronter Shields: [frontershieldvar]</>Slasher Shields: [frontershieldvar]<.><b><#6de802>Amulets:<#d4d4d4></>Rune Amulets: [runeamuletvar]</>Equisitor Amulets: [equisitoramuletvar]</>Broken Amulets: [brokenamuletvar]</>Luck Amulets: [luckamuletvar]<.><b><#6de802>Helmets:<#d4d4d4></>Wooden Helmets : [woodenhelmetvar]</>Stone Helmets : [stonehelmetvar]</>Equisitor Helmets : [equisitorhelmetvar]</>Amadine Helmets : [amadinehelmetvar]</>Broken Helmets: [brokenhelmetvar]</>Roan Helmets : [roanhelmetvar]</>Glavyior Helmets : [glavyiorhelmetvar]</>Zark Helmets : [zarkhelmetvar]</>Kyplonzin's Hoods : [kyphoodvar]</>Eplisor Helmets : [eplisorhelmetvar]<.><b><#6de802>Chestplates:<#d4d4d4></>Wooden Chestplates : [woodenchestplatevar]</>Stone Chestplates : [stonechestplatevar]</>Equisitor Chestplates : [equisitorchestvar]</>Amadine Chestplates : [amadinechestplatevar]</>Broken Chestplates: [brokenchestplatevar]</>Kyplonzin's Robe Tops : [kyprobetopvar]</>Eplisor Platebodies : [eplisorplatebodyvar]<.><b><#6de802>Leggings:<#d4d4d4></>Wooden Leggings : [woodenleggingsvar]</>Stone Leggings : [stoneleggingsvar]</>Kyplonzin's Robe Bottoms : [kyprobebottomvar]</>Equisitor Leggings : [equisitorleggingsvar]</>Amadine Leggings : [amadineleggingsvar]</>Broken Leggings: [brokenleggingsvar]</>Eplisor Platelegs : [eplisorplatelegsvar]</><.><b><#6de802>Boots:<#d4d4d4></>Wooden Boots : [woodenhelmetvar]</>Stone Boots : [stonehelmetvar]</>Equisitor Boots : [equisitorbootsvar]</>Amadine Boots : [amadinebootsvar]</>Broken Boots: [brokenbootsvar]</>Roan Boots : [roanbootsvar]</>Glavyior Boots : [glavyiorbootsvar]</>Zark Boots : [zarkbootsvar]</>Kyplonzin's Boots : [kypbootsvar]</>Eplisor Boots: [eplisorbootsvar]|][?(stats=2)|<b><#bf8c91>Collection Log: Page 3/5<.><b><#6de802>Codexes:<#d4d4d4></>Focus Ability Codexes : [focuscodexvar]</>Regen Ability Codexes : [regencodexvar]</>Shadow Leech Ability Codexes : [shadowleechcodexvar]</>Greater Regen Ability Codexes : [greaterregencodexvar]</>Drasconixes Wrath Ability Codexes : [drscwrathcodexvar]</>Greater Hard Swing Codexes : [greaterhswingcdxvar]</>Greater Charge Codexes: [greaterchargecdxvar]</>Destruction Codexes: [destructioncodexvar]</>Xerdo's Codexes : [xerdocodexvar]<.><b><#6de802>Rings:<#d4d4d4></>Rings of Luck : [ringofluckvar]</>Rings of Fortune : [ringoffortunevar]</>Pierce Rings : [pierceringvar]</>Fractured Ring's Bases : [fracturedbasevar]</>Infernal Rings : [infernalringvar]</>Zrerk Rings : [zrerkringvar]</>Spelunker Rings : [spelunkerringvar]</>Treasure Rings : [treasureringvar]</>Eplisor Rings : [eplisorringvar]<.><b><#6de802>Gloves:<#d4d4d4></>Bloodfrost Gloves : [bloodfrostglovesvar]</>Adventurers Gloves : [adventurersglovesvar]</>Deeppierce Gloves : [deeppierceglovesvar]<.><b><#6de802>Caskets:<#d4d4d4></>Caskets (Easy) : [easycasketvar]</>Caskets (Medium) : [mediumcasketvar]</>Caskets (Hard) : [hardcasketvar]|][?(stats=3)|<b><#bf8c91>Collection Log: Page 4/5<.><b><#6de802>Crystals:<#d4d4d4></>Shadowy Crystals : [shadowycrystalvar]</>Common Crystals : [commoncrystalvar]</>Uncommon Crystals : [uncommoncrystalvar]</>Rare Crystals : [rarecrystalvar]</>Epic Crystals : [epiccrystalvar]</>Legendary Crystals : [legendarycrystalvar]</>Stable Shadow Crystals : [sscrystalvar]</>Stable Blood Crystals : [sbcrystalvar]</>Stable Nature Crystals : [sncrystalvar]<.><b><#6de802>Pickaxes:<#d4d4d4></>Wooden Pickaxes : [woodenpickaxevar]</>Stone Pickaxes : [stonepickaxevar]<.><b><#6de802>Misc:<#d4d4d4></>Dragon Scales : [dragonscalevar]</>Ancient Runes : [ancientrunevar]</>Stepfast Fragments : [stepfastfragvar]</>Prinaha Fragments : [prinahafragvar]</>Apech Fragments : [apechfragvar]</>Nuzdelclock Fragments : [nuzdelclockfragvar]</>Deathrine Fragments : [deathrinefragvar]</>Dralonic Fragments : [dralfragvar]</>Dark Crystals : [darkcrystalvar]</>Drasconix Claws: [drasconixclawvar]</>Valuable Drop Tokens : [valuabletokenvar]</>Drasconix Chests : [drasconixchestvar]</>Orbs Of Cyndir : [orbofcyndirvar]</>Orbs Of Elxvers : [orbofelxversvar]</>Orbs Of Legulous : [orboflegulousvar]</>Corrupted Zarkos Sword : [czarkosswordvar]</>Corrupted Exo-Pack: [cexopackvar]</>Mysterious Pommels: [mysterypommelvar]</>Mysterious Hilts: [mysteryhiltvar]</>Mysterious Guards: [mysteryguardvar]</>Mysterious Blades: [mysterybladevar]</>Pulsing Cores: [pulsingcorevar]|][?(stats=4)|<b><#bf8c91>Collection Log: Page 5/5<#d4d4d4></>Equisitors Bottom Left Shield Pieces: [equisbottomleftvar]</>Equisitors Bottom Right Shield Pieces: [equisbottomrightvar]</>Equisitors Top Shield Pieces: [equistopvar]</>Equisitors Core Shield Pieces: [equiscorevar]</>Easy Contracts: [easycontractvar]</>Medium Contracts: [mediumcontractvar]</>Hard Contracts: [hardcontractvar]</>Elite Contracts: [elitecontractvar]</>Golden Coins : [goldencoinvar]</>Diamond Coins : [diamondcoinvar]</>Iron Bars: [ironbarvar]</>Steel Bars: [steelbarvar]</>Gold Bars: [goldbarvar]</>Platinum Bars: [platinumbarvar]</>Lathikalkum Scraps: [lathikalkumscrapvar]</>Red Flavoured Critical Text Dyes: [reddyevar2]</>Blue Flavoured Critical Text Dyes: [bluedyevar2]</>Yellow Flavoured Damage Text Dyes: [yellowdyevar2]<.><b><#c86ee6>◄►◄►◄►◄►◄►◄►◄►◄►<.><b><#e0d0a4>Coins received in total: <#e8cd02>[coins:earned]<.><b><#31e012>Total Kills: <#11d9b8>[zmbkc+azmbkc+demonkc+dinokc+zmbkkc+krysmkc]<.><b><#a2e012>Bounty Table Rolls: <#11a0d9>[bountytablesrolled]<.><b><#a2e012>Bounty Tasks Completed: <#11a0d9>[taskscompleted]<.><#3abd8d>Spirits Caught: [spiritclicks]<.><#6e3abd>Leystral Stars Catched: [starclicks]<.><#1af02c>Easy Contracts Completed: [easycontractvar2]<.><#ffb01c>Medium Contracts Completed: [mediumcontractvar2]<.><#ff5521>Hard Contracts Completed: [hardcontractvar2]<.><#005cad>Elite Contracts Completed: [elitecontractvar2]|]
+        desc:[?(stats=0)|<b>Current Stats:<.><b><#ffca2b>Amount of Zombies Killed: <#a934f7>[zmbkc]<.><b><#ffca2b>Amount of Armored Zombies Killed: <#a934f7>[azmbkc]<.><b><#ff952b>Amount of Demons Killed: <#a934f7>[demonkc]<.><b><#ff952b>Amount of Dinosaurs Killed: <#a934f7>[dinokc]<.><b><#fc5026>Amount of Zrerks Killed: <#a934f7>[zmbkkc]<.><b><#fc5026>Amount of Krysms Killed: <#a934f7>[krysmkc]<.><b><#7f3791>Amount of Drasconixs Killed: <#a934f7>[drasconixkc]<.><b><#73ba86>Amount of Kyplonzins Killed: <#a934f7>[kyplonzinkc]<.><b><#2bad6b>Highest Damage Dealt in an Ability: <#922bd6>[atk2:max]<.><b><#42f5ef>Fastest Zrerk Kill: [zrerkdurm]:[zrerkdurs]<.><b><#42f5ef>Fastest Drasconix Kill: [drscdurm]:[drscdurs]<.><b><#1b6585>Highest Drasconix Enrage: [drscenragevar:max]%<.><b><#1b6585>Highest Drasconix Killstreak: [drscenragecurrent:max]<.><b><#c86ee6>◄►◄►◄►◄►◄►◄►◄►◄►<.><b><#bf8c91>Collection Log: Page 1/5<.><b><#6de802>Weapons:<#d4d4d4></>Wooden Daggers: [woodendaggervar]</>Stone Daggers: [stonedaggervar]</>Off-Hand Stone Daggers: [offstonedaggervar]</>Iron Daggers: [irondaggervar]</>Copper Longswords: [copperlongswordvar]</>Iron Longswords: [ironlongswordvar]</>Steel Longswords: [steellongswordvar]</>Gold Longswords: [goldlongswordvar]</>Equisitor Swords: [equisitorswordvar]</>Equisitor Warhammers: [equisitorwhammervar]</>Searing Swords: [searingswordvar]</>Dragon Longswords: [dragonswordvar]</>Elf Longbows : [elflongbowvar]</>Larpher's Swords: [larpherswordvar]</>Off-Hand Larpher's Swords: [offlarpherswordvar]|][?(stats=1)|<b><#bf8c91>Collection Log: Page 2/5<.><b><#6de802>Shields:<#d4d4d4></>Fronter Shields: [frontershieldvar]</>Slasher Shields: [frontershieldvar]<.><b><#6de802>Amulets:<#d4d4d4></>Rune Amulets: [runeamuletvar]</>Equisitor Amulets: [equisitoramuletvar]</>Broken Amulets: [brokenamuletvar]</>Luck Amulets: [luckamuletvar]<.><b><#6de802>Helmets:<#d4d4d4></>Деревянный шлем : [woodenhelmetvar]</>Stone Helmets : [stonehelmetvar]</>Equisitor Helmets : [equisitorhelmetvar]</>Amadine Helmets : [amadinehelmetvar]</>Broken Helmets: [brokenhelmetvar]</>Roan Helmets : [roanhelmetvar]</>Glavyior Helmets : [glavyiorhelmetvar]</>Zark Helmets : [zarkhelmetvar]</>Kyplonzin's Hoods : [kyphoodvar]</>Eplisor Helmets : [eplisorhelmetvar]<.><b><#6de802>Chestplates:<#d4d4d4></>Wooden Chestplates : [woodenchestplatevar]</>Stone Chestplates : [stonechestplatevar]</>Equisitor Chestplates : [equisitorchestvar]</>Amadine Chestplates : [amadinechestplatevar]</>Broken Chestplates: [brokenchestplatevar]</>Kyplonzin's Robe Tops : [kyprobetopvar]</>Eplisor Platebodies : [eplisorplatebodyvar]<.><b><#6de802>Leggings:<#d4d4d4></>Wooden Leggings : [woodenleggingsvar]</>Stone Leggings : [stoneleggingsvar]</>Kyplonzin's Robe Bottoms : [kyprobebottomvar]</>Equisitor Leggings : [equisitorleggingsvar]</>Amadine Leggings : [amadineleggingsvar]</>Broken Leggings: [brokenleggingsvar]</>Eplisor Platelegs : [eplisorplatelegsvar]</><.><b><#6de802>Boots:<#d4d4d4></>Wooden Boots : [woodenhelmetvar]</>Stone Boots : [stonehelmetvar]</>Equisitor Boots : [equisitorbootsvar]</>Amadine Boots : [amadinebootsvar]</>Broken Boots: [brokenbootsvar]</>Roan Boots : [roanbootsvar]</>Glavyior Boots : [glavyiorbootsvar]</>Zark Boots : [zarkbootsvar]</>Kyplonzin's Boots : [kypbootsvar]</>Eplisor Boots: [eplisorbootsvar]|][?(stats=2)|<b><#bf8c91>Collection Log: Page 3/5<.><b><#6de802>Codexes:<#d4d4d4></>Focus Ability Codexes : [focuscodexvar]</>Regen Ability Codexes : [regencodexvar]</>Shadow Leech Ability Codexes : [shadowleechcodexvar]</>Greater Regen Ability Codexes : [greaterregencodexvar]</>Drasconixes Wrath Ability Codexes : [drscwrathcodexvar]</>Greater Hard Swing Codexes : [greaterhswingcdxvar]</>Greater Charge Codexes: [greaterchargecdxvar]</>Destruction Codexes: [destructioncodexvar]</>Xerdo's Codexes : [xerdocodexvar]<.><b><#6de802>Rings:<#d4d4d4></>Rings of Luck : [ringofluckvar]</>Rings of Fortune : [ringoffortunevar]</>Pierce Rings : [pierceringvar]</>Fractured Ring's Bases : [fracturedbasevar]</>Infernal Rings : [infernalringvar]</>Zrerk Rings : [zrerkringvar]</>Spelunker Rings : [spelunkerringvar]</>Treasure Rings : [treasureringvar]</>Eplisor Rings : [eplisorringvar]<.><b><#6de802>Gloves:<#d4d4d4></>Bloodfrost Gloves : [bloodfrostglovesvar]</>Adventurers Gloves : [adventurersglovesvar]</>Deeppierce Gloves : [deeppierceglovesvar]<.><b><#6de802>Caskets:<#d4d4d4></>Caskets (Easy) : [easycasketvar]</>Caskets (Medium) : [mediumcasketvar]</>Caskets (Hard) : [hardcasketvar]|][?(stats=3)|<b><#bf8c91>Collection Log: Page 4/5<.><b><#6de802>Crystals:<#d4d4d4></>Shadowy Crystals : [shadowycrystalvar]</>Common Crystals : [commoncrystalvar]</>Uncommon Crystals : [uncommoncrystalvar]</>Rare Crystals : [rarecrystalvar]</>Epic Crystals : [epiccrystalvar]</>Legendary Crystals : [legendarycrystalvar]</>Stable Shadow Crystals : [sscrystalvar]</>Stable Blood Crystals : [sbcrystalvar]</>Stable Nature Crystals : [sncrystalvar]<.><b><#6de802>Pickaxes:<#d4d4d4></>Wooden Pickaxes : [woodenpickaxevar]</>Stone Pickaxes : [stonepickaxevar]<.><b><#6de802>Misc:<#d4d4d4></>Dragon Scales : [dragonscalevar]</>Ancient Runes : [ancientrunevar]</>Stepfast Fragments : [stepfastfragvar]</>Prinaha Fragments : [prinahafragvar]</>Apech Fragments : [apechfragvar]</>Nuzdelclock Fragments : [nuzdelclockfragvar]</>Deathrine Fragments : [deathrinefragvar]</>Dralonic Fragments : [dralfragvar]</>Dark Crystals : [darkcrystalvar]</>Drasconix Claws: [drasconixclawvar]</>Valuable Drop Tokens : [valuabletokenvar]</>Drasconix Chests : [drasconixchestvar]</>Orbs Of Cyndir : [orbofcyndirvar]</>Orbs Of Elxvers : [orbofelxversvar]</>Orbs Of Legulous : [orboflegulousvar]</>Corrupted Zarkos Sword : [czarkosswordvar]</>Corrupted Exo-Pack: [cexopackvar]</>Mysterious Pommels: [mysterypommelvar]</>Mysterious Hilts: [mysteryhiltvar]</>Mysterious Guards: [mysteryguardvar]</>Mysterious Blades: [mysterybladevar]</>Pulsing Cores: [pulsingcorevar]|][?(stats=4)|<b><#bf8c91>Collection Log: Page 5/5<#d4d4d4></>Equisitors Bottom Left Shield Pieces: [equisbottomleftvar]</>Equisitors Bottom Right Shield Pieces: [equisbottomrightvar]</>Equisitors Top Shield Pieces: [equistopvar]</>Equisitors Core Shield Pieces: [equiscorevar]</>Easy Contracts: [easycontractvar]</>Medium Contracts: [mediumcontractvar]</>Hard Contracts: [hardcontractvar]</>Elite Contracts: [elitecontractvar]</>Golden Coins : [goldencoinvar]</>Diamond Coins : [diamondcoinvar]</>Iron Bars: [ironbarvar]</>Steel Bars: [steelbarvar]</>Gold Bars: [goldbarvar]</>Platinum Bars: [platinumbarvar]</>Lathikalkum Scraps: [lathikalkumscrapvar]</>Red Flavoured Critical Text Dyes: [reddyevar2]</>Blue Flavoured Critical Text Dyes: [bluedyevar2]</>Yellow Flavoured Damage Text Dyes: [yellowdyevar2]<.><b><#c86ee6>◄►◄►◄►◄►◄►◄►◄►◄►<.><b><#e0d0a4>Coins received in total: <#e8cd02>[coins:earned]<.><b><#31e012>Total Kills: <#11d9b8>[zmbkc+azmbkc+demonkc+dinokc+zmbkkc+krysmkc]<.><b><#a2e012>Bounty Table Rolls: <#11a0d9>[bountytablesrolled]<.><b><#a2e012>Bounty Tasks Completed: <#11a0d9>[taskscompleted]<.><#3abd8d>Spirits Caught: [spiritclicks]<.><#6e3abd>Leystral Stars Catched: [starclicks]<.><#1af02c>Easy Contracts Completed: [easycontractvar2]<.><#ffb01c>Medium Contracts Completed: [mediumcontractvar2]<.><#ff5521>Hard Contracts Completed: [hardcontractvar2]<.><#005cad>Elite Contracts Completed: [elitecontractvar2]|]
         limit:5
         on earn:if (stats=5) yield -5 stats
 
@@ -16460,7 +16676,7 @@ Buildings
 
 
         *menuTitle
-                text:[?(this is 0)|Навигация|][?(this is 1)|Магазин|][?(this is 2)|Инвентарь|][?(this is 3)|Кузня|]
+                text:[?(this is 0)|Навигация|][?(this is 1)|Магазин|][?(this is 2)|Инвентарь|][?(this is 3)|Кузня|][?(this is 4)|Профиль|]
                 tag:menuTitle
                 no buy
                 no tooltip
@@ -16470,6 +16686,65 @@ Buildings
 //SECTION Upgrades
 
 Upgrades
+
+        *U0000
+                name: SHOP HANDLER
+                desc:Здания продаются все сразу, а не по количеству. Это костыль решающий проблему
+                no buy
+                no tooltip
+                always hidden
+                // Helmet
+                [include incshophandler0 %id="woodenhelmet" %price="36"]
+                [include incshophandler0 %id="minerhelmet" %price="6011"]
+                [include incshophandler0 %id="ironhelmet" %price="4101"]
+                [include incshophandler0 %id="stonehelmet" %price="101"]
+                [include incshophandler0 %id="steelhelmet" %price="28555"]
+                [include incshophandler0 %id="goldhelmet" %price="62344"]
+                [include incshophandler0 %id="equisitorhelmet" %price="5980"]
+                [include incshophandler0 %id="platinumhelmet" %price="411341"]
+                [include incshophandler0 %id="stepfasthelmet" %price="4125003"]
+                [include incshophandler0 %id="prinahahelmet" %price="16412320"]
+                [include incshophandler0 %id="apechhelmet" %price="42785012"]
+                [include incshophandler0 %id="nuzdelhelmet" %price="172458052"]
+                [include incshophandler0 %id="deathrinehelmet" %price="669512003"]
+                [include incshophandler0 %id="dralonichelmet" %price="2764852100"]
+                [include incshophandler0 %id="amadinehelmet" %price="433712"]
+                [include incshophandler0 %id="liqunhelmet" %price="26992"]
+                [include incshophandler0 %id="lathhelmet" %price="11562250"]
+                [include incshophandler0 %id="roanhelmet" %price="14944134"]
+                [include incshophandler0 %id="glavyiorhelmet" %price="25731023"]
+                [include incshophandler0 %id="zarkhelmet" %price="74222221"]
+                [include incshophandler0 %id="kyplozinhood" %price="1995102309"]
+                [include incshophandler0 %id="eplisorhelmet" %price="1990123086"]
+                // Chestplate
+                [include incshophandler0 %id="woodenchestplate" %price="49"]
+                [include incshophandler0 %id="minerchestplate" %price="12790"]
+                [include incshophandler0 %id="stonechestplate" %price="291"]
+                [include incshophandler0 %id="ironchestplate" %price="6444"]
+                [include incshophandler0 %id="steelchestplate" %price="45000"]
+                [include incshophandler0 %id="goldchestplate" %price="102605"]
+                [include incshophandler0 %id="equisitorchest" %price="24907"]
+                [include incshophandler0 %id="platinumchest" %price="604210"]
+                [include incshophandler0 %id="stepfastchest" %price="6412232"]
+                [include incshophandler0 %id="prinahachest" %price="24159850"]
+                [include incshophandler0 %id="apechchest" %price="65989520"]
+                [include incshophandler0 %id="nuzdelchest" %price="268452012"]
+                [include incshophandler0 %id="deathrinechest" %price="914587520"]
+                [include incshophandler0 %id="dralonicchest" %price="3914520052"]
+                [include incshophandler0 %id="amadinechest" %price="1677000"]
+                [include incshophandler0 %id="liqunchest" %price="94231"]
+                [include incshophandler0 %id="dragonscalechest" %price="27890367"]
+                [include incshophandler0 %id="edrgsclplatebody" %price="55099100"]
+                [include incshophandler0 %id="kyplozinrobetop" %price="1691020100"]
+                [include incshophandler0 %id="eplisorplatebody" %price="2641981461"]
+                //
+                [include incshophandler0 %id="exopack" %price="1245200000"]
+
+
+
+
+
+
 /* ====== || ====== */
 
         *menuBack
@@ -16484,6 +16759,10 @@ Upgrades
                 
                         lose tag:menuCategory
                         lose tag:menuTab
+
+                        //
+                        hide tag:titleRes
+                        hide tag:stats
                 end
 
         *menuTabShopBuy
@@ -16516,9 +16795,11 @@ Upgrades
                 tag:menuTab
                 no buy
                 on earn:
+                        show tag:sellable
                         show tag:sellitems
                 end
                 on lose:
+                        // hide tag:sellable
                         hide tag:sellitems
                 end
                 on click:
@@ -16551,8 +16832,8 @@ Upgrades
                 on earn:
                         show tag:equipment_amulet
                         show tag:equipment_shield
-                        show tag:equipment_helmet
-                        show tag:equipment_chestplate
+                        show tag:eqp_1
+                        show tag:eqp_2
                         show tag:equipment_leggings
                         show tag:equipment_boots
                         show tag:equipment_ring
@@ -16562,8 +16843,8 @@ Upgrades
                 on lose:
                         hide tag:equipment_amulet
                         hide tag:equipment_shield
-                        hide tag:equipment_helmet
-                        hide tag:equipment_chestplate
+                        hide tag:eqp_1
+                        hide tag:eqp_2
                         hide tag:equipment_leggings
                         hide tag:equipment_boots
                         hide tag:equipment_ring
@@ -16597,7 +16878,29 @@ Upgrades
 
 
 
-//Нужен еще меню эпировки (item2),Здесь список всех вещей(item)        
+//Нужен еще меню эпировки (item2),Здесь список всех вещей(item)
+        *menuProfile
+                name:Профиль
+                tag:menuCategory
+                no buy
+                on earn:
+                        menuTitle is 4
+
+                        hide tag:menuCategory
+
+                        show tag:titleRes
+                        show tag:stats
+                        // show menuTabProfile
+
+                        // yield menuTabProfile
+                end
+                on lose:
+                        show tag:menuCategory
+                end
+                on click:
+                        lose tag:menuCategory
+                        yield this
+                end
         *menuInventory
                 name:Инвентарь
                 desc:Переименовать в экипировку и теги соответственно.
@@ -17410,104 +17713,108 @@ Upgrades
         req:65 bountypoints
         tag:equipment
         
+
+
         *openeasycasket
-        tag:equipment
-        name:Open Casket (Easy)
-        desc:Press this button to open the casket and earn rewards
-        on earn:
-        lose openeasycasket
-        if (easycasket>0)
-        yield -1 easycasket
-        log <b>You open your casket and...
-        if (easyccontract=1) yield 1 easycontractopened
-        yield (random(3,5)) rollitemsrem
-        do rollitems with openeasycasket
-        end
-        end
-        on rollitems:
-        yield -1 rollitemsrem
-        yield (random(1,522)) chance1
-        $bluedyeroll=random(1,64125)
-        if (($bluedyeroll=1) and (zrerkring2=1))
-        yield 1 blueflavouredcritdye
-        yield 1 bluedyevar2
-        log <#e88a10>Your Zrerk Ring shines and you receive: 1x Blue Flavoured Critical Text Dye.
-        log <b><#441585>RIDICULOUSLY RARE: 1x Blue Flavoured Critical Text Dye.
-        if (ridcontract=1) yield 1 ridcontractrcvd
-        if (valuabletokenvar2=1) log <b><#bf08b6>Valuable Drop: [bluedyeprice] Coins
-        end
-        if ((chance1=1) and (ringofluck2=1))
-        yield 1 piercering
-        yield 1 pierceringvar
-        log <#e88a10>Your Ring of Luck shines and you receive: 1x Pierce Ring
-        log <b><#e82910>VERY RARE DROP: 1x Pierce Ring.
-        end
-        if ((chance1<3) and (chance1>0) and (infernalring2=1))
-        yield 1 pierceringvar
-        yield 1 piercering
-        log <#e88a10>Your Infernal Ring shines and you receive: 1x Pierce Ring
-        log <b><#e82910>VERY RARE DROP: 1x Pierce Ring.
-        end
-        if ((chance1<4) and (chance1>0) and (zrerkring2=1))
-        yield 1 pierceringvar
-        yield 1 piercering
-        log <#e88a10>Your Zrerk's Ring shines and you receive: 1x Pierce Ring
-        log <b><#e82910>VERY RARE DROP: 1x Pierce Ring.
-        end
-        if ((chance1=1) and (rdtchance=64))
-        yield 3 coins
-        log <#e88a10>You received something rare from the casket: 3x Coins
-        end
-        if ((chance1<8) and (chance1>1))
-        yield 1 copperlongswordvar
-        yield 1 copperlongsword
-        log <b><#dea909>You received something rare from the casket: 1x Copper Longsword.
-        end
-        if ((chance1<24) and (chance1>7))
-        yield 1 stonehelmet
-        yield 1 stonehelmetvar
-        log You receive: 1x Stone Helmet.
-        end
-        if ((chance1<41) and (chance1>23))
-        yield 1 stonechestplate
-        yield 1 stonechestplatevar
-        log You receive: 1x Stone Chestplate.
-        end
-        if ((chance1<61) and (chance1>40))
-        yield 1 stoneleggings
-        yield 1 stoneleggingsvar
-        log You receive: 1x Stone Leggings.
-        end
-        if ((chance1<89) and (chance1>60))
-        yield 1 stoneboots
-        yield 1 stonebootsvar
-        log You receive: 1x Stone Boots.
-        end
-        if ((chance1<212) and (chance1>88))
-        yield 1 stonedagger
-        yield 1 stonedaggervar
-        log You receive: 1x Stone Dagger.
-        end
-        if ((chance1<490) and (chance1>211))
-        $coinamt=ceil(random(500,1000)*pow(1.0025,(random(1,1024))))
-        yield $coinamt coins
-        log You receive: [$coinamt]x Coins.
-        end
-        if ((chance1<507) and (chance1>489))
-        yield 1 steellongswordvar
-        yield 1 steellongsword
-        log <b><#dea909>You received something rare from the casket: 1x Steel Longsword.
-        end
-        if ((chance1<523) and (chance1>506))
-        yield 1 easycontract
-        yield 1 easycontractvar
-        log <b><#dea909>You received something rare from the casket: 1x Easy Contract.
-        end
-        yield -(chance1) chance1
-        if (rollitemsrem>0) do rollitems with openeasycasket
-        if (rollitemsrem>0) do rollitems with openeasycasket
-        end
-        req:1 easycasket
+                tag:equipment
+                name:Маленькая шкатулка | (Easy)
+                desc:Press this button to open the casket and earn rewards
+                on earn:
+                        lose openeasycasket
+                        if (easycasket>0)
+                                yield -1 easycasket
+                                log <#21366A><b>В шкатулке вы нашли</b></#>:
+                                if (easyccontract=1) yield 1 easycontractopened
+                                yield (random(3,5)) rollitemsrem
+                                do rollitems with openeasycasket
+                        end
+                end
+                on rollitems:
+                        yield -1 rollitemsrem
+                        yield (random(1,522)) chance1
+                        $bluedyeroll=random(1,64125)
+                        if (($bluedyeroll=1) and (zrerkring2=1))
+                                yield 1 blueflavouredcritdye
+                                yield 1 bluedyevar2
+                                log <#e88a10>Your Zrerk Ring shines and you receive: 1x Blue Flavoured Critical Text Dye.
+                                log <b><#441585>RIDICULOUSLY RARE: 1x Blue Flavoured Critical Text Dye.
+                                if (ridcontract=1) yield 1 ridcontractrcvd
+                                if (valuabletokenvar2=1) log <b><#bf08b6>Valuable Drop: [bluedyeprice] Coins
+                        end
+                        if ((chance1=1) and (ringofluck2=1))
+                                yield 1 piercering
+                                yield 1 pierceringvar
+                                log <#e88a10>Your Ring of Luck shines and you receive: 1x Pierce Ring
+                                log <b><#e82910>VERY RARE DROP: 1x Pierce Ring.
+                        end
+                        if ((chance1<3) and (chance1>0) and (infernalring2=1))
+                                yield 1 pierceringvar
+                                yield 1 piercering
+                                log <#e88a10>Your Infernal Ring shines and you receive: 1x Pierce Ring
+                                log <b><#e82910>VERY RARE DROP: 1x Pierce Ring.
+                        end
+                        if ((chance1<4) and (chance1>0) and (zrerkring2=1))
+                                yield 1 pierceringvar
+                                yield 1 piercering
+                                log <#e88a10>Your Zrerk's Ring shines and you receive: 1x Pierce Ring
+                                log <b><#e82910>VERY RARE DROP: 1x Pierce Ring.
+                        end
+                        if ((chance1=1) and (rdtchance=64))
+                                yield 3 coins
+                                log <#e88a10>You received something rare from the casket: 3x Coins
+                        end
+                        if ((chance1<8) and (chance1>1))
+                                yield 1 copperlongswordvar
+                                yield 1 copperlongsword
+                                log <b><#dea909>You received something rare from the casket: 1x Copper Longsword.
+                        end
+                        if ((chance1<24) and (chance1>7))
+                                yield 1 stonehelmet
+                                yield 1 stonehelmetvar
+                                log You receive: 1x Stone Helmet.
+                        end
+                        if ((chance1<41) and (chance1>23))
+                                yield 1 stonechestplate
+                                yield 1 stonechestplatevar
+                                log You receive: 1x Stone Chestplate.
+                        end
+                        if ((chance1<61) and (chance1>40))
+                                yield 1 stoneleggings
+                                yield 1 stoneleggingsvar
+                                log You receive: 1x Stone Leggings.
+                        end
+                        if ((chance1<89) and (chance1>60))
+                                yield 1 stoneboots
+                                yield 1 stonebootsvar
+                                log You receive: 1x Stone Boots.
+                        end
+                        if ((chance1<212) and (chance1>88))
+                                yield 1 stonedagger
+                                yield 1 stonedaggervar
+                                log You receive: 1x Stone Dagger.
+                        end
+                        if ((chance1<490) and (chance1>211))
+                                $coinamt=ceil(random(500,1000)*pow(1.0025,(random(1,1024))))
+                                yield $coinamt coins
+                                log • [$coinamt] монет
+                        end
+                        if ((chance1<507) and (chance1>489))
+                                yield 1 steellongswordvar
+                                yield 1 steellongsword
+                                log <b><#dea909>You received something rare from the casket: 1x Steel Longsword.
+                        end
+                        if ((chance1<523) and (chance1>506))
+                                yield 1 easycontract
+                                yield 1 easycontractvar
+                                log <b><#dea909>You received something rare from the casket: 1x Easy Contract.
+                        end
+                        yield -(chance1) chance1
+                        if (rollitemsrem>0) do rollitems with openeasycasket
+                        if (rollitemsrem>0) do rollitems with openeasycasket
+                end
+                req:1 easycasket
+
+
 
         *openmediumcasket
         tag:equipment
@@ -17668,7 +17975,7 @@ Upgrades
         log <b><#dea909>You received something rare from the casket: 1x Amadine Helmet.
         end
         if ((chance1<15) and (chance1>11))
-        yield 1 amadinechestplate
+        yield 1 amadinechest
         yield 1 amadinechestplatevar
         log <b><#dea909>You received something rare from the casket: 1x Amadine Chestplate.
         if (valuabletokenvar2=1) log <b><#bf08b6>Valuable Drop: [1677000] Coins
@@ -17690,7 +17997,7 @@ Upgrades
         log <b><#dea909>You received something rare from the casket: 1x Equisitors Helmet.
         end
         if ((chance1<27) and (chance1>23))
-        yield 1 equisitorchestplate
+        yield 1 equisitorchest
         yield 1 equisitorchestvar
         log <b><#dea909>You received something rare from the casket: 1x Equisitors Chestplate.
         end
@@ -18397,7 +18704,7 @@ Upgrades
         on earn:
         if (platinumbar>39)
         yield -40 platinumbar
-        yield 1 platinumchestplate
+        yield 1 platinumchest
         yield 8500 miningxp
         do click with checklevel
         end
@@ -18453,7 +18760,7 @@ Upgrades
         on earn:
         if (lathikalkumbar>39)
         yield -40 lathikalkumbar
-        yield 1 lathchestplate
+        yield 1 lathchest
         yield 55000 miningxp
         do click with checklevel
         end
@@ -19123,7 +19430,7 @@ Upgrades
         if ((dragonscale>649) and (stepfastfrag>11))
         yield -650 dragonscale
         yield -12 stepfastfrag
-        yield 1 stepfastchestplate
+        yield 1 stepfastchest
         end
         lose craft62
         end
@@ -19171,13 +19478,13 @@ Upgrades
         tags:equipment craftables
         *craft66
         name:Craft Prinaha Chestplate
-        text:Craft Prinaha Chestplate with [?(dragonscale>1199)|<#03ff13>1200 Dragon Scales<#000000>|<#ff2a00>1200 Dragon Scales<#000000>], [?(prinahafrag>15)|<#03ff13>16 Prinaha Fragments<#000000>|<#ff2a00>16 Prinaha Fragments<#000000>] and [?(stepfastchestplate>0)|<#03ff13>1 Stepfast Chestplate<#000000>|<#ff2a00>1 Stepfast Chestplate<#000000>]
+        text:Craft Prinaha Chestplate with [?(dragonscale>1199)|<#03ff13>1200 Dragon Scales<#000000>|<#ff2a00>1200 Dragon Scales<#000000>], [?(prinahafrag>15)|<#03ff13>16 Prinaha Fragments<#000000>|<#ff2a00>16 Prinaha Fragments<#000000>] and [?(stepfastchest>0)|<#03ff13>1 Stepfast Chestplate<#000000>|<#ff2a00>1 Stepfast Chestplate<#000000>]
         on earn:
-        if ((dragonscale>1199) and (prinahafrag>15) and (stepfastchestplate>0))
+        if ((dragonscale>1199) and (prinahafrag>15) and (stepfastchest>0))
         yield -1200 dragonscale
         yield -16 prinahafrag
-        yield -1 stepfastchestplate
-        yield 1 prinahachestplate
+        yield -1 stepfastchest
+        yield 1 prinahachest
         end
         lose craft66
         end
@@ -19227,13 +19534,13 @@ Upgrades
         tags:equipment craftables
         *craft70
         name:Craft Apech Chestplate
-        text:Craft Apech Chestplate with [?(dragonscale>4249)|<#03ff13>4250 Dragon Scales<#000000>|<#ff2a00>4250 Dragon Scales<#000000>], [?(apechfrag>17)|<#03ff13>18 Apech Fragments<#000000>|<#ff2a00>18 Apech Fragments<#000000>] and [?(prinahachestplate>0)|<#03ff13>1 Prinaha Chestplate<#000000>|<#ff2a00>1 Prinaha Chestplate<#000000>]
+        text:Craft Apech Chestplate with [?(dragonscale>4249)|<#03ff13>4250 Dragon Scales<#000000>|<#ff2a00>4250 Dragon Scales<#000000>], [?(apechfrag>17)|<#03ff13>18 Apech Fragments<#000000>|<#ff2a00>18 Apech Fragments<#000000>] and [?(prinahachest>0)|<#03ff13>1 Prinaha Chestplate<#000000>|<#ff2a00>1 Prinaha Chestplate<#000000>]
         on earn:
-        if ((dragonscale>4249) and (apechfrag>17) and (prinahachestplate>0))
+        if ((dragonscale>4249) and (apechfrag>17) and (prinahachest>0))
         yield -4250 dragonscale
         yield -18 apechfrag
-        yield -1 prinahachestplate
-        yield 1 apechchestplate
+        yield -1 prinahachest
+        yield 1 apechchest
         end
         lose craft70
         end
@@ -19283,13 +19590,13 @@ Upgrades
         tags:equipment craftables
         *craft74
         name:Craft Nuzdelclock Chestplate
-        text:Craft Nuzdelclock Chestplate with [?(dragonscale>12749)|<#03ff13>12750 Dragon Scales<#000000>|<#ff2a00>12750 Dragon Scales<#000000>], [?(nuzdelclockfrag>28)|<#03ff13>29 Nuzdelclock Fragments<#000000>|<#ff2a00>29 Nuzdelclock Fragments<#000000>] and [?(apechchestplate>0)|<#03ff13>1 Apech Chestplate<#000000>|<#ff2a00>1 Apech Chestplate<#000000>]
+        text:Craft Nuzdelclock Chestplate with [?(dragonscale>12749)|<#03ff13>12750 Dragon Scales<#000000>|<#ff2a00>12750 Dragon Scales<#000000>], [?(nuzdelclockfrag>28)|<#03ff13>29 Nuzdelclock Fragments<#000000>|<#ff2a00>29 Nuzdelclock Fragments<#000000>] and [?(apechchest>0)|<#03ff13>1 Apech Chestplate<#000000>|<#ff2a00>1 Apech Chestplate<#000000>]
         on earn:
-        if ((dragonscale>12749) and (nuzdelclockfrag>28) and (apechchestplate>0))
+        if ((dragonscale>12749) and (nuzdelclockfrag>28) and (apechchest>0))
         yield -12750 dragonscale
         yield -29 nuzdelclockfrag
-        yield -1 apechchestplate
-        yield 1 nuzdelchestplate
+        yield -1 apechchest
+        yield 1 nuzdelchest
         end
         lose craft74
         end
@@ -19339,13 +19646,13 @@ Upgrades
         tags:equipment craftables
         *craft78
         name:Craft Deathrine Chestplate
-        text:Craft Deathrine Chestplate with [?(dragonscale>32189)|<#03ff13>32190 Dragon Scales<#000000>|<#ff2a00>32190 Dragon Scales<#000000>], [?(deathrinefrag>43)|<#03ff13>44 Deathrine Fragments<#000000>|<#ff2a00>44 Deathrine Fragments<#000000>] and [?(nuzdelchestplate>0)|<#03ff13>1 Nuzdelclock Chestplate<#000000>|<#ff2a00>1 Nuzdelclock Chestplate<#000000>]
+        text:Craft Deathrine Chestplate with [?(dragonscale>32189)|<#03ff13>32190 Dragon Scales<#000000>|<#ff2a00>32190 Dragon Scales<#000000>], [?(deathrinefrag>43)|<#03ff13>44 Deathrine Fragments<#000000>|<#ff2a00>44 Deathrine Fragments<#000000>] and [?(nuzdelchest>0)|<#03ff13>1 Nuzdelclock Chestplate<#000000>|<#ff2a00>1 Nuzdelclock Chestplate<#000000>]
         on earn:
-        if ((dragonscale>32189) and (deathrinefrag>43) and (nuzdelchestplate>0))
+        if ((dragonscale>32189) and (deathrinefrag>43) and (nuzdelchest>0))
         yield -32190 dragonscale
         yield -44 deathrinefrag
-        yield -1 nuzdelchestplate
-        yield 1 deathrinechestplate
+        yield -1 nuzdelchest
+        yield 1 deathrinechest
         end
         lose craft78
         end
@@ -19395,13 +19702,13 @@ Upgrades
         tags:equipment craftables
         *craft82
         name:Craft Dralonic Godchestplate
-        text:Craft Dralonic Godchestplate with [?(dragonscale>88949)|<#03ff13>88950 Dragon Scales<#000000>|<#ff2a00>88950 Dragon Scales<#000000>], [?(dralfrag>103)|<#03ff13>104 Dralonic Fragments<#000000>|<#ff2a00>104 Dralonic Fragments<#000000>] and [?(deathrinechestplate>0)|<#03ff13>1 Deathrine Chestplate<#000000>|<#ff2a00>1 Deathrine Chestplate<#000000>]
+        text:Craft Dralonic Godchestplate with [?(dragonscale>88949)|<#03ff13>88950 Dragon Scales<#000000>|<#ff2a00>88950 Dragon Scales<#000000>], [?(dralfrag>103)|<#03ff13>104 Dralonic Fragments<#000000>|<#ff2a00>104 Dralonic Fragments<#000000>] and [?(deathrinechest>0)|<#03ff13>1 Deathrine Chestplate<#000000>|<#ff2a00>1 Deathrine Chestplate<#000000>]
         on earn:
-        if ((dragonscale>88949) and (dralfrag>103) and (deathrinechestplate>0))
+        if ((dragonscale>88949) and (dralfrag>103) and (deathrinechest>0))
         yield -88950 dragonscale
         yield -104 dralfrag
-        yield -1 deathrinechestplate
-        yield 1 dralonicchestplate
+        yield -1 deathrinechest
+        yield 1 dralonicchest
         end
         lose craft82
         end
@@ -19496,12 +19803,12 @@ Upgrades
         tag:equipment craftables
         *combine4
         name:Combine Equisitor Chestplate and Broken Chestplate
-        text:Combine [?(equisitorchestplate>0)|<#03ff13>1 Equisitor Chestplate<#000000>|<#ff2a00>1 Equisitor Chestplate<#000000>] and [?(brokenchestplate>0)|<#03ff13>1 Broken Chestplate<#000000>|<#ff2a00>1 Broken Chestplate<#000000>].
+        text:Combine [?(equisitorchest>0)|<#03ff13>1 Equisitor Chestplate<#000000>|<#ff2a00>1 Equisitor Chestplate<#000000>] and [?(brokenchestplate>0)|<#03ff13>1 Broken Chestplate<#000000>|<#ff2a00>1 Broken Chestplate<#000000>].
         on earn:
-        if ((equisitorchestplate>0) and (brokenchestplate>0))
-        yield -1 equisitorchestplate
+        if ((equisitorchest>0) and (brokenchestplate>0))
+        yield -1 equisitorchest
         yield -1 brokenchestplate
-        yield 1 liqunchestplate
+        yield 1 liqunchest
         yield 950 miningxp
         do click with checklevel
         end
@@ -19558,7 +19865,7 @@ Upgrades
         text:Create Dragonscale Platebody with [?(dragonscale>4999)|<#03ff13>5000 Dragon Scales<#000000>|<#ff2a00>5000 Dragon Scales<#000000>]
         on earn:
         if (dragonscale>4999)
-        yield 1 dragonscalepltbody
+        yield 1 dragonscalechest
         yield -5000 dragonscale
         yield 8500 miningxp
         do click with checklevel
@@ -19584,10 +19891,10 @@ Upgrades
         tag:equipment craftables
         *combine17
         name:Create Elder Dragonscale Platebody
-        text:Create Elder Dragonscale Platebody with [?(dragonscale>6999)|<#03ff13>7000 Dragon Scales<#000000>|<#ff2a00>7000 Dragon Scales<#000000>] and [?(dragonscalepltbody>0)|<#03ff13>1 Dragonscale Platebody<#000000>|<#ff2a00>1 Dragonscale Platebody<#000000>].
+        text:Create Elder Dragonscale Platebody with [?(dragonscale>6999)|<#03ff13>7000 Dragon Scales<#000000>|<#ff2a00>7000 Dragon Scales<#000000>] and [?(dragonscalechest>0)|<#03ff13>1 Dragonscale Platebody<#000000>|<#ff2a00>1 Dragonscale Platebody<#000000>].
         on earn:
-        if ((dragonscale>6999) and (dragonscalepltbody>0))
-        yield -1 dragonscalepltbody
+        if ((dragonscale>6999) and (dragonscalechest>0))
+        yield -1 dragonscalechest
         yield -7000 dragonscale
         yield 1 edrgsclplatebody
         yield 30000 miningxp
@@ -19857,33 +20164,8 @@ Upgrades
         end
         end
         req:1 xerdocodex
-        *sellwoodhelm
-        name:Sell Wooden Helmet
-        desc:Click here to sell your wooden helmet to earn coins
-        no buy
-        on click:
-        if (woodenhelmet>0)
-        yield 36 coins
-        yield -1 woodenhelmet
-        log You sold your wooden helmet for <#ebe834>36 coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 woodenhelmet
 
-        *sellwoodchest
-        name:Sell Wooden Chestplate
-        desc:Click here to sell your wooden chestplate to earn coins
-        no buy
-        on click:
-        if (woodenchestplate>0)
-        yield 49 coins
-        yield -1 woodenchestplate
-        log You sold your wooden chestplate for <#ebe834>49 coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 woodenchestplate
+
 
         *sellwoodlegs
         name:Sell Wooden Leggings
@@ -19927,34 +20209,6 @@ Upgrades
         tag:sellitems
         req:10 woodenboots
 
-        *sellminerhelm
-        name:Sell Miner Helmet
-        desc:Click here to sell your miner helmet to earn coins
-        no buy
-        on click:
-        if (minerhelmet>0)
-        yield 6011 coins
-        yield -1 minerhelmet
-        log You sold your miner helmet for <#ebe834>[6011] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 minerhelmet
-
-        *sellminerchest
-        name:Sell Miner Chestplate
-        desc:Click here to sell your miner chestplate to earn coins
-        no buy
-        on click:
-        if (minerchestplate>0)
-        yield 12790 coins
-        yield -1 minerchestplate
-        log You sold your miner chestplate for <#ebe834>[12790] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 minerchestplate
-
         *sellminerlegs
         name:Sell Miner Leggings
         desc:Click here to sell your miner leggings to earn coins
@@ -19982,62 +20236,6 @@ Upgrades
         end
         tag:sellitems
         req:1 minerboots
-
-        *sellstonehelm
-        name:Sell Stone Helmet
-        desc:Click here to sell your stone helmet to earn coins
-        no buy
-        on click:
-        if (stonehelmet>0)
-        yield 101 coins
-        yield -1 stonehelmet
-        log You sold your stone helmet for <#ebe834>101 coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 stonehelmet
-
-        *sellstonehelmx10
-        name:Sell Stone Helmet (x10)
-        desc:Click here to sell your stone helmets to earn coins
-        no buy
-        on click:
-        if (stonehelmet>9)
-        yield 1010 coins
-        yield -10 stonehelmet
-        log You sold your stone helmets for <#ebe834>1,010 coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:10 stonehelmet
-
-        *sellstonechest
-        name:Sell Stone Chestplate
-        desc:Click here to sell your stone chestplate to earn coins
-        no buy
-        on click:
-        if (stonechestplate>0)
-        yield 291 coins
-        yield -1 stonechestplate
-        log You sold your stone chestplate for <#ebe834>291 coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 stonechestplate
-
-        *sellstonechestx10
-        name:Sell Stone Chestplate (x10)
-        desc:Click here to sell your stone chestplates to earn coins
-        no buy
-        on click:
-        if (stonechestplate>9)
-        yield 2910 coins
-        yield -10 stonechestplate
-        log You sold your stone chestplates for <#ebe834>2,910 coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:10 stonechestplate
 
         *sellstonelegs
         name:Sell Stone Leggings
@@ -20853,33 +21051,9 @@ Upgrades
         tag:sellitems
         req:1 equisitorshield
         
-        *sellironhelmet
-        name:Sell Iron Helmet
-        desc:Click here to sell your iron helmet to earn coins
-        no buy
-        on click:
-        if (ironhelmet>0)
-        yield 4101 coins
-        yield -1 ironhelmet
-        log You sold your iron helmet for <#ebe834>[4101] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 ironhelmet
 
-        *sellironchestplate
-        name:Sell Iron Platebody
-        desc:Click here to sell your iron platebody to earn coins
-        no buy
-        on click:
-        if (ironchestplate>0)
-        yield 6444 coins
-        yield -1 ironchestplate
-        log You sold your iron platebody for <#ebe834>[6444] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 ironchestplate
+
+
 
         *sellironleggings
         name:Sell Iron Leggings
@@ -20909,33 +21083,7 @@ Upgrades
         tag:sellitems
         req:1 ironboots
 
-        *sellsteelhelmet
-        name:Sell Steel Helmet
-        desc:Click here to sell your steel helmet to earn coins
-        no buy
-        on click:
-        if (steelhelmet>0)
-        yield 28555 coins
-        yield -1 steelhelmet
-        log You sold your steel helmet for <#ebe834>[28555] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 steelhelmet
 
-        *sellsteelchestplate
-        name:Sell Steel Platebody
-        desc:Click here to sell your steel platebodyto earn coins
-        no buy
-        on click:
-        if (steelchestplate>0)
-        yield 45000 coins
-        yield -1 steelchestplate
-        log You sold your steel chestplate for <#ebe834>[45000] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 steelchestplate
 
         *sellsteelleggings
         name:Sell Steel Platelegs
@@ -20965,33 +21113,6 @@ Upgrades
         tag:sellitems
         req:1 steelboots
 
-        *sellgoldhelmet
-        name:Sell Gold Helmet
-        desc:Click here to sell your gold helmet to earn coins
-        no buy
-        on click:
-        if (goldhelmet>0)
-        yield 62344 coins
-        yield -1 goldhelmet
-        log You sold your gold helmet for <#ebe834>[62344] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 goldhelmet
-
-        *sellgoldchestplate
-        name:Sell Gold Platebody
-        desc:Click here to sell your gold platebody to earn coins
-        no buy
-        on click:
-        if (goldchestplate>0)
-        yield 102605 coins
-        yield -1 goldchestplate
-        log You sold your gold platebody for <#ebe834>[102605] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 goldchestplate
 
         *sellgoldleggings
         name:Sell Gold Platelegs
@@ -21021,33 +21142,6 @@ Upgrades
         tag:sellitems
         req:1 goldboots
 
-        *sellplathelmet
-        name:Sell Platinum Helmet
-        desc:Click here to sell your platinum helmet to earn coins
-        no buy
-        on click:
-        if (platinumhelmet>0)
-        yield 411341 coins
-        yield -1 platinumhelmet
-        log You sold your platinum helmet for <#ebe834>[411341] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 platinumhelmet
-
-        *sellplatchestplate
-        name:Sell Platinum Platebody
-        desc:Click here to sell your platinum platebody to earn coins
-        no buy
-        on click:
-        if (platinumchestplate>0)
-        yield 604210 coins
-        yield -1 platinumchestplate
-        log You sold your platinum platebody for <#ebe834>[604210] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 platinumchestplate
 
         *sellplatleggings
         name:Sell Platinum Platelegs
@@ -21078,33 +21172,6 @@ Upgrades
         req:1 platinumboots
 
 
-        *sellstephelmet
-        name:Sell Stepfast Helmet
-        desc:Click here to sell your stepfast helmet to earn coins
-        no buy
-        on click:
-        if (stepfasthelmet>0)
-        yield 4125003 coins
-        yield -1 stepfasthelmet
-        log You sold your stepfast helmet for <#ebe834>[4125003] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 stepfasthelmet
-
-        *sellstepchestplate
-        name:Sell Stepfast Chestplate
-        desc:Click here to sell your stepfast chestplate to earn coins
-        no buy
-        on click:
-        if (stepfastchestplate>0)
-        yield 6412232 coins
-        yield -1 stepfastchestplate
-        log You sold your stepfast chestplate for <#ebe834>[6412232] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 stepfastchestplate
 
         *sellstepleggings
         name:Sell Stepfast Leggings
@@ -21134,33 +21201,6 @@ Upgrades
         tag:sellitems
         req:1 stepfastboots
 
-        *sellprinhelmet
-        name:Sell Prinaha Helmet
-        desc:Click here to sell your prinaha helmet to earn coins
-        no buy
-        on click:
-        if (prinahahelmet>0)
-        yield 16412320 coins
-        yield -1 prinahahelmet
-        log You sold your prinaha helmet for <#ebe834>[16412320] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 prinahahelmet
-
-        *sellprinchestplate
-        name:Sell Prinaha Chestplate
-        desc:Click here to sell your prinaha chestplate to earn coins
-        no buy
-        on click:
-        if (prinahachestplate>0)
-        yield 24159850 coins
-        yield -1 prinahachestplate
-        log You sold your prinaha chestplate for <#ebe834>[24159850] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 prinahachestplate
 
         *sellprinleggings
         name:Sell Prinaha Leggings
@@ -21190,34 +21230,6 @@ Upgrades
         tag:sellitems
         req:1 prinahaboots
 
-        *sellapechhelmet
-        name:Sell Apech Helmet
-        desc:Click here to sell your apech helmet to earn coins
-        no buy
-        on click:
-        if (apechhelmet>0)
-        yield 42785012 coins
-        yield -1 apechhelmet
-        log You sold your apech helmet for <#ebe834>[42785012] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 apechhelmet
-
-        *sellapechchestplate
-        name:Sell Apech Chestplate
-        desc:Click here to sell your apech chestplate to earn coins
-        no buy
-        on click:
-        if (apechchestplate>0)
-        yield 65989520 coins
-        yield -1 apechchestplate
-        log You sold your apech chestplate for <#ebe834>[65989520] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 apechchestplate
-
         *sellapechleggings
         name:Sell Apech Leggings
         desc:Click here to sell your apech leggings to earn coins
@@ -21246,33 +21258,6 @@ Upgrades
         tag:sellitems
         req:1 apechboots
 
-        *sellnuzdelhelmet
-        name:Sell Nuzdelclock Helmet
-        desc:Click here to sell your nuzdelclock helmet to earn coins
-        no buy
-        on click:
-        if (nuzdelhelmet>0)
-        yield 172458052 coins
-        yield -1 nuzdelhelmet
-        log You sold your nuzdelclock helmet for <#ebe834>[172458052] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 nuzdelhelmet
-
-        *sellnuzdchestplate
-        name:Sell Nuzdelclock Chestplate
-        desc:Click here to sell your nuzdelclock chestplate to earn coins
-        no buy
-        on click:
-        if (nuzdelchestplate>0)
-        yield 268452012 coins
-        yield -1 nuzdelchestplate
-        log You sold your nuzdelclock chestplate for <#ebe834>[268452012] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 nuzdelchestplate
 
         *sellnuzdelleggings
         name:Sell Nuzdelclock Leggings
@@ -21302,33 +21287,6 @@ Upgrades
         tag:sellitems
         req:1 nuzdelboots
 
-        *selldeathhelmet
-        name:Sell Deathrine Helmet
-        desc:Click here to sell your deathrine helmet to earn coins
-        no buy
-        on click:
-        if (deathrinehelmet>0)
-        yield 669512003 coins
-        yield -1 deathrinehelmet
-        log You sold your deathrine helmet for <#ebe834>[669512003] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 deathrinehelmet
-
-        *selldeathchestplate
-        name:Sell Deathrine Chestplate
-        desc:Click here to sell your deathrine chestplate to earn coins
-        no buy
-        on click:
-        if (deathrinechestplate>0)
-        yield 914587520 coins
-        yield -1 deathrinechestplate
-        log You sold your deathrine chestplate for <#ebe834>[914587520] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 deathrinechestplate
 
         *selldeathleggings
         name:Sell Deathrine Leggings
@@ -21358,33 +21316,7 @@ Upgrades
         tag:sellitems
         req:1 deathrineboots
 
-        *selldralhelmet
-        name:Sell Dralonic Godhelmet
-        desc:Click here to sell your dralonic godhelmet to earn coins
-        no buy
-        on click:
-        if (deathrinehelmet>0)
-        yield 2764852100 coins
-        yield -1 dralonichelmet
-        log You sold your dralonic helmet for <#ebe834>[2764852100] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 dralonichelmet
 
-        *selldralchestplate
-        name:Sell Dralonic Godchestplate
-        desc:Click here to sell your dralonic godchestplate to earn coins
-        no buy
-        on click:
-        if (dralonicchestplate>0)
-        yield 3914520052 coins
-        yield -1 dralonicchestplate
-        log You sold your dralonic chestplate for <#ebe834>[3914520052] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 dralonicchestplate
 
         *selldralleggings
         name:Sell Dralonic Godleggings
@@ -21429,34 +21361,6 @@ Upgrades
         req:1 equisitoramulet
 
 
-        *selleqhelmet
-        name:Sell Equisitors Helmet
-        desc:Click here to sell your equisitors helmet to earn coins
-        no buy
-        on click:
-        if (equisitorhelmet>0)
-        yield 5980 coins
-        yield -1 equisitorhelmet
-        log You sold your equisitor helmet for <#ebe834>[5980] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 equisitorhelmet
-
-        *selleqchestplate
-        name:Sell Equisitors Chestplate
-        desc:Click here to sell your equisitors chestplate to earn coins
-        no buy
-        on click:
-        if (equisitorchestplate>0)
-        yield 24907 coins
-        yield -1 equisitorchestplate
-        log You sold your equisitor chestplate for <#ebe834>[24907] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 equisitorchestplate
-
         *selleqleggings
         name:Sell Equisitors Leggings
         desc:Click here to sell your equisitors leggings to earn coins
@@ -21485,33 +21389,6 @@ Upgrades
         tag:sellitems
         req:1 equisitorboots
 
-        *sellamadinehelmet
-        name:Sell Amadine Helmet
-        desc:Click here to sell your amadine helmet to earn coins
-        no buy
-        on click:
-        if (amadinehelmet>0)
-        yield 433712 coins
-        yield -1 amadinehelmet
-        log You sold your amadine helmet for <#ebe834>[433712] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 amadinehelmet
-
-        *sellamadinechest
-        name:Sell Amadine Chestplate
-        desc:Click here to sell your amadine chestplate to earn coins
-        no buy
-        on click:
-        if (amadinechestplate>0)
-        yield 1677000 coins
-        yield -1 amadinechestplate
-        log You sold your amadine chestplate for <#ebe834>[1677000] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 amadinechestplate
 
         *sellamadinelegs
         name:Sell Amadine Leggings
@@ -21555,33 +21432,7 @@ Upgrades
         tag:sellitems
         req:1 liqunamulet
 
-        *sellliqunhelmet
-        name:Sell Liqun Helmet
-        desc:Click here to sell your liqun helmet to earn coins
-        no buy
-        on click:
-        if (liqunhelmet>0)
-        yield 26992 coins
-        yield -1 liqunhelmet
-        log You sold your liqun helmet for <#ebe834>[26992] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 liqunhelmet
 
-        *sellliqunchestplate
-        name:Sell Liqun Chestplate
-        desc:Click here to sell your liqun chestplate to earn coins
-        no buy
-        on click:
-        if (liqunchestplate>0)
-        yield 94231 coins
-        yield -1 liqunchestplate
-        log You sold your liqun chestplate for <#ebe834>[94231] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 liqunchestplate
 
         *sellliqunleggings
         name:Sell Liqun Leggings
@@ -21611,33 +21462,6 @@ Upgrades
         tag:sellitems
         req:1 liqunboots
 
-        *selllathhelmet
-        name:Sell Lathikalkum Helmet
-        desc:Click here to sell your lathikalkum helmet to earn coins
-        no buy
-        on click:
-        if (lathhelmet>0)
-        yield 11562250 coins
-        yield -1 lathhelmet
-        log You sold your lathikalkum helmet for <#ebe834>[11562250] Coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 lathhelmet
-
-        *selllathchestplate
-        name:Sell Lathikalkum Platebody
-        desc:Click here to sell your lathikalkum platebody to earn coins
-        no buy
-        on click:
-        if (lathchestplate>0)
-        yield 18217644 coins
-        yield -1 lathchestplate
-        log You sold your lathikalkum platebody for <#ebe834>[18217644] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 lathchestplate
 
         *selllathleggings
         name:Sell Lathikalkum Platelegs
@@ -21667,19 +21491,6 @@ Upgrades
         tag:sellitems
         req:1 lathboots
 
-        *selldragscalepltbody
-        name:Sell Dragonscale Platebody
-        desc:Click here to sell your dragonscale platebody to earn coins
-        no buy
-        on click:
-        if (dragonscalepltbody>0)
-        yield 27890367 coins
-        yield -1 dragonscalepltbody
-        log You sold your dragonscale platebody for <#ebe834>[27890367] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 dragonscalepltbody
 
         *selldrgsclpltlegs
         name:Sell Dragonscale Platelegs
@@ -21708,62 +21519,6 @@ Upgrades
         end
         tag:sellitems
         req:1 cexopack
-         
-        *sellexopack
-        name:Sell Exo-Pack
-        desc:Click here to sell your exo-pack to earn coins
-        no buy
-        on click:
-        if (exopack>0)
-        yield 1245200000 coins
-        yield -1 exopack
-        log You sold your exo-pack for <#ebe834>[1245200000] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 exopack
-
-        *sellroanhelmet
-        name:Sell Roan Helmet
-        desc:Click here to sell your roan helmet to earn coins
-        no buy
-        on click:
-        if (roanhelmet>0)
-        yield 14944134 coins
-        yield -1 roanhelmet
-        log You sold your roan boots for <#ebe834>[14944134] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 roanhelmet
-
-        *sellglavyiorhelmet
-        name:Sell Glavyior Helmet
-        desc:Click here to sell your glavyior helmet to earn coins
-        no buy
-        on click:
-        if (glavyiorhelmet>0)
-        yield 25731023 coins
-        yield -1 glavyiorhelmet
-        log You sold your glavyior boots for <#ebe834>[25731023] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 glavyiorhelmet
-
-        *sellzarkhelmet
-        name:Sell Zark Helmet
-        desc:Click here to sell your zark helmet to earn coins
-        no buy
-        on click:
-        if (zarkhelmet>0)
-        yield 74222221 coins
-        yield -1 zarkhelmet
-        log You sold your zark boots for <#ebe834>[74222221] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 zarkhelmet
 
         *sellroanboots
         name:Sell Roan Boots
@@ -21848,34 +21603,7 @@ Upgrades
         end
         tag:sellitems
         req:1 szarkboots
-        
-        *sellkyphood
-        name:Sell Kyplonzin's Hood
-        desc:Click here to sell your kyplonzin's hood to earn coins
-        no buy
-        on click:
-        if (kyplozinhood>0)
-        yield 1995102309 coins
-        yield -1 kyplozinhood
-        log You sold your kyplonzin's hood for <#ebe834>[1995102309] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 kyplozinhood
 
-        *sellkyprobetop
-        name:Sell Kyplonzin's Robe Top
-        desc:Click here to sell your kyplonzin's robe top to earn coins
-        no buy
-        on click:
-        if (kyplozinrobetop>0)
-        yield 1691020100 coins
-        yield -1 kyplozinrobetop
-        log You sold your kyplonzin's robe top for <#ebe834>[1691020100] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 kyplozinrobetop
 
         *sellkyprobebottom
         name:Sell Kyplonzin's Robe Bottom
@@ -21905,33 +21633,7 @@ Upgrades
         tag:sellitems
         req:1 kyplozinboots
 
-        *selleplisorhelmet
-        name:Sell Eplisor Helmet
-        desc:Click here to sell your Eplisor Helmet to earn coins
-        no buy
-        on click:
-        if (eplisorhelmet>0)
-        yield 1990123086 coins
-        yield -1 eplisorhelmet
-        log You sold your Eplisor Helmet for <#ebe834>[1990123086] coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 eplisorhelmet
 
-        *selleplisorplatebody
-        name:Sell Eplisor Platebody
-        desc:Click here to sell your Eplisor Platebody to earn coins
-        no buy
-        on click:
-        if (eplisorplatebody>0)
-        yield 2641981461 coins
-        yield -1 eplisorplatebody
-        log You sold your Eplisor Platebody for <#ebe834>2641981461 coins<#d4d4d4>!
-        end
-        end
-        tag:sellitems
-        req:1 eplisorplatebody
 
         *selleplisorplatelegs
         name:Sell Eplisor Platelegs
@@ -24415,105 +24117,55 @@ Upgrades
 
 
         // IGM:SECTION:EQP Helmet
-        [include eqphelmet %id="woodenhelmet" %name="Wooden Helmet" %maxhp="31" %regenhprate="0.2"]
-        [include eqphelmet %id="minerhelmet" %name="Miners Helmet" %maxhp="68" %minersoutfitb="0.02"]
-        [include eqphelmet %id="stonehelmet" %name="Stone Helmet" %maxhp="108" %regenhprate="0.6"]
-        [include eqphelmet %id="ironhelmet" %name="Iron Helmet" %maxhp="134" %regenhprate="0.6" %bregenhprate="0.3"]
-        [include eqphelmet %id="steelhelmet" %name="Steel Helmet" %maxhp="166" %regenhprate="1.3" %bregenhprate="0.5"]
-        [include eqphelmet %id="goldhelmet" %name="Gold Helmet" %maxhp="189" %regenhprate="1.7" %bregenhprate="0.7"]
-        [include eqphelmet %id="equisitorhelmet" %name="Equisitors Helmet" %maxhp="246" %regenhprate="3.4" %bregenhprate="0.3"]
-        [include eqphelmet %id="platinumhelmet" %name="Platinum Helmet" %maxhp="278" %regenhprate="4.4" %bregenhprate="0.6"]
-        [include eqphelmet %id="stepfasthelmet" %name="Stepfast Helmet" %maxhp="243" %bregenhprate="2.3"]
-        [include eqphelmet %id="prinahahelmet" %name="Prinaha Helmet" %maxhp="334" %bregenhprate="3.4"]
-        [include eqphelmet %id="apechhelmet" %name="Apech Helmet" %maxhp="428" %bregenhprate="4.2"]
-        [include eqphelmet %id="nuzdelhelmet" %name="Nuzdelclock Helmet" %maxhp="561" %bregenhprate="5.4" %attackmin="3" %attackmax="6"]
-        [include eqphelmet %id="deathrinehelmet" %name="Deathrine Helmet" %maxhp="681" %regenhprate="2.9" %bregenhprate="6.4" %attackmin="8" %attackmax="14"]
-        [include eqphelmet %id="dralonichelmet" %name="Dralonic Godhelmet" %maxhp="809" %regenhprate="4.5" %bregenhprate="8.9" %attackmin="13" %attackmax="25"]
-        [include eqphelmet %id="amadinehelmet" %name="Amadine Helmet" %maxhp="202" %regenhprate="4.6" %bregenhprate="1.5"]
-        [include eqphelmet %id="liqunhelmet" %name="Liqun Helmet" %maxhp="154" %regenhprate="3.2" %bregenhprate="2.3"]
-        [include eqphelmet %id="lathhelmet" %name="Lathikalkum Helmet" %maxhp="474" %regenhprate="4" %bregenhprate="3"]
-        [include eqphelmet %id="roanhelmet" %name="Roan Helmet" %maxhp="614" %regenhprate="13.2"]
-        [include eqphelmet %id="glavyiorhelmet" %name="Glavyior Helmet" %maxhp="356" %regenhprate="5.3" %bregenhprate="6.8"]
-        [include eqphelmet %id="zarkhelmet" %name="Zark Helmet" %maxhp="349" %regenhprate="3" %attackmin="12" %attackmax="19"]
-        [include eqphelmet %id="kyplozinhood" %name="Kyplonzin's Hood" %maxhp="589" %regenhprate="2.5" %bregenhprate="4.4" %attackmin="11" %attackmax="17" %bleedingpower="53"]
-        [include eqphelmet %id="eplisorhelmet" %name="Eplisor Helmet" %maxhp="413" %attackmin="31" %attackmax="54" %critchance="4.3" %shatterpower="65"]
+        [include eqp %type="1" %id="woodenhelmet" %desc="Довольно трудно удержать на голове" %tier="1" %price="36" %name="Деревянный шлем" %maxhp="31" %regenhprate="0.2"]
+        [include eqp %type="1" %id="minerhelmet" %desc="Излучает тусклый свет" %price="6011" %name="Шахтерская каска" %maxhp="68" %minersoutfitb="0.02"]
+        [include eqp %type="1" %id="stonehelmet" %desc="Холодный на ощупь" %tier="2" %price="101" %name="Каменный шлем" %maxhp="108" %regenhprate="0.6"]
+        [include eqp %type="1" %id="ironhelmet" %desc="Скован из железа" %tier="3" %price="4101" %name="Железный шлем" %maxhp="134" %regenhprate="0.6" %bregenhprate="0.3"]
+        [include eqp %type="1" %id="steelhelmet" %desc="Скован из стали" %tier="4" %price="28555" %name="Стальной шлем" %maxhp="166" %regenhprate="1.3" %bregenhprate="0.5"]
+        [include eqp %type="1" %id="goldhelmet" %desc="Скован из золота" %tier="5" %price="62344" %name="Золотой шлем" %maxhp="189" %regenhprate="1.7" %bregenhprate="0.7"]
+        [include eqp %type="1" %id="equisitorhelmet" %desc="Надев, начинает кружиться голова" %price="5980" %name="Шлем инквизитора" %maxhp="246" %regenhprate="3.4" %bregenhprate="0.3"]
+        [include eqp %type="1" %id="platinumhelmet" %desc="Скован из платины" %price="411341" %name="Платиновый шлем" %maxhp="278" %regenhprate="4.4" %bregenhprate="0.6"]
+        [include eqp %type="1" %id="stepfasthelmet" %desc="Скован из stepfast fragment, не долговечный" %price="4125003" %name="Stepfast Helmet" %maxhp="243" %bregenhprate="2.3"]
+        [include eqp %type="1" %id="prinahahelmet" %desc="Скован из prinaha fragment, начного прочнее, чем раньше" %price="16412320" %name="Prinaha Helmet" %maxhp="334" %bregenhprate="3.4"]
+        [include eqp %type="1" %id="apechhelmet" %desc="Скован из apech fragment, сверхпрочный" %price="42785012" %name="Apech Helmet" %maxhp="428" %bregenhprate="4.2"]
+        [include eqp %type="1" %id="nuzdelhelmet" %price="172458052" %name="Nuzdelclock Helmet" %maxhp="561" %bregenhprate="5.4" %attackmin="3" %attackmax="6"]
+        [include eqp %type="1" %id="deathrinehelmet" %price="669512003" %name="Deathrine Helmet" %maxhp="681" %regenhprate="2.9" %bregenhprate="6.4" %attackmin="8" %attackmax="14"]
+        [include eqp %type="1" %id="dralonichelmet" %price="2764852100" %name="Dralonic Godhelmet" %maxhp="809" %regenhprate="4.5" %bregenhprate="8.9" %attackmin="13" %attackmax="25"]
+        [include eqp %type="1" %id="amadinehelmet" %price="433712" %name="Amadine Helmet" %maxhp="202" %regenhprate="4.6" %bregenhprate="1.5"]
+        [include eqp %type="1" %id="liqunhelmet" %price="26992" %name="Liqun Helmet" %maxhp="154" %regenhprate="3.2" %bregenhprate="2.3"]
+        [include eqp %type="1" %id="lathhelmet" %price="11562250" %name="Lathikalkum Helmet" %maxhp="474" %regenhprate="4" %bregenhprate="3"]
+        [include eqp %type="1" %id="roanhelmet" %price="14944134" %name="Roan Helmet" %maxhp="614" %regenhprate="13.2"]
+        [include eqp %type="1" %id="glavyiorhelmet" %price="25731023" %name="Glavyior Helmet" %maxhp="356" %regenhprate="5.3" %bregenhprate="6.8"]
+        [include eqp %type="1" %id="zarkhelmet" %price="74222221" %name="Zark Helmet" %maxhp="349" %regenhprate="3" %attackmin="12" %attackmax="19"]
+        [include eqp %type="1" %id="kyplozinhood" %price="1995102309" %name="Kyplonzin's Hood" %maxhp="589" %regenhprate="2.5" %bregenhprate="4.4" %attackmin="11" %attackmax="17" %bleedingpower="53"]
+        [include eqp %type="1" %id="eplisorhelmet" %price="1990123086" %name="Eplisor Helmet" %maxhp="413" %attackmin="31" %attackmax="54" %critchance="4.3" %shatterpower="65"]
 
 
 
         // IGM:SECTION:EQP Chestplate
-        [include eqpchestplate %id="woodenchestplate" %name="Wooden Chestplate" %maxhp="43" %regenhprate="0.3"]
-        [include eqpchestplate %id="minerchestplate" %name="Miners Chestplate" %maxhp="84" %minersoutfitb="0.02"]
-        [include eqpchestplate %id="stonechestplate" %name="Stone Chestplate" %maxhp="164" %regenhprate="1.2" %bregenhprate="0.2"]
-        [include eqpchestplate %id="ironchestplate" %name="Iron Platebody" %maxhp="200" %regenhprate="1.2" %bregenhprate="0.5"]
-        [include eqpchestplate %id="steelchestplate" %name="Steel Platebody" %maxhp="246" %regenhprate="1.8" %bregenhprate="0.8"]
-        [include eqpchestplate %id="goldchestplate" %name="Gold Platebody" %maxhp="280" %regenhprate="2.4" %bregenhprate="1.2"]
-        [include eqpchestplate %id="equisitorchestplate" %name="Equisitors Chestplate" %maxhp="496" %regenhprate="5" %bregenhprate="0.6"]
-        [include eqpchestplate %id="platinumchestplate" %name="Platinum Platebody" %maxhp="513" %regenhprate="5.6" %bregenhprate="1"]
-        [include eqpchestplate %id="stepfastchestplate" %name="Stepfast Chestplate" %maxhp="317" %bregenhprate="2.9"]
-        [include eqpchestplate %id="prinahachestplate" %name="Prinaha Chestplate" %maxhp="423" %bregenhprate="4.1"]
-        [include eqpchestplate %id="apechchestplate" %name="Apech Chestplate" %maxhp="539" %bregenhprate="5.1"]
-        [include eqpchestplate %id="nuzdelchestplate" %name="Nuzdelclock Chestplate" %maxhp="713" %bregenhprate="6.7" %attackmin="5" %attackmax="9"]
-        [include eqpchestplate %id="deathrinechestplate" %name="Deathrine Chestplate" %maxhp="868" %regenhprate="7.8" %bregenhprate="3.6" %attackmin="11" %attackmax="20"]
-        [include eqpchestplate %id="dralonicchestplate" %name="Dralonic Godchestplate" %maxhp="972" %regenhprate="10.6" %bregenhprate="6.3" %attackmin="18" %attackmax="37"]
-        [include eqpchestplate %id="amadinechestplate" %name="Amadine Chestplate" %maxhp="363" %regenhprate="6.9" %bregenhprate="2"]
-        [include eqpchestplate %id="liqunchestplate" %name="Liqun Chestplate" %maxhp="224" %regenhprate="3.9" %bregenhprate="2.7"]
-        [include eqpchestplate %id="lathchestplate" %name="Lathikalkum Platebody" %maxhp="643" %regenhprate="5" %bregenhprate="4.2"]
-        [include eqpchestplate %id="dragonscalepltbody" %name="Dragonscale Platebody" %maxhp="742" %regenhprate="9.2" %bregenhprate="5.2"]
-        [include eqpchestplate %id="edrgsclplatebody" %name="Elder Dragonscale Platebody" %maxhp="892" %regenhprate="10.3" %bregenhprate="6.5" %bleedingpower="25"]
-        [include eqpchestplate %id="kyplozinrobetop" %name="Kyplonzin's Robe Top" %maxhp="972" %regenhprate="6.3" %bregenhprate="10.6" %attackmin="11" %attackmax="17" %bleedingpower="88"]
-        [include eqpchestplate %id="eplisorplatebody" %name="Eplisor Platebody" %maxhp="679" %attackmin="58" %attackmax="94" %critchance="6" %shatterpower="88"]
-        // TODO Добавить после инклуда ещё событие клик для снятия штанов и дополнительный тег штанов
-        *exopack2
-                name:Exo-Pack
-                text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                desc:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                tag:equipment equipment_chestplate equipment_leggings
-                req:1 exopack
-                no buy
-                on earn:
-                        yield chestequipped
-                        //
-                        yield 2881 maxhp
-                        yield 15.4 regenhprate
-                        yield 18.5 bregenhprate
-                        yield 39 attackmin
-                        yield 68 attackmax
-                        yield 37 bleedingpower
-                        yield 30 shatterpower
-                        yield 12 crushpower
-                        yield 15 itemfind
-                        //
-                        lose 1 exopack
-                        //
-                        toast <b>[n:this]</b> надет
-                end
-                on lose:
-                        lose chestequipped
-                        //
-                        lose 2881 maxhp
-                        lose 15.4 regenhprate
-                        lose 18.5 bregenhprate
-                        lose 39 attackmin
-                        lose 68 attackmax
-                        lose 37 bleedingpower
-                        lose 30 shatterpower
-                        lose 12 crushpower
-                        lose 15 itemfind
-                        if (hp>=maxhp) hp=maxhp
-                        //
-                        yield 1 exopack
-                        //
-                        toast <b>[n:this]</b> снят
-                end
-                on click:
-                        if (have this)
-                                lose this
-                        else
-                                lose tag:equipment_chestplate
-                                lose tag:equipment_leggings
-                                yield this
-                        end
-                end
+        [include eqp %type="2" %id="woodenchestplate" %desc="Прочный нагрудник из дерева" %tier="1" %price="49" %name="Деревянный нагрудник" %maxhp="43" %regenhprate="0.3"]
+        [include eqp %type="2" %id="minerchestplate" %desc="Для шахты сгодится" %price="12790" %name="Шахтерский нагрудник" %maxhp="84" %minersoutfitb="0.02"]
+        [include eqp %type="2" %id="stonechestplate" %desc="Сливается со скалами" %tier="2" %price="291" %name="Каменный нагрудник" %maxhp="164" %regenhprate="1.2" %bregenhprate="0.2"]
+        [include eqp %type="2" %id="ironchestplate" %desc="Скован из железа" %tier="3" %price="6444" %name="Железный нагрудник" %maxhp="200" %regenhprate="1.2" %bregenhprate="0.5"]
+        [include eqp %type="2" %id="steelchestplate" %desc="Скован из стали" %tier="4" %price="45000" %name="Стальной нагрудник" %maxhp="246" %regenhprate="1.8" %bregenhprate="0.8"]
+        [include eqp %type="2" %id="goldchestplate" %desc="Скован из золота" %tier="5" %price="102605" %name="Золотой нагрудник" %maxhp="280" %regenhprate="2.4" %bregenhprate="1.2"]
+        [include eqp %type="2" %id="equisitorchest" %price="24907" %name="Нагрудник инквизитора" %maxhp="496" %regenhprate="5" %bregenhprate="0.6"]
+        [include eqp %type="2" %id="platinumchest" %desc="Скован из платины" %price="604210" %name="Платиновый нагрудник" %maxhp="513" %regenhprate="5.6" %bregenhprate="1"]
+        [include eqp %type="2" %id="stepfastchest" %price="6412232" %name="Stepfast Chestplate" %maxhp="317" %bregenhprate="2.9"]
+        [include eqp %type="2" %id="prinahachest" %price="24159850" %name="Prinaha Chestplate" %maxhp="423" %bregenhprate="4.1"]
+        [include eqp %type="2" %id="apechchest" %price="65989520" %name="Apech Chestplate" %maxhp="539" %bregenhprate="5.1"]
+        [include eqp %type="2" %id="nuzdelchest" %price="268452012" %name="Nuzdelclock Chestplate" %maxhp="713" %bregenhprate="6.7" %attackmin="5" %attackmax="9"]
+        [include eqp %type="2" %id="deathrinechest" %price="914587520" %name="Deathrine Chestplate" %maxhp="868" %regenhprate="7.8" %bregenhprate="3.6" %attackmin="11" %attackmax="20"]
+        [include eqp %type="2" %id="dralonicchest" %price="3914520052" %name="Dralonic Godchestplate" %maxhp="972" %regenhprate="10.6" %bregenhprate="6.3" %attackmin="18" %attackmax="37"]
+        [include eqp %type="2" %id="amadinechest" %price="1677000" %name="Amadine Chestplate" %maxhp="363" %regenhprate="6.9" %bregenhprate="2"]
+        [include eqp %type="2" %id="liqunchest" %price="94231" %name="Liqun Chestplate" %maxhp="224" %regenhprate="3.9" %bregenhprate="2.7"]
+        [include eqp %type="2" %id="lathchest" %price="18217644" %name="Lathikalkum Platebody" %maxhp="643" %regenhprate="5" %bregenhprate="4.2"]
+        [include eqp %type="2" %id="dragonscalechest" %price="27890367" %name="Dragonscale Platebody" %maxhp="742" %regenhprate="9.2" %bregenhprate="5.2"]
+        [include eqp %type="2" %id="edrgsclplatebody" %price="55099100" %name="Elder Dragonscale Platebody" %maxhp="892" %regenhprate="10.3" %bregenhprate="6.5" %bleedingpower="25"]
+        [include eqp %type="2" %id="kyplozinrobetop" %price="1691020100" %name="Kyplonzin's Robe Top" %maxhp="972" %regenhprate="6.3" %bregenhprate="10.6" %attackmin="11" %attackmax="17" %bleedingpower="88"]
+        [include eqp %type="2" %id="eplisorplatebody" %price="2641981461" %name="Eplisor Platebody" %maxhp="679" %attackmin="58" %attackmax="94" %critchance="6" %shatterpower="88"]
+        //
+        [include eqp %type="6" %id="exopack" %price="1245200000" %name="Exo-Pack" %maxhp="2881" %regenhprate="15.4" %bregenhprate="18.5" %attackmin="39" %attackmax="68" %bleedingpower="37" %shatterpower="30" %crushpower="12" %itemfind="15"]
 
 
 
@@ -25185,12 +24837,12 @@ Includes
                         end
 
 
-
-        *include eqphelmet %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %minersoutfitb="0"
+        // TODO: desc сделать обязательным
+        *include eqphelmet %id %name %desc="Описание отсутствует" %price="0" %tier="?" %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %minersoutfitb="0"
                 *[%id]2
                         name:[%name]
                         text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
-                        desc:[?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]%</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|]
+                        desc:[%desc]</></><.>Tier:............<#55ff00>[%tier]</#><.>Price:...........<#fbe000>[[%price]]</#><.>Amount:..........[[%id]][?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]%</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|]
                         tag:equipment equipment_helmet
                         req:1 [%id]
                         no buy
@@ -25238,7 +24890,87 @@ Includes
                                 end
                         end
 
-
+// ==============
+/*
+helmet          1
+chest           2
+leggings        4
+boots           8
+gloves          16
+=====
+amulet          32
+ring            64
+cape            128
+=====
+...
+*/
+// %type and %tag объединить в бит (binary) и тэг будет выглядеть: eqp_b4 (1-2-4-8-16-32-...) и если это костюм: штаны и нагрудник, то сумма (бинарная сумма) eqp_b6 (2+4)
+        *include eqp %type %id %name %desc="Описание отсутствует" %price="0" %tier="?" %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %critchance="0" %crushpower="0" %shatterpower="0" %minersoutfitb="0" %itemfind="0"
+                *[%id]2
+                        name:[%name]
+                        text:[?(have this)|Снять|Надеть] <b>[n:this]</b>
+                        desc:[%desc]</></><.>Item Find:.......<#55ff00>[%itemfind]%</#><.>Crush Power:.....<#55ff00>[%crushpower]</#><.>Tier:............<#55ff00>[%tier]</#><.>Price:...........<#fbe000>[[%price]]</#><.>Amount:..........[[%id]][?([%maxhp]>0)|<.>HP:..............<#55ff00>[%maxhp]</#>|][?([%regenhprate]>0)|<.>HP Regen:........<#55ff00>[%regenhprate]/s</#>|][?([%bregenhprate]>0)|<.>Battle HP Regen:.<#55ff00>[%bregenhprate]/s</#>|][?([%attackmin]>0)|<.>Attack Min:......<#55ff00>[%attackmin]</#>|][?([%attackmax]>0)|<.>Attack Max:......<#55ff00>[%attackmax]</#>|][?([%bleedingpower]>0)|<.>Bleeding Power:..<#55ff00>[%bleedingpower]</#>|][?([%critchance]>0)|<.>Crit Chance:.....<#55ff00>[%critchance]%</#>|][?([%shatterpower]>0)|<.>Shatter Power:...<#55ff00>[%shatterpower]</#>|]
+                        tag:equipment eqp_[%type]
+                        req:1 [%id]
+                        no buy
+                        on earn:
+                                if ([%type] is 1) yield helmequipped
+                                if ([%type] is 2 or [%type] is 6) yield chestequipped
+                                if ([%type] is 4 or [%type] is 6) yield legequipped
+                                //
+                                yield [%maxhp] maxhp
+                                yield [%regenhprate] regenhprate
+                                yield [%bregenhprate] bregenhprate
+                                yield [%attackmin] attackmin
+                                yield [%attackmax] attackmax
+                                yield [%bleedingpower] bleedingpower
+                                yield [%critchance] critchance
+                                yield [%shatterpower] shatterpower
+                                yield [%minersoutfitb] minersoutfitb
+                                yield [%crushpower] crushpower
+                                yield [%itemfind] itemfind
+                                //
+                                lose 1 [%id]
+                                //
+                                toast <b>[n:this]</b> надет
+                        end
+                        on lose:
+                                if ([%type] is 1) lose helmequipped
+                                if ([%type] is 2 or [%type] is 6) lose chestequipped
+                                if ([%type] is 4 or [%type] is 6) lose legequipped
+                                //
+                                lose [%maxhp] maxhp
+                                lose [%regenhprate] regenhprate
+                                lose [%bregenhprate] bregenhprate
+                                lose [%attackmin] attackmin
+                                lose [%attackmax] attackmax
+                                lose [%bleedingpower] bleedingpower
+                                lose [%critchance] critchance
+                                lose [%shatterpower] shatterpower
+                                lose [%minersoutfitb] minersoutfitb
+                                lose [%crushpower] crushpower
+                                lose [%itemfind] itemfind
+                                if (hp>=maxhp) hp=maxhp
+                                //
+                                yield 1 [%id]
+                                //
+                                toast <b>[n:this]</b> снят
+                        end
+                        on click:
+                                if (have this)
+                                        lose this
+                                else
+                                        if ([%type] is 6)
+                                                // Chest and Leggings
+                                                lose tag:eqp_2
+                                                lose tag:eqp_4
+                                        else
+                                                lose tag:eqp_[%type]
+                                        end
+                                        yield this
+                                end
+                        end
+// ==============
 
         *include eqpchestplate %id %name %maxhp %regenhprate="0" %bregenhprate="0" %attackmin="0" %attackmax="0" %bleedingpower="0" %critchance="0" %shatterpower="0" %minersoutfitb="0"
                 *[%id]2
@@ -25728,7 +25460,6 @@ Includes
                         end
 
 
-
         *include eqpBow %id %name %attackmin="0" %attackmax="0" %tickmax="0"
                 *[%id]2
                         name:[%name]
@@ -25776,3 +25507,14 @@ Includes
                                         yield this
                                 end
                         end
+
+
+
+        *include incshophandler0 %id %price
+                on sell[%id]:
+                        if (have menuTabShopSell and [%id]>0)
+                                lose 1 [%id]
+                                yield 36 coins
+                                log <b>[n:[%id]]</b> продан за <b>[[%price]] монет</b>
+                        end
+                end

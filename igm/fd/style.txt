@@ -1,6 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
+
+
+/*
+        REWRITE .CSS
+*/
+.popup, #tooltip, .toast{
+        text-shadow: none;
+}
+
+
+
+
+
+
+
+
+/* 
+        ===========
+*/
+/* 2й элемент в тултипе, можно использовать для разделителя .desc>div>div:nth-child(2)  */
+
+
 #game {
         background-color: #000;
         font-family: 'Inter', sans-serif;
@@ -11,15 +33,13 @@
 
 #content {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 50vh 12vh 25vh 18vh 6vh 39vh;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 60vh 10vh 5vh 25vh;
         grid-template-areas:
-                "body               body             body               body"
-                "title              menu             .                  inventoryheader"
-                "stats              menu             .                  inventorybox"
-                "playerhp           menu             .                  enemyhp"
-                "abilitymeleeheader abilitydefheader abilityregenheader ."
-                ".                  .                .                  .";
+                "body               body             body"
+                "playerhp           menu             enemyhp"
+                "abilitymeleeheader abilitydefheader abilityregenheader"
+                "at1                  at2                at3";
 }
 
 .box {
@@ -57,7 +77,7 @@
         grid-area: menu;
         background-color: #fdf5df;
         color: #622C15;
-        overflow-y: auto;
+        overflow-y: scroll;
 }
 
 #box-menuHeader {
@@ -97,7 +117,7 @@
 .tag-menuTitle {
         height: 48px;
         line-height: 48px;
-
+        cursor: default;
         background-color: #fdf5df;
         color: #21366A;
         font-weight: bold;
@@ -142,7 +162,7 @@
 
 #box-menuBody {
         /* overflow-y: scroll; */
-        height: 100%;
+        /* height: 100%; */
         padding: 8px;
 }
 
@@ -167,8 +187,70 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* LOG */
+#box-logbox {
+        background-color: #fdf5df;
+        color: #622C15;
+        overflow-y: scroll;
+}
+
+#box-logbox>.box-header {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        height: 48px;
+        line-height: 48px;
+        background-color: #fdf5df;
+        color: #21366A;
+        font-weight: bold;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #EDDDC4;
+}
+
+#box-logbox>#log {
+        overflow: unset;
+        padding: 8px;
+        height: unset;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #tooltipContent .desc {
-    font-family: 'JetBrains Mono', monospace;
+        font-family: 'JetBrains Mono', monospace;
 }
 
 
@@ -257,26 +339,13 @@
         overflow-y: scroll;
 }
 
-.titleBoxCss {
-        grid-area: title;
-}
 
-.statscss {
-        grid-area: stats;
-}
 
 .playerhpposition {
         grid-area: playerhp;
 }
 
-/* .sellitemsHeader {
-        grid-area: sellheader;
-}
 
-.sellitemsCss {
-        grid-area: sellbox;
-        overflow-y: scroll;
-} */
 
 .abilityregencss {
         grid-area: abilityregenheader;
@@ -301,14 +370,6 @@
 
 
 
-
-
-
-
-
-.box-things {}
-
-#box-things-Upgrades {}
 
 
 
@@ -611,67 +672,41 @@ If more abilities are added their "#thing-X" tag should be added in the same way
 
 
 
-#logInner {
-        display: table-cell;
-        vertical-align: top;
+#box-abilityTab1{
+        grid-area: at1;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+}
+#box-abilityTab2{
+        grid-area: at2;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+}
+#box-abilityTab3{
+        grid-area: at3;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
 }
 
 
 
 
-.box-header {
-        /* === */
-}
 
-
-/* This is the position and scale of "Hard Swing" */
-.ability1css {
-
-        left: 0%;
-        top: 61%;
+.ability1css, .ability2css, .ability3css, .ability4css, .ability5css .ability6css, .ability7css, .ability8css {
         width: 10%;
-        height: 100% !important;
-
-        padding-top: 100%;
-        /* this makes the icons quadratic and not scaling in the same way as the text in the game */
-
-        position: absolute !important;
-
+        height: 100%;
 }
 
-/* This is the position and scale of "Charge" */
-.ability2css {
-        left: 10%;
-        top: 61%;
-        width: 10%;
-        padding-top: 100%;
-        position: absolute !important;
 
-}
-
-/* This is the position and scale of "Empower" when not activated */
-.ability3css {
-        left: 20%;
-        top: 61%;
-        width: 10%;
-
-        padding-top: 100%;
-        position: absolute !important;
-
-
-}
-
-/* Below is the position and scale of "Destruction" 
-(Notice that it is 79.3% from the top - This is the height of second row of skills) */
-
-.ability8css {
-        left: 0%;
-        top: 79.3%;
-        width: 10%;
-        padding-top: 100%;
-        position: absolute !important;
-
-}
 
 /* Some skill text were visible which should not be there. If more are added, they can be hidden like this */
 #thing-text-4,
@@ -682,26 +717,6 @@ If more abilities are added their "#thing-X" tag should be added in the same way
 
 }
 
-/* This is the position and scale of "Focus" */
-.ability4css {
-        left: 30%;
-        top: 61%;
-        width: 10%;
-        padding-top: 100%;
-
-        position: absolute !important;
-
-}
-
-/* This is the position and scale of another defensive skill, made to be future proof */
-.ability5css {
-        left: 40%;
-        top: 61%;
-        width: 10%;
-        padding-top: 100%;
-        position: absolute !important;
-
-}
 
 /* This is the position and scale of always crit */
 .acritcss {
@@ -713,31 +728,6 @@ If more abilities are added their "#thing-X" tag should be added in the same way
         z-index: 2500 !important;
         /* This is in front of the menus and headers */
 }
-
-/* This is the position and scale of "Regeneration" */
-.ability6css {
-        left: 50%;
-        top: 61%;
-        width: 10%;
-        padding-top: 100%;
-        position: absolute !important;
-
-}
-
-/* This is the position and scale of another regen skill, made to be future proof */
-.ability7css {
-        left: 60%;
-        top: 61%;
-        width: 10%;
-        padding-top: 100%;
-        position: absolute !important;
-
-}
-
-
-
-
-
 
 
 
@@ -777,13 +767,6 @@ If more skills are added there icons (e.g. "#thing-icon-XX") should be on this l
 .thing-icon {
         background-repeat: no-repeat !important;
 
-}
-
-
-/* This is the text size of the bottom messages (for example "Game Saved") */
-#toasts {
-        font-size: 18px !important;
-        line-height: 1.1;
 }
 
 
